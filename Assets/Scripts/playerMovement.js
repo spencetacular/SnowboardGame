@@ -4,14 +4,14 @@ public class playerMovement extends MonoBehaviour {
 	public var gameSpeed = 1.0;
 	public var movementSpeed = 0.5;
 //	var downHill = false;
-	var playerStatus = "right";
+	public var playerStatus = "right";
 
 	function Start () {
 
 	}
 
 	function Update () {
-		Debug.Log("Player Status: " + playerStatus);
+//		Debug.Log("Player Status: " + playerStatus);
 		if (Input.GetKeyDown ("down"))
 				playerStatus = "down";
 		
@@ -31,7 +31,7 @@ public class playerMovement extends MonoBehaviour {
 			if ( playerStatus == "downLeft" )
 				playerStatus = "down";
 			if ( playerStatus == "left" )
-				playerStatus = "downleft";
+				playerStatus = "downLeft";
 			
 	}
 
