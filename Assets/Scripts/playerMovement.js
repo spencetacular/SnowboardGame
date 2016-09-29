@@ -1,24 +1,67 @@
 ﻿#pragma strict
 public class playerMovement extends MonoBehaviour {
 	public var obstacles: GameObject;
+	public var gameSpeed = 1.0;
 	public var movementSpeed = 0.5;
+//	var downHill = false;
+	var playerStatus = "right";
 
 	function Start () {
 
 	}
 
 	function Update () {
-		if (Input.GetKeyDown ("left")){
-			transform.Translate(movementSpeed * -1.0, 0, 0);
-		}
+		Debug.Log("Player Status: " + playerStatus);
+		if (Input.GetKeyDown ("down"))
+				playerStatus = "down";
+		
+//		if (Input.GetKeyDown ("left")){
+//			transform.Translate(movementSpeed * -1.0, 0, 0);
+//		}
 
 		if (Input.GetKeyDown ("right")){
-			transform.Translate(movementSpeed, 0, 0);
-		}
-
-		if (Input.GetKeyDown ("down")){
+			if ( playerStatus == "right" )
+				transform.Translate(movementSpeed, 0, 0);
+			if ( playerStatus == "downRight" ){
+				transform.Translate(0, 0, 0);
+				playerStatus = "right";
+			}
+			if (playerStatus == "down") 
+				playerStatus = "downRight";
+			if ( playerStatus == "downLeft" )
+				playerStatus = "down";
+			if ( playerStatus == "left" )
+				playerStatus = "downleft";
 			
-		}
+	}
+
+	if (Input.GetKeyDown ("left")){
+			if ( playerStatus == "left")
+				transform.Translate(-movementSpeed, 0, 0);
+			if ( playerStatus == "downLeft" ){
+				transform.Translate(0, 0, 0);
+				playerStatus = "left";
+			}
+			if (playerStatus == "down") 
+				playerStatus = "downLeft";
+			if ( playerStatus == "downRight" )
+				playerStatus = "down";
+			if ( playerStatus == "right" )
+				playerStatus = "downRight";
+			
+	}
+		
+
+
+
+		if ( playerStatus == "down" ) 
+			obstacles.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
+
+		if ( playerStatus == "downRight" ) 
+			obstacles.transform.Translate(-1 * Time.deltaTime * gameSpeed, Time.deltaTime * gameSpeed, 0);
+
+		if ( playerStatus == "downLeft" ) 
+			obstacles.transform.Translate(Time.deltaTime * gameSpeed, Time.deltaTime * gameSpeed, 0);
 
 	}
 }

@@ -1,9 +1,10 @@
 ﻿#pragma strict
 public class obstacleGenerator extends MonoBehaviour {
-	public var gameSpeed = 1.0;
+//	public var gameSpeed = 1.0;
 	public var obstacleDesity = 10;
 	public var obstacle1: GameObject;
 	public var obstacle1Density = 1.0;
+//	var downHill = false;
 
 	function Start() {
 		var numObstacles = 	obstacleDesity * obstacle1Density;
@@ -17,6 +18,8 @@ public class obstacleGenerator extends MonoBehaviour {
 	}
 
 	function Update () {
-		transform.Translate(0, Time.deltaTime * gameSpeed, Time.deltaTime);
+//		if (downHill === true){
+//			transform.Translate(0, Time.deltaTime * gameSpeed, 0);
+//		}
 	}
 }
