@@ -61,7 +61,7 @@ public class playerSprites extends MonoBehaviour {
 
 
 
-		Debug.Log(playerMovementScript.playerStatus);
+		// Debug.Log(playerMovementScript.playerStatus);
 
 	}
 

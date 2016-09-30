@@ -14,10 +14,6 @@ public class playerMovement extends MonoBehaviour {
 //		Debug.Log("Player Status: " + playerStatus);
 		if (Input.GetKeyDown ("down"))
 				playerStatus = "down";
-		
-//		if (Input.GetKeyDown ("left")){
-//			transform.Translate(movementSpeed * -1.0, 0, 0);
-//		}
 
 		if (Input.GetKeyDown ("right")){
 			if ( playerStatus == "right" )
@@ -26,28 +22,28 @@ public class playerMovement extends MonoBehaviour {
 				transform.Translate(0, 0, 0);
 				playerStatus = "right";
 			}
-			if (playerStatus == "down") 
+			if ( playerStatus == "down" ) 
 				playerStatus = "downRight";
 			if ( playerStatus == "downLeft" )
 				playerStatus = "down";
 			if ( playerStatus == "left" )
 				playerStatus = "downLeft";
 			
-	}
+		}
 
 	if (Input.GetKeyDown ("left")){
-			if ( playerStatus == "left")
-				transform.Translate(-movementSpeed, 0, 0);
-			if ( playerStatus == "downLeft" ){
-				transform.Translate(0, 0, 0);
-				playerStatus = "left";
-			}
-			if (playerStatus == "down") 
-				playerStatus = "downLeft";
-			if ( playerStatus == "downRight" )
-				playerStatus = "down";
-			if ( playerStatus == "right" )
-				playerStatus = "downRight";
+		if ( playerStatus == "left")
+			transform.Translate(-movementSpeed, 0, 0);
+		if ( playerStatus == "downLeft" ){
+			transform.Translate(0, 0, 0);
+			playerStatus = "left";
+		}
+		if (playerStatus == "down") 
+			playerStatus = "downLeft";
+		if ( playerStatus == "downRight" )
+			playerStatus = "down";
+		if ( playerStatus == "right" )
+			playerStatus = "downRight";
 			
 	}
 		
