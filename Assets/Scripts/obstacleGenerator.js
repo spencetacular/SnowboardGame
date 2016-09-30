@@ -1,25 +1,15 @@
 ﻿#pragma strict
-// import System.Collections.Generic;
+
 
 public class obstacleGenerator extends MonoBehaviour {
 	public var obstacleDesity = 10;
-	// public var obstacle1: GameObject;
-	// public var obstacle1Density = 1.0;
-
-	// public var obstacle2: GameObject;
+	
 
 	var obstacles : GameObject[];
 
 
 	function Start() {
-		// obstacles.Add(obstacle1);
-		// for (int i = 0; i < transform.childCount; i++)
-  //    {
-  //        obstacles[i] = transform.GetChild(i).gameObject;
-  //    }
-		
 
-		
 		obstacles = new GameObject[transform.childCount];
 		for (var i = transform.childCount - 1; i >= 0; i--) {
 			obstacles[i] = transform.GetChild(i).gameObject;
@@ -44,8 +34,6 @@ public class obstacleGenerator extends MonoBehaviour {
 	}
 
 	function Update () {
-//		if (downHill === true){
-//			transform.Translate(0, Time.deltaTime * gameSpeed, 0);
-//		}
+
 	}
 }
