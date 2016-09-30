@@ -3,7 +3,6 @@ public class playerMovement extends MonoBehaviour {
 	public var obstacles: GameObject;
 	public var gameSpeed = 1.0;
 	public var movementSpeed = 0.5;
-//	var downHill = false;
 	public var playerStatus = "right";
 
 	function Start () {
@@ -11,7 +10,6 @@ public class playerMovement extends MonoBehaviour {
 	}
 
 	function Update () {
-//		Debug.Log("Player Status: " + playerStatus);
 		if (Input.GetKeyDown ("down"))
 				playerStatus = "down";
 
