@@ -9,16 +9,13 @@ public class playerMovement extends MonoBehaviour {
 
 	}
 
-	// function OnTriggerEnter (other : Collider) {
-	// 	// Destroy(other.gameObject);
-	// 	Debug.Log("Collision");
-	// }
-
 	function Update () {
-		if (Input.GetKeyDown ("down"))
+
+		// Debug.Log(playerStatus);
+		if (Input.GetKeyDown ( "down" ))
 				playerStatus = "down";
 
-		if (Input.GetKeyDown ("right")){
+		if (Input.GetKeyDown ( "right" )){
 			if ( playerStatus == "right" )
 				transform.Translate(movementSpeed, 0, 0);
 			if ( playerStatus == "downRight" ){
@@ -31,6 +28,7 @@ public class playerMovement extends MonoBehaviour {
 				playerStatus = "down";
 			if ( playerStatus == "left" )
 				playerStatus = "downLeft";
+			
 			
 		}
 
@@ -49,18 +47,37 @@ public class playerMovement extends MonoBehaviour {
 			playerStatus = "downRight";
 			
 	}
-		
 
+	if ( playerStatus == "down" ) 
+		obstacles.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
 
+	if ( playerStatus == "downRight" ) 
+		obstacles.transform.Translate(-1 * Time.deltaTime * gameSpeed, Time.deltaTime * gameSpeed, 0);
 
-		if ( playerStatus == "down" ) 
-			obstacles.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
+	if ( playerStatus == "downLeft" ) 
+		obstacles.transform.Translate(Time.deltaTime * gameSpeed, Time.deltaTime * gameSpeed, 0);
 
-		if ( playerStatus == "downRight" ) 
-			obstacles.transform.Translate(-1 * Time.deltaTime * gameSpeed, Time.deltaTime * gameSpeed, 0);
-
-		if ( playerStatus == "downLeft" ) 
-			obstacles.transform.Translate(Time.deltaTime * gameSpeed, Time.deltaTime * gameSpeed, 0);
+	if (playerStatus == "wrecked") {
+		obstacles.transform.Translate(0, 0, 0);
+	}
 
 	}
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

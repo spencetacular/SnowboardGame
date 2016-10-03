@@ -1,18 +1,13 @@
 ﻿#pragma strict
 public class playerSprites extends MonoBehaviour {
 	public var spriteRight : Sprite;
-//	public var spriteLeft : Sprite;
 	public var spriteDown : Sprite;
 	public var spriteDownRight : Sprite;
 	public var spriteJump : Sprite;
-	public var spriteCrashed : Sprite;
+	public var spriteWrecked : Sprite;
 	var previousPlayerStatus = "";
 	var playerMovementScript : playerMovement;
 	var spriteRenderer : SpriteRenderer;
-
-
-
-//	gameObject.GetComponent(HingeJoint) as HingeJoint;
 
 	function Start () {
 		 playerMovementScript = GetComponent(playerMovement);
@@ -21,13 +16,6 @@ public class playerSprites extends MonoBehaviour {
 	}
 
 	function spriteUpdate (spriteDirection) {
-//		var playerSprite : SpriteRenderer =  GetComponent(SpriteRenderer);
-//		switch (spriteDirection) {
-//			case "right":
-//				GetComponent(SpriteRenderer).sprite = spriteRight;
-//			case "down":
-//				GetComponent(SpriteRenderer).sprite = spriteDown;
-//		}
 
 		spriteRenderer.flipX = false;
 
@@ -50,6 +38,8 @@ public class playerSprites extends MonoBehaviour {
 		if ( spriteDirection  == "down" ) {
 			spriteRenderer.sprite = spriteDown;
 		}
+		if (spriteDirection == "wrecked") 
+				spriteRenderer.sprite = spriteWrecked;
 	}
 
 	function Update () {
@@ -58,10 +48,6 @@ public class playerSprites extends MonoBehaviour {
 			spriteUpdate(playerMovementScript.playerStatus);
 			previousPlayerStatus = playerMovementScript.playerStatus;
 		}
-
-
-
-		// Debug.Log(playerMovementScript.playerStatus);
 
 	}
 
