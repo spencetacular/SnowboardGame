@@ -7,8 +7,10 @@ public class obstacleGenerator extends MonoBehaviour {
 	var spawnPosition : float;
 	var obstacleSpawnHeight: float;
 	var initialOffest : float;
+	public var jump : GameObject;
 	public var obstacle1 : GameObject;
 	public var obstacle2 : GameObject;
+	public var obstacle3 : GameObject;
 	public var isObstacle1 = true;
 
 
@@ -16,7 +18,7 @@ public class obstacleGenerator extends MonoBehaviour {
 		obstacleSpawnHeight = 15.0;
 		spawnPosition = -20.0;
 		initialOffest = 5.0;
-		obstacles = [obstacle1, obstacle2];
+		obstacles = [obstacle1, obstacle2, obstacle3, jump];
 		respawn();
 
 		if (isObstacle1 == true) {

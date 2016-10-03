@@ -16,9 +16,14 @@ public class obstacle extends MonoBehaviour {
 
 	function OnTriggerExit2D (other : Collider2D) {
 			// Destroy(other.gameObject);
-			Debug.Log("Collision");
-			other.GetComponent(playerMovement).playerStatus = "wrecked";
-			this.GetComponent(CircleCollider2D).enabled = false;
+			Debug.Log(this.tag);
+			if (this.tag == "obstacle") {
+				other.GetComponent(playerMovement).playerStatus = "wrecked";
+				this.GetComponent(CircleCollider2D).enabled = false;
+			}
+			if (this.tag == "jump") {
+				other.GetComponent(playerMovement).playerStatus = "jumping";
+			}
 		}
 
 	function Update () {

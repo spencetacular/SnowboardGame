@@ -41,7 +41,7 @@ public class playerMovement extends MonoBehaviour {
 				transform.Translate(0, 0, 0);
 				playerStatus = "right";
 			}
-			if ( playerStatus == "down" ) 
+			if ( playerStatus == "down" || "jumping") 
 				playerStatus = "downRight";
 			if ( playerStatus == "downLeft" )
 				playerStatus = "down";
@@ -58,7 +58,7 @@ public class playerMovement extends MonoBehaviour {
 			transform.Translate(0, 0, 0);
 			playerStatus = "left";
 		}
-		if (playerStatus == "down") 
+		if (playerStatus == "down" || "jumping") 
 			playerStatus = "downLeft";
 		if ( playerStatus == "downRight" )
 			playerStatus = "down";
@@ -75,6 +75,9 @@ public class playerMovement extends MonoBehaviour {
 		if (playerStatus == "wrecked") {
 				obs.transform.Translate(0, 0, 0);
 		}
+		if (playerStatus == "jumping") {
+				obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
+		}
 		if ( playerStatus == "downRight" ) {
 
 			obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
@@ -89,8 +92,6 @@ public class playerMovement extends MonoBehaviour {
 			if (viewPos.x > playerWidth) {
 				transform.Translate(-1 * Time.deltaTime * gameSpeed/2, 0, 0);
 			}
-			// obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
-			// transform.Translate(-1 * Time.deltaTime * gameSpeed/2, 0, 0);
 			
 		}
 

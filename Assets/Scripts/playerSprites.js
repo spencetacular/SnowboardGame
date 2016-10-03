@@ -40,6 +40,8 @@ public class playerSprites extends MonoBehaviour {
 		}
 		if (spriteDirection == "wrecked") 
 				spriteRenderer.sprite = spriteWrecked;
+		if (spriteDirection == "jumping") 
+			spriteRenderer.sprite = spriteJump;
 	}
 
 	function Update () {
