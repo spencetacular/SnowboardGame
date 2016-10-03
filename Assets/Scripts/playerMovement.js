@@ -3,24 +3,40 @@ public class playerMovement extends MonoBehaviour {
 	public var obstacles1: GameObject;
 	public var obstacles2: GameObject;
 	var obstacles : GameObject[];
+
 	public var gameSpeed = 1.0;
-	public var movementSpeed = 0.5;
+	public var lateralShift = 0.5;
+	var playerWidth = 0.015;
 	public var playerStatus = "right";
 
+	public var cam: Camera;
+
 	function Start () {
+		// cam = GetComponent.<Camera>();
+
 		obstacles = [obstacles1, obstacles2];
 
 	}
 
+	function downLeftMovement(){
+		// Debug.Log(cam.position);
+		// if (viewPos.x > 0.5F)
+		// 	print("target is on the right side!");
+		// else
+		// 	print("target is on the left side!");
+		
+	}
+
 	function Update () {
 
-		// Debug.Log(playerStatus);
+		var viewPos: Vector3 = cam.WorldToViewportPoint(this.transform.position);
+		Debug.Log(viewPos);
 		if (Input.GetKeyDown ( "down" ))
 				playerStatus = "down";
 
 		if (Input.GetKeyDown ( "right" )){
-			if ( playerStatus == "right" )
-				transform.Translate(movementSpeed, 0, 0);
+			if ( playerStatus == "right" && viewPos.x < 1 - playerWidth )
+				transform.Translate(lateralShift, 0, 0);
 			if ( playerStatus == "downRight" ){
 				transform.Translate(0, 0, 0);
 				playerStatus = "right";
@@ -36,8 +52,8 @@ public class playerMovement extends MonoBehaviour {
 		}
 
 	if (Input.GetKeyDown ("left")){
-		if ( playerStatus == "left")
-			transform.Translate(-movementSpeed, 0, 0);
+		if ( playerStatus == "left" && viewPos.x > playerWidth)
+			transform.Translate(-lateralShift, 0, 0);
 		if ( playerStatus == "downLeft" ){
 			transform.Translate(0, 0, 0);
 			playerStatus = "left";
@@ -56,15 +72,29 @@ public class playerMovement extends MonoBehaviour {
 		if ( playerStatus == "down" ) 
 			obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
 
-		if ( playerStatus == "downRight" ) 
-			obs.transform.Translate(-1 * Time.deltaTime * gameSpeed, Time.deltaTime * gameSpeed, 0);
-
-		if ( playerStatus == "downLeft" ) 
-			obs.transform.Translate(Time.deltaTime * gameSpeed, Time.deltaTime * gameSpeed, 0);
-
 		if (playerStatus == "wrecked") {
 				obs.transform.Translate(0, 0, 0);
 		}
+		if ( playerStatus == "downRight" ) {
+
+			obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
+			if (viewPos.x < 1 - playerWidth) {
+				transform.Translate(Time.deltaTime * gameSpeed/2, 0, 0);			
+			}
+		}
+
+
+		if ( playerStatus == "downLeft" ) {
+			obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
+			if (viewPos.x > playerWidth) {
+				transform.Translate(-1 * Time.deltaTime * gameSpeed/2, 0, 0);
+			}
+			// obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
+			// transform.Translate(-1 * Time.deltaTime * gameSpeed/2, 0, 0);
+			
+		}
+
+
 	}
 
 
