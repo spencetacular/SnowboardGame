@@ -1,11 +1,14 @@
 ﻿#pragma strict
 public class playerMovement extends MonoBehaviour {
-	public var obstacles: GameObject;
+	public var obstacles1: GameObject;
+	public var obstacles2: GameObject;
+	var obstacles : GameObject[];
 	public var gameSpeed = 1.0;
 	public var movementSpeed = 0.5;
 	public var playerStatus = "right";
 
 	function Start () {
+		obstacles = [obstacles1, obstacles2];
 
 	}
 
@@ -48,18 +51,22 @@ public class playerMovement extends MonoBehaviour {
 			
 	}
 
-	if ( playerStatus == "down" ) 
-		obstacles.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
+	for( obs in obstacles){
 
-	if ( playerStatus == "downRight" ) 
-		obstacles.transform.Translate(-1 * Time.deltaTime * gameSpeed, Time.deltaTime * gameSpeed, 0);
+		if ( playerStatus == "down" ) 
+			obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
 
-	if ( playerStatus == "downLeft" ) 
-		obstacles.transform.Translate(Time.deltaTime * gameSpeed, Time.deltaTime * gameSpeed, 0);
+		if ( playerStatus == "downRight" ) 
+			obs.transform.Translate(-1 * Time.deltaTime * gameSpeed, Time.deltaTime * gameSpeed, 0);
 
-	if (playerStatus == "wrecked") {
-		obstacles.transform.Translate(0, 0, 0);
+		if ( playerStatus == "downLeft" ) 
+			obs.transform.Translate(Time.deltaTime * gameSpeed, Time.deltaTime * gameSpeed, 0);
+
+		if (playerStatus == "wrecked") {
+				obs.transform.Translate(0, 0, 0);
+		}
 	}
+
 
 	}
 }

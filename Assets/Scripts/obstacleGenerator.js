@@ -4,54 +4,48 @@ public class obstacleGenerator extends MonoBehaviour {
 	var obstacles : GameObject[];
 	var screenHeight = 5.0;
 	// var initialPosition = screenHeight * -2.0 - 1.0;
-	var initialPosition : float;
+	var spawnPosition : float;
+	var obstacleSpawnHeight: float;
+	var initialOffest : float;
 	public var obstacle1 : GameObject;
 	public var obstacle2 : GameObject;
+	public var isObstacle1 = true;
 
 
 	function Start() {
-		initialPosition = -20.0;
+		obstacleSpawnHeight = 15.0;
+		spawnPosition = -20.0;
+		initialOffest = 5.0;
 		obstacles = [obstacle1, obstacle2];
 		respawn();
-		// transform.position = Vector3(0, -2, 0);
-		
+
+		if (isObstacle1 == true) {
+			transform.position =  Vector3(0, spawnPosition - obstacleSpawnHeight + initialOffest , 0);
+		}
+		else {
+			transform.position =  Vector3(0, spawnPosition + initialOffest , 0);
+		}
 	}
 
 	
 
 	function respawn () {
-
-		// transform.Translate( 0.0, initialPosition, 0.0 );
-		transform.position = Vector3(0, initialPosition, 0);
-		// Debug.Log("Initial Pos: " + initialPosition);
-
-		// obstacles = new GameObject[transform.childCount];
+	
+			transform.position = Vector3(0, spawnPosition, 0);
 		
 		for (var i = transform.childCount - 1; i >= 0; i--) {
-			// obstacles[i] = transform.GetChild(i).gameObject;
 			transform.GetChild(i).GetComponent(obstacle).ChildDestroy();
 		}
 
-		Debug.Log("child count: "+ transform.childCount);
-		if (transform.childCount >0) {
-
-			// GetRidOfChild();
-		}
+	
 
 		for( obs in obstacles){
-			// obs.active = true;	
-		// 	// print(obs.name);
-
-		// 	for(child in obs.transform){
-		// 		child.transform.Destoy();
-		// 	}
-
 			var obstacleProps : obstacle = obs.GetComponent(obstacle);
 			var numObstacles = 	obstacleDesity * obstacleProps.density;
-			// print(numObstacles);
+
 			for (var j = 0; j < numObstacles; j++) {
 
-				var y = Random.Range(initialPosition +2.0,  screenHeight * -1.0);
+				var y = Random.Range(transform.position.y +2.0,  transform.position.y + obstacleSpawnHeight );
 				var x = Random.Range(7.0, -7.0);
 				var tree = Instantiate(obs, new Vector3(x, y, 0), Quaternion.identity);
 				tree.transform.parent = this.transform;
