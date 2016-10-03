@@ -9,6 +9,11 @@ public class playerMovement extends MonoBehaviour {
 
 	}
 
+	// function OnTriggerEnter (other : Collider) {
+	// 	// Destroy(other.gameObject);
+	// 	Debug.Log("Collision");
+	// }
+
 	function Update () {
 		if (Input.GetKeyDown ("down"))
 				playerStatus = "down";

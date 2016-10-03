@@ -22,10 +22,10 @@ public class obstacleGenerator extends MonoBehaviour {
 		}
 
 		for( obs in obstacles){
-			print(obs.name);
+			// print(obs.name);
 			var props: obstacleProps = obs.GetComponent(obstacleProps);
 			var numObstacles = 	obstacleDesity * props.density;
-			print(numObstacles);
+			// print(numObstacles);
 			for (var j = 0; j < numObstacles; j++) {
 
 				var y = Random.Range(initialPosition, -15.0 );
@@ -34,6 +34,11 @@ public class obstacleGenerator extends MonoBehaviour {
 				tree.transform.parent = this.transform;
 			}
 		}	
+	}
+
+	function OnTriggerEnter (other : Collider) {
+		// Destroy(other.gameObject);
+		Debug.Log("Collision");
 	}
 
 	function Update () {

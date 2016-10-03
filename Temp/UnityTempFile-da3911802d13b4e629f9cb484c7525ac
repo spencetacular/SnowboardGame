@@ -92,6 +92,7 @@
 -r:'/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.dll'
 -i:UnityEditor
+'Assets/Scripts/obstacle.js'
 'Assets/Scripts/obstacleGenerator.js'
 'Assets/Scripts/obstacleProps.js'
 'Assets/Scripts/playerMovement.js'
