@@ -72,7 +72,8 @@ public class obstacleGenerator extends MonoBehaviour {
 		for (var k = 0; k < numPoles; k++) {
 			var poleY = (transform.position.y +2.0) + (k * liftPoleSpacing);
 			// Debug.Log("pole Spacing: " + poleY);
-			var pole = Instantiate(liftPole1, new Vector3(0, poleY, 0), Quaternion.identity);
+			var rand = Random.Range(0,2);
+			var pole = Instantiate(liftPoles[rand], new Vector3(0, poleY, 0), Quaternion.identity);
 			pole.transform.parent = this.transform;
 		}
 	}
