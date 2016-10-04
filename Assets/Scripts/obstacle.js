@@ -1,6 +1,4 @@
 ﻿#pragma strict
-
-#pragma strict
 public class obstacle extends MonoBehaviour {
 
 	public var density = 1.0;
@@ -23,6 +21,9 @@ public class obstacle extends MonoBehaviour {
 			if (this.tag == "obstacle" && isJumping == false) {
 				other.GetComponent(playerMovement).playerStatus = "wrecked";
 				this.GetComponent(CircleCollider2D).enabled = false;
+				if(GetComponent(treeAnimation)){
+					GetComponent(treeAnimation).Fall();
+				}
 			}
 			if (this.tag == "jump" && isJumping == false) {
 				other.GetComponent(playerMovement).isJumping = true;
