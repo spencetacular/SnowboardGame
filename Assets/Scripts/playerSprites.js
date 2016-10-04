@@ -6,6 +6,7 @@ public class playerSprites extends MonoBehaviour {
 	public var spriteJump : Sprite;
 	public var spriteWrecked : Sprite;
 	var previousPlayerStatus = "";
+	var previousJumpStatus = false;
 	var playerMovementScript : playerMovement;
 	var spriteRenderer : SpriteRenderer;
 
@@ -15,8 +16,12 @@ public class playerSprites extends MonoBehaviour {
 		 GetComponent(SpriteRenderer).sprite = spriteRight;
 	}
 
-	function spriteUpdate (spriteDirection) {
+	function Jump() {
 
+	}
+
+	function spriteUpdate (spriteDirection) {
+		var isJumping = playerMovementScript.isJumping;
 		spriteRenderer.flipX = false;
 
 		if ( spriteDirection == "right") {
@@ -40,15 +45,16 @@ public class playerSprites extends MonoBehaviour {
 		}
 		if (spriteDirection == "wrecked") 
 				spriteRenderer.sprite = spriteWrecked;
-		if (spriteDirection == "jumping") 
+		if (isJumping == true) 
 			spriteRenderer.sprite = spriteJump;
 	}
 
 	function Update () {
 
-		if ( previousPlayerStatus != playerMovementScript.playerStatus ) {
+		if ( previousPlayerStatus != playerMovementScript.playerStatus || previousJumpStatus != playerMovementScript.isJumping) {
 			spriteUpdate(playerMovementScript.playerStatus);
 			previousPlayerStatus = playerMovementScript.playerStatus;
+			previousJumpStatus = playerMovementScript.isJumping;
 		}
 
 	}
