@@ -9,7 +9,7 @@
 
 	function Fall () {
 		anim.SetTrigger("hit");
-		Debug.Log("Fall");
+		// Debug.Log("Fall");
 	}
 
 	function Update () {

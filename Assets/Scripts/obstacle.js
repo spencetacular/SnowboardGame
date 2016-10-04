@@ -10,7 +10,7 @@ public class obstacle extends MonoBehaviour {
 
 	function ChildDestroy(){
    Destroy (gameObject);
-   Debug.Log("DESTROY CALLED");
+   // Debug.Log("DESTROY CALLED");
  }
 
 	function OnTriggerExit2D (other : Collider2D) {

@@ -16,9 +16,7 @@ public class playerSprites extends MonoBehaviour {
 		 GetComponent(SpriteRenderer).sprite = spriteRight;
 	}
 
-	function Jump() {
-
-	}
+	
 
 	function spriteUpdate (spriteDirection) {
 		var isJumping = playerMovementScript.isJumping;

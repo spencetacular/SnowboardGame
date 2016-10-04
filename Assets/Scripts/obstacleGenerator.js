@@ -1,18 +1,25 @@
 ﻿#pragma strict
 public class obstacleGenerator extends MonoBehaviour {
 	public var obstacleDesity = 10;
-	var obstacles : GameObject[];
 	var screenHeight = 5.0;
 	// var initialPosition = screenHeight * -2.0 - 1.0;
 	var spawnPosition : float;
 	var obstacleSpawnHeight: float;
 	var initialOffest : float;
+	var obstacles : GameObject[];
 	public var jump : GameObject;
 	public var obstacle1 : GameObject;
 	public var obstacle2 : GameObject;
 	public var obstacle3 : GameObject;
 	public var obstacle4 : GameObject;
 	public var obstacle5 : GameObject;
+
+	var liftPoles : GameObject[];
+	public var liftPole1 : GameObject;
+	public var liftPole2 : GameObject;
+	public var liftPole3 : GameObject;
+
+	public var liftPoleSpacing = 5.0;
 	
 	public var isObstacle1 = true;
 
@@ -22,6 +29,8 @@ public class obstacleGenerator extends MonoBehaviour {
 		spawnPosition = -20.0;
 		initialOffest = 5.0;
 		obstacles = [obstacle1, obstacle2, obstacle3, obstacle4, obstacle5, jump];
+		liftPoles = [liftPole1, liftPole2, liftPole3];
+		
 		respawn();
 
 		if (isObstacle1 == true) {
@@ -55,6 +64,16 @@ public class obstacleGenerator extends MonoBehaviour {
 				var tree = Instantiate(obs, new Vector3(x, y, 0), Quaternion.identity);
 				tree.transform.parent = this.transform;
 			}
+		}
+
+		var numPoles = obstacleSpawnHeight / liftPoleSpacing;
+		// Debug.Log(numPoles);
+
+		for (var k = 0; k < numPoles; k++) {
+			var poleY = (transform.position.y +2.0) + (k * liftPoleSpacing);
+			// Debug.Log("pole Spacing: " + poleY);
+			var pole = Instantiate(liftPole1, new Vector3(0, poleY, 0), Quaternion.identity);
+			pole.transform.parent = this.transform;
 		}
 	}
 

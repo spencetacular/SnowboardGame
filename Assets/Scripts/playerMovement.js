@@ -25,7 +25,7 @@ public class playerMovement extends MonoBehaviour {
 		obstacles = [obstacles1, obstacles2];
 		jumpTicker = 0.0;
 		// jumpDuration = 3.0;
-		Debug.Log(jumpDuration);
+		// Debug.Log(jumpDuration);
 
 	}
 
@@ -44,7 +44,7 @@ public class playerMovement extends MonoBehaviour {
 			}
 			if (jumpTicker > halfway) {
 				scaleAmount = jumpTicker / jumpDuration;
-				Debug.Log(scaleAmount);
+				// Debug.Log(scaleAmount);
 				transform.localScale = Vector3.Lerp(jumpScale, initialScale, scaleAmount);
 			}
 			// playerSpriteScript.Jump();
@@ -59,8 +59,8 @@ public class playerMovement extends MonoBehaviour {
 	
 
 	function Update () {
-		// Debug.Log("Player Status: " + playerStatus);
-		// Debug.Log("isJumping: " + isJumping);
+		Debug.Log("Player Status: " + playerStatus);
+		Debug.Log("isJumping: " + isJumping);
 
 		Jump();
 		var viewPos: Vector3 = cam.WorldToViewportPoint(this.transform.position);
@@ -75,7 +75,7 @@ public class playerMovement extends MonoBehaviour {
 				transform.Translate(0, 0, 0);
 				playerStatus = "right";
 			}
-			if ( playerStatus == "down" || "jumping") 
+			if ( playerStatus == "down") 
 				playerStatus = "downRight";
 			if ( playerStatus == "downLeft" )
 				playerStatus = "down";
@@ -92,7 +92,7 @@ public class playerMovement extends MonoBehaviour {
 			transform.Translate(0, 0, 0);
 			playerStatus = "left";
 		}
-		if (playerStatus == "down") 
+		if (playerStatus == "down" ) 
 			playerStatus = "downLeft";
 		if ( playerStatus == "downRight" )
 			playerStatus = "down";
