@@ -3,9 +3,11 @@ public class obstacle extends MonoBehaviour {
 
 	public var density = 1.0;
 	var playerMovementScript : playerMovement;
+	var scoreScript : score;
 
 	function Start () {
 		playerMovementScript = GameObject.Find("player").GetComponent(playerMovement);
+		scoreScript = GameObject.Find("Score").GetComponent(score);
 	}
 
 	function ChildDestroy(){
@@ -27,6 +29,7 @@ public class obstacle extends MonoBehaviour {
 			}
 			if (this.tag == "jump" && isJumping == false) {
 				other.GetComponent(playerMovement).isJumping = true;
+				scoreScript.Jump();
 			}
 		}
 

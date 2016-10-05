@@ -1,8 +1,10 @@
 ﻿#pragma strict
 public class playerSprites extends MonoBehaviour {
 	public var spriteRight : Sprite;
+	public var spriteLeft : Sprite;
 	public var spriteDown : Sprite;
 	public var spriteDownRight : Sprite;
+	public var spriteDownLeft : Sprite;
 	public var spriteJump : Sprite;
 	public var spriteWrecked : Sprite;
 	var previousPlayerStatus = "";
@@ -20,7 +22,7 @@ public class playerSprites extends MonoBehaviour {
 
 	function spriteUpdate (spriteDirection) {
 		var isJumping = playerMovementScript.isJumping;
-		spriteRenderer.flipX = false;
+		// spriteRenderer.flipX = false;
 
 		if ( spriteDirection == "right") {
 			spriteRenderer.sprite = spriteRight;
@@ -31,12 +33,12 @@ public class playerSprites extends MonoBehaviour {
 		}
 
 		if ( spriteDirection  == "left" ) {
-			spriteRenderer.sprite = spriteRight;
-			spriteRenderer.flipX = true;
+			spriteRenderer.sprite = spriteLeft;
+			// spriteRenderer.flipX = true;
 		}
 		if ( spriteDirection == "downLeft") {
-			spriteRenderer.sprite = spriteDownRight;
-			spriteRenderer.flipX = true;
+			spriteRenderer.sprite = spriteDownLeft;
+			// spriteRenderer.flipX = true;
 		}
 		if ( spriteDirection  == "down" ) {
 			spriteRenderer.sprite = spriteDown;
