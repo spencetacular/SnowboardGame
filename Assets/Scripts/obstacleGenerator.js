@@ -74,7 +74,7 @@ public class obstacleGenerator extends MonoBehaviour {
 
 
 	function Update () {
-		if( transform.position.y > screenHeight ) 
+		if ( transform.position.y > screenHeight) 
 			respawn();
 	}
 }

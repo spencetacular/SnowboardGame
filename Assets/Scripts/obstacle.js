@@ -5,11 +5,20 @@ public class obstacle extends MonoBehaviour {
 	var playerMovementScript : playerMovement;
 	var scoreScript : score;
 	var popUpsScript : popUps;
+	var spriteRenderer : SpriteRenderer;
+	var yBase : float;
+	var isJumping : boolean;
 
 	function Start () {
 		playerMovementScript = GameObject.Find("player").GetComponent(playerMovement);
+		spriteRenderer = GetComponent(SpriteRenderer);
 		scoreScript = GameObject.Find("Score").GetComponent(score);
 		popUpsScript = GameObject.Find("sickTrick").GetComponent(popUps);
+		if (this.transform.Find("basePosition")){
+			yBase = this.transform.Find("basePosition").position.y;
+//			Debug.Log(yBase);
+		}
+		spriteRenderer.sortingOrder = 2;
 	}
 
 	function ChildDestroy(){
@@ -17,7 +26,7 @@ public class obstacle extends MonoBehaviour {
 	 }
 
 	function OnTriggerExit2D (other : Collider2D) {
-		var isJumping = other.GetComponent(playerMovement).isJumping;
+//		isJumping = other.GetComponent(playerMovement).isJumping;
 
 		if (this.tag == "obstacle" && isJumping == false) {
 			other.GetComponent(playerMovement).playerStatus = "wrecked";
@@ -33,8 +42,18 @@ public class obstacle extends MonoBehaviour {
 		}
 	}
 
-	function Update () {
 
+	function Update () {
+		isJumping = playerMovementScript.isJumping;
+
+		if (
+
+		if (isJumping) {
+			spriteRenderer.sortingOrder = 0;
+			Debug.Log(spriteRenderer.sortingOrder);
+		}
+		
+				
 	}
 
 }
