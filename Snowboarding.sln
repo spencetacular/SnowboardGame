@@ -1,14 +1,24 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
-
+Project("{3B8D1C7A-F927-41C0-DCC9-92DD5D51167D}") = "Snowboarding", "Assembly-CSharp.csproj", "{F4855B5E-43C8-257B-7BAC-8EE017A25D5A}"
+EndProject
+Project("{3B8D1C7A-F927-41C0-DCC9-92DD5D51167D}") = "Snowboarding", "Assembly-CSharp-Editor.csproj", "{5A437124-22BE-2384-AA79-E00D4AA88141}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-
+		{F4855B5E-43C8-257B-7BAC-8EE017A25D5A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F4855B5E-43C8-257B-7BAC-8EE017A25D5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F4855B5E-43C8-257B-7BAC-8EE017A25D5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F4855B5E-43C8-257B-7BAC-8EE017A25D5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A437124-22BE-2384-AA79-E00D4AA88141}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A437124-22BE-2384-AA79-E00D4AA88141}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A437124-22BE-2384-AA79-E00D4AA88141}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A437124-22BE-2384-AA79-E00D4AA88141}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: adce274f6405042dc94e29ce62acb4ad
-timeCreated: 1475701923
+timeCreated: 1475854117
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -10,6 +10,8 @@ TextureImporter:
     21300006: Snowboarder1_3
     21300008: Snowboarder1_4
     21300010: Snowboarder1_5
+    21300012: Snowboarder1_6
+    21300014: Snowboarder1_7
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -35,7 +37,7 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
+    filterMode: 0
     aniso: 16
     mipBias: -1
     wrapMode: 1
@@ -115,9 +117,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 127
-        width: 64
-        height: 65
+        y: 133
+        width: 65
+        height: 57
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +129,34 @@ TextureImporter:
       name: Snowboarder1_5
       rect:
         serializedVersion: 2
-        x: 0
-        y: 63
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Snowboarder1_6
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 63
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: Snowboarder1_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
         width: 64
         height: 64
       alignment: 0
