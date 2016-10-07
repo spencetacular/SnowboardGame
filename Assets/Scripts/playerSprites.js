@@ -22,29 +22,25 @@ public class playerSprites extends MonoBehaviour {
 
 	function spriteUpdate (spriteDirection) {
 		var isJumping = playerMovementScript.isJumping;
-		// spriteRenderer.flipX = false;
 
-		if ( spriteDirection == "right") {
+		if ( spriteDirection == "right") 
 			spriteRenderer.sprite = spriteRight;
 
-		}
-		if ( spriteDirection == "downRight") {
+		if ( spriteDirection == "downRight")
 			spriteRenderer.sprite = spriteDownRight;
-		}
 
-		if ( spriteDirection  == "left" ) {
+		if ( spriteDirection  == "left" ) 
 			spriteRenderer.sprite = spriteLeft;
-			// spriteRenderer.flipX = true;
-		}
-		if ( spriteDirection == "downLeft") {
+		
+		if ( spriteDirection == "downLeft") 
 			spriteRenderer.sprite = spriteDownLeft;
-			// spriteRenderer.flipX = true;
-		}
-		if ( spriteDirection  == "down" ) {
+		
+		if ( spriteDirection  == "down" ) 
 			spriteRenderer.sprite = spriteDown;
-		}
+		
 		if (spriteDirection == "wrecked") 
 				spriteRenderer.sprite = spriteWrecked;
+		
 		if (isJumping == true) 
 			spriteRenderer.sprite = spriteJump;
 	}

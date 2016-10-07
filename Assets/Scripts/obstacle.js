@@ -13,32 +13,28 @@ public class obstacle extends MonoBehaviour {
 	}
 
 	function ChildDestroy(){
-   Destroy (gameObject);
-   // Debug.Log("DESTROY CALLED");
- }
+   		Destroy (gameObject);
+	 }
 
 	function OnTriggerExit2D (other : Collider2D) {
-			// Destroy(other.gameObject);
-			// Debug.Log(this.tag);
-			var isJumping = other.GetComponent(playerMovement).isJumping;
+		var isJumping = other.GetComponent(playerMovement).isJumping;
 
-			if (this.tag == "obstacle" && isJumping == false) {
-				other.GetComponent(playerMovement).playerStatus = "wrecked";
-				this.GetComponent(CircleCollider2D).enabled = false;
-				if(GetComponent(treeAnimation)){
-					GetComponent(treeAnimation).Fall();
-				}
-			}
-			if (this.tag == "jump" && isJumping == false) {
-				other.GetComponent(playerMovement).isJumping = true;
-				scoreScript.Jump();
-				popUpsScript.popUpTicker = popUpsScript.popUpSeconds;
+		if (this.tag == "obstacle" && isJumping == false) {
+			other.GetComponent(playerMovement).playerStatus = "wrecked";
+			this.GetComponent(CircleCollider2D).enabled = false;
+			if(GetComponent(treeAnimation)){
+				GetComponent(treeAnimation).Fall();
 			}
 		}
+		if (this.tag == "jump" && isJumping == false) {
+			other.GetComponent(playerMovement).isJumping = true;
+			scoreScript.Jump();
+			popUpsScript.popUpTicker = popUpsScript.popUpSeconds;
+		}
+	}
 
 	function Update () {
 
-
-}
+	}
 
 }

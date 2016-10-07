@@ -5,7 +5,6 @@ public var secondsBetweenFlash  = 1.0;
 var flashTicker  = 0.0;
 var visible = true;
 
-
 function Start () {
 	flashTicker = secondsBetweenFlash;
 	textObject = GetComponent(UnityEngine.UI.Text);
@@ -20,19 +19,8 @@ function Update () {
 		flashTicker = secondsBetweenFlash;
 	}
 
-	if (visible) {
+	if (visible) 
 		textObject.enabled = true;
-	} else {
+	else 
 		textObject.enabled = false;
-	}
-
-	
-	// Debug.Log(Time.timeSinceLevelLoad);
-	// Debug.Log(Mathf.FloorToInt(Time.timeSinceLevelLoad));
-
-	// if (Mathf.FloorToInt(Time.timeSinceLevelLoad) % 2 == 0) {
-	// 	textObject.enabled = false;
-	// } else {
-	// 	textObject.enabled = true;
-	// }
 }

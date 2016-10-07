@@ -5,8 +5,6 @@ function Start () {
 }
 
 function Update () {
-	if (Input.GetKeyDown ("space")){
+	if (Input.GetKeyDown ("space"))
 		Application.LoadLevel("Level01");
-	}
-
 }

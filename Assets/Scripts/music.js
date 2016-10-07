@@ -2,7 +2,6 @@
 
 function Start () {
 	DontDestroyOnLoad(this);
-
 }
 
 function Update () {

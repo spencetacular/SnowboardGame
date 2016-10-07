@@ -1,7 +1,6 @@
 ﻿#pragma strict
 
 var textObj : UnityEngine.UI.Text;
-
 var minutes = 0;
 var seconds = 0;
 var totalSeconds = 0;
@@ -28,12 +27,5 @@ function Update () {
 	else 
 		minutesStr = minutes.ToString();
 
-
-	// Debug.Log("Minutes: " + minutes);
-	// Debug.Log("seconds: " + seconds);
-
-	// if (seconds < 10 ) {
-	// 	secondsStr = "0" + seconds.ToString();
-	// }
 	textObj.text  = "Time " + minutesStr + ":" + secondsStr;
 }

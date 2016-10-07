@@ -9,10 +9,8 @@
 
 	function Fall () {
 		anim.SetTrigger("hit");
-		// Debug.Log("Fall");
 	}
 
 	function Update () {
-		// Fall();
 	}
 }
