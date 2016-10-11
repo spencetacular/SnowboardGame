@@ -6,19 +6,28 @@ public class obstacle extends MonoBehaviour {
 	var scoreScript : score;
 	var popUpsScript : popUps;
 	var spriteRenderer : SpriteRenderer;
-	var yBase : float;
+	var baseY : float;
+	var playerBaseY : float;
 	var isJumping : boolean;
+
 
 	function Start () {
 		playerMovementScript = GameObject.Find("player").GetComponent(playerMovement);
+		playerBaseY = GameObject.Find("player").GetComponent(playerSprites).playerBaseY;
 		spriteRenderer = GetComponent(SpriteRenderer);
 		scoreScript = GameObject.Find("Score").GetComponent(score);
 		popUpsScript = GameObject.Find("sickTrick").GetComponent(popUps);
-		if (this.transform.Find("basePosition")){
-			yBase = this.transform.Find("basePosition").position.y;
-//			Debug.Log(yBase);
-		}
+//		if (this.transform.Find("basePosition")){
+//			yBase = this.transform.Find("basePosition").position.y;
+////			Debug.Log(yBase);
+//		} else {
+////			Debug.Log("Missing Base Position"); 
+//		}
 		spriteRenderer.sortingOrder = 2;
+
+		baseY = spriteRenderer.bounds.max.y + this.transform.position.y;
+
+		Debug.Log(playerBaseY);
 	}
 
 	function ChildDestroy(){
@@ -42,15 +51,33 @@ public class obstacle extends MonoBehaviour {
 		}
 	}
 
+	function playerSpriteSortingOrder() {
+		baseY = spriteRenderer.bounds.max.y + this.transform.position.y;	
+
+		if (baseY >= playerBaseY) {
+			spriteRenderer.sortingOrder = 0;
+		} else {
+			spriteRenderer.sortingOrder = 2;
+		}
+
+	}
+
+
 
 	function Update () {
+
+		
+
 		isJumping = playerMovementScript.isJumping;
 
-		if (
+//		spriteSortingOrder();
+
 
 		if (isJumping) {
 			spriteRenderer.sortingOrder = 0;
-			Debug.Log(spriteRenderer.sortingOrder);
+//			Debug.Log(spriteRenderer.sortingOrder);
+		} else {
+			playerSpriteSortingOrder();
 		}
 		
 				

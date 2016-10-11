@@ -11,11 +11,13 @@ public class playerSprites extends MonoBehaviour {
 	var previousJumpStatus = false;
 	var playerMovementScript : playerMovement;
 	var spriteRenderer : SpriteRenderer;
+	public var playerBaseY : float;
 
 	function Start () {
 		 playerMovementScript = GetComponent(playerMovement);
 		 spriteRenderer = GetComponent(SpriteRenderer);
 		 GetComponent(SpriteRenderer).sprite = spriteRight;
+		 playerBaseY = this.transform.position.y + spriteRenderer.bounds.max.y;
 	}
 
 	

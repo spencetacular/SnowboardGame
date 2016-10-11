@@ -71,6 +71,13 @@ public class obstacleGenerator extends MonoBehaviour {
 		}
 	}
 
+	function onstacleSpawnOrder() {
+		for (var i = transform.childCount - 1; i >= 0; i--) {
+			transform.GetChild(i).GetComponent(obstacle).ChildDestroy();
+		}
+	}
+
+
 
 
 	function Update () {
