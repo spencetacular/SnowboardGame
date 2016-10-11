@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\StartControls.js" />
+     <Compile Include="Assets\Scripts\StartScreenRecording.js" />
      <Compile Include="Assets\Scripts\UI\flashingText.js" />
      <Compile Include="Assets\Scripts\UI\popUps.js" />
      <Compile Include="Assets\Scripts\music.js" />
@@ -54,6 +55,7 @@
      <Compile Include="Assets\Scripts\playerMovement.js" />
      <Compile Include="Assets\Scripts\playerSprites.js" />
      <Compile Include="Assets\Scripts\score.js" />
+     <Compile Include="Assets\Scripts\test.js" />
      <Compile Include="Assets\Scripts\time.js" />
      <Compile Include="Assets\Scripts\treeAnimation.js" />
      <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />

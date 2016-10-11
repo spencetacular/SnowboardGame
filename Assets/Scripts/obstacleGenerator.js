@@ -51,7 +51,7 @@ public class obstacleGenerator extends MonoBehaviour {
 			for (var j = 0; j < numObstacles; j++) {
 				var y = Random.Range(transform.position.y +2.0,  transform.position.y + obstacleSpawnHeight );
 				var x = Random.Range(7.0, -7.0);
-				var poleShift = 1.0;
+				var poleShift = 1.5;
 				if (x >= 0 && x <= poleShift)
 					x += poleShift;
 				if (x <=0 && x >= poleShift * -1.0)
@@ -71,11 +71,11 @@ public class obstacleGenerator extends MonoBehaviour {
 		}
 	}
 
-	function onstacleSpawnOrder() {
-		for (var i = transform.childCount - 1; i >= 0; i--) {
-			transform.GetChild(i).GetComponent(obstacle).ChildDestroy();
-		}
-	}
+//	function onstacleSpawnOrder() {
+//		for (var i = transform.childCount - 1; i >= 0; i--) {
+//			transform.GetChild(i).GetComponent(obstacle).ChildDestroy();
+//		}
+//	}
 
 
 
