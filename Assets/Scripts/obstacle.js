@@ -9,7 +9,7 @@ public class obstacle extends MonoBehaviour {
 	var baseY : float;
 	var playerBaseY : float;
 	var isJumping : boolean;
-
+//	public var playerCanHit : Collider2D;
 
 	function Start () {
 		playerMovementScript = GameObject.Find("player").GetComponent(playerMovement);
@@ -37,7 +37,9 @@ public class obstacle extends MonoBehaviour {
 
 	function OnTriggerExit2D (other : Collider2D) {
 //		isJumping = other.GetComponent(playerMovement).isJumping;
-
+			
+//			Debug.Log("HIT!!!!!!!!!!!!");
+//			Debug.Log(this.GetComponent(CircleCollider2D).name);
 		if (this.tag == "obstacle" && isJumping == false) {
 			other.GetComponent(playerMovement).playerStatus = "wrecked";
 			this.GetComponent(CircleCollider2D).enabled = false;
@@ -50,7 +52,7 @@ public class obstacle extends MonoBehaviour {
 			scoreScript.Jump();
 			popUpsScript.popUpTicker = popUpsScript.popUpSeconds;
 		}
-	}
+}
 
 	function playerSpriteSortingOrder() {
 		baseY = this.transform.Find("basePosition").position.y;
