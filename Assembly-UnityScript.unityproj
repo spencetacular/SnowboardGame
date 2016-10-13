@@ -53,6 +53,7 @@
      <Compile Include="Assets\Scripts\obstacle.js" />
      <Compile Include="Assets\Scripts\obstacleGenerator.js" />
      <Compile Include="Assets\Scripts\playerMovement.js" />
+     <Compile Include="Assets\Scripts\playerShadow.js" />
      <Compile Include="Assets\Scripts\playerSprites.js" />
      <Compile Include="Assets\Scripts\score.js" />
      <Compile Include="Assets\Scripts\test.js" />

@@ -1,4 +1,5 @@
 ﻿#pragma strict
+import System.Collections.Generic;
 public class obstacleGenerator extends MonoBehaviour {
 	public var obstacleDesity = 10;
 	var screenHeight = 5.0;
@@ -22,6 +23,8 @@ public class obstacleGenerator extends MonoBehaviour {
 	public var liftPoleSpacing = 10.0;
 	public var isObstacle1 = true;
 
+
+
 	function Start() {
 		obstacleSpawnHeight = 15.0;
 		spawnPosition = -20.0;
@@ -39,6 +42,8 @@ public class obstacleGenerator extends MonoBehaviour {
 	function respawn () {
 	
 		transform.position = Vector3(0, spawnPosition, 0);
+
+		var allTransforms = new List.<Transform>();
 		
 		for (var i = transform.childCount - 1; i >= 0; i--) {
 			transform.GetChild(i).GetComponent(obstacle).ChildDestroy();
@@ -56,8 +61,9 @@ public class obstacleGenerator extends MonoBehaviour {
 					x += poleShift;
 				if (x <=0 && x >= poleShift * -1.0)
 					x-= poleShift;
-				var tree = Instantiate(obs, new Vector3(x, y, 0), Quaternion.identity);
-				tree.transform.parent = this.transform;
+				var obstacle = Instantiate(obs, new Vector3(x, y, 0), Quaternion.identity);
+				obstacle.transform.parent = this.transform;
+				allTransforms.Add(obstacle.transform);
 			}
 		}
 
@@ -68,8 +74,18 @@ public class obstacleGenerator extends MonoBehaviour {
 			var rand = Random.Range(0,2);
 			var pole = Instantiate(liftPoles[rand], new Vector3(0, poleY, 0), Quaternion.identity);
 			pole.transform.parent = this.transform;
+			allTransforms.Add(pole.transform);
 		}
+
+
+//		allTransforms.OrderBy(position.y);
+	
+
 	}
+
+
+
+
 
 //	function onstacleSpawnOrder() {
 //		for (var i = transform.childCount - 1; i >= 0; i--) {
