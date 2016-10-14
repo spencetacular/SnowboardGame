@@ -8,35 +8,46 @@ public class playerMovement extends MonoBehaviour {
 	var playerWidth = 0.015;
 	public var playerStatus = "right";
 	public var isJumping = false;
+	var jumpPreviosState = false;
 	public var jumpDuration = 3.0;
 	var jumpTicker = 0.0;
 	var initialScale : Vector3;
 	var jumpScale : Vector3;
 	public var cam: Camera;
+	var anim : Animator;
 
 	function Start () {
 		initialScale = transform.localScale;
 		jumpScale = new Vector3(2.0, 2.0, 2.0);
 		obstacles = [obstacles1, obstacles2];
 		jumpTicker = 0.0;
+		anim = GetComponent(Animator);
 	}
 
 	function Jump() {
+
 		if (isJumping == true) {
+
+			if (jumpPreviosState != isJumping) {
+//				anim.SetTrigger("jumpTrigger");
+				jumpPreviosState = isJumping;
+				
+			}
 			jumpTicker += Time.deltaTime;
 			var halfway = jumpDuration / 2.0f;
 			var scaleAmount = 0.0;
-			if (jumpTicker <= halfway) {
-				scaleAmount = jumpTicker / halfway;
-				transform.localScale = Vector3.Lerp(initialScale, jumpScale, scaleAmount);
-			}
-			if (jumpTicker > halfway) {
-				scaleAmount = jumpTicker / jumpDuration;
-				transform.localScale = Vector3.Lerp(jumpScale, initialScale, scaleAmount);
-			}
+//			if (jumpTicker <= halfway) {
+//				scaleAmount = jumpTicker / halfway;
+//				transform.localScale = Vector3.Lerp(initialScale, jumpScale, scaleAmount);
+//			}
+//			if (jumpTicker > halfway) {
+//				scaleAmount = jumpTicker / jumpDuration;
+//				transform.localScale = Vector3.Lerp(jumpScale, initialScale, scaleAmount);
+//			}
 			if (jumpTicker >= jumpDuration) {
 				isJumping = false;
 				jumpTicker = 0.0;
+				jumpPreviosState = false;
 			}
 		}
 	}
