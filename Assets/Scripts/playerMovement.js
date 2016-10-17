@@ -29,7 +29,7 @@ public class playerMovement extends MonoBehaviour {
 		if (isJumping == true) {
 
 			if (jumpPreviosState != isJumping) {
-//				anim.SetTrigger("jumpTrigger");
+				anim.SetTrigger("jumpTrigger");
 				jumpPreviosState = isJumping;
 				
 			}
