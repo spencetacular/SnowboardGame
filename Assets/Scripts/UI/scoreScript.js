@@ -1,5 +1,5 @@
 ﻿#pragma strict
-public class score extends MonoBehaviour {
+public class scoreScript extends MonoBehaviour {
 
 	var playerMovementScript : playerMovement;
 	var textObject : UnityEngine.UI.Text;

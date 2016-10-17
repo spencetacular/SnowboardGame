@@ -3,7 +3,7 @@ public class obstacle extends MonoBehaviour {
 
 	public var density = 1.0;
 	var playerMovementScript : playerMovement;
-	var scoreScript : score;
+	var score : scoreScript;
 	var popUpsScript : popUps;
 	var spriteRenderer : SpriteRenderer;
 	var baseY : float;
@@ -15,7 +15,7 @@ public class obstacle extends MonoBehaviour {
 		playerMovementScript = GameObject.Find("player").GetComponent(playerMovement);
 		playerBaseY = -0.5;
 		spriteRenderer = GetComponent(SpriteRenderer);
-		scoreScript = GameObject.Find("Score").GetComponent(score);
+		score = GameObject.Find("Score").GetComponent(scoreScript);
 		popUpsScript = GameObject.Find("sickTrick").GetComponent(popUps);
 		if (this.transform.Find("basePosition")){
 			baseY = this.transform.Find("basePosition").position.y;
@@ -40,7 +40,7 @@ public class obstacle extends MonoBehaviour {
 		}
 		if (this.tag == "jump" && isJumping == false) {
 			other.GetComponent(playerMovement).isJumping = true;
-			scoreScript.Jump();
+			score.Jump();
 			popUpsScript.popUpTicker = popUpsScript.popUpSeconds;
 		}
 	}
