@@ -15,7 +15,7 @@ public class obstacleScript extends MonoBehaviour {
 		playerMovement = GameObject.Find("player").GetComponent(playerMovementScript);
 		playerBaseY = -0.5;
 		spriteRenderer = GetComponent(SpriteRenderer);
-		score = GameObject.Find("Score").GetComponent(scoreScript);
+		score = GameObject.Find("score").GetComponent(scoreScript);
 		popUps = GameObject.Find("sickTrick").GetComponent(popUpsScript);
 		if (this.transform.Find("basePosition")){
 			baseY = this.transform.Find("basePosition").position.y;
