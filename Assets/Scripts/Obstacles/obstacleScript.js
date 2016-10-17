@@ -1,10 +1,10 @@
 ﻿#pragma strict
-public class obstacle extends MonoBehaviour {
+public class obstacleScript extends MonoBehaviour {
 
 	public var density = 1.0;
-	var playerMovementScript : playerMovement;
+	var playerMovement : playerMovementScript;
 	var score : scoreScript;
-	var popUpsScript : popUps;
+	var popUps : popUpsScript;
 	var spriteRenderer : SpriteRenderer;
 	var baseY : float;
 	var playerBaseY : float;
@@ -12,11 +12,11 @@ public class obstacle extends MonoBehaviour {
 
 
 	function Start () {
-		playerMovementScript = GameObject.Find("player").GetComponent(playerMovement);
+		playerMovement = GameObject.Find("player").GetComponent(playerMovementScript);
 		playerBaseY = -0.5;
 		spriteRenderer = GetComponent(SpriteRenderer);
 		score = GameObject.Find("Score").GetComponent(scoreScript);
-		popUpsScript = GameObject.Find("sickTrick").GetComponent(popUps);
+		popUps = GameObject.Find("sickTrick").GetComponent(popUpsScript);
 		if (this.transform.Find("basePosition")){
 			baseY = this.transform.Find("basePosition").position.y;
 		} else {
@@ -32,16 +32,16 @@ public class obstacle extends MonoBehaviour {
 	function OnTriggerExit2D (other : Collider2D) {
 
 		if (this.tag == "obstacle" && isJumping == false) {
-			other.GetComponent(playerMovement).playerStatus = "wrecked";
+			other.GetComponent(playerMovementScript).playerStatus = "wrecked";
 			this.GetComponent(CircleCollider2D).enabled = false;
-			if(GetComponent(treeAnimation)){
-				GetComponent(treeAnimation).Fall();
+			if(GetComponent(treeAnimationScript)){
+				GetComponent(treeAnimationScript).Fall();
 			}
 		}
 		if (this.tag == "jump" && isJumping == false) {
-			other.GetComponent(playerMovement).isJumping = true;
+			other.GetComponent(playerMovementScript).isJumping = true;
 			score.Jump();
-			popUpsScript.popUpTicker = popUpsScript.popUpSeconds;
+			popUps.popUpTicker = popUps.popUpSeconds;
 		}
 	}
 
@@ -57,7 +57,7 @@ public class obstacle extends MonoBehaviour {
 
 
 	function Update () {
-		isJumping = playerMovementScript.isJumping;
+		isJumping = playerMovement.isJumping;
 		playerSpriteSortingOrder();
 
 		if (isJumping) 

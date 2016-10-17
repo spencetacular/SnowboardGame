@@ -1,6 +1,6 @@
 ﻿#pragma strict
 import System.Collections.Generic;
-public class obstacleGenerator extends MonoBehaviour {
+public class obstacleGeneratorScript extends MonoBehaviour {
 	public var obstacleDesity = 10;
 	var screenHeight = 5.0;
 	var spawnPosition : float;
@@ -46,11 +46,11 @@ public class obstacleGenerator extends MonoBehaviour {
 		var allTransforms = new List.<Transform>();
 		
 		for (var i = transform.childCount - 1; i >= 0; i--) {
-			transform.GetChild(i).GetComponent(obstacle).ChildDestroy();
+			transform.GetChild(i).GetComponent(obstacleScript).ChildDestroy();
 		}
 
 		for( obs in obstacles){
-			var obstacleProps : obstacle = obs.GetComponent(obstacle);
+			var obstacleProps : obstacleScript = obs.GetComponent(obstacleScript);
 			var numObstacles = 	obstacleDesity * obstacleProps.density;
 
 			for (var j = 0; j < numObstacles; j++) {

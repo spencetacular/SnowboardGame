@@ -1,5 +1,5 @@
 ﻿#pragma strict
-public class playerMovement extends MonoBehaviour {
+public class playerMovementScript extends MonoBehaviour {
 	public var obstacles1: GameObject;
 	public var obstacles2: GameObject;
 	var obstacles : GameObject[];

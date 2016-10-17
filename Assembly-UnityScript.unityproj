@@ -46,20 +46,19 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\GameControlsScript.js" />
-     <Compile Include="Assets\Scripts\StartControls.js" />
-     <Compile Include="Assets\Scripts\StartScreenRecording.js" />
+     <Compile Include="Assets\Scripts\Obstacles\obstacleGeneratorScript.js" />
+     <Compile Include="Assets\Scripts\Obstacles\obstacleScript.js" />
+     <Compile Include="Assets\Scripts\Obstacles\treeAnimationScript.js" />
+     <Compile Include="Assets\Scripts\Player\playerMovementScript.js" />
+     <Compile Include="Assets\Scripts\Player\playerShadowScript.js" />
+     <Compile Include="Assets\Scripts\Player\playerSpritesScript.js" />
+     <Compile Include="Assets\Scripts\Sounds\music.js" />
+     <Compile Include="Assets\Scripts\StartScreen\startControlsScript.js" />
      <Compile Include="Assets\Scripts\UI\GameOverScript.js" />
      <Compile Include="Assets\Scripts\UI\flashingText.js" />
-     <Compile Include="Assets\Scripts\UI\popUps.js" />
+     <Compile Include="Assets\Scripts\UI\popUpsScript.js" />
      <Compile Include="Assets\Scripts\UI\scoreScript.js" />
-     <Compile Include="Assets\Scripts\UI\time.js" />
-     <Compile Include="Assets\Scripts\music.js" />
-     <Compile Include="Assets\Scripts\obstacle.js" />
-     <Compile Include="Assets\Scripts\obstacleGenerator.js" />
-     <Compile Include="Assets\Scripts\playerMovement.js" />
-     <Compile Include="Assets\Scripts\playerShadow.js" />
-     <Compile Include="Assets\Scripts\playerSprites.js" />
-     <Compile Include="Assets\Scripts\treeAnimation.js" />
+     <Compile Include="Assets\Scripts\UI\timeScript.js" />
      <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
      <None Include="Assets\Dadako\BitmapFonts\Pixel\_PixelCharLimits.txt" />
      <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />

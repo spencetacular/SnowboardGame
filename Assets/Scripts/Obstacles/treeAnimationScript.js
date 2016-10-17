@@ -1,5 +1,5 @@
 ﻿#pragma strict
-	public class treeAnimation extends MonoBehaviour {
+	public class treeAnimationScript extends MonoBehaviour {
 
 	var anim : Animator;
 

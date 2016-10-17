@@ -1,19 +1,19 @@
 ﻿#pragma strict
 
 var spriteRenderer : SpriteRenderer;
-var playerMovementScript : playerMovement; 
+var playerMovement : playerMovementScript; 
 
   
 function Start () {
 	spriteRenderer = this.GetComponent(SpriteRenderer);
-	playerMovementScript = this.GetComponentInParent(playerMovement);
+	playerMovement = this.GetComponentInParent(playerMovementScript);
 	spriteRenderer.enabled = false;
 
 }
 
 function Update () {
 
-	if (playerMovementScript.isJumping == true) {
+	if (playerMovement.isJumping == true) {
 
 		spriteRenderer.enabled = true;
 	}

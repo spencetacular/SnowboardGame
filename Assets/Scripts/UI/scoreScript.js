@@ -1,7 +1,7 @@
 ﻿#pragma strict
 public class scoreScript extends MonoBehaviour {
 
-	var playerMovementScript : playerMovement;
+	var playerMovement : playerMovementScript;
 	var textObject : UnityEngine.UI.Text;
 	public var score  = 0;
 	public var jumpBonus = 999;
@@ -9,7 +9,7 @@ public class scoreScript extends MonoBehaviour {
 
 	function Start () {
 		textObject = GetComponent(UnityEngine.UI.Text);
-		playerMovementScript = GameObject.Find("player").GetComponent(playerMovement);
+		playerMovement = GameObject.Find("player").GetComponent(playerMovementScript);
 
 	}
 
@@ -19,7 +19,7 @@ public class scoreScript extends MonoBehaviour {
 
 	function Update () {
 
-		if (playerMovementScript.playerStatus != "right" && playerMovementScript.playerStatus != "left" && playerMovementScript.playerStatus != "wrecked") {
+		if (playerMovement.playerStatus != "right" && playerMovement.playerStatus != "left" && playerMovement.playerStatus != "wrecked") {
 			downHillPoints += Time.deltaTime;
 			
 			if (downHillPoints >= 1.0) {
