@@ -13,22 +13,16 @@ public class obstacle extends MonoBehaviour {
 
 	function Start () {
 		playerMovementScript = GameObject.Find("player").GetComponent(playerMovement);
-//		playerBaseY = GameObject.Find("player").GetComponent(playerSprites).playerBaseY;
 		playerBaseY = -0.5;
 		spriteRenderer = GetComponent(SpriteRenderer);
 		scoreScript = GameObject.Find("Score").GetComponent(score);
 		popUpsScript = GameObject.Find("sickTrick").GetComponent(popUps);
 		if (this.transform.Find("basePosition")){
 			baseY = this.transform.Find("basePosition").position.y;
-//			Debug.Log(yBase);
 		} else {
 			Debug.Log("Missing Base Position"); 
 		}
 		spriteRenderer.sortingOrder = 2;
-
-//		baseY = spriteRenderer.bounds.max.y + this.transform.position.y;
-
-		Debug.Log(playerBaseY);
 	}
 
 	function ChildDestroy(){
@@ -36,7 +30,6 @@ public class obstacle extends MonoBehaviour {
 	 }
 
 	function OnTriggerExit2D (other : Collider2D) {
-//		isJumping = other.GetComponent(playerMovement).isJumping;
 
 		if (this.tag == "obstacle" && isJumping == false) {
 			other.GetComponent(playerMovement).playerStatus = "wrecked";
@@ -55,36 +48,22 @@ public class obstacle extends MonoBehaviour {
 	function playerSpriteSortingOrder() {
 		baseY = this.transform.Find("basePosition").position.y;
 
-//		Debug.Log("Bounds " + spriteRenderer.bounds.max.y);	
-//		Debug.Log("Position Y: " + this.transform.position.y);	
-
-		if (baseY >= playerBaseY) {
+		if (baseY >= playerBaseY)
 			spriteRenderer.sortingOrder = 0;
-		} else {
+		else 
 			spriteRenderer.sortingOrder = 2;
-		}
-
 	}
 
 
 
 	function Update () {
-
-		
-
 		isJumping = playerMovementScript.isJumping;
-
 		playerSpriteSortingOrder();
 
-
-		if (isJumping) {
+		if (isJumping) 
 			spriteRenderer.sortingOrder = 0;
-//			Debug.Log(spriteRenderer.sortingOrder);
-		} else {
-			playerSpriteSortingOrder();
-		}
-		
-				
+		else 
+			playerSpriteSortingOrder();				
 	}
 
 }
