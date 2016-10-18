@@ -2,6 +2,7 @@
 
  public var jumpAudio : AudioSource;
  public var wreckAudio: AudioSource;
+ public var treeAudio: AudioSource;
 
 
 function Start () {
@@ -16,6 +17,9 @@ function Wreck() {
 	wreckAudio.Play();
 }
 
+function TreeFall() {
+	treeAudio.Play();
+}
 function Update () {
 
 }

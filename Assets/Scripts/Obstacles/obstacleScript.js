@@ -33,10 +33,13 @@ public class obstacleScript extends MonoBehaviour {
 
 		if (this.tag == "obstacle" && isJumping == false) {
 			other.GetComponent(playerMovementScript).playerStatus = "wrecked";
-			other.GetComponent(playerSoundsScript).Wreck();
 			this.GetComponent(CircleCollider2D).enabled = false;
+			other.GetComponent(playerSoundsScript).Wreck();
 			if(GetComponent(treeAnimationScript)){
 				GetComponent(treeAnimationScript).Fall();
+				other.GetComponent(playerSoundsScript).TreeFall();
+			} else {
+//				other.GetComponent(playerSoundsScript).Wreck();
 			}
 		}
 		if (this.tag == "jump" && isJumping == false) {
