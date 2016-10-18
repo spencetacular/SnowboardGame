@@ -51,6 +51,7 @@
      <Compile Include="Assets\Scripts\Obstacles\treeAnimationScript.js" />
      <Compile Include="Assets\Scripts\Player\playerMovementScript.js" />
      <Compile Include="Assets\Scripts\Player\playerShadowScript.js" />
+     <Compile Include="Assets\Scripts\Player\playerSoundsScript.js" />
      <Compile Include="Assets\Scripts\Player\playerSpritesScript.js" />
      <Compile Include="Assets\Scripts\Sounds\music.js" />
      <Compile Include="Assets\Scripts\StartScreen\startControlsScript.js" />

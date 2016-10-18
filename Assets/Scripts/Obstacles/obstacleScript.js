@@ -33,6 +33,7 @@ public class obstacleScript extends MonoBehaviour {
 
 		if (this.tag == "obstacle" && isJumping == false) {
 			other.GetComponent(playerMovementScript).playerStatus = "wrecked";
+			other.GetComponent(playerSoundsScript).Wreck();
 			this.GetComponent(CircleCollider2D).enabled = false;
 			if(GetComponent(treeAnimationScript)){
 				GetComponent(treeAnimationScript).Fall();
@@ -40,6 +41,7 @@ public class obstacleScript extends MonoBehaviour {
 		}
 		if (this.tag == "jump" && isJumping == false) {
 			other.GetComponent(playerMovementScript).isJumping = true;
+			other.GetComponent(playerSoundsScript).Jump();
 			score.Jump();
 			popUps.popUpTicker = popUps.popUpSeconds;
 		}

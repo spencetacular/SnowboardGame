@@ -19,6 +19,8 @@ function Update () {
 		gameOver = true;
 		var score = GameObject.Find("score").GetComponent(scoreScript).score;
 		GameObject.Find("gameOverCanvas").GetComponent(GameOverScript).GameOver(score);
+		GameObject.Find("player").GetComponent(playerMovementScript).gameOver = true;
+		GetComponent(AudioSource).Play();
 
 	}
 

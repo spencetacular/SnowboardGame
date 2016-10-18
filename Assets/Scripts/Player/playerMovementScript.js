@@ -14,6 +14,7 @@ public class playerMovementScript extends MonoBehaviour {
 	var initialScale : Vector3;
 	public var cam: Camera;
 	var anim : Animator;
+	var gameOver = false;
 
 	function Start () {
 		initialScale = transform.localScale;
@@ -22,7 +23,7 @@ public class playerMovementScript extends MonoBehaviour {
 		anim = GetComponent(Animator);
 	}
 
-	function Jump() {
+	function PlayerJump() {
 
 		if (isJumping == true) {
 
@@ -40,44 +41,45 @@ public class playerMovementScript extends MonoBehaviour {
 		}
 	}
 
-	function Update () {
+	function PlayerMovement(viewPos : Vector3) {
 
-		Jump();
-		var viewPos: Vector3 = cam.WorldToViewportPoint(this.transform.position);
 		if (Input.GetKeyDown ( "down" ))
-				playerStatus = "down";
+					playerStatus = "down";
 
-		if (Input.GetKeyDown ( "right" )){
-			if ( playerStatus == "right" && viewPos.x < 1 - playerWidth )
-				transform.Translate(lateralShift, 0, 0);
-			if ( playerStatus == "downRight" && isJumping == false){
-				transform.Translate(0, 0, 0);
-				playerStatus = "right";
+			if (Input.GetKeyDown ( "right" )){
+				if ( playerStatus == "right" && viewPos.x < 1 - playerWidth )
+					transform.Translate(lateralShift, 0, 0);
+				if ( playerStatus == "downRight" && isJumping == false){
+					transform.Translate(0, 0, 0);
+					playerStatus = "right";
+				}
+				if ( playerStatus == "down") 
+					playerStatus = "downRight";
+				if ( playerStatus == "downLeft" )
+					playerStatus = "down";
+				if ( playerStatus == "left" )
+					playerStatus = "downLeft";
 			}
-			if ( playerStatus == "down") 
-				playerStatus = "downRight";
-			if ( playerStatus == "downLeft" )
-				playerStatus = "down";
-			if ( playerStatus == "left" )
-				playerStatus = "downLeft";
-		}
 
-		if (Input.GetKeyDown ("left")){
-			if ( playerStatus == "left" && viewPos.x > playerWidth)
-				transform.Translate(-lateralShift, 0, 0);
-			if ( playerStatus == "downLeft" && isJumping == false){
-				transform.Translate(0, 0, 0);
-				playerStatus = "left";
+			if (Input.GetKeyDown ("left")){
+				if ( playerStatus == "left" && viewPos.x > playerWidth)
+					transform.Translate(-lateralShift, 0, 0);
+				if ( playerStatus == "downLeft" && isJumping == false){
+					transform.Translate(0, 0, 0);
+					playerStatus = "left";
+				}
+				if (playerStatus == "down" ) 
+					playerStatus = "downLeft";
+				if ( playerStatus == "downRight" )
+					playerStatus = "down";
+				if ( playerStatus == "right" )
+					playerStatus = "downRight";
+					
 			}
-			if (playerStatus == "down" ) 
-				playerStatus = "downLeft";
-			if ( playerStatus == "downRight" )
-				playerStatus = "down";
-			if ( playerStatus == "right" )
-				playerStatus = "downRight";
-				
-		}
 
+	}
+
+	function ObstacleMovement(viewPos : Vector3) {
 		for (obs in obstacles){
 
 			if ( playerStatus == "down" ) 
@@ -104,6 +106,18 @@ public class playerMovementScript extends MonoBehaviour {
 				}
 			}
 		}
+	}
+
+	function Update () {
+
+		if (!gameOver) {
+			PlayerJump();
+			var viewPos: Vector3 = cam.WorldToViewportPoint(this.transform.position);
+			PlayerMovement(viewPos);
+			ObstacleMovement(viewPos);
+		}
+
+
 
 	}
 }
