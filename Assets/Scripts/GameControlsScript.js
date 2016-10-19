@@ -3,6 +3,7 @@
 public var gameOver = false;
 public var gameLength : int;
 
+
 function Start () {
 //	var score = GameObject.Find("Score").GetComponent(scoreScript).score;
 

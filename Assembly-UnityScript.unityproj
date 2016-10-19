@@ -57,6 +57,7 @@
      <Compile Include="Assets\Scripts\StartScreen\startControlsScript.js" />
      <Compile Include="Assets\Scripts\UI\GameOverScript.js" />
      <Compile Include="Assets\Scripts\UI\flashingText.js" />
+     <Compile Include="Assets\Scripts\UI\initialsScript.js" />
      <Compile Include="Assets\Scripts\UI\popUpsScript.js" />
      <Compile Include="Assets\Scripts\UI\scoreScript.js" />
      <Compile Include="Assets\Scripts\UI\timeScript.js" />
