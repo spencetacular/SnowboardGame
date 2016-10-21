@@ -32,7 +32,9 @@ public class obstacleScript extends MonoBehaviour {
 	function OnTriggerExit2D (other : Collider2D) {
 
 		if (this.tag == "obstacle" && isJumping == false) {
-			other.GetComponent(playerMovementScript).playerStatus = "wrecked";
+			other.GetComponent(playerMovementScript).playerStatus = other.GetComponent(playerMovementScript).Status.Wrecked;
+			other.GetComponent(playerSpritesScript).DirectionUpdate();
+
 			this.GetComponent(CircleCollider2D).enabled = false;
 			other.GetComponent(playerSoundsScript).Wreck();
 			if(GetComponent(treeAnimationScript)){
@@ -43,7 +45,7 @@ public class obstacleScript extends MonoBehaviour {
 			}
 		}
 		if (this.tag == "jump" && isJumping == false) {
-			other.GetComponent(playerMovementScript).isJumping = true;
+			other.GetComponent(playerMovementScript).PlayerJump();
 			other.GetComponent(playerSoundsScript).Jump();
 			score.Jump();
 			popUps.popUpTicker = popUps.popUpSeconds;

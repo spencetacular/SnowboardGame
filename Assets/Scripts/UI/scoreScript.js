@@ -19,7 +19,7 @@ public class scoreScript extends MonoBehaviour {
 
 	function Update () {
 
-		if (playerMovement.playerStatus != "right" && playerMovement.playerStatus != "left" && playerMovement.playerStatus != "wrecked") {
+		if (playerMovement.playerStatus != playerMovement.Status.Right && playerMovement.playerStatus != playerMovement.Status.Left && playerMovement.playerStatus != playerMovement.Status.Wrecked) {
 			downHillPoints += Time.deltaTime;
 			
 			if (downHillPoints >= 1.0) {
