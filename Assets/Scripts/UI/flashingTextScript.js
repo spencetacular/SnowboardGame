@@ -2,20 +2,17 @@
 
 public var textObject : UnityEngine.UI.Text;
 public var secondsBetweenFlash  = 1.0;
-var flashTicker  = 0.0;
-var visible = true;
 var doesFlash = true;
 
-
 function Start () {
-	flashTicker = secondsBetweenFlash;
+
 	textObject = GetComponent(UnityEngine.UI.Text);
+	InvokeRepeating("Flash", 0, secondsBetweenFlash);
 }
 
 function Flashing (on : boolean ) {
 	if (on) {
 		doesFlash = true;
-		flashTicker = secondsBetweenFlash;
 
 	} else {
 		textObject.enabled = true;
@@ -23,23 +20,12 @@ function Flashing (on : boolean ) {
 	}
 }
 
-function Update () {
-
-	if (doesFlash) {
-		if (flashTicker >= 0) {
-			flashTicker -= Time.deltaTime;
-		} else {
-			visible = !visible;
-			flashTicker = secondsBetweenFlash;
-		}
-		textObject.enabled = visible ? true : false; 
+function Flash () {
+	if (doesFlash) 
+		textObject.enabled  =! textObject.enabled;
 	}
 
-//	if (visible) 
-//		textObject.enabled = true;
-//	else 
-//		textObject.enabled = false;
+function Update () {
 
-//	visible ? textObject.enabled = true : textObject.enabled = false;
 	
 }

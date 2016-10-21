@@ -16,11 +16,15 @@ public class playerMovementScript extends MonoBehaviour {
 	var anim : Animator;
 	var gameOver = false;
 
+	enum Status {Right, Left, Down, DownRight, DownLeft, Jumping, Wrecked}; 
+	public var pStatus : Status; 
+
 	function Start () {
 		initialScale = transform.localScale;
 		obstacles = [obstacles1, obstacles2];
 		jumpTicker = 0.0;
 		anim = GetComponent(Animator);
+		pStatus = Status.Right;
 	}
 
 	function PlayerJump() {
@@ -31,7 +35,7 @@ public class playerMovementScript extends MonoBehaviour {
 				anim.SetTrigger("jumpTrigger");
 				jumpPreviosState = isJumping;	
 			}
-
+			// TODO CHANGE TO INVODE INVOKE
 			jumpTicker += Time.deltaTime;
 			if (jumpTicker >= jumpDuration) {
 				isJumping = false;
@@ -43,8 +47,10 @@ public class playerMovementScript extends MonoBehaviour {
 
 	function PlayerMovement(viewPos : Vector3) {
 
-		if (Input.GetKeyDown ( "down" ))
-					playerStatus = "down";
+		if (Input.GetKeyDown ( "down" )) {
+				pStatus = Status.Down;
+				playerStatus = "down";
+			}
 
 			if (Input.GetKeyDown ( "right" )){
 				if ( playerStatus == "right" && viewPos.x < 1 - playerWidth )

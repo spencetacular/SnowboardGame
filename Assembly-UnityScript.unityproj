@@ -62,6 +62,7 @@
      <Compile Include="Assets\Scripts\UI\popUpsScript.js" />
      <Compile Include="Assets\Scripts\UI\scoreScript.js" />
      <Compile Include="Assets\Scripts\UI\timeScript.js" />
+     <Compile Include="Assets\Scripts\UI\userScore.js" />
      <None Include="Assets\JMO Assets\Cartoon FX\Shaders\CFXM_MobileParticleAdd_Alpha8.shader" />
      <None Include="Assets\Dadako\BitmapFonts\Pixel\_PixelCharLimits.txt" />
      <None Include="Assets\JMO Assets\Cartoon FX Easy Editor\CartoonFX Easy Editor Readme.txt" />

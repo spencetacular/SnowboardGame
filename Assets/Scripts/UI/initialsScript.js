@@ -74,7 +74,7 @@ function PreviousLetter(){
 //	currentLetterText.text = currentLetter;
 	currentInitial.text = currentLetter;
 
-	Debug.Log(currentLetter);
+//	Debug.Log(currentLetter);
 	
 }
 
