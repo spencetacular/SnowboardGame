@@ -1,19 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/initialsScript.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/highScoresScript.js">
     <Files>
-      <File FileName="Assets/Scripts/UI/initialsScript.js" Line="41" Column="6" />
+      <File FileName="Assets/Scripts/UI/highScoresScript.js" Line="37" Column="21" />
+      <File FileName="Assets/Scripts/UI/initialsScript.js" Line="34" Column="16" />
+      <File FileName="Assets/Scripts/UI/flashingTextScript.js" Line="22" Column="21" />
       <File FileName="Assets/Scripts/UI/GameOverScript.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Player/playerMovementScript.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Obstacles/obstacleGeneratorScript.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GameControlsScript.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/scoreScript.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Obstacles/obstacleScript.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/StartScreen/startControlsScript.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Sounds/music.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player/playerSoundsScript.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player/playerSpritesScript.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/flashingText.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

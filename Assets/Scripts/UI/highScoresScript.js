@@ -10,7 +10,7 @@ public class User {
 	}
 }
 
-public var skc : User = User("SKC", 9999);
+
 public var topUsers = new Array();
 
 function Start () {
@@ -22,21 +22,26 @@ function Start () {
 
 
 
-	
-//	for (u in users.topUsers.user)
-//		Debug.Log(u);
+ var skc : User = User("SKC", 9999);
+topUsers.Push(skc);
+
+//Debug.Log(topUsers[0].score);
 
 //	var newUser : userProfile.User = userProfile.User("SKC", 99999);
 //	public var u : User = User("SKC", 9999); 
 
 //	fakeUserData ();
 
-	topUsers.Push(skc);
-	for (var i = 0; i < topUsers.length; i++) {
-//		Debug.Log(u.initials);
-//		Debug.Log(topUsers[i].score);
-	}
+//	topUsers.Push(skc);
+//	for (var i = 0; i < topUsers.length; i++) {
+////		Debug.Log(u.initials);
+//		Debug.Log(topUsers[i].u);
+//	}
 //	Debug.Log(topUsers.length);
+
+//	for (u in topUsers)
+//		Debug.Log(u.score);
+
 }
 
 //function fakeUserData () {
