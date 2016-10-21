@@ -10,7 +10,6 @@ public class obstacleScript extends MonoBehaviour {
 	var playerBaseY : float;
 	var isJumping : boolean;
 
-
 	function Start () {
 		playerMovement = GameObject.Find("player").GetComponent(playerMovementScript);
 		playerBaseY = -0.5;
@@ -42,6 +41,7 @@ public class obstacleScript extends MonoBehaviour {
 				other.GetComponent(playerSoundsScript).TreeFall();
 			} 
 		}
+
 		if (this.tag == "jump" && isJumping == false) {
 			other.GetComponent(playerMovementScript).PlayerJump();
 			other.GetComponent(playerSoundsScript).Jump();
@@ -58,8 +58,6 @@ public class obstacleScript extends MonoBehaviour {
 		else 
 			spriteRenderer.sortingOrder = 2;
 	}
-
-
 
 	function Update () {
 		isJumping = playerMovement.isJumping;

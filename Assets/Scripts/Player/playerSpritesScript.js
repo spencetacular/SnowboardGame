@@ -47,8 +47,7 @@ public class playerSpritesScript extends MonoBehaviour {
 					break;
 				case  playerMovement.Status.Wrecked:
 					spriteRenderer.sprite = spriteWrecked;
-					break;
-				
+					break;	
 			}
 		}
 		

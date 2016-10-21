@@ -16,8 +16,6 @@ public class playerMovementScript extends MonoBehaviour {
 	public var playerStatus : Status;
 
 	function Start () {
-//		test = GetComponent(playerStatusScript);
-//		var playerStatus : test.playerStatusScript.Status;
 		obstacles = [obstacles1, obstacles2];
 		anim = GetComponent(Animator);
 		playerSprites = GetComponent(playerSpritesScript);
