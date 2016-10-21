@@ -12,7 +12,6 @@ public class playerSpritesScript extends MonoBehaviour {
 	var spriteRenderer : SpriteRenderer;
 	public var playerBaseY : float;
 
-
 	function Start () {
 		 playerMovement = GetComponent(playerMovementScript);
 		 spriteRenderer = GetComponent(SpriteRenderer);
@@ -28,23 +27,29 @@ public class playerSpritesScript extends MonoBehaviour {
 
 		
 		if ( !playerMovement.isJumping ) {
-			if ( playerMovement.playerStatus  ==  playerMovement.Status.Down ) 
-				spriteRenderer.sprite = spriteDown;
 
-			if ( playerMovement.playerStatus  ==  playerMovement.Status.Right ) 
-				spriteRenderer.sprite = spriteRight;
-
-			if ( playerMovement.playerStatus  ==  playerMovement.Status.DownRight ) 
-				spriteRenderer.sprite = spriteDownRight;
-
-			if ( playerMovement.playerStatus  ==  playerMovement.Status.Left ) 
-				spriteRenderer.sprite = spriteLeft;
-			
-			if ( playerMovement.playerStatus  ==  playerMovement.Status.DownLeft ) 
-				spriteRenderer.sprite = spriteDownLeft;
-			
-			if ( playerMovement.playerStatus  ==  playerMovement.Status.Wrecked ) 
+			switch (playerMovement.playerStatus)  
+			{
+				case  playerMovement.Status.Down:
+					spriteRenderer.sprite = spriteDown;
+					break;
+				case  playerMovement.Status.Right:
+					spriteRenderer.sprite = spriteRight;
+					break;
+				case  playerMovement.Status.Left:
+					spriteRenderer.sprite = spriteLeft;
+					break;
+				case  playerMovement.Status.DownRight:
+					spriteRenderer.sprite = spriteDownRight;
+					break;
+				case  playerMovement.Status.DownLeft:
+					spriteRenderer.sprite = spriteDownLeft;
+					break;
+				case  playerMovement.Status.Wrecked:
 					spriteRenderer.sprite = spriteWrecked;
+					break;
+				
+			}
 		}
 		
 	}
