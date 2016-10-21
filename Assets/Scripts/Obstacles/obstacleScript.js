@@ -40,9 +40,7 @@ public class obstacleScript extends MonoBehaviour {
 			if(GetComponent(treeAnimationScript)){
 				GetComponent(treeAnimationScript).Fall();
 				other.GetComponent(playerSoundsScript).TreeFall();
-			} else {
-//				other.GetComponent(playerSoundsScript).Wreck();
-			}
+			} 
 		}
 		if (this.tag == "jump" && isJumping == false) {
 			other.GetComponent(playerMovementScript).PlayerJump();

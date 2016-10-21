@@ -7,17 +7,14 @@ public class playerSpritesScript extends MonoBehaviour {
 	public var spriteDownLeft : Sprite;
 	public var spriteJump : Sprite;
 	public var spriteWrecked : Sprite;
-//	var previousPlayerStatus = "";
 	var previousJumpStatus = false;
 	var playerMovement : playerMovementScript;
 	var spriteRenderer : SpriteRenderer;
 	public var playerBaseY : float;
 
-//	public var p;
 
 	function Start () {
 		 playerMovement = GetComponent(playerMovementScript);
-//		 p = playerMovement.Status;
 		 spriteRenderer = GetComponent(SpriteRenderer);
 		 GetComponent(SpriteRenderer).sprite = spriteRight;
 		 playerBaseY = this.transform.position.y + spriteRenderer.bounds.max.y;
@@ -29,9 +26,6 @@ public class playerSpritesScript extends MonoBehaviour {
 
 	function DirectionUpdate () {
 
-//		if (isJumping == true) {
-//			spriteRenderer.sprite = spriteJump;
-//		} else {
 		
 		if ( !playerMovement.isJumping ) {
 			if ( playerMovement.playerStatus  ==  playerMovement.Status.Down ) 
@@ -49,27 +43,13 @@ public class playerSpritesScript extends MonoBehaviour {
 			if ( playerMovement.playerStatus  ==  playerMovement.Status.DownLeft ) 
 				spriteRenderer.sprite = spriteDownLeft;
 			
-
-			
 			if ( playerMovement.playerStatus  ==  playerMovement.Status.Wrecked ) 
 					spriteRenderer.sprite = spriteWrecked;
-
 		}
 		
-
 	}
 
 	function Update () {
-
-//		spriteUpdate();
-//			previousPlayerStatus = playerMovement.playerStatus;
-//			previousJumpStatus = playerMovement.isJumping;
-
-//		if ( previousPlayerStatus != playerMovement.playerStatus || previousJumpStatus != playerMovement.isJumping) {
-//			spriteUpdate(playerMovement.playerStatus);
-//			previousPlayerStatus = playerMovement.playerStatus;
-//			previousJumpStatus = playerMovement.isJumping;
-//		}
 
 	}
 

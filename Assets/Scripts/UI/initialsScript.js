@@ -3,16 +3,10 @@
 var initialsText : UnityEngine.UI.Text;
 var currentLetterText : UnityEngine.UI.Text;
 var alphabet : String[];
-//var playerInitials : Array;
 var currentLetter : String;
 var index = 0;
 var maxInitials : int;
 var initialIndex : int;
-
-//var initial1 : UnityEngine.UI.Text;
-//var initial2 : UnityEngine.UI.Text;
-//var initial3 : UnityEngine.UI.Text;
-
 public var initials :  UnityEngine.UI.Text[];
 var currentInitial : UnityEngine.UI.Text;
 

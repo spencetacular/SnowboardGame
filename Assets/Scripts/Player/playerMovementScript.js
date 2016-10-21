@@ -7,16 +7,11 @@ public class playerMovementScript extends MonoBehaviour {
 	public var lateralShift = 0.5;
 	var playerWidth = 0.015;
 	public var isJumping = false;
-	var jumpPreviosState = false;
 	public var jumpDuration = 3.0;
-	var jumpTicker = 0.0;
 	public var cam: Camera;
 	var anim : Animator;
 	var gameOver = false;
 	var playerSprites : playerSpritesScript;
-
-//	public var test : playerStatusScript;
-
 	enum Status {Right, Left, Down, DownRight, DownLeft, Jumping, Wrecked}; 
 	public var playerStatus : Status;
 
@@ -24,7 +19,6 @@ public class playerMovementScript extends MonoBehaviour {
 //		test = GetComponent(playerStatusScript);
 //		var playerStatus : test.playerStatusScript.Status;
 		obstacles = [obstacles1, obstacles2];
-		jumpTicker = 0.0;
 		anim = GetComponent(Animator);
 		playerSprites = GetComponent(playerSpritesScript);
 		playerStatus = Status.Right;
@@ -35,31 +29,13 @@ public class playerMovementScript extends MonoBehaviour {
 		isJumping = true;
 		anim.SetTrigger("jumpTrigger");
 		playerSprites.JumpUpdate();
-
 		Invoke("PlayerLand", jumpDuration);
-
-//		if (isJumping == true) {
-//
-//			if (jumpPreviosState != isJumping) {
-//				anim.SetTrigger("jumpTrigger");
-//				playerSprites.JumpUpdate();
-//				jumpPreviosState = isJumping;	
-//			}
-//			// TODO CHANGE TO INVODE INVOKE
-//			jumpTicker += Time.deltaTime;
-//			if (jumpTicker >= jumpDuration) {
-//				isJumping = false;
-//				jumpTicker = 0.0;
-//				jumpPreviosState = false;
-//			}
-//		}
 	}
 
 	function PlayerLand () {
 		isJumping = false;
 		playerStatus = Status.Down;
-		playerSprites.DirectionUpdate();
-		
+		playerSprites.DirectionUpdate();	
 	}
 
 	function PlayerMovement(viewPos : Vector3) {
@@ -105,12 +81,10 @@ public class playerMovementScript extends MonoBehaviour {
 			playerSprites.DirectionUpdate();
 				
 		}
-
-//		Debug.Log(playerStatus);
-
 	}
 
 	function ObstacleMovement(viewPos : Vector3) {
+
 		for (obs in obstacles){
 
 			if ( playerStatus == Status.Down ) 
@@ -142,14 +116,10 @@ public class playerMovementScript extends MonoBehaviour {
 	function Update () {
 
 		if (!gameOver) {
-//			PlayerJump();
 			var viewPos: Vector3 = cam.WorldToViewportPoint(this.transform.position);
 			PlayerMovement(viewPos);
 			ObstacleMovement(viewPos);
 		}
-
-
-
 	}
 }
 
