@@ -1,5 +1,9 @@
 ﻿#pragma strict
 
+var restartText : GameObject;
+var startControls : GameObject;
+//var restartActive = false;
+
 
 //var initials : UnityEngine.UI.Text;
 //var topScores = new List.<userScoreScript>();
@@ -11,6 +15,8 @@ function Start () {
 //	topScores = GameObject.Find("topScores").GetComponent(topScoresScript).userScores;
 //	GetComponent(Canvas).enabled = true;
 //	initials = GetComponent(UnityEngine.UI.Text);
+	restartText.SetActive(false);
+	startControls.SetActive(false);
 	
 
 }
@@ -25,13 +31,22 @@ function Start () {
 function GameOver (score : int) {
 	GetComponent(Canvas).enabled = true;
 	GameObject.Find("finalScore").GetComponent(UnityEngine.UI.Text).text = "Final Score: " + score;
+//	GameObject.Find("initials").GetComponent(initialsScript).gameOver = true;
+	GameObject.Find("topScores").GetComponent(topScoresScript).GameOver();
 	
 }
 
-function EnterInitails () {
-
+function PressStartToPlay() {
+	restartText.SetActive(true);
+	startControls.SetActive(true);
 }
 
+
+
 function Update () {
+//	if (restartActive == true && Input.GetKeyDown ("space")) {
+////		Application.Lo
+//	}
+	
 
 }

@@ -9,6 +9,8 @@ var maxInitials : int;
 var initialIndex : int;
 public var initials :  UnityEngine.UI.Text[];
 var currentInitial : UnityEngine.UI.Text;
+public var gameOver = false;
+var initialsSounds : initialsSoundsScript;
 
 
 function Start () {
@@ -17,7 +19,7 @@ function Start () {
 
 // 	playerInitials = new Array();
 //	initialsText = GetComponent(UnityEngine.UI.Text);
-
+	initialsSounds = GetComponent(initialsSoundsScript);
 	currentLetter = alphabet[index];
 	currentInitial = initials[0];
 
@@ -45,6 +47,7 @@ function NextLetter(){
 
 	currentLetter = alphabet[index];
 	currentInitial.text = currentLetter;
+	initialsSounds.Change();
 
 //	Debug.Log(currentLetter);
 	
@@ -59,6 +62,7 @@ function PreviousLetter(){
 	currentLetter = alphabet[index];
 //	currentLetterText.text = currentLetter;
 	currentInitial.text = currentLetter;
+	initialsSounds.Change();
 
 //	Debug.Log(currentLetter);
 	
@@ -97,18 +101,28 @@ function AssignLetter () {
 		NewHighScore ();
 		
 	}
+
+		initialsSounds.Select();
+
 }
 
 function Update () {
 
-	if (Input.GetKeyDown ("right"))
-		NextLetter();
 
-	if (Input.GetKeyDown ("left"))
-		PreviousLetter();
+	if (gameOver == true) {
 
-	if (Input.GetKeyDown ("space"))
-		AssignLetter();
+		if (Input.GetKeyDown ("right"))
+			NextLetter();
+
+		if (Input.GetKeyDown ("left"))
+			PreviousLetter();
+
+		if (Input.GetKeyDown ("space"))
+			AssignLetter();
+
+	}
+
+
 
 //	Debug.Log(alphabet[index]);
 	

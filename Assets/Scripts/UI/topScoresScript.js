@@ -6,6 +6,9 @@ public var userScores = new List.<userScoreScript>();
 var topScoresText : UnityEngine.UI.Text;
 public var initials : GameObject;
 var score : int;
+public var newTopScoreAudio : AudioSource;
+public var successAudio : AudioSource;
+
 
 public class topScoresScript extends MonoBehaviour
 {
@@ -18,9 +21,7 @@ public class topScoresScript extends MonoBehaviour
         score = GameObject.Find("score").GetComponent(scoreScript).score;
 
         initials.SetActive(false);
-        GetTopScores();
-        CompareUserScore(score);
-        SetTopScoresText();
+       
     }
 
     function GetTopScores () {
@@ -39,17 +40,32 @@ public class topScoresScript extends MonoBehaviour
         userScores.Sort();	
     }
 
+    function GameOver () {
+    	GetTopScores();
+        CompareUserScore(score);
+        SetTopScoresText();
+        Debug.Log("GAME OVER");
+
+    }
+
     function CompareUserScore (score : int) {
 //    	var userScore = new userScoreScript;
 //    	var scoreToReplace  = 0;
-
+		var newHighScore = false;
     	for (var u in userScores) {
     		if (score >= u.score) {
 //    			scoreToReplace = u.score;
+				initials.GetComponent(initialsScript).gameOver = true;
     			initials.SetActive(true);
+    			newTopScoreAudio.Play();
+    			newHighScore = true;
     			break;
     		}
     		
+    	}
+
+    	if (!newHighScore) {
+    		GameObject.Find("gameOverCanvas").GetComponent(GameOverScript).PressStartToPlay();
     	}
 //    	Debug.Log(scoreToReplace);
     }
@@ -73,6 +89,8 @@ public class topScoresScript extends MonoBehaviour
 
     	userScores.Sort();	
     	SetTopScoresText();
+    	successAudio.Play();
+    	GameObject.Find("gameOverCanvas").GetComponent(GameOverScript).PressStartToPlay();
     }
 
     function SetTopScoresText () {
