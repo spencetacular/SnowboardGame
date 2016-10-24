@@ -3,35 +3,83 @@
 import System.Collections.Generic;
 
 public var userScores = new List.<userScoreScript>();
+var topScoresText : UnityEngine.UI.Text;
+public var initials : GameObject;
+var score : int;
 
 public class topScoresScript extends MonoBehaviour
 {
     function Start ()
     {
-        // This is how you create a list.  Notice how the
-        // type is specified in the angle brackets (< >).
+    	topScoresText = GetComponent(UnityEngine.UI.Text);
+//    	topScoresText.text = "TOP SCORES: " + "\n";
         var userScores = new List.<userScoreScript>();
 
-        // Here you add 3 BadGuys to the List
-        userScores.Add (new userScoreScript(999999, "SKC"));
-        userScores.Add (new userScoreScript(1618, "ASS"));
-        userScores.Add (new userScoreScript(314159, "BUT"));
-        userScores.Add (new userScoreScript(33333, "FUK"));
-        userScores.Add (new userScoreScript(874111, "ASS"));
-        userScores.Add (new userScoreScript(111111, "FUK"));
-        userScores.Add (new userScoreScript(123455, "FUK"));
-        userScores.Add (new userScoreScript(44444, "BUT"));
-        userScores.Add (new userScoreScript(44444, "FUK"));
-        userScores.Add (new userScoreScript(44444, "FUK"));
+        score = GameObject.Find("score").GetComponent(scoreScript).score;
 
-        userScores.Sort();
-
-        for (var u in userScores)
-        {
-            print (u.score);
-        }
-
-        // This clears out the list so that it is empty.
-//        userScores.Clear();
+        initials.SetActive(false);
+        GetTopScores();
+        CompareUserScore(score);
+        SetTopScoresText();
     }
+
+    function GetTopScores () {
+
+ 		userScores.Add (new userScoreScript(10, "SKC"));
+        userScores.Add (new userScoreScript(8, "ASS"));
+        userScores.Add (new userScoreScript(9, "BUT"));
+        userScores.Add (new userScoreScript(7, "FUK"));
+        userScores.Add (new userScoreScript(5, "QQQ"));
+        userScores.Add (new userScoreScript(6, "FUK"));
+        userScores.Add (new userScoreScript(4, "FUK"));
+        userScores.Add (new userScoreScript(3, "BUT"));
+        userScores.Add (new userScoreScript(2, "FUK"));
+        userScores.Add (new userScoreScript(1, "FUK"));
+
+        userScores.Sort();	
+    }
+
+    function CompareUserScore (score : int) {
+//    	var userScore = new userScoreScript;
+//    	var scoreToReplace  = 0;
+
+    	for (var u in userScores) {
+    		if (score >= u.score) {
+//    			scoreToReplace = u.score;
+    			initials.SetActive(true);
+    			break;
+    		}
+    		
+    	}
+//    	Debug.Log(scoreToReplace);
+    }
+
+    function AddNewTopScore (ini : String) {
+    	Debug.Log(ini);
+    	///TODO: replace with actual score
+    	initials.SetActive(false);
+    	var newTopUser = new userScoreScript(score, ini);
+		Debug.Log(newTopUser.initials + newTopUser.score);
+
+
+		for (var u in userScores) {
+    		if (newTopUser.score >= u.score) {
+				u.initials = newTopUser.initials;
+				u.score = newTopUser.score;
+    			break;
+    		}
+    		
+    	}
+
+    	userScores.Sort();	
+    	SetTopScoresText();
+    }
+
+    function SetTopScoresText () {
+
+		topScoresText.text = "TOP SCORES: " + "\n";
+    	 for (var u in userScores)
+        	topScoresText.text += u.initials + " " + u.score + "\n";
+    }
+
 }

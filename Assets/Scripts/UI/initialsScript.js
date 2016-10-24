@@ -1,6 +1,6 @@
 ﻿#pragma strict
 
-var initialsText : UnityEngine.UI.Text;
+//var initialsText : UnityEngine.UI.Text;
 var currentLetterText : UnityEngine.UI.Text;
 var alphabet : String[];
 var currentLetter : String;
@@ -16,7 +16,7 @@ function Start () {
  	alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
 // 	playerInitials = new Array();
-	initialsText = GetComponent(UnityEngine.UI.Text);
+//	initialsText = GetComponent(UnityEngine.UI.Text);
 
 	currentLetter = alphabet[index];
 	currentInitial = initials[0];
@@ -32,15 +32,7 @@ function Start () {
 	currentInitial.GetComponent(flashingTextScript).Flashing(true);
 	currentInitial.text = currentLetter;
 
-
-//	currentLetterText = GameObject.Find("currentLetter").GetComponent(UnityEngine.UI.Text);
-//	currentLetterText.text = currentLetter;
-
-//	initial1.text = currentLetter;
-//	initial2.text = "";
-//	initial3.text = "";
-
-
+//	this.enabled = false;
 
 }
 
@@ -72,6 +64,24 @@ function PreviousLetter(){
 	
 }
 
+function NewHighScore (){
+	var ini = CompletedInitials();
+//	Debug.Log(ini);
+	GameObject.Find("topScores").GetComponent(topScoresScript).AddNewTopScore(ini);
+
+
+}
+
+function CompletedInitials() : String {
+	var ini : String;
+	for (i in initials) {
+		ini += i.text;
+//		i.GetComponent(flashingTextScript).Flashing(false);
+	}
+//	Debug.Log(ini);
+	return ini;
+}
+
 function AssignLetter () {
 
 	if (initialIndex < maxInitials) {
@@ -83,29 +93,10 @@ function AssignLetter () {
 		index = 0;
 		currentLetter = alphabet[index];
 		currentInitial.text = currentLetter;
-		
+	} else {
+		NewHighScore ();
 		
 	}
-//	var ini : String;
-
-//	if (
-//	if (playerInitials.length < maxLetters) {
-//		playerInitials.Push(alphabet[index]);
-
-//		for (var i = 0; i < playerInitials.length; i++) {
-//			ini = ini + playerInitials[i];
-//		}
-//		var numSpaces = maxLetters - playerInitials.length;
-//		for(var j = 0; j <numSpaces; j++)
-//			ini += " ";
-
-//		initialsText.text = ini;
-//		index = 0;
-//		currentLetter = alphabet[index];
-//		currentLetterText.text = currentLetter;
-//	}
-
-//	Debug.Log(playerInitials);
 }
 
 function Update () {
