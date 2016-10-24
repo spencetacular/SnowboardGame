@@ -108,6 +108,10 @@ public class playerMovementScript extends MonoBehaviour {
 					transform.Translate(-1 * Time.deltaTime * gameSpeed/2, 0, 0);
 				}
 			}
+
+//			if (gameOver) {
+//				obs.transform.Translate(0, Time.deltaTime * gameSpeed / 5.0 , 0);
+//			}
 		}
 	}
 
@@ -117,7 +121,10 @@ public class playerMovementScript extends MonoBehaviour {
 			var viewPos: Vector3 = cam.WorldToViewportPoint(this.transform.position);
 			PlayerMovement(viewPos);
 			ObstacleMovement(viewPos);
-		}
+		} 
+//		else {
+//			ObstacleMovement(viewPos);
+//		}
 	}
 }
 

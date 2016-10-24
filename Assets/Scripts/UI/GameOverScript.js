@@ -28,8 +28,13 @@ function Start () {
 //	
 //}
 
-function GameOver (score : int) {
+function GameOver () {
 	GetComponent(Canvas).enabled = true;
+	GameObject.Find("gamePlayingCanvas").GetComponent(Canvas).enabled = false;
+	//		GameObject.Find("gameOverCanvas").GetComponent(GameOverScript).GameOver(score);
+		GameObject.Find("player").GetComponent(playerMovementScript).gameOver = true;
+		GetComponent(AudioSource).Play();
+	var score = GameObject.Find("score").GetComponent(scoreScript).score;
 	GameObject.Find("finalScore").GetComponent(UnityEngine.UI.Text).text = "Final Score: " + score;
 //	GameObject.Find("initials").GetComponent(initialsScript).gameOver = true;
 	GameObject.Find("topScores").GetComponent(topScoresScript).GameOver();

@@ -33,6 +33,7 @@ public class obstacleScript extends MonoBehaviour {
 		if (this.tag == "obstacle" && isJumping == false) {
 			other.GetComponent(playerMovementScript).playerStatus = other.GetComponent(playerMovementScript).Status.Wrecked;
 			other.GetComponent(playerSpritesScript).DirectionUpdate();
+			other.GetComponent(playerLivesScript).LoseALife();
 
 			this.GetComponent(CircleCollider2D).enabled = false;
 			other.GetComponent(playerSoundsScript).Wreck();

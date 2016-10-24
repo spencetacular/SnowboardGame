@@ -45,10 +45,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\GameControlsScript.js" />
      <Compile Include="Assets\Scripts\Obstacles\obstacleGeneratorScript.js" />
      <Compile Include="Assets\Scripts\Obstacles\obstacleScript.js" />
      <Compile Include="Assets\Scripts\Obstacles\treeAnimationScript.js" />
+     <Compile Include="Assets\Scripts\Player\playerLivesScript.js" />
      <Compile Include="Assets\Scripts\Player\playerMovementScript.js" />
      <Compile Include="Assets\Scripts\Player\playerShadowScript.js" />
      <Compile Include="Assets\Scripts\Player\playerSoundsScript.js" />
