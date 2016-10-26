@@ -15,13 +15,9 @@ public class topScoresScript extends MonoBehaviour
     function Start ()
     {
     	topScoresText = GetComponent(UnityEngine.UI.Text);
-//    	topScoresText.text = "TOP SCORES: " + "\n";
         var userScores = new List.<userScoreScript>();
-
         score = GameObject.Find("score").GetComponent(scoreScript).score;
-
         initials.SetActive(false);
-       
     }
 
     function GetTopScores () {
@@ -49,12 +45,9 @@ public class topScoresScript extends MonoBehaviour
     }
 
     function CompareUserScore (score : int) {
-//    	var userScore = new userScoreScript;
-//    	var scoreToReplace  = 0;
 		var newHighScore = false;
     	for (var u in userScores) {
     		if (score >= u.score) {
-//    			scoreToReplace = u.score;
 				initials.GetComponent(initialsScript).gameOver = true;
     			initials.SetActive(true);
     			newTopScoreAudio.Play();
@@ -67,7 +60,6 @@ public class topScoresScript extends MonoBehaviour
     	if (!newHighScore) {
     		GameObject.Find("gameOverCanvas").GetComponent(GameOverScript).PressStartToPlay();
     	}
-//    	Debug.Log(scoreToReplace);
     }
 
     function AddNewTopScore (ini : String) {
@@ -75,16 +67,13 @@ public class topScoresScript extends MonoBehaviour
     	///TODO: replace with actual score
     	initials.SetActive(false);
     	var newTopUser = new userScoreScript(score, ini);
-		Debug.Log(newTopUser.initials + newTopUser.score);
-
-
+   
 		for (var u in userScores) {
     		if (newTopUser.score >= u.score) {
 				u.initials = newTopUser.initials;
 				u.score = newTopUser.score;
     			break;
-    		}
-    		
+    		}	
     	}
 
     	userScores.Sort();	
@@ -99,5 +88,4 @@ public class topScoresScript extends MonoBehaviour
     	 for (var u in userScores)
         	topScoresText.text += u.initials + " " + u.score + "\n";
     }
-
 }
