@@ -15,6 +15,7 @@ public class playerMovementScript extends MonoBehaviour {
 	enum Status {Right, Left, Down, DownRight, DownLeft, Jumping, Wrecked}; 
 	public var playerStatus : Status;
 
+
 	function Start () {
 		obstacles = [obstacles1, obstacles2];
 		anim = GetComponent(Animator);
@@ -64,6 +65,7 @@ public class playerMovementScript extends MonoBehaviour {
 
 		if (Input.GetKeyDown ("left")){
 			if ( playerStatus == Status.Left && viewPos.x > playerWidth)
+
 				transform.Translate(-lateralShift, 0, 0);
 			if ( playerStatus == Status.DownLeft && isJumping == false){
 				transform.Translate(0, 0, 0);

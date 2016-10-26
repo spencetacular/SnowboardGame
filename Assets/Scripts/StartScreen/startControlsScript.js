@@ -1,7 +1,7 @@
 ﻿#pragma strict
 
 var playPressed = false;
-var startScreenName : String;
+public var levelToLoad : String;
 
 function Start () {
 	DontDestroyOnLoad(this);
@@ -13,7 +13,7 @@ function Update () {
 	if (Input.GetKeyDown ("space") && playPressed == false) {
 		GetComponent(AudioSource).Play();
 		playPressed = true;
-		Application.LoadLevel("Level01");
+		Application.LoadLevel(levelToLoad);
 
 	}
 

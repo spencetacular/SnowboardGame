@@ -11,10 +11,12 @@ public class playerSpritesScript extends MonoBehaviour {
 	var playerMovement : playerMovementScript;
 	var spriteRenderer : SpriteRenderer;
 	public var playerBaseY : float;
+	var playerSounds : playerSoundsScript;
 
 	function Start () {
 		 playerMovement = GetComponent(playerMovementScript);
 		 spriteRenderer = GetComponent(SpriteRenderer);
+		 playerSounds = GetComponent(playerSoundsScript);
 		 GetComponent(SpriteRenderer).sprite = spriteRight;
 		 playerBaseY = this.transform.position.y + spriteRenderer.bounds.max.y;
 	}
@@ -35,15 +37,19 @@ public class playerSpritesScript extends MonoBehaviour {
 					break;
 				case  playerMovement.Status.Right:
 					spriteRenderer.sprite = spriteRight;
+					playerSounds.Slide();
 					break;
 				case  playerMovement.Status.Left:
 					spriteRenderer.sprite = spriteLeft;
+					playerSounds.Slide();
 					break;
 				case  playerMovement.Status.DownRight:
 					spriteRenderer.sprite = spriteDownRight;
+					playerSounds.Carve();
 					break;
 				case  playerMovement.Status.DownLeft:
 					spriteRenderer.sprite = spriteDownLeft;
+					playerSounds.Carve();
 					break;
 				case  playerMovement.Status.Wrecked:
 					spriteRenderer.sprite = spriteWrecked;
