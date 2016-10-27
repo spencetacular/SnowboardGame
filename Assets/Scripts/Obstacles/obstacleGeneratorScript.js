@@ -23,6 +23,8 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 	public var liftPoleSpacing = 10.0;
 	public var isObstacle1 = true;
 
+	public var obstaclePositions = new List.<obstaclePositionScript>();
+
 
 
 	function Start() {
@@ -43,15 +45,15 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 	
 		transform.position = Vector3(0, spawnPosition, 0);
 
-		var allTransforms = new List.<Transform>();
+
 		
 		for (var i = transform.childCount - 1; i >= 0; i--) {
 			transform.GetChild(i).GetComponent(obstacleScript).ChildDestroy();
 		}
 
 		for( obs in obstacles){
-			var obstacleProps : obstacleScript = obs.GetComponent(obstacleScript);
-			var numObstacles = 	obstacleDesity * obstacleProps.density;
+			var obstacle : obstacleScript = obs.GetComponent(obstacleScript);
+			var numObstacles = 	obstacleDesity * obstacle.density;
 
 			for (var j = 0; j < numObstacles; j++) {
 				var y = Random.Range(transform.position.y +2.0,  transform.position.y + obstacleSpawnHeight );
@@ -61,9 +63,14 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 					x += poleShift;
 				if (x <=0 && x >= poleShift * -1.0)
 					x-= poleShift;
-				var obstacle = Instantiate(obs, new Vector3(x, y, 0), Quaternion.identity);
-				obstacle.transform.parent = this.transform;
-				allTransforms.Add(obstacle.transform);
+				var o = Instantiate(obs, new Vector3(x, y, 0), Quaternion.identity);
+				o.transform.name += j;
+//				Debug.Log(o.transform.name);
+				o.transform.parent = this.transform;
+				var baseY = obstacle.baseY + o.transform.position.y;
+//				Debug.Log(baseY + o.transform.position.y);
+				obstaclePositions.Add (new obstaclePositionScript(baseY, o.transform.name));
+
 			}
 		}
 
@@ -73,14 +80,28 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 			var poleY = (transform.position.y +2.0) + (k * liftPoleSpacing);
 			var rand = Random.Range(0,2);
 			var pole = Instantiate(liftPoles[rand], new Vector3(0, poleY, 0), Quaternion.identity);
+			pole.transform.name += k;
 			pole.transform.parent = this.transform;
-			allTransforms.Add(pole.transform);
+			var poleBaseY = pole.GetComponent(obstacleScript).baseY + poleY;
+//			obstaclePositions.Add (new obstaclePositionScript(poleBaseY, pole.transform.name));
 		}
 
 
-//		allTransforms.OrderBy(position.y);
-	
 
+		SetSortingOrder();
+
+	}
+
+
+	function SetSortingOrder () {
+//		obstaclePositions.Sort();
+
+		for (o in obstaclePositions) {
+			Debug.Log("Y:" + o.yPos + " Name: " + o.name);
+		}
+
+
+		
 	}
 
 
