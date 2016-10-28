@@ -12,12 +12,14 @@ public class playerSpritesScript extends MonoBehaviour {
 	var spriteRenderer : SpriteRenderer;
 	public var playerBaseY : float;
 	var playerSounds : playerSoundsScript;
+	var downArrow : popUpsScript;
 
 	function Start () {
 		 playerMovement = GetComponent(playerMovementScript);
 		 spriteRenderer = GetComponent(SpriteRenderer);
 		 playerSounds = GetComponent(playerSoundsScript);
 		 GetComponent(SpriteRenderer).sprite = spriteRight;
+		 downArrow = GameObject.Find("downArrow").GetComponent(popUpsScript);
 		 playerBaseY = this.transform.position.y + spriteRenderer.bounds.max.y;
 	}
 
@@ -34,6 +36,7 @@ public class playerSpritesScript extends MonoBehaviour {
 			{
 				case  playerMovement.Status.Down:
 					spriteRenderer.sprite = spriteDown;
+					downArrow.PopUpOff();
 					break;
 				case  playerMovement.Status.Right:
 					spriteRenderer.sprite = spriteRight;
@@ -53,6 +56,7 @@ public class playerSpritesScript extends MonoBehaviour {
 					break;
 				case  playerMovement.Status.Wrecked:
 					spriteRenderer.sprite = spriteWrecked;
+					downArrow.PopUp();
 					break;	
 			}
 		}
