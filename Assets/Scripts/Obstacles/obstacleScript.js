@@ -21,7 +21,7 @@ public class obstacleScript extends MonoBehaviour {
 		} else {
 			Debug.Log("Missing Base Position"); 
 		}
-		spriteRenderer.sortingOrder = 2;
+//		spriteRenderer.sortingOrder = 2;
 	}
 
 	function ChildDestroy(){
@@ -51,23 +51,23 @@ public class obstacleScript extends MonoBehaviour {
 		}
 	}
 
-	function playerSpriteSortingOrder() {
-		baseY = this.transform.Find("basePosition").position.y;
-
-		if (baseY >= playerBaseY)
-			spriteRenderer.sortingOrder = 0;
-		else 
-			spriteRenderer.sortingOrder = 2;
-	}
+//	function playerSpriteSortingOrder() {
+//		baseY = this.transform.Find("basePosition").position.y;
+//
+//		if (baseY >= playerBaseY)
+//			spriteRenderer.sortingOrder = 0;
+//		else 
+//			spriteRenderer.sortingOrder = 2;
+//	}
 
 	function Update () {
 		isJumping = playerMovement.isJumping;
-		playerSpriteSortingOrder();
-
-		if (isJumping) 
-			spriteRenderer.sortingOrder = 0;
-		else 
-			playerSpriteSortingOrder();				
+//		playerSpriteSortingOrder();
+//
+//		if (isJumping) 
+//			spriteRenderer.sortingOrder = 0;
+//		else 
+//			playerSpriteSortingOrder();				
 	}
 
 }

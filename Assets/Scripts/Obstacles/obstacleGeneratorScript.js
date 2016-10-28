@@ -24,6 +24,7 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 	public var isObstacle1 = true;
 
 	public var obstaclePositions = new List.<obstaclePositionScript>();
+	public var spawnedObstacles = new List.<GameObject>();
 
 
 
@@ -58,11 +59,6 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 			for (var j = 0; j < numObstacles; j++) {
 				var y = Random.Range(transform.position.y +2.0,  transform.position.y + obstacleSpawnHeight );
 				var x = Random.Range(7.0, -7.0);
-				var poleShift = 1.5;
-				if (x >= 0 && x <= poleShift)
-					x += poleShift;
-				if (x <=0 && x >= poleShift * -1.0)
-					x-= poleShift;
 				var o = Instantiate(obs, new Vector3(x, y, 0), Quaternion.identity);
 				o.transform.name += j;
 //				Debug.Log(o.transform.name);
@@ -70,6 +66,7 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 				var baseY = obstacle.baseY + o.transform.position.y;
 //				Debug.Log(baseY + o.transform.position.y);
 				obstaclePositions.Add (new obstaclePositionScript(baseY, o.transform.name));
+				spawnedObstacles.Add (o);
 
 			}
 		}
@@ -83,7 +80,8 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 			pole.transform.name += k;
 			pole.transform.parent = this.transform;
 			var poleBaseY = pole.GetComponent(obstacleScript).baseY + poleY;
-//			obstaclePositions.Add (new obstaclePositionScript(poleBaseY, pole.transform.name));
+			obstaclePositions.Add (new obstaclePositionScript(poleBaseY, pole.transform.name));
+			spawnedObstacles.Add (pole);
 		}
 
 
@@ -94,10 +92,25 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 
 
 	function SetSortingOrder () {
-//		obstaclePositions.Sort();
 
-		for (o in obstaclePositions) {
-			Debug.Log("Y:" + o.yPos + " Name: " + o.name);
+//		obstaclePositions.Add (new obstaclePositionScript(-55555, "t3"));
+//		obstaclePositions.Add (new obstaclePositionScript(-66555, "t1"));
+//		obstaclePositions.Add (new obstaclePositionScript(-65555, "t2"));
+//		obstaclePositions.Add (new obstaclePositionScript(-85533, "t3"));
+
+		obstaclePositions.Sort();
+
+		var orderInLayer = 0;
+		for ( op in obstaclePositions) {
+//			Debug.Log("Y:" + op.yPos + " Name: " + op.name);
+			orderInLayer++;
+
+			for ( so in spawnedObstacles  ) {
+				if (op.name == so.transform.name)
+//					Debug.Log(so.transform.name);
+					so.GetComponent(SpriteRenderer).sortingOrder = orderInLayer;
+
+			}
 		}
 
 

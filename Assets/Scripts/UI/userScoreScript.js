@@ -14,7 +14,7 @@ public class userScoreScript implements IComparable.<userScoreScript>
         initials = i;
     }
 
-    // This method is required by the IComparable interface.
+
     public function CompareTo (other : userScoreScript)
     {
         if (other == null)
@@ -22,7 +22,6 @@ public class userScoreScript implements IComparable.<userScoreScript>
             return 1;
         }
 
-        // Return the difference in power.
         return other.score - score;
     }
 }

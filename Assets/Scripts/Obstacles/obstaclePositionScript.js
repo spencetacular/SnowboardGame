@@ -14,7 +14,7 @@ public class obstaclePositionScript implements IComparable.<obstaclePositionScri
         name = n;
     }
 
-    // This method is required by the IComparable interface.
+
     public function CompareTo (other : obstaclePositionScript)
     {
         if (other == null)
@@ -22,7 +22,6 @@ public class obstaclePositionScript implements IComparable.<obstaclePositionScri
             return 1;
         }
 
-        // Return the difference in power.
-        return yPos - other.yPos ;
+        return  Mathf.FloorToInt(other.yPos * 1000) -  Mathf.FloorToInt(yPos * 1000) ;
     }
 }
