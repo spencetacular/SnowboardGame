@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\Obstacles\obstacleGeneratorScript.js" />
+     <Compile Include="Assets\Scripts\Obstacles\obstaclePositionScript.js" />
      <Compile Include="Assets\Scripts\Obstacles\obstacleScript.js" />
      <Compile Include="Assets\Scripts\Obstacles\treeAnimationScript.js" />
      <Compile Include="Assets\Scripts\Player\playerLivesScript.js" />
@@ -53,9 +54,10 @@
      <Compile Include="Assets\Scripts\Player\playerShadowScript.js" />
      <Compile Include="Assets\Scripts\Player\playerSoundsScript.js" />
      <Compile Include="Assets\Scripts\Player\playerSpritesScript.js" />
-     <Compile Include="Assets\Scripts\Sounds\music.js" />
+     <Compile Include="Assets\Scripts\Sounds\musicScript.js" />
      <Compile Include="Assets\Scripts\StartScreen\startControlsScript.js" />
      <Compile Include="Assets\Scripts\UI\GameOverScript.js" />
+     <Compile Include="Assets\Scripts\UI\exitGameScript.js" />
      <Compile Include="Assets\Scripts\UI\flashingTextScript.js" />
      <Compile Include="Assets\Scripts\UI\initialsScript.js" />
      <Compile Include="Assets\Scripts\UI\initialsSoundsScript.js" />
