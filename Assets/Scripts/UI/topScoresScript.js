@@ -40,7 +40,7 @@ public class topScoresScript extends MonoBehaviour
     	GetTopScores();
         CompareUserScore(score);
         SetTopScoresText();
-        Debug.Log("GAME OVER");
+//        Debug.Log("GAME OVER");
 
     }
 

@@ -25,15 +25,18 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 
 	public var obstaclePositions = new List.<obstaclePositionScript>();
 	public var spawnedObstacles = new List.<GameObject>();
+	public var obstaclesToSpawn : GameObject;
 
 
 
 	function Start() {
+
 		obstacleSpawnHeight = 15.0;
 		spawnPosition = -20.0;
 		initialOffest = 5.0;
 		obstacles = [obstacle1, obstacle2, obstacle3, obstacle4, obstacle5, obstacle6, obstacle7, jump];
 		liftPoles = [liftPole1, liftPole2, liftPole3];
+		obstaclesToSpawn.SetActive(false);
 		
 		respawn();
 		if (isObstacle1 == true) 
@@ -43,7 +46,9 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 	}
 
 	function respawn () {
-	
+
+		
+		obstaclesToSpawn.SetActive(true);
 		transform.position = Vector3(0, spawnPosition, 0);
 
 
@@ -61,10 +66,8 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 				var x = Random.Range(7.0, -7.0);
 				var o = Instantiate(obs, new Vector3(x, y, 0), Quaternion.identity);
 				o.transform.name += j;
-//				Debug.Log(o.transform.name);
 				o.transform.parent = this.transform;
 				var baseY = obstacle.baseY + o.transform.position.y;
-//				Debug.Log(baseY + o.transform.position.y);
 				obstaclePositions.Add (new obstaclePositionScript(baseY, o.transform.name));
 				spawnedObstacles.Add (o);
 
@@ -84,54 +87,40 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 			spawnedObstacles.Add (pole);
 		}
 
-
-
 		SetSortingOrder();
-
+		obstaclesToSpawn.SetActive(false);
 	}
 
 
 	function SetSortingOrder () {
 
-//		obstaclePositions.Add (new obstaclePositionScript(-55555, "t3"));
-//		obstaclePositions.Add (new obstaclePositionScript(-66555, "t1"));
-//		obstaclePositions.Add (new obstaclePositionScript(-65555, "t2"));
-//		obstaclePositions.Add (new obstaclePositionScript(-85533, "t3"));
-
 		obstaclePositions.Sort();
 
-		var orderInLayer = 0;
-		for ( op in obstaclePositions) {
-//			Debug.Log("Y:" + op.yPos + " Name: " + op.name);
-			orderInLayer++;
-
-			for ( so in spawnedObstacles  ) {
-				if (op.name == so.transform.name)
-//					Debug.Log(so.transform.name);
-					so.GetComponent(SpriteRenderer).sortingOrder = orderInLayer;
-
+		if (spawnedObstacles != null && obstaclePositions != null) {
+			var orderInLayer = 0;
+			for ( op in obstaclePositions) {
+				orderInLayer++;
+				op.orderInLayer = orderInLayer;
+			
+				for ( so in spawnedObstacles  ) {
+					if (op.name == so.transform.name)
+						so.GetComponent(SpriteRenderer).sortingOrder = op.orderInLayer;
+				}
 			}
 		}
-
-
-		
 	}
-
-
-
-
-
-//	function onstacleSpawnOrder() {
-//		for (var i = transform.childCount - 1; i >= 0; i--) {
-//			transform.GetChild(i).GetComponent(obstacle).ChildDestroy();
-//		}
-//	}
-
-
-
 
 	function Update () {
 		if ( transform.position.y > screenHeight) 
 			respawn();
+
+//		for (so in spawnedObstacles) {
+//			if (transform.position.y >= 0) {
+//				GameObject.Find("player").GetComponent(SpriteRenderer).sortingOrder = so.GetComponent(SpriteRenderer).sortingOrder + 1;
+//				spawnedObstacles.Remove(so);
+//				Debug.Log("Worked!");
+//				break;
+//			}
+//		}
 	}
 }
