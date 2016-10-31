@@ -3,8 +3,8 @@
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/playerSpritesScript.js">
     <Files>
       <File FileName="Assets/Scripts/Player/playerSpritesScript.js" Line="39" Column="24" />
-      <File FileName="Assets/Scripts/UI/popUpsScript.js" Line="25" Column="2" />
-      <File FileName="Assets/Scripts/Obstacles/obstacleScript.js" Line="20" Column="68" />
+      <File FileName="Assets/Scripts/UI/popUpsScript.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Obstacles/obstacleScript.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/UI/flashingTextScript.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Obstacles/obstacleGeneratorScript.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Obstacles/obstaclePositionScript.js" Line="1" Column="1" />
