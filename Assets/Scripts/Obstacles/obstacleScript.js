@@ -19,7 +19,7 @@ public class obstacleScript extends MonoBehaviour {
 		score = GameObject.Find("score").GetComponent(scoreScript);
 		popUps = GameObject.Find("sickTrick").GetComponent(popUpsScript);
 		if (this.transform.Find("basePosition")){
-			baseY = this.transform.Find("basePosition").position.y;
+			baseY = (this.transform.Find("basePosition").position.y - this.transform.position.y) / 2.0;
 		} else {
 			Debug.Log("Missing Base Position"); 
 		}
@@ -31,25 +31,25 @@ public class obstacleScript extends MonoBehaviour {
 
 	function OnTriggerExit2D (other : Collider2D) {
 
-		if (this.tag == "obstacle" && isJumping == false) {
-			other.GetComponent(playerMovementScript).playerStatus = other.GetComponent(playerMovementScript).Status.Wrecked;
-			other.GetComponent(playerSpritesScript).DirectionUpdate();
-			other.GetComponent(playerLivesScript).LoseALife();
-
-			this.GetComponent(CircleCollider2D).enabled = false;
-			other.GetComponent(playerSoundsScript).Wreck();
-			if(GetComponent(treeAnimationScript)){
-				GetComponent(treeAnimationScript).Fall();
-				other.GetComponent(playerSoundsScript).TreeFall();
-			} 
-		}
-
-		if (this.tag == "jump" && isJumping == false) {
-			other.GetComponent(playerMovementScript).PlayerJump();
-			other.GetComponent(playerSoundsScript).Jump();
-			score.Jump();
-			popUps.PopUp();
-		}
+//		if (this.tag == "obstacle" && isJumping == false) {
+//			other.GetComponent(playerMovementScript).playerStatus = other.GetComponent(playerMovementScript).Status.Wrecked;
+//			other.GetComponent(playerSpritesScript).DirectionUpdate();
+//			other.GetComponent(playerLivesScript).LoseALife();
+//
+//			this.GetComponent(CircleCollider2D).enabled = false;
+//			other.GetComponent(playerSoundsScript).Wreck();
+//			if(GetComponent(treeAnimationScript)){
+//				GetComponent(treeAnimationScript).Fall();
+//				other.GetComponent(playerSoundsScript).TreeFall();
+//			} 
+//		}
+//
+//		if (this.tag == "jump" && isJumping == false) {
+//			other.GetComponent(playerMovementScript).PlayerJump();
+//			other.GetComponent(playerSoundsScript).Jump();
+//			score.Jump();
+//			popUps.PopUp();
+//		}
 	}
 
 //	function playerSpriteSortingOrder() {
@@ -64,9 +64,14 @@ public class obstacleScript extends MonoBehaviour {
 	function Update () {
 		isJumping = playerMovement.isJumping;
 
-		if (inFrontOfPlayer) {
-			Debug.Log("passed player");
+		if (inFrontOfPlayer ==  true) {
+			Debug.Log("Y: " + transform.position.y);
+			Debug.Log("BaseY: " + baseY);
+			var added =  transform.position.y + baseY;
+			Debug.Log("Added: " + added );
+
 			if (transform.position.y + baseY >= 0) {
+				Debug.Log("passed player");
 				GameObject.Find("player").GetComponent(SpriteRenderer).sortingOrder = GetComponent(SpriteRenderer).sortingOrder + 1;
 				inFrontOfPlayer = false;
 			}

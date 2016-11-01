@@ -75,9 +75,11 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 		}
 
 		var numPoles = obstacleSpawnHeight / liftPoleSpacing;
+//		var numPoles = 1;
 
 		for (var k = 0; k < numPoles; k++) {
 			var poleY = (transform.position.y +2.0) + (k * liftPoleSpacing);
+//			var poleY = 0.0;
 			var rand = Random.Range(0,2);
 			var pole = Instantiate(liftPoles[rand], new Vector3(0, poleY, 0), Quaternion.identity);
 			pole.transform.name += k;
