@@ -7,7 +7,7 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 	var obstacleSpawnHeight: float;
 	var initialOffest : float;
 	var obstacles : GameObject[];
-	public var jump : GameObject;
+//	public var jump : GameObject;
 	var liftPoles : GameObject[];
 	public var liftPoleSpacing = 10.0;
 	public var isObstacle1 = true;
