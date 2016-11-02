@@ -3,7 +3,10 @@ public class playerMovementScript extends MonoBehaviour {
 	public var obstacles1: GameObject;
 	public var obstacles2: GameObject;
 	var obstacles : GameObject[];
-	public var gameSpeed = 1.0;
+	var gameSpeed : float;
+	public var gameStartSpeed = 4.0;
+	public var gameMaxSpeed = 6.0;
+	public var speedUpRate = 0.25;
 	public var lateralShift = 0.5;
 	var playerWidth = 0.015;
 	public var isJumping = false;
@@ -17,6 +20,7 @@ public class playerMovementScript extends MonoBehaviour {
 
 
 	function Start () {
+		gameSpeed = gameStartSpeed;
 		obstacles = [obstacles1, obstacles2];
 		anim = GetComponent(Animator);
 		playerSprites = GetComponent(playerSpritesScript);
@@ -111,22 +115,30 @@ public class playerMovementScript extends MonoBehaviour {
 				}
 			}
 
-//			if (gameOver) {
-//				obs.transform.Translate(0, Time.deltaTime * gameSpeed / 5.0 , 0);
-//			}
 		}
+	}
+
+	function PlayerSpeed () {
+		if (playerStatus !=  Status.Wrecked && playerStatus !=  Status.Right && playerStatus != Status.Left  ) {
+
+			if (gameSpeed < gameMaxSpeed ) {
+				gameSpeed += Time.deltaTime * speedUpRate;
+			}
+		} else {
+			gameSpeed = gameStartSpeed;
+		}
+
+		Debug.Log("GameSpeed: " + gameSpeed);
 	}
 
 	function Update () {
 
 		if (!gameOver) {
+			PlayerSpeed();
 			var viewPos: Vector3 = cam.WorldToViewportPoint(this.transform.position);
 			PlayerMovement(viewPos);
 			ObstacleMovement(viewPos);
 		} 
-//		else {
-//			ObstacleMovement(viewPos);
-//		}
 	}
 }
 

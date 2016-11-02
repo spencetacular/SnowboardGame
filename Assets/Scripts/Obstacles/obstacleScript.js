@@ -11,7 +11,6 @@ public class obstacleScript extends MonoBehaviour {
 	var isJumping : boolean;
 	var inFrontOfPlayer = true;
 
-
 	function Start () {
 		playerMovement = GameObject.Find("player").GetComponent(playerMovementScript);
 		playerBaseY = -0.5;
