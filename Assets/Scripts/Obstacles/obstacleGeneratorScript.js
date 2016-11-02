@@ -15,16 +15,14 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 	public var spawnedObstacles = new List.<GameObject>();
 	public var obstaclesToSpawn : GameObject;
 
-
-
 	function Start() {
 
 		obstacleSpawnHeight = 15.0;
 		spawnPosition = -20.0;
 		initialOffest = 5.0;
 		obstaclesToSpawn.SetActive(false);
-		
 		respawn();
+
 		if (isObstacle1 == true) 
 			transform.position =  Vector3(0, spawnPosition - obstacleSpawnHeight + initialOffest , 0);
 		else
@@ -32,13 +30,9 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 	}
 
 	function respawn () {
-
-		
 		obstaclesToSpawn.SetActive(true);
 		transform.position = Vector3(0, spawnPosition, 0);
 
-
-		
 		for (var i = transform.childCount - 1; i >= 0; i--) {
 			transform.GetChild(i).GetComponent(obstacleScript).ChildDestroy();
 		}

@@ -14,7 +14,6 @@ function Update () {
 		GetComponent(AudioSource).Play();
 		playPressed = true;
 		Application.LoadLevel(levelToLoad);
-
 	}
 
 	if (playPressed == true && GetComponent(AudioSource).isPlaying == false)

@@ -15,16 +15,11 @@ function Start () {
 function LoseALife () {
 	livesLeft--;
 
-
-
-	if (livesLeft > 0) {
+	if (livesLeft > 0) 
 		lives[livesLeft].GetComponent(UnityEngine.UI.Image).enabled = false;
 
-	} else {
+	else 
 		Invoke("GameOver", 0);
-	}
-
-	
 }
 
 function GameOver () {
