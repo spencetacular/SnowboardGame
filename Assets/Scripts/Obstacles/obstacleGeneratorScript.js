@@ -8,21 +8,9 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 	var initialOffest : float;
 	var obstacles : GameObject[];
 	public var jump : GameObject;
-	public var obstacle1 : GameObject;
-	public var obstacle2 : GameObject;
-	public var obstacle3 : GameObject;
-	public var obstacle4 : GameObject;
-	public var obstacle5 : GameObject;
-	public var obstacle6 : GameObject;
-	public var obstacle7 : GameObject;
 	var liftPoles : GameObject[];
-	public var liftPole1 : GameObject;
-	public var liftPole2 : GameObject;
-	public var liftPole3 : GameObject;
-
 	public var liftPoleSpacing = 10.0;
 	public var isObstacle1 = true;
-
 	public var obstaclePositions = new List.<obstaclePositionScript>();
 	public var spawnedObstacles = new List.<GameObject>();
 	public var obstaclesToSpawn : GameObject;
@@ -34,8 +22,6 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 		obstacleSpawnHeight = 15.0;
 		spawnPosition = -20.0;
 		initialOffest = 5.0;
-		obstacles = [obstacle1, obstacle2, obstacle3, obstacle4, obstacle5, obstacle6, obstacle7, jump];
-		liftPoles = [liftPole1, liftPole2, liftPole3];
 		obstaclesToSpawn.SetActive(false);
 		
 		respawn();
@@ -75,11 +61,9 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 		}
 
 		var numPoles = obstacleSpawnHeight / liftPoleSpacing;
-//		var numPoles = 1;
 
 		for (var k = 0; k < numPoles; k++) {
 			var poleY = (transform.position.y +2.0) + (k * liftPoleSpacing);
-//			var poleY = 0.0;
 			var rand = Random.Range(0,2);
 			var pole = Instantiate(liftPoles[rand], new Vector3(0, poleY, 0), Quaternion.identity);
 			pole.transform.name += k;
@@ -116,13 +100,5 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 		if ( transform.position.y > screenHeight) 
 			respawn();
 
-//		for (so in spawnedObstacles) {
-//			if (transform.position.y >= 0) {
-//				GameObject.Find("player").GetComponent(SpriteRenderer).sortingOrder = so.GetComponent(SpriteRenderer).sortingOrder + 1;
-//				spawnedObstacles.Remove(so);
-//				Debug.Log("Worked!");
-//				break;
-//			}
-//		}
 	}
 }
