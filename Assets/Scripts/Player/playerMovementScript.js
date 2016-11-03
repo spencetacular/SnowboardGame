@@ -10,7 +10,8 @@ public class playerMovementScript extends MonoBehaviour {
 	public var lateralShift = 0.5;
 	var playerWidth = 0.015;
 	public var isJumping = false;
-	public var jumpDuration = 3.0;
+	public var jumpDurationMax = 3.0;
+	public var jumpDurationMin = 1.0;
 	public var cam: Camera;
 	var anim : Animator;
 	var gameOver = false;
@@ -32,6 +33,20 @@ public class playerMovementScript extends MonoBehaviour {
 		isJumping = true;
 		anim.SetTrigger("jumpTrigger");
 		playerSprites.JumpUpdate();
+//
+//		var min = 4.0;
+//		var max = 6.0;
+//		var current = 5.5;
+//		var totalDiff = max - min;
+//		var currentDiff = current - min;
+
+
+		var percent = (gameSpeed - gameStartSpeed) / (gameMaxSpeed - gameStartSpeed);
+
+
+		var jumpDuration = Mathf.Lerp(jumpDurationMin,jumpDurationMax, percent );
+		Debug.Log(jumpDuration);
+
 		Invoke("PlayerLand", jumpDuration);
 	}
 
@@ -128,10 +143,26 @@ public class playerMovementScript extends MonoBehaviour {
 			gameSpeed = gameStartSpeed;
 		}
 
-		Debug.Log("GameSpeed: " + gameSpeed);
+//		Debug.Log("GameSpeed: " + gameSpeed);
 	}
 
 	function Update () {
+
+//		var min = 4.0;
+//		var max = 6.0;
+//		var current = 5.5;
+//		var totalDiff = max - min;
+//		var currentDiff = current - min;
+
+
+//		var percent = (current - min) / (max - min);
+
+//		Debug.Log (percent);
+
+//		var t =  
+//
+//		var t = Mathf.Lerp(5.0 ,10.0, 7.0 );
+//		Debug.Log(t);
 
 		if (!gameOver) {
 			PlayerSpeed();
