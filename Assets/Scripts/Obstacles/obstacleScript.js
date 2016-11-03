@@ -30,18 +30,18 @@ public class obstacleScript extends MonoBehaviour {
 
 	function OnTriggerExit2D (other : Collider2D) {
 
-		if (this.tag == "obstacle" && isJumping == false) {
-			other.GetComponent(playerMovementScript).playerStatus = other.GetComponent(playerMovementScript).Status.Wrecked;
-			other.GetComponent(playerSpritesScript).DirectionUpdate();
-			other.GetComponent(playerLivesScript).LoseALife();
-
-			this.GetComponent(CircleCollider2D).enabled = false;
-			other.GetComponent(playerSoundsScript).Wreck();
-			if(GetComponent(treeAnimationScript)){
-				GetComponent(treeAnimationScript).Fall();
-				other.GetComponent(playerSoundsScript).TreeFall();
-			} 
-		}
+//		if (this.tag == "obstacle" && isJumping == false) {
+//			other.GetComponent(playerMovementScript).playerStatus = other.GetComponent(playerMovementScript).Status.Wrecked;
+//			other.GetComponent(playerSpritesScript).DirectionUpdate();
+//			other.GetComponent(playerLivesScript).LoseALife();
+//
+//			this.GetComponent(CircleCollider2D).enabled = false;
+//			other.GetComponent(playerSoundsScript).Wreck();
+//			if(GetComponent(treeAnimationScript)){
+//				GetComponent(treeAnimationScript).Fall();
+//				other.GetComponent(playerSoundsScript).TreeFall();
+//			} 
+//		}
 
 		if (this.tag == "jump" && isJumping == false) {
 			other.GetComponent(playerMovementScript).PlayerJump();
@@ -61,7 +61,7 @@ public class obstacleScript extends MonoBehaviour {
 //			Debug.Log("Added: " + added );
 
 			if (transform.position.y + baseY >= 0) {
-				Debug.Log("passed player");
+//				Debug.Log("passed player");
 				GameObject.Find("player").GetComponent(SpriteRenderer).sortingOrder = GetComponent(SpriteRenderer).sortingOrder + 1;
 				inFrontOfPlayer = false;
 			}

@@ -13,25 +13,41 @@ public class playerMovementScript extends MonoBehaviour {
 	public var jumpDurationMax = 3.0;
 	public var jumpDurationMin = 1.0;
 	public var cam: Camera;
-	var anim : Animator;
+//	var anim : Animator;
 	var gameOver = false;
 	var playerSprites : playerSpritesScript;
+	var playerScale : playerScaleScript;
 	enum Status {Right, Left, Down, DownRight, DownLeft, Jumping, Wrecked}; 
 	public var playerStatus : Status;
+//	private var anim : AnimationCurve;
+//	private var ks : Keyframe[];
 
 
 	function Start () {
+//		ks = new Keyframe[3];
+//		ks[0].time = 0;
+//		ks[0]. value = 0.75;
+//		ks[1].time = 1.0;
+//		ks[1].value = 2.0;
+//		ks[2].time = 3;
+//		ks[2]. value = 0.75;
+//		anim = new AnimationCurve(ks);
+
+
+
+
 		gameSpeed = gameStartSpeed;
 		obstacles = [obstacles1, obstacles2];
-		anim = GetComponent(Animator);
+//		anim = GetComponent(Animator);
 		playerSprites = GetComponent(playerSpritesScript);
+		playerScale = GetComponent(playerScaleScript);
 		playerStatus = Status.Right;
 	}
 
 	function PlayerJump () {
 
 		isJumping = true;
-		anim.SetTrigger("jumpTrigger");
+//		anim.SetTrigger("jumpTrigger");
 		playerSprites.JumpUpdate();
 //
 //		var min = 4.0;
@@ -45,7 +61,9 @@ public class playerMovementScript extends MonoBehaviour {
 
 
 		var jumpDuration = Mathf.Lerp(jumpDurationMin,jumpDurationMax, percent );
-		Debug.Log(jumpDuration);
+
+		playerScale.CreateAniCurve( jumpDuration, percent);
+		Debug.Log("Jump Duration:" + jumpDuration);
 
 		Invoke("PlayerLand", jumpDuration);
 	}
@@ -148,21 +166,14 @@ public class playerMovementScript extends MonoBehaviour {
 
 	function Update () {
 
-//		var min = 4.0;
-//		var max = 6.0;
-//		var current = 5.5;
-//		var totalDiff = max - min;
-//		var currentDiff = current - min;
-
-
-//		var percent = (current - min) / (max - min);
-
-//		Debug.Log (percent);
-
-//		var t =  
-//
-//		var t = Mathf.Lerp(5.0 ,10.0, 7.0 );
-//		Debug.Log(t);
+		if ( isJumping ) {
+			var s = playerScale.anim.Evaluate(Time.time);
+			Debug.Log(s);
+			this.transform.localScale = new Vector3(s,s,s);
+		}
+//		var s = anim.Evaluate(Time.time);
+//		this.transform.localScale = new Vector3(s,s,s);
+//		transform.localScale += new Vector3(0.1F, 0, 0);
 
 		if (!gameOver) {
 			PlayerSpeed();

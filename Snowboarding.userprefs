@@ -1,9 +1,12 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Obstacles/obstacleGeneratorScript.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/playerScaleScript.js">
     <Files>
-      <File FileName="Assets/Scripts/Obstacles/obstacleScript.js" Line="62" Column="36" />
-      <File FileName="Assets/Scripts/Obstacles/obstacleGeneratorScript.js" Line="39" Column="4" />
+      <File FileName="Assets/Scripts/Player/playerMovementScript.js" Line="27" Column="26" />
+      <File FileName="Assets/Scripts/Player/playerScaleScript.js" Line="17" Column="16" />
+      <File FileName="Assets/Scripts/Obstacles/obstacleGeneratorScript.js" Line="40" Column="26" />
+      <File FileName="Assets/Scripts/Obstacles/obstacleScript.js" Line="64" Column="15" />
+      <File FileName="Assets/Scripts/UI/topScoresScript.js" Line="66" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
