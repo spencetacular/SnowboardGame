@@ -59,8 +59,8 @@ public class obstacleScript extends MonoBehaviour {
 			if (transform.position.y + baseY >= 0) {
 				inFrontOfPlayer = false;
 
-				if (!playerMovement.isJumping)
-					GameObject.Find("player").GetComponent(SpriteRenderer).sortingOrder = GetComponent(SpriteRenderer).sortingOrder + 1;
+
+					GameObject.Find("player").GetComponent(playerSpritesScript).sortingOrder = GetComponent(SpriteRenderer).sortingOrder + 1;
 				
 			}
 		}

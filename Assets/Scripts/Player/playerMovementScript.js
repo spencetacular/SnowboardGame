@@ -21,10 +21,8 @@ public class playerMovementScript extends MonoBehaviour {
 	public var playerStatus : Status;
 
 	function Start () {
-
-		gameSpeed = gameStartSpeed;
+		gameSpeed = gameStartSpeed;	
 		obstacles = [obstacles1, obstacles2];
-//		anim = GetComponent(Animator);
 		playerSprites = GetComponent(playerSpritesScript);
 		playerScale = GetComponent(playerScaleScript);
 		playerShadow = GameObject.Find("shadow").GetComponent(playerShadowScript);
@@ -35,7 +33,7 @@ public class playerMovementScript extends MonoBehaviour {
 
 		isJumping = true;
 //		anim.SetTrigger("jumpTrigger");
-		playerSprites.JumpUpdate();
+		playerSprites.Jump();
 
 		var percent = (gameSpeed - gameStartSpeed) / (gameMaxSpeed - gameStartSpeed);
 		var jumpDuration = Mathf.Lerp(jumpDurationMin,jumpDurationMax, percent );
@@ -45,10 +43,13 @@ public class playerMovementScript extends MonoBehaviour {
 //		Debug.Log("Jump Duration:" + jumpDuration);
 
 		Invoke("PlayerLand", jumpDuration);
+
+
 	}
 
 	function PlayerLand () {
 		isJumping = false;
+		playerSprites.Land();
 		playerStatus = Status.Down;
 		playerSprites.DirectionUpdate();	
 	}
