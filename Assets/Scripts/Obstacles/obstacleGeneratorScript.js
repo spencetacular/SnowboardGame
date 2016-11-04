@@ -30,7 +30,6 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 	}
 
 	function respawn () {
-//		obstaclesToSpawn.SetActive(true);
 
 		transform.position = Vector3(0, spawnPosition, 0);
 
@@ -73,7 +72,6 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 		}
 
 		SetSortingOrder();
-//		obstaclesToSpawn.SetActive(false);
 	}
 
 
