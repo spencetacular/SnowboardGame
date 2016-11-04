@@ -24,7 +24,6 @@ function CreateAniCurves( length : float, percent: float) {
 	kp[0].value = 0.0;
 	kp[2].time = Time.time + length;
 	kp[2].value = 0.0;
-
 	kp[1].time = Time.time + length/2;
 	kp[1].value =  Mathf.Lerp(minDisplacement, maxDisplacement, percent );
 	animPosition = new AnimationCurve(kp);

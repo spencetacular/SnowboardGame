@@ -30,12 +30,17 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 	}
 
 	function respawn () {
-		obstaclesToSpawn.SetActive(true);
+//		obstaclesToSpawn.SetActive(true);
+
 		transform.position = Vector3(0, spawnPosition, 0);
 
 		for (var i = transform.childCount - 1; i >= 0; i--) {
 			transform.GetChild(i).GetComponent(obstacleScript).ChildDestroy();
 		}
+
+		spawnedObstacles.Clear();
+		obstaclePositions.Clear();
+
 
 		for( obs in obstacles){
 			var obstacle : obstacleScript = obs.GetComponent(obstacleScript);
@@ -45,7 +50,7 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 				var y = Random.Range(transform.position.y +2.0,  transform.position.y + obstacleSpawnHeight );
 				var x = Random.Range(7.0, -7.0);
 				var o = Instantiate(obs, new Vector3(x, y, 0), Quaternion.identity);
-				o.transform.name += j;
+				o.transform.name += j + Random.Range( 1, 1000);
 				o.transform.parent = this.transform;
 				var baseY = obstacle.baseY + o.transform.position.y;
 				obstaclePositions.Add (new obstaclePositionScript(baseY, o.transform.name));
@@ -60,7 +65,7 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 			var poleY = (transform.position.y +2.0) + (k * liftPoleSpacing);
 			var rand = Random.Range(0,2);
 			var pole = Instantiate(liftPoles[rand], new Vector3(0, poleY, 0), Quaternion.identity);
-			pole.transform.name += k;
+			pole.transform.name += k + Random.Range( 1, 1000);
 			pole.transform.parent = this.transform;
 			var poleBaseY = pole.GetComponent(obstacleScript).baseY + poleY;
 			obstaclePositions.Add (new obstaclePositionScript(poleBaseY, pole.transform.name));
@@ -68,7 +73,7 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 		}
 
 		SetSortingOrder();
-		obstaclesToSpawn.SetActive(false);
+//		obstaclesToSpawn.SetActive(false);
 	}
 
 
@@ -76,18 +81,18 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 
 		obstaclePositions.Sort();
 
-		if (spawnedObstacles != null && obstaclePositions != null) {
-			var orderInLayer = 0;
-			for ( op in obstaclePositions) {
-				orderInLayer++;
-				op.orderInLayer = orderInLayer;
-			
-				for ( so in spawnedObstacles  ) {
-					if (op.name == so.transform.name)
-						so.GetComponent(SpriteRenderer).sortingOrder = op.orderInLayer;
-				}
+
+		var orderInLayer = 0;
+		for ( op in obstaclePositions) {
+			orderInLayer++;
+			op.orderInLayer = orderInLayer;
+		
+			for ( so in spawnedObstacles  ) {
+				if (op.name == so.transform.name)
+					so.GetComponent(SpriteRenderer).sortingOrder = op.orderInLayer;
 			}
 		}
+		
 	}
 
 	function Update () {
