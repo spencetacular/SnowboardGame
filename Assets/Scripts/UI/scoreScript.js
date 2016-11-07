@@ -4,6 +4,7 @@ public class scoreScript extends MonoBehaviour {
 	var playerMovement : playerMovementScript;
 	var textObject : UnityEngine.UI.Text;
 	public var bonus : GameObject;
+	public var sickTrick : GameObject;
 	public var score  = 0;
 	public var jumpMaxBonus = 999;
 	public var jumpMinBonus = 333;
@@ -12,10 +13,12 @@ public class scoreScript extends MonoBehaviour {
 	private var downHillPoints = 0.0;
 
 
+
 	function Start () {
 		textObject = GetComponent(UnityEngine.UI.Text);
 		playerMovement = GameObject.Find("player").GetComponent(playerMovementScript);
 		bonus.GetComponent(flashingTextScript).doesFlash = false;
+
 
 	}
 
@@ -24,8 +27,9 @@ public class scoreScript extends MonoBehaviour {
 		score += bonusAmount;
 		bonus.GetComponent(flashingTextScript).textObject.text = "+" + bonusAmount;
 		bonus.GetComponent(flashingTextScript).doesFlash = true;
-
 		Invoke("hideBonus", bonusFlashTime);
+
+		sickTrick.GetComponent(Animator).SetTrigger("trick");
 			
 	}
 

@@ -4,7 +4,7 @@ public class obstacleScript extends MonoBehaviour {
 	public var density = 1.0;
 	var playerMovement : playerMovementScript;
 	var score : scoreScript;
-	var popUps : popUpsScript;
+//	var popUps : popUpsScript;
 	var spriteRenderer : SpriteRenderer;
 	var baseY : float;
 	var playerBaseY : float;
@@ -16,7 +16,7 @@ public class obstacleScript extends MonoBehaviour {
 		playerBaseY = -0.5;
 		spriteRenderer = GetComponent(SpriteRenderer);
 		score = GameObject.Find("score").GetComponent(scoreScript);
-		popUps = GameObject.Find("sickTrick").GetComponent(popUpsScript);
+//		popUps = GameObject.Find("sickTrick").GetComponent(popUpsScript);
 		if (this.transform.Find("basePosition")){
 			baseY = (this.transform.Find("basePosition").position.y - this.transform.position.y) / 2.0;
 		} else {
@@ -47,7 +47,7 @@ public class obstacleScript extends MonoBehaviour {
 			other.GetComponent(playerMovementScript).PlayerJump();
 			other.GetComponent(playerSoundsScript).Jump();
 //			score.Jump();
-			popUps.PopUp();
+//			popUps.PopUp();
 		}
 	}
 
