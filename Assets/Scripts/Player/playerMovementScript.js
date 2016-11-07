@@ -17,6 +17,7 @@ public class playerMovementScript extends MonoBehaviour {
 	var playerSprites : playerSpritesScript;
 	var playerScale : playerScaleScript;
 	var playerShadow: playerShadowScript;
+	var score : scoreScript;
 	enum Status {Right, Left, Down, DownRight, DownLeft, Jumping, Wrecked}; 
 	public var playerStatus : Status;
 
@@ -26,6 +27,7 @@ public class playerMovementScript extends MonoBehaviour {
 		playerSprites = GetComponent(playerSpritesScript);
 		playerScale = GetComponent(playerScaleScript);
 		playerShadow = GameObject.Find("shadow").GetComponent(playerShadowScript);
+		score = GameObject.Find("score").GetComponent(scoreScript);
 		playerStatus = Status.Right;
 	}
 
@@ -40,6 +42,7 @@ public class playerMovementScript extends MonoBehaviour {
 
 		playerScale.CreateAniCurve( jumpDuration, percent);
 		playerShadow.CreateAniCurves( jumpDuration, percent);
+		score.Jump(percent);
 //		Debug.Log("Jump Duration:" + jumpDuration);
 
 		Invoke("PlayerLand", jumpDuration);

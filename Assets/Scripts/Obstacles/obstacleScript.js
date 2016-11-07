@@ -46,7 +46,7 @@ public class obstacleScript extends MonoBehaviour {
 		if (this.tag == "jump" && isJumping == false) {
 			other.GetComponent(playerMovementScript).PlayerJump();
 			other.GetComponent(playerSoundsScript).Jump();
-			score.Jump();
+//			score.Jump();
 			popUps.PopUp();
 		}
 	}
