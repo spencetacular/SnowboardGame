@@ -8,7 +8,7 @@ public class scoreScript extends MonoBehaviour {
 	public var score  = 0;
 	public var jumpMaxBonus = 999;
 	public var jumpMinBonus = 333;
-	public var bonusFlashTime = 5.0;
+	public var bonusFlashTime = 3.0;
 	public var downHillBonus = 33;
 	private var downHillPoints = 0.0;
 
@@ -17,24 +17,22 @@ public class scoreScript extends MonoBehaviour {
 	function Start () {
 		textObject = GetComponent(UnityEngine.UI.Text);
 		playerMovement = GameObject.Find("player").GetComponent(playerMovementScript);
-		bonus.GetComponent(flashingTextScript).doesFlash = false;
-
-
 	}
 
 	function Jump( percent : float ) {
 		var bonusAmount = Mathf.Floor( Mathf.Lerp( jumpMinBonus, jumpMaxBonus, percent));
 		score += bonusAmount;
 		bonus.GetComponent(flashingTextScript).textObject.text = "+" + bonusAmount;
-		bonus.GetComponent(flashingTextScript).doesFlash = true;
-		Invoke("hideBonus", bonusFlashTime);
+		bonus.GetComponent(flashingTextScript).Flashing(true);
 
-		sickTrick.GetComponent(Animator).SetTrigger("trick");
+
+		if ( percent >= 0.333 )
+			sickTrick.GetComponent(Animator).SetTrigger("trick");
 			
 	}
 
 	function hideBonus() {
-		bonus.GetComponent(flashingTextScript).doesFlash = false;
+		bonus.GetComponent(flashingTextScript).Hide();
 	}
 
 	function Update () {

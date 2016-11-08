@@ -2,7 +2,7 @@
 
 public var textObject : UnityEngine.UI.Text;
 public var secondsBetweenFlash  = 1.0;
-var doesFlash = true;
+private var doesFlash = true;
 public var startDelay = 0.0;
 
 function Start () {
@@ -25,6 +25,11 @@ function Flashing (on : boolean ) {
 		textObject.enabled = true;
 		doesFlash = false;
 	}
+}
+
+function Hide () {
+	textObject.enabled = false;
+	doesFlash = false;
 }
 
 function Flash () {
