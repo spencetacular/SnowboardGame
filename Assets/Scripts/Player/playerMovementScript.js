@@ -20,6 +20,7 @@ public class playerMovementScript extends MonoBehaviour {
 	var score : scoreScript;
 	enum Status {Right, Left, Down, DownRight, DownLeft, Jumping, Wrecked}; 
 	public var playerStatus : Status;
+	public var speedPercent : float;
 
 	function Start () {
 		gameSpeed = gameStartSpeed;	
@@ -37,12 +38,12 @@ public class playerMovementScript extends MonoBehaviour {
 //		anim.SetTrigger("jumpTrigger");
 		playerSprites.Jump();
 
-		var percent = (gameSpeed - gameStartSpeed) / (gameMaxSpeed - gameStartSpeed);
-		var jumpDuration = Mathf.Lerp(jumpDurationMin,jumpDurationMax, percent );
+//		var percent = (gameSpeed - gameStartSpeed) / (gameMaxSpeed - gameStartSpeed);
+		var jumpDuration = Mathf.Lerp(jumpDurationMin,jumpDurationMax, speedPercent );
 
-		playerScale.CreateAniCurve( jumpDuration, percent);
-		playerShadow.CreateAniCurves( jumpDuration, percent);
-		score.Jump(percent);
+		playerScale.CreateAniCurve( jumpDuration, speedPercent);
+		playerShadow.CreateAniCurves( jumpDuration, speedPercent);
+		score.Jump(speedPercent);
 //		Debug.Log("Jump Duration:" + jumpDuration);
 
 		Invoke("PlayerLand", jumpDuration);
@@ -143,6 +144,8 @@ public class playerMovementScript extends MonoBehaviour {
 		} else {
 			gameSpeed = gameStartSpeed;
 		}
+
+		speedPercent = (gameSpeed - gameStartSpeed) / (gameMaxSpeed - gameStartSpeed);
 
 //		Debug.Log("GameSpeed: " + gameSpeed);
 	}
