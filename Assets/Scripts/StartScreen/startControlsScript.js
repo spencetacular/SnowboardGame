@@ -10,7 +10,7 @@ function Start () {
 
 function Update () {
 
-	if (Input.GetKeyDown ("space") && playPressed == false) {
+	if (Input.GetKeyDown ("space" || "Submit") && playPressed == false) {
 		GetComponent(AudioSource).Play();
 		playPressed = true;
 		Application.LoadLevel(levelToLoad);

@@ -93,7 +93,7 @@ function Update () {
 		if (Input.GetKeyDown ("left"))
 			PreviousLetter();
 
-		if (Input.GetKeyDown ("space"))
+		if (Input.GetKeyDown ("space" || "Submit"))
 			AssignLetter();
 
 	}

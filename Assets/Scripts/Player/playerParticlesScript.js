@@ -40,7 +40,7 @@ function Slide (dir : String ) {
 //	var s = Instantiate(slideObject, new Vector3(transform.position.x, slideInitialY, 0.0), Quaternion.identity);
 //	s.transform.eulerAngles = new Vector3 (0.0, rotation, 0.0);
 ////	slideObject.transform.position = new Vector3(transform.position.x, slideInitialY, 0.0);
-//	downhillPart.Stop();
+	downhillPart.Stop();
 //	s.GetComponent(ParticleSystem).Play();
 //	slides.Add(s);
 
