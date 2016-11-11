@@ -2,14 +2,12 @@
 public class obstacleScript extends MonoBehaviour {
 
 	public var density = 1.0;
-//	var playerMovement : playerMovementScript;
 	var baseY : float;
-//	var playerBaseY : float;
 	private var inFrontOfPlayer = true;
+	private var playerSprites : playerSpritesScript;
 
 	function Start () {
-//		playerMovement = GameObject.Find("player").GetComponent(playerMovementScript);
-//		playerBaseY = -0.5;
+		playerSprites = GameObject.Find("player").GetComponent(playerSpritesScript);
 
 		if (this.transform.Find("basePosition"))
 			baseY = (this.transform.Find("basePosition").position.y - this.transform.position.y) / 2.0;
@@ -49,8 +47,7 @@ public class obstacleScript extends MonoBehaviour {
 
 			if (transform.position.y + baseY >= 0) {
 				inFrontOfPlayer = false;
-				GameObject.Find("player").GetComponent(playerSpritesScript).sortingOrder = GetComponent(SpriteRenderer).sortingOrder + 1;
-				
+				playerSprites.sortingOrder = GetComponent(SpriteRenderer).sortingOrder + 1;	
 			}
 		}
 	}

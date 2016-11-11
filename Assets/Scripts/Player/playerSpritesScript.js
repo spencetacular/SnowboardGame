@@ -10,11 +10,9 @@ public class playerSpritesScript extends MonoBehaviour {
 	var playerMovement : playerMovementScript;
 	var playerParticles : playerParticlesScript;
 	var spriteRenderer : SpriteRenderer;
-	public var playerBaseY : float;
 	var playerSounds : playerSoundsScript;
 	var downArrow : popUpsScript;
 	public var sortingOrder = 1;
-	public var jumping = false;
 
 	function Start () {
 		 playerMovement = GetComponent(playerMovementScript);
@@ -23,7 +21,6 @@ public class playerSpritesScript extends MonoBehaviour {
 		 playerParticles = GetComponent(playerParticlesScript);
 		 GetComponent(SpriteRenderer).sprite = spriteRight;
 		 downArrow = GameObject.Find("downArrow").GetComponent(popUpsScript);
-		 playerBaseY = this.transform.position.y + spriteRenderer.bounds.max.y;
 		 spriteRenderer.sortingOrder = sortingOrder;
 	}
 
@@ -31,12 +28,10 @@ public class playerSpritesScript extends MonoBehaviour {
 
 	function Jump () {
 		spriteRenderer.sprite = spriteJump;
-		jumping = true;
 		playerParticles.downhillPart.Stop();
 	}
 
 	function Land () {
-		jumping = false;
 		playerParticles.downhillPart.Play();
 	}
 
@@ -84,7 +79,7 @@ public class playerSpritesScript extends MonoBehaviour {
 
 	function Update () {
 
-		if (!jumping)
+		if (!playerMovement.isJumping)
 			spriteRenderer.sortingOrder = sortingOrder;
 		else 
 			spriteRenderer.sortingOrder  = 101;

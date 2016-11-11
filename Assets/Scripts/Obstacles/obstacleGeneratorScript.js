@@ -7,7 +7,6 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 	var obstacleSpawnHeight: float;
 	var initialOffest : float;
 	var obstacles : GameObject[];
-//	public var jump : GameObject;
 	var liftPoles : GameObject[];
 	public var liftPoleSpacing = 10.0;
 	public var isObstacle1 = true;
@@ -16,10 +15,6 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 	public var obstaclesToSpawn : GameObject;
 
 	function Start() {
-
-		obstacleSpawnHeight = 15.0;
-		spawnPosition = -20.0;
-		initialOffest = 5.0;
 		obstaclesToSpawn.SetActive(false);
 		respawn();
 
