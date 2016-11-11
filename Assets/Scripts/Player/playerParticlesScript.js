@@ -39,7 +39,6 @@ function Slide (dir : String ) {
 
 	var p = Instantiate(slideObject, new Vector3(transform.position.x, slideInitialY, 0.0), Quaternion.identity);
 	p.transform.eulerAngles = new Vector3 (0.0, rotation, 0.0);
-//	slideObject.transform.position = new Vector3(transform.position.x, slideInitialY, 0.0);
 	downhillPart.Stop();
 	p.GetComponent(ParticleSystem).Play();
 	partEmmiters.Add(p);
