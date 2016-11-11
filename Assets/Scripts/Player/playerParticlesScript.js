@@ -55,32 +55,17 @@ function Wreck () {
 
 }
 
-function particlesMovement(viewPos : Vector3) {
+function particlesMovement() {
 
 	for (p in partEmmiters) {
 
-//		if ( playerMovement.playerStatus == playerMovement.Status.Down 
-//			||  playerMovement.playerStatus == playerMovement.Status.Jumping )
-//			p.transform.Translate(0, Time.deltaTime * playerMovement.gameSpeed, 0);
-//
-//		if (playerMovement.playerStatus == playerMovement.Status.Wrecked) {
-//				p.transform.Translate(0, 0, 0);
-//		}
-//		if (playerMovement.playerStatus == playerMovement.Status.DownRight) {
-//
-//			p.transform.Translate(0, Time.deltaTime * playerMovement.gameSpeed, 0);
-//			if (viewPos.x < 1 - playerMovement.playerWidth) {
-//				transform.Translate(Time.deltaTime * playerMovement.gameSpeed/2, 0, 0);			
-//			}
-//		}
-//
-//		if ( playerMovement.playerStatus == playerMovement.Status.DownLeft ) {
-//			p.transform.Translate(0, Time.deltaTime * playerMovement.gameSpeed, 0);
-//			if (viewPos.x > playerMovement.playerWidth) {
-//				transform.Translate(-1 * Time.deltaTime * playerMovement.gameSpeed/2, 0, 0);
-//			}
-//		}
-//
+		if (playerMovement.downhill)
+			p.transform.Translate(0, Time.deltaTime * playerMovement.gameSpeed, 0);
+
+
+		else
+			p.transform.Translate(0, 0, 0);	
+			
 	}
 }
 
@@ -94,7 +79,7 @@ function Update () {
 //	downhillPart.emissionRate = Mathf.Lerp( downhillMax, dwnhillMin, playerMovement.speedPercent );
 
 	downhillPart.startSpeed = playerMovement.gameSpeed;
-	particlesMovement(playerMovement.viewPos);
+	particlesMovement();
 
 //	slideObject.transform.Translate(0.0, Time.deltaTime * 1.0, 0.0, Space.World);
 //	Debug.Log( Time.deltaTime * 10.0);

@@ -22,6 +22,7 @@ public class playerMovementScript extends MonoBehaviour {
 	public var playerStatus : Status;
 	public var speedPercent : float;
 	var viewPos: Vector3;
+	var downhill  = false;
 
 	function Start () {
 		gameSpeed = gameStartSpeed;	
@@ -106,6 +107,7 @@ public class playerMovementScript extends MonoBehaviour {
 	}
 
 	function PlayerMovement( viewPos: Vector3) {
+
 		//case switch?
 		if (playerStatus == Status.DownRight) {
 
@@ -125,66 +127,64 @@ public class playerMovementScript extends MonoBehaviour {
 	}
 
 	function ObstacleMovement(viewPos : Vector3) {
-		Debug.Log("viewPos: " + viewPos);
+//		Debug.Log("viewPos: " + viewPos);
+
+		
+		
 		for (obs in obstacles){
 
-			if ( playerStatus == Status.Down || playerStatus == Status.Down) 
+			if ( downhill ) 
 				obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
+			else
+				obs.transform.Translate(0, 0, 0);	
 
-			if (playerStatus == Status.Wrecked) {
-					obs.transform.Translate(0, 0, 0);
-			}
 
-			if (playerStatus == Status.DownRight) {
 
-				obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
-//				if (viewPos.x < 1 - playerWidth) {
-//					transform.Translate(Time.deltaTime * gameSpeed/2, 0, 0);			
-//				}
-			}
-
-			if ( playerStatus == Status.DownLeft ) {
-				obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
-//				if (viewPos.x > playerWidth) {
-//					transform.Translate(-1 * Time.deltaTime * gameSpeed/2, 0, 0);
-//				}
-			}
 
 		}
 	}
 
 	function PlayerSpeed () {
-		if (playerStatus !=  Status.Wrecked && playerStatus !=  Status.Right && playerStatus != Status.Left  ) {
+		
 
-			if (gameSpeed < gameMaxSpeed ) {
-				gameSpeed += Time.deltaTime * speedUpRate;
+			if (downhill ) { 
+				if	(gameSpeed < gameMaxSpeed)
+					gameSpeed += Time.deltaTime * speedUpRate;
 			}
-		} else {
-			gameSpeed = gameStartSpeed;
-		}
+			else {
+				gameSpeed = gameStartSpeed;
+			}
 
-		speedPercent = (gameSpeed - gameStartSpeed) / (gameMaxSpeed - gameStartSpeed);
+			speedPercent = (gameSpeed - gameStartSpeed) / (gameMaxSpeed - gameStartSpeed);
+		
 
 //		Debug.Log("GameSpeed: " + gameSpeed);
 	}
 
 	function Update () {
 
-		if ( isJumping ) {
-			var s = playerScale.anim.Evaluate(Time.time);
-//			Debug.Log(s);
-			this.transform.localScale = new Vector3(s,s,s);
-		}
+		
 //		var s = anim.Evaluate(Time.time);
 //		this.transform.localScale = new Vector3(s,s,s);
 //		transform.localScale += new Vector3(0.1F, 0, 0);
-
+		Debug.Log("downhill: " + downhill);
 		if (!gameOver) {
+
+			if ( playerStatus == Status.Wrecked || playerStatus == Status.Left || playerStatus == Status.Right) 
+				downhill = false;
+			else 
+				downhill = true;
+
 			PlayerSpeed();
 			viewPos = cam.WorldToViewportPoint(this.transform.position);
 			PlayerInput(viewPos);
 			PlayerMovement(viewPos);
 			ObstacleMovement(viewPos);
+
+			if ( isJumping ) {
+				var s = playerScale.anim.Evaluate(Time.time);
+				this.transform.localScale = new Vector3(s,s,s);
+			}
 		} 
 	}
 }
