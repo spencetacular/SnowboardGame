@@ -8,7 +8,7 @@ public class playerMovementScript extends MonoBehaviour {
 	public var gameMaxSpeed = 6.0;
 	public var speedUpRate = 0.25;
 	public var lateralShift = 0.5;
-	var playerWidth = 0.015;
+	private var playerWidth = 0.015;
 	public var isJumping = false;
 	public var jumpDurationMax = 3.0;
 	public var jumpDurationMin = 1.0;
@@ -36,10 +36,10 @@ public class playerMovementScript extends MonoBehaviour {
 	function PlayerJump () {
 
 		isJumping = true;
-//		anim.SetTrigger("jumpTrigger");
+
+		GetComponent(BoxCollider2D).enabled = false;
 		playerSprites.Jump();
 
-//		var percent = (gameSpeed - gameStartSpeed) / (gameMaxSpeed - gameStartSpeed);
 		var jumpDuration = Mathf.Lerp(jumpDurationMin,jumpDurationMax, speedPercent );
 
 		playerScale.CreateAniCurve( jumpDuration, speedPercent);
@@ -54,6 +54,7 @@ public class playerMovementScript extends MonoBehaviour {
 
 	function PlayerLand () {
 		isJumping = false;
+		GetComponent(BoxCollider2D).enabled = true;
 		playerSprites.Land();
 		playerStatus = Status.Down;
 		playerSprites.DirectionUpdate();	

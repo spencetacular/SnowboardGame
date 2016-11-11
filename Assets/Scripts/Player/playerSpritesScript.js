@@ -88,8 +88,6 @@ public class playerSpritesScript extends MonoBehaviour {
 			spriteRenderer.sortingOrder = sortingOrder;
 		else 
 			spriteRenderer.sortingOrder  = 101;
-
-
 	}
 
 }
