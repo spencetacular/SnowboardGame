@@ -45,12 +45,14 @@ public class playerSpritesScript extends MonoBehaviour {
 		
 		if ( !playerMovement.isJumping ) {
 
+			if (playerMovement.downhill)
+				playerParticles.downhillPart.Play();
+
 			switch (playerMovement.playerStatus)  
 			{
 				case  playerMovement.Status.Down:
 					spriteRenderer.sprite = spriteDown;
 					downArrow.PopUpOff();
-					playerParticles.downhillPart.Play();
 					break;
 				case  playerMovement.Status.Right:
 					spriteRenderer.sprite = spriteRight;
@@ -65,12 +67,10 @@ public class playerSpritesScript extends MonoBehaviour {
 				case  playerMovement.Status.DownRight:
 					spriteRenderer.sprite = spriteDownRight;
 					playerSounds.Carve();
-					playerParticles.downhillPart.Play();
 					break;
 				case  playerMovement.Status.DownLeft:
 					spriteRenderer.sprite = spriteDownLeft;
 					playerSounds.Carve();
-					playerParticles.downhillPart.Play();
 					break;
 				case  playerMovement.Status.Wrecked:
 					spriteRenderer.sprite = spriteWrecked;

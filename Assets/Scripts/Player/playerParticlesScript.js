@@ -49,9 +49,10 @@ function Slide (dir : String ) {
 
 function Wreck () {
 
-	
+	var p = Instantiate(wreckObject, new Vector3(transform.position.x, slideInitialY, 0.0), Quaternion.identity);
 	downhillPart.Stop();
-//	wreckPart.Play();
+	p.GetComponent(ParticleSystem).Play();
+	partEmmiters.Add(p);
 
 }
 
