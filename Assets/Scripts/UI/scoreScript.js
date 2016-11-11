@@ -25,6 +25,8 @@ public class scoreScript extends MonoBehaviour {
 		bonus.GetComponent(flashingTextScript).textObject.text = "+" + bonusAmount;
 		bonus.GetComponent(flashingTextScript).Flashing(true);
 
+		Invoke ("hideBonus", bonusFlashTime);
+
 
 		if ( percent >= 0.333 )
 			sickTrick.GetComponent(Animator).SetTrigger("trick");

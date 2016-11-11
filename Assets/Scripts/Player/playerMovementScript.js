@@ -21,6 +21,7 @@ public class playerMovementScript extends MonoBehaviour {
 	enum Status {Right, Left, Down, DownRight, DownLeft, Jumping, Wrecked}; 
 	public var playerStatus : Status;
 	public var speedPercent : float;
+	var viewPos: Vector3;
 
 	function Start () {
 		gameSpeed = gameStartSpeed;	
@@ -108,15 +109,15 @@ public class playerMovementScript extends MonoBehaviour {
 
 		for (obs in obstacles){
 
-			if ( playerStatus == Status.Down ) 
+			if ( playerStatus == Status.Down || playerStatus == Status.Down) 
 				obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
 
 			if (playerStatus == Status.Wrecked) {
 					obs.transform.Translate(0, 0, 0);
 			}
-			if (playerStatus == Status.Jumping) {
-					obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
-			}
+//			if (playerStatus == Status.Jumping) {
+//					obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
+//			}
 			if (playerStatus == Status.DownRight) {
 
 				obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
@@ -163,7 +164,7 @@ public class playerMovementScript extends MonoBehaviour {
 
 		if (!gameOver) {
 			PlayerSpeed();
-			var viewPos: Vector3 = cam.WorldToViewportPoint(this.transform.position);
+			viewPos = cam.WorldToViewportPoint(this.transform.position);
 			PlayerMovement(viewPos);
 			ObstacleMovement(viewPos);
 		} 
