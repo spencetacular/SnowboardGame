@@ -59,7 +59,7 @@ public class playerMovementScript extends MonoBehaviour {
 		playerSprites.DirectionUpdate();	
 	}
 
-	function PlayerMovement(viewPos : Vector3) {
+	function PlayerInput(viewPos : Vector3) {
 
 		if (Input.GetKeyDown ( "down" )) {
 			playerStatus = Status.Down;
@@ -105,8 +105,27 @@ public class playerMovementScript extends MonoBehaviour {
 		}
 	}
 
-	function ObstacleMovement(viewPos : Vector3) {
+	function PlayerMovement( viewPos: Vector3) {
+		//case switch?
+		if (playerStatus == Status.DownRight) {
 
+//				obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
+				if (viewPos.x < 1 - playerWidth) {
+					transform.Translate(Time.deltaTime * gameSpeed/2, 0, 0);			
+				}
+			}
+		if ( playerStatus == Status.DownLeft ) {
+//				obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
+				if (viewPos.x > playerWidth) {
+					transform.Translate(-1 * Time.deltaTime * gameSpeed/2, 0, 0);
+				}
+		}
+
+
+	}
+
+	function ObstacleMovement(viewPos : Vector3) {
+		Debug.Log("viewPos: " + viewPos);
 		for (obs in obstacles){
 
 			if ( playerStatus == Status.Down || playerStatus == Status.Down) 
@@ -115,22 +134,20 @@ public class playerMovementScript extends MonoBehaviour {
 			if (playerStatus == Status.Wrecked) {
 					obs.transform.Translate(0, 0, 0);
 			}
-//			if (playerStatus == Status.Jumping) {
-//					obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
-//			}
+
 			if (playerStatus == Status.DownRight) {
 
 				obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
-				if (viewPos.x < 1 - playerWidth) {
-					transform.Translate(Time.deltaTime * gameSpeed/2, 0, 0);			
-				}
+//				if (viewPos.x < 1 - playerWidth) {
+//					transform.Translate(Time.deltaTime * gameSpeed/2, 0, 0);			
+//				}
 			}
 
 			if ( playerStatus == Status.DownLeft ) {
 				obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
-				if (viewPos.x > playerWidth) {
-					transform.Translate(-1 * Time.deltaTime * gameSpeed/2, 0, 0);
-				}
+//				if (viewPos.x > playerWidth) {
+//					transform.Translate(-1 * Time.deltaTime * gameSpeed/2, 0, 0);
+//				}
 			}
 
 		}
@@ -165,6 +182,7 @@ public class playerMovementScript extends MonoBehaviour {
 		if (!gameOver) {
 			PlayerSpeed();
 			viewPos = cam.WorldToViewportPoint(this.transform.position);
+			PlayerInput(viewPos);
 			PlayerMovement(viewPos);
 			ObstacleMovement(viewPos);
 		} 
