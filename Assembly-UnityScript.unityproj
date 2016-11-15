@@ -45,6 +45,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\Enviroment\liftChairsScript.js" />
      <Compile Include="Assets\Scripts\Obstacles\obstacleGeneratorScript.js" />
      <Compile Include="Assets\Scripts\Obstacles\obstaclePositionScript.js" />
      <Compile Include="Assets\Scripts\Obstacles\obstacleScript.js" />

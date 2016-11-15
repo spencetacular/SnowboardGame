@@ -33,7 +33,5 @@ function Slide() {
 function Update () {
 	
 	if (carveAuido.time >= 0.7)
-		carveAuido.Stop();
-
-	 
+		carveAuido.Stop();	 
 }
