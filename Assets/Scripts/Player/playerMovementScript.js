@@ -9,7 +9,7 @@ public class playerMovementScript extends MonoBehaviour {
 	public var speedUpRate = 0.25;
 	public var lateralShift = 0.5;
 	private var playerWidth = 0.015;
-	public var isJumping = false;
+	public var isJumping : boolean;
 	public var jumpDurationMax = 3.0;
 	public var jumpDurationMin = 1.0;
 	public var cam: Camera;
@@ -21,7 +21,7 @@ public class playerMovementScript extends MonoBehaviour {
 	enum Status {Right, Left, Down, DownRight, DownLeft, Jumping, Wrecked}; 
 	public var playerStatus : Status;
 	public var speedPercent : float;
-	var downhill  = false;
+	public var downhill  : boolean;
 
 	function Start () {
 		gameSpeed = gameStartSpeed;	
@@ -30,7 +30,10 @@ public class playerMovementScript extends MonoBehaviour {
 		playerScale = GetComponent(playerScaleScript);
 		playerShadow = GameObject.Find("shadow").GetComponent(playerShadowScript);
 		score = GameObject.Find("score").GetComponent(scoreScript);
+		isJumping = false;
+		downhill = false;
 		playerStatus = Status.Right;
+
 	}
 
 	function PlayerJump () {
@@ -145,13 +148,18 @@ public class playerMovementScript extends MonoBehaviour {
 	}
 
 	function Update () {
-
+//		Debug.Log(downhill);
 		if (!gameOver) {
 
-			if ( playerStatus == Status.Wrecked || playerStatus == Status.Left || playerStatus == Status.Right) 
+			if ( playerStatus == Status.Wrecked || playerStatus == Status.Left || playerStatus == Status.Right) {
 				downhill = false;
-			else 
+			}
+			else {
+
 				downhill = true;
+//				Debug.Log("ELSE CALLED");
+//				Debug.Log("downhill: " + downhill);
+			}
 
 			PlayerSpeed();
 			var viewPos = cam.WorldToViewportPoint(this.transform.position);

@@ -28,26 +28,28 @@ public class playerSpritesScript extends MonoBehaviour {
 
 	function Jump () {
 		spriteRenderer.sprite = spriteJump;
-		playerParticles.downhillPart.Stop();
+		playerParticles.PlayDownHill(false);
 	}
 
 	function Land () {
-		playerParticles.downhillPart.Play();
+		playerParticles.PlayDownHill(true);
 	}
 
 	function DirectionUpdate () {
 
+//		Debug.Log("Direction Update Called");
+//		Debug.Log ("isJumping: " + playerMovement.isJumping);
+//		Debug.Log ("Sprite downhill:" + playerMovement.downhill);
+//		Debug.Log ("status:" + playerMovement.playerStatus);
 		
 		if ( !playerMovement.isJumping ) {
-
-			if (playerMovement.downhill)
-				playerParticles.downhillPart.Play();
 
 			switch (playerMovement.playerStatus)  
 			{
 				case  playerMovement.Status.Down:
 					spriteRenderer.sprite = spriteDown;
 					downArrow.PopUpOff();
+					playerParticles.PlayDownHill(true);
 					break;
 				case  playerMovement.Status.Right:
 					spriteRenderer.sprite = spriteRight;

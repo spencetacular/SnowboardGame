@@ -1,6 +1,7 @@
 ﻿#pragma strict
 
-public var downhillPart : ParticleSystem;
+public var downhillPartOnTop : ParticleSystem;
+public var downhillPartBehind : ParticleSystem;
 var slideObject : GameObject;
 var wreckObject : GameObject;
 var partEmmiters = new List.<GameObject>();
@@ -9,9 +10,20 @@ private var slideInitialY : float;
 
 function Start () {
 
-	downhillPart = transform.Find("downhillParticles").GetComponent(ParticleSystem);
+//	downhillPart = transform.Find("downhillParticles").GetComponent(ParticleSystem);
 	playerMovement = GetComponent(playerMovementScript);
 	slideInitialY = slideObject.transform.position.y; 
+	PlayDownHill(false);
+}
+
+function PlayDownHill ( play : boolean ) {
+	if (play) {
+		downhillPartOnTop.Play();
+		downhillPartBehind.Play();	
+	} else {
+		downhillPartOnTop.Stop();
+		downhillPartBehind.Stop();	
+	}
 }
 
 
@@ -19,7 +31,7 @@ function Slide (dir : String ) {
 
 	var p = Instantiate(slideObject, new Vector3(transform.position.x, slideInitialY, 0.0), Quaternion.identity);
 	p.transform.eulerAngles = new Vector3 (0.0, dir == "right" ? -90.0 : 90.0, 0.0);
-	downhillPart.Stop();
+	PlayDownHill(false);
 	p.GetComponent(ParticleSystem).Play();
 	partEmmiters.Add(p);
 }
@@ -27,7 +39,7 @@ function Slide (dir : String ) {
 function Wreck () {
 
 	var p = Instantiate(wreckObject, new Vector3(transform.position.x, slideInitialY, 0.0), Quaternion.identity);
-	downhillPart.Stop();
+	PlayDownHill(false);
 	p.GetComponent(ParticleSystem).Play();
 	partEmmiters.Add(p);
 
@@ -45,7 +57,8 @@ function particlesMovement() {
 }
 
 function Update () {
-	downhillPart.startSpeed = playerMovement.gameSpeed;
+	downhillPartOnTop.startSpeed = playerMovement.gameSpeed;
+	downhillPartBehind.startSpeed = playerMovement.gameSpeed;
 	particlesMovement();
 
 	for (p in partEmmiters) {
