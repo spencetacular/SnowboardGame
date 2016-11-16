@@ -45,7 +45,7 @@ public class obstacleScript extends MonoBehaviour {
 
 		if (inFrontOfPlayer ==  true) {
 
-			if (transform.position.y + baseY >= 0) {
+			if (transform.position.y + baseY >= 0 && this.tag != "jump") {
 				inFrontOfPlayer = false;
 				playerSprites.sortingOrder = GetComponent(SpriteRenderer).sortingOrder + 1;	
 			}

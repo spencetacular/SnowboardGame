@@ -6,11 +6,12 @@
 
 	function Start () {
 		anim = GetComponent(Animator);
-		childAnim = GetChild.GetComponent(Animator);
+		childAnim = transform.Find("treeShadow").GetComponent(Animator);
 	}
 
 	function Fall () {
 		anim.SetTrigger("hit");
+		childAnim.SetTrigger("hit");
 	}
 
 	function Update () {
