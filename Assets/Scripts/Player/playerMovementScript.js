@@ -65,12 +65,12 @@ public class playerMovementScript extends MonoBehaviour {
 
 	function PlayerInput(viewPos : Vector3) {
 
-		if (Input.GetKeyDown ( "down" )) {
+		if (Input.GetKeyDown ( "down" ) || Input.GetKeyDown ( "d" )) {
 			playerStatus = Status.Down;
 			playerSprites.DirectionUpdate();
 		}		
 
-		if (Input.GetKeyDown ( "right" )){
+		if (Input.GetKeyDown ( "right" ) || Input.GetKeyDown ( "r" )){
 			if ( playerStatus  == Status.Right && viewPos.x < 1 - playerWidth )
 				transform.Translate(lateralShift, 0, 0);
 
@@ -89,7 +89,7 @@ public class playerMovementScript extends MonoBehaviour {
 			playerSprites.DirectionUpdate();
 		}
 
-		if (Input.GetKeyDown ("left")){
+		if (Input.GetKeyDown ("left") || Input.GetKeyDown ( "f" )){
 			if ( playerStatus == Status.Left && viewPos.x > playerWidth)
 
 				transform.Translate(-lateralShift, 0, 0);

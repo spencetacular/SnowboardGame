@@ -87,13 +87,13 @@ function AssignLetter () {
 function Update () {
 	if (gameOver == true) {
 
-		if (Input.GetKeyDown ("right"))
+		if (Input.GetKeyDown ("right") || Input.GetKeyDown ("r"))
 			NextLetter();
 
-		if (Input.GetKeyDown ("left"))
+		if (Input.GetKeyDown ("left") || Input.GetKeyDown ("f"))
 			PreviousLetter();
 
-		if (Input.GetKeyDown ("space" || "Submit"))
+		if (Input.GetKeyDown ("space") || Input.GetKeyDown ("2"))
 			AssignLetter();
 
 	}

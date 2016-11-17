@@ -15,7 +15,7 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 	public var obstaclesToSpawn : GameObject;
 
 	function Start() {
-//		obstaclesToSpawn.SetActive(false);
+		obstaclesToSpawn.SetActive(false);
 		respawn();
 
 		if (isObstacle1 == true) 
@@ -56,14 +56,20 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 		var numPoles = obstacleSpawnHeight / liftPoleSpacing;
 
 		for (var k = 0; k < numPoles; k++) {
-			var poleY = (transform.position.y +2.0) + (k * liftPoleSpacing);
+			var poleY : float;
+
+			poleY = (transform.position.y +2.0) + (k * liftPoleSpacing);
+			
+
 			var rand = Random.Range(0,2);
-			var pole = Instantiate(liftPoles[rand], new Vector3(0, poleY, 0), Quaternion.identity);
-			pole.transform.name += k + Random.Range( 1, 1000);
-			pole.transform.parent = this.transform;
-			var poleBaseY = pole.GetComponent(obstacleScript).baseY + poleY;
-			obstaclePositions.Add (new obstaclePositionScript(poleBaseY, pole.transform.name));
-			spawnedObstacles.Add (pole);
+			if (k != 0) {
+				var pole = Instantiate(liftPoles[rand], new Vector3(0, poleY, 0), Quaternion.identity);
+				pole.transform.name += k + Random.Range( 1, 1000);
+				pole.transform.parent = this.transform;
+				var poleBaseY = pole.GetComponent(obstacleScript).baseY + poleY;
+				obstaclePositions.Add (new obstaclePositionScript(poleBaseY, pole.transform.name));
+				spawnedObstacles.Add (pole);
+			}
 		}
 
 		SetSortingOrder();
