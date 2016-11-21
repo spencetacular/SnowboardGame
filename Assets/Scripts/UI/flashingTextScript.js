@@ -2,7 +2,7 @@
 
 public var textObject : UnityEngine.UI.Text;
 public var secondsBetweenFlash  = 1.0;
-private var doesFlash = true;
+var doesFlash = true;
 public var startDelay = 0.0;
 
 function Start () {
