@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: ccb4ee7fd475e4ac9ba51673090a5dd7
+timeCreated: 1479750688
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - DisposableDroid BB
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: b85182709941845bca00a4e2ecd6de8c, type: 3}
+  - {fileID: 12800000, guid: 38029458b362a4831b8259bab3117218, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
