@@ -1,8 +1,11 @@
 ﻿#pragma strict
+import UnityEngine.UI;
+
 public class playerMovementScript extends MonoBehaviour {
 	public var obstacles1: GameObject;
 	public var obstacles2: GameObject;
 	var obstacles : GameObject[];
+	public var speedSlider : Slider;
 	var gameSpeed : float;
 	public var gameStartSpeed = 4.0;
 	public var gameMaxSpeed = 6.0;
@@ -158,6 +161,7 @@ public class playerMovementScript extends MonoBehaviour {
 				downhill = true;
 
 			PlayerSpeed();
+			speedSlider.value = speedPercent;
 			var viewPos = cam.WorldToViewportPoint(this.transform.position);
 			PlayerInput(viewPos);
 			PlayerMovement(viewPos);

@@ -1,13 +1,19 @@
 fileFormatVersion: 2
 guid: 8c21194a8d1274e0b8571238060f9d46
-timeCreated: 1479768656
+timeCreated: 1479850252
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: GameStart_Sprite_0
+    21300002: GameStart_Sprite_1
+    21300004: GameStart_Sprite_2
+    21300006: GameStart_Sprite_3
+    21300008: GameStart_Sprite_4
+    21300010: GameStart_Sprite_5
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -29,8 +35,8 @@ TextureImporter:
   textureFormat: -1
   maxTextureSize: 2048
   textureSettings:
-    filterMode: -1
-    aniso: -1
+    filterMode: 0
+    aniso: 16
     mipBias: -1
     wrapMode: 1
   nPOTScale: 0
@@ -38,7 +44,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -51,7 +57,85 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: GameStart_Sprite_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 904
+        width: 321
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GameStart_Sprite_1
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 904
+        width: 321
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GameStart_Sprite_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 563
+        width: 321
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GameStart_Sprite_3
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 538
+        width: 321
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GameStart_Sprite_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 196
+        width: 321
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: GameStart_Sprite_5
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 196
+        width: 321
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
