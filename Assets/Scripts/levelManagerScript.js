@@ -8,6 +8,7 @@ public var liftChairsEmpty : GameObject;
 public var canvasAvatar : GameObject;
 public var canvasInstructions : GameObject;
 public var canvasPlaying : GameObject;
+public var canvasGameOver : GameObject;
 //private var canvases : GameObject[];
 
 
@@ -19,6 +20,7 @@ function Start () {
 //	player.SetActive(false);
 	canvasInstructions.SetActive(false);
 	canvasPlaying.SetActive(false);
+	canvasGameOver.SetActive(false);
 	canvasAvatar.SetActive(true);
 
 
@@ -45,6 +47,8 @@ function GameMode () {
 }
 
 function GameOverMode () {
+	canvasPlaying.SetActive(false);
+	canvasGameOver.SetActive(true);
 //	GetComponent(Canvas).enabled = true;
 //	GameObject.Find("gamePlayingCanvas").GetComponent(Canvas).enabled = false;
 //	GameObject.Find("player").GetComponent(playerMovementScript).paused = true;

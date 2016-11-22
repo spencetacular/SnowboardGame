@@ -23,7 +23,8 @@ function LoseALife () {
 }
 
 function GameOver () {
-	GameObject.Find("gameOverCanvas").GetComponent(GameOverScript).GameOver();
+//	GameObject.Find("gameOverCanvas").GetComponent(GameOverScript).GameOver();
+	GameObject.Find("levelManager").GetComponent(levelManagerScript).GameOverMode();
 }
 
 function Update () {
