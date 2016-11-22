@@ -7,6 +7,7 @@ public var liftChairsFull : GameObject;
 public var liftChairsEmpty : GameObject;
 public var canvasAvatar : GameObject;
 public var canvasInstructions : GameObject;
+public var canvasPlaying : GameObject;
 //private var canvases : GameObject[];
 
 
@@ -17,6 +18,7 @@ function Start () {
 
 //	player.SetActive(false);
 	canvasInstructions.SetActive(false);
+	canvasPlaying.SetActive(false);
 	canvasAvatar.SetActive(true);
 
 
@@ -34,6 +36,7 @@ function InstructionsMode () {
 }
 
 function GameMode () {
+	canvasPlaying.SetActive(true);
 	canvasInstructions.SetActive(false);
 	player.GetComponent(playerMovementScript).paused = false;
 	liftChairsFull.GetComponent(liftChairsScript).paused = false;
@@ -42,6 +45,13 @@ function GameMode () {
 }
 
 function GameOverMode () {
+//	GetComponent(Canvas).enabled = true;
+//	GameObject.Find("gamePlayingCanvas").GetComponent(Canvas).enabled = false;
+//	GameObject.Find("player").GetComponent(playerMovementScript).paused = true;
+//	GetComponent(AudioSource).Play();
+//	var score = GameObject.Find("score").GetComponent(scoreScript).score;
+//	GameObject.Find("finalScore").GetComponent(UnityEngine.UI.Text).text = "Final Score: " + score;
+//	GameObject.Find("topScores").GetComponent(topScoresScript).GameOver();	
 
 	fade.GetComponent(Animator).SetTrigger("fadeOut");
 }
