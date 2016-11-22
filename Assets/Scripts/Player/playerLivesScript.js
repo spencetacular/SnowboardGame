@@ -7,8 +7,7 @@ var numLives: int;
 var livesLeft : int;
 
 function Start () {
-	numLives = lives.length;
-	livesLeft = numLives;
+	livesLeft = lives.length;
 
 }
 
@@ -23,7 +22,9 @@ function LoseALife () {
 }
 
 function GameOver () {
-	GameObject.Find("gameOverCanvas").GetComponent(GameOverScript).GameOver();
+	Debug.Log("Called");
+//	GameObject.Find("gameOverCanvas").GetComponent(GameOverScript).GameOver();
+	GameObject.Find("levelManager").GetComponent(levelManagerScript).GameOverMode();
 }
 
 function Update () {
