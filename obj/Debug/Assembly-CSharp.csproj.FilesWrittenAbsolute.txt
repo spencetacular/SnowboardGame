@@ -15,3 +15,4 @@
 /Users/spencerchristopherson/Desktop/sts/Snowboarding/Temp/bin/Debug/Unity.CecilTools.dll
 /Users/spencerchristopherson/Desktop/sts/Snowboarding/Temp/bin/Debug/Mono.Cecil.Pdb.dll
 /Users/spencerchristopherson/Desktop/sts/Snowboarding/Temp/bin/Debug/Mono.Cecil.Mdb.dll
+/Users/spencerchristopherson/Desktop/sts/Snowboarding/Temp/bin/Debug/UnityEngine.Analytics.dll

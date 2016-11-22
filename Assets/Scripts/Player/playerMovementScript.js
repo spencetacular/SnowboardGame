@@ -13,11 +13,11 @@ public class playerMovementScript extends MonoBehaviour {
 	public var jumpDurationMax = 3.0;
 	public var jumpDurationMin = 1.0;
 	public var cam: Camera;
-	var gameOver = false;
+	var paused = true;
 	var playerSprites : playerSpritesScript;
 	var playerScale : playerScaleScript;
 	var playerShadow: playerShadowScript;
-	var score : scoreScript;
+//	var score : scoreScript;
 	enum Status {Right, Left, Down, DownRight, DownLeft, Jumping, Wrecked}; 
 	public var playerStatus : Status;
 	public var speedPercent : float;
@@ -29,7 +29,7 @@ public class playerMovementScript extends MonoBehaviour {
 		playerSprites = GetComponent(playerSpritesScript);
 		playerScale = GetComponent(playerScaleScript);
 		playerShadow = GameObject.Find("shadow").GetComponent(playerShadowScript);
-		score = GameObject.Find("score").GetComponent(scoreScript);
+//		score = GameObject.Find("score").GetComponent(scoreScript);
 		isJumping = false;
 		downhill = false;
 		playerStatus = Status.Right;
@@ -47,7 +47,7 @@ public class playerMovementScript extends MonoBehaviour {
 
 		playerScale.CreateAniCurve( jumpDuration, speedPercent);
 		playerShadow.CreateAniCurves( jumpDuration, speedPercent);
-		score.Jump(speedPercent);
+//		score.Jump(speedPercent);
 //		Debug.Log("Jump Duration:" + jumpDuration);
 
 		Invoke("PlayerLand", jumpDuration);
@@ -149,17 +149,13 @@ public class playerMovementScript extends MonoBehaviour {
 
 	function Update () {
 //		Debug.Log(downhill);
-		if (!gameOver) {
+		if (!paused) {
 
-			if ( playerStatus == Status.Wrecked || playerStatus == Status.Left || playerStatus == Status.Right) {
+			if ( playerStatus == Status.Wrecked || playerStatus == Status.Left || playerStatus == Status.Right)
 				downhill = false;
-			}
-			else {
-
+			
+			else 
 				downhill = true;
-//				Debug.Log("ELSE CALLED");
-//				Debug.Log("downhill: " + downhill);
-			}
 
 			PlayerSpeed();
 			var viewPos = cam.WorldToViewportPoint(this.transform.position);

@@ -11,7 +11,7 @@ public class playerSpritesScript extends MonoBehaviour {
 	var playerParticles : playerParticlesScript;
 	var spriteRenderer : SpriteRenderer;
 	var playerSounds : playerSoundsScript;
-	var downArrow : popUpsScript;
+//	var downArrow : popUpsScript;
 	public var sortingOrder = 1;
 
 	function Start () {
@@ -20,7 +20,7 @@ public class playerSpritesScript extends MonoBehaviour {
 		 playerSounds = GetComponent(playerSoundsScript);
 		 playerParticles = GetComponent(playerParticlesScript);
 		 GetComponent(SpriteRenderer).sprite = spriteRight;
-		 downArrow = GameObject.Find("downArrow").GetComponent(popUpsScript);
+//		 downArrow = GameObject.Find("downArrow").GetComponent(popUpsScript);
 		 spriteRenderer.sortingOrder = sortingOrder;
 	}
 
@@ -48,7 +48,7 @@ public class playerSpritesScript extends MonoBehaviour {
 			{
 				case  playerMovement.Status.Down:
 					spriteRenderer.sprite = spriteDown;
-					downArrow.PopUpOff();
+//					downArrow.PopUpOff();
 					playerParticles.PlayDownHill(true);
 					break;
 				case  playerMovement.Status.Right:
@@ -71,7 +71,7 @@ public class playerSpritesScript extends MonoBehaviour {
 					break;
 				case  playerMovement.Status.Wrecked:
 					spriteRenderer.sprite = spriteWrecked;
-					downArrow.PopUp();
+//					downArrow.PopUp();
 					playerParticles.Wreck();
 					break;	
 			}

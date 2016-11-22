@@ -16,7 +16,7 @@ public class topScoresScript extends MonoBehaviour
     {
     	topScoresText = GetComponent(UnityEngine.UI.Text);
         var userScores = new List.<userScoreScript>();
-        score = GameObject.Find("score").GetComponent(scoreScript).score;
+//        score = GameObject.Find("score").GetComponent(scoreScript).score;
         initials.SetActive(false);
     }
 

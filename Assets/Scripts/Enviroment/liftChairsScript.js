@@ -7,6 +7,7 @@ var playerMovement : playerMovementScript;
 public var empty : boolean;
 private var  direction : float;
 private var screenHeight = 5.0;
+public var paused = true;
 
 
 function Start () {
@@ -34,6 +35,7 @@ function ChairsMovement() {
 
 
 function Update () {
-	ChairsMovement();
+	if (!paused)
+		ChairsMovement();
 
 }
