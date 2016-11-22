@@ -10,7 +10,7 @@ function Start () {
 
 function GameOver () {
 	GetComponent(Canvas).enabled = true;
-	GameObject.Find("gamePlayingCanvas").GetComponent(Canvas).enabled = false;
+//	GameObject.Find("gamePlayingCanvas").GetComponent(Canvas).enabled = false;
 	GameObject.Find("player").GetComponent(playerMovementScript).paused = true;
 	GetComponent(AudioSource).Play();
 	var score = GameObject.Find("score").GetComponent(scoreScript).score;
