@@ -48,7 +48,7 @@ public class scoreScript extends MonoBehaviour {
 
 			}
 		}
-		textObject.text  = "Score " + score.ToString();
+		textObject.text  = score.ToString();
 	}
 	
 }

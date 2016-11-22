@@ -27,5 +27,5 @@ function Update () {
 	else 
 		minutesStr = minutes.ToString();
 
-	textObj.text  = "Time " + minutesStr + ":" + secondsStr;
+	textObj.text  =  minutesStr + ":" + secondsStr;
 }
