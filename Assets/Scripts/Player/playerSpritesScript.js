@@ -11,6 +11,7 @@ public class playerSpritesScript extends MonoBehaviour {
 	var playerParticles : playerParticlesScript;
 	var spriteRenderer : SpriteRenderer;
 	var playerSounds : playerSoundsScript;
+	public var speachBubble : GameObject;
 //	var downArrow : popUpsScript;
 	public var sortingOrder = 1;
 
@@ -28,6 +29,7 @@ public class playerSpritesScript extends MonoBehaviour {
 
 	function Jump () {
 		spriteRenderer.sprite = spriteJump;
+		speachBubble.GetComponent(speachBubbleScript).GoodComment();
 		playerParticles.PlayDownHill(false);
 	}
 
@@ -72,6 +74,7 @@ public class playerSpritesScript extends MonoBehaviour {
 				case  playerMovement.Status.Wrecked:
 					spriteRenderer.sprite = spriteWrecked;
 //					downArrow.PopUp();
+					speachBubble.GetComponent(speachBubbleScript).BadComment();
 					playerParticles.Wreck();
 					break;	
 			}
