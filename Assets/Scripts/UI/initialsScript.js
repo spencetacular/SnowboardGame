@@ -78,6 +78,7 @@ function AssignLetter () {
 		currentLetter = alphabet[index];
 		currentInitial.text = currentLetter;
 	} else {
+		currentInitial.GetComponent(flashingTextScript).Flashing(false);
 		NewHighScore ();	
 	}
 
