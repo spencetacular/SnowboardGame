@@ -5,9 +5,10 @@ import System.Collections.Generic;
 public var userScores = new List.<userScoreScript>();
 var topScoresText : UnityEngine.UI.Text;
 public var initials : GameObject;
-var score : int;
+public var score : int;
 public var newTopScoreAudio : AudioSource;
 public var successAudio : AudioSource;
+
 
 
 public class topScoresScript extends MonoBehaviour
@@ -36,11 +37,12 @@ public class topScoresScript extends MonoBehaviour
         userScores.Sort();	
     }
 
-    function GameOver () {
+    function GameOver (score : int) {
     	GetTopScores();
         CompareUserScore(score);
         SetTopScoresText();
 //        Debug.Log("GAME OVER");
+		
 
     }
 
@@ -58,7 +60,7 @@ public class topScoresScript extends MonoBehaviour
     	}
 
     	if (!newHighScore) {
-    		GameObject.Find("gameOverCanvas").GetComponent(GameOverScript).PressStartToPlay();
+    		GameObject.Find("canvasGameOver").GetComponent(ganeOverControlsScript).PressStartToPlay();
     	}
     }
 
@@ -79,7 +81,7 @@ public class topScoresScript extends MonoBehaviour
     	userScores.Sort();	
     	SetTopScoresText();
     	successAudio.Play();
-    	GameObject.Find("gameOverCanvas").GetComponent(GameOverScript).PressStartToPlay();
+    	GameObject.Find("canvasGameOver").GetComponent(ganeOverControlsScript).PressStartToPlay();
     }
 
     function SetTopScoresText () {

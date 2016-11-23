@@ -15,7 +15,7 @@ function GameOver () {
 	GetComponent(AudioSource).Play();
 //	var score = GameObject.Find("score").GetComponent(scoreScript).score;
 //	GameObject.Find("finalScore").GetComponent(UnityEngine.UI.Text).text = "Final Score: " + score;
-	GameObject.Find("topScores").GetComponent(topScoresScript).GameOver();	
+//	GameObject.Find("topScores").GetComponent(topScoresScript).GameOver();	
 }
 
 function PressStartToPlay() {

@@ -11,8 +11,12 @@ public var canvasPlaying : GameObject;
 public var canvasGameOver : GameObject;
 //private var canvases : GameObject[];
 
+//var startControls : GameObject;
+
 
 function Start () {
+
+//	startControls.SetActive(false);
 	
 //	fade.GetComponent(Animator).SetTrigger("fadeUp");
 //	fade.GetComponent(Animator).SetTrigger("fadeOut");
@@ -47,8 +51,16 @@ function GameMode () {
 }
 
 function GameOverMode () {
-	canvasPlaying.SetActive(false);
+
 	canvasGameOver.SetActive(true);
+	var score = GameObject.Find("score").GetComponent(scoreScript).score;
+	GameObject.Find("finalScore").GetComponent(UnityEngine.UI.Text).text = "FINAL SCORE: " + score;
+
+	canvasPlaying.SetActive(false);
+	GameObject.Find("topScores").GetComponent(topScoresScript).score = score;
+	GameObject.Find("topScores").GetComponent(topScoresScript).GameOver(score);
+
+
 //	GetComponent(Canvas).enabled = true;
 //	GameObject.Find("gamePlayingCanvas").GetComponent(Canvas).enabled = false;
 //	GameObject.Find("player").GetComponent(playerMovementScript).paused = true;
