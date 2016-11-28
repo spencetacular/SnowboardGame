@@ -74,40 +74,50 @@ public class playerMovementScript extends MonoBehaviour {
 		}		
 
 		if (Input.GetKeyDown ( "right" ) || Input.GetKeyDown ( "r" )){
-			if ( playerStatus  == Status.Right && viewPos.x < 1 - playerWidth )
-				transform.Translate(lateralShift, 0, 0);
 
-			if ( playerStatus == Status.DownRight && isJumping == false){
-				transform.Translate(0, 0, 0);
-				playerStatus = Status.Right;
+			if (playerStatus != Status.Wrecked) {
+
+				if ( playerStatus  == Status.Right && viewPos.x < 1 - playerWidth )
+					transform.Translate(lateralShift, 0, 0);
+
+				if ( playerStatus == Status.DownRight && isJumping == false){
+					transform.Translate(0, 0, 0);
+					playerStatus = Status.Right;
+
+				}
+				if ( playerStatus == Status.Down) 
+					playerStatus = Status.DownRight;
+				if ( playerStatus == Status.DownLeft)
+					playerStatus = Status.Down;
+				if ( playerStatus == Status.Left)
+					playerStatus = Status.DownLeft;
+
+				playerSprites.DirectionUpdate();
 
 			}
-			if ( playerStatus == Status.Down) 
-				playerStatus = Status.DownRight;
-			if ( playerStatus == Status.DownLeft)
-				playerStatus = Status.Down;
-			if ( playerStatus == Status.Left)
-				playerStatus = Status.DownLeft;
-
-			playerSprites.DirectionUpdate();
 		}
 
 		if (Input.GetKeyDown ("left") || Input.GetKeyDown ( "f" )){
-			if ( playerStatus == Status.Left && viewPos.x > playerWidth)
 
-				transform.Translate(-lateralShift, 0, 0);
-			if ( playerStatus == Status.DownLeft && isJumping == false){
-				transform.Translate(0, 0, 0);
-				playerStatus = Status.Left;
+			if (playerStatus != Status.Wrecked) {
+
+				if ( playerStatus == Status.Left && viewPos.x > playerWidth)
+
+					transform.Translate(-lateralShift, 0, 0);
+				if ( playerStatus == Status.DownLeft && isJumping == false){
+					transform.Translate(0, 0, 0);
+					playerStatus = Status.Left;
+				}
+				if (playerStatus == Status.Down ) 
+					playerStatus = Status.DownLeft;
+				if ( playerStatus == Status.DownRight )
+					playerStatus = Status.Down;
+				if ( playerStatus == Status.Right )
+					playerStatus = Status.DownRight;
+
+				playerSprites.DirectionUpdate();
+
 			}
-			if (playerStatus == Status.Down ) 
-				playerStatus = Status.DownLeft;
-			if ( playerStatus == Status.DownRight )
-				playerStatus = Status.Down;
-			if ( playerStatus == Status.Right )
-				playerStatus = Status.DownRight;
-
-			playerSprites.DirectionUpdate();
 				
 		}
 	}

@@ -10,7 +10,9 @@ public class playerSpritesScript extends MonoBehaviour {
 	var playerMovement : playerMovementScript;
 	var playerParticles : playerParticlesScript;
 	var spriteRenderer : SpriteRenderer;
-	var playerSounds : playerSoundsScript;
+//	var playerSounds : playerSoundsScript;
+//	var soundEffectsObject : GameObject;
+	var soundEffects : soundEffectsScript;
 	public var speachBubble : GameObject;
 	public var joystick : GameObject;
 	public var sortingOrder = 1;
@@ -18,7 +20,9 @@ public class playerSpritesScript extends MonoBehaviour {
 	function Start () {
 		 playerMovement = GetComponent(playerMovementScript);
 		 spriteRenderer = GetComponent(SpriteRenderer);
-		 playerSounds = GetComponent(playerSoundsScript);
+//		 playerSounds = GetComponent(playerSoundsScript);
+//		 soundEffects = soundEffectsObject.GetComponent(soundEffectsScript);
+
 		 playerParticles = GetComponent(playerParticlesScript);
 		 GetComponent(SpriteRenderer).sprite = spriteRight;
 //		 joystick = GameObject.Find("joyStick").GetComponent(joystickScript);
@@ -31,6 +35,7 @@ public class playerSpritesScript extends MonoBehaviour {
 		spriteRenderer.sprite = spriteJump;
 		speachBubble.GetComponent(speachBubbleScript).GoodComment();
 		playerParticles.PlayDownHill(false);
+		soundEffects.Jump();
 	}
 
 	function Land () {
@@ -55,27 +60,29 @@ public class playerSpritesScript extends MonoBehaviour {
 					break;
 				case  playerMovement.Status.Right:
 					spriteRenderer.sprite = spriteRight;
-					playerSounds.Slide();
+//					playerSounds.Slide();
+					soundEffects.Slide();
 					playerParticles.Slide("right");
 					break;
 				case  playerMovement.Status.Left:
 					spriteRenderer.sprite = spriteLeft;
-					playerSounds.Slide();
+					soundEffects.Slide();
 					playerParticles.Slide("left");
 					break;
 				case  playerMovement.Status.DownRight:
 					spriteRenderer.sprite = spriteDownRight;
-					playerSounds.Carve();
+					soundEffects.Carve();
 					break;
 				case  playerMovement.Status.DownLeft:
 					spriteRenderer.sprite = spriteDownLeft;
-					playerSounds.Carve();
+					soundEffects.Carve();
 					break;
 				case  playerMovement.Status.Wrecked:
 					spriteRenderer.sprite = spriteWrecked;
 					joystick.GetComponent(joystickScript).PopOn();
 					speachBubble.GetComponent(speachBubbleScript).BadComment();
 					playerParticles.Wreck();
+//					soundEffects.Wreck();
 					break;	
 			}
 		}

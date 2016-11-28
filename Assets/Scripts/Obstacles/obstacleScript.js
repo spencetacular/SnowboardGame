@@ -5,6 +5,7 @@ public class obstacleScript extends MonoBehaviour {
 	var baseY : float;
 	private var inFrontOfPlayer = true;
 	private var playerSprites : playerSpritesScript;
+//	var soundEffects : soundEffects
 
 	function Start () {
 		playerSprites = GameObject.Find("player").GetComponent(playerSpritesScript);
@@ -27,16 +28,16 @@ public class obstacleScript extends MonoBehaviour {
 			other.GetComponent(playerLivesScript).LoseALife();
 
 			this.GetComponent(CircleCollider2D).enabled = false;
-			other.GetComponent(playerSoundsScript).Wreck();
+			other.GetComponent(playerSpritesScript).soundEffects.Wreck();
 			if(GetComponent(treeAnimationScript)){
 				GetComponent(treeAnimationScript).Fall();
-				other.GetComponent(playerSoundsScript).TreeFall();
+				other.GetComponent(playerSpritesScript).soundEffects.TreeFall();
 			} 
 		}
 
 		if (this.tag == "jump") {
 			other.GetComponent(playerMovementScript).PlayerJump();
-			other.GetComponent(playerSoundsScript).Jump();
+//			other.GetComponent(playerSoundsScript).Jump();
 
 		}
 	}

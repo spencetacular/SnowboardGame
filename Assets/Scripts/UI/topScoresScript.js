@@ -6,8 +6,7 @@ public var userScores = new List.<userScoreScript>();
 var topScoresText : UnityEngine.UI.Text;
 public var initials : GameObject;
 public var score : int;
-public var newTopScoreAudio : AudioSource;
-public var successAudio : AudioSource;
+public var soundEffects : soundEffectsScript;
 
 
 
@@ -17,7 +16,6 @@ public class topScoresScript extends MonoBehaviour
     {
     	topScoresText = GetComponent(UnityEngine.UI.Text);
         var userScores = new List.<userScoreScript>();
-//        score = GameObject.Find("score").GetComponent(scoreScript).score;
         initials.SetActive(false);
     }
 
@@ -41,7 +39,6 @@ public class topScoresScript extends MonoBehaviour
     	GetTopScores();
         CompareUserScore(score);
         SetTopScoresText();
-//        Debug.Log("GAME OVER");
 		
 
     }
@@ -52,7 +49,7 @@ public class topScoresScript extends MonoBehaviour
     		if (score >= u.score) {
 				initials.GetComponent(initialsScript).gameOver = true;
     			initials.SetActive(true);
-    			newTopScoreAudio.Play();
+    			soundEffects.Success();
     			newHighScore = true;
     			break;
     		}
@@ -80,7 +77,7 @@ public class topScoresScript extends MonoBehaviour
 
     	userScores.Sort();	
     	SetTopScoresText();
-    	successAudio.Play();
+		soundEffects.Success();
     	GameObject.Find("canvasGameOver").GetComponent(ganeOverControlsScript).PressStartToPlay();
     }
 
