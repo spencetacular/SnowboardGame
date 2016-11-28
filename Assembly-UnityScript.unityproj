@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\Obstacles\obstaclePositionScript.js" />
      <Compile Include="Assets\Scripts\Obstacles\obstacleScript.js" />
      <Compile Include="Assets\Scripts\Obstacles\treeAnimationScript.js" />
+     <Compile Include="Assets\Scripts\Options\optionsScript.js" />
      <Compile Include="Assets\Scripts\Player\playerLivesScript.js" />
      <Compile Include="Assets\Scripts\Player\playerMovementScript.js" />
      <Compile Include="Assets\Scripts\Player\playerParticlesScript.js" />
@@ -57,9 +58,10 @@
      <Compile Include="Assets\Scripts\Player\playerShadowScript.js" />
      <Compile Include="Assets\Scripts\Player\playerSoundsScript.js" />
      <Compile Include="Assets\Scripts\Player\playerSpritesScript.js" />
-     <Compile Include="Assets\Scripts\Sounds\musicScript.js" />
+     <Compile Include="Assets\Scripts\Sounds\soundControllerScript.js" />
      <Compile Include="Assets\Scripts\Sounds\soundEffectsScript.js" />
      <Compile Include="Assets\Scripts\StartScreen\startControlsScript.js" />
+     <Compile Include="Assets\Scripts\StartScreen\startOrOptionsScript.js" />
      <Compile Include="Assets\Scripts\SuperTopSecret\superTopSecretScript.js" />
      <Compile Include="Assets\Scripts\UI\Controls\ganeOverControlsScript.js" />
      <Compile Include="Assets\Scripts\UI\GameOverScript.js" />
