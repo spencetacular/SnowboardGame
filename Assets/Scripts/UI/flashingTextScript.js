@@ -28,7 +28,9 @@ function Flashing (on : boolean ) {
 }
 
 function Hide () {
-	textObject.enabled = false;
+	if (textObject != null)
+			textObject.enabled = false;
+
 	doesFlash = false;
 }
 

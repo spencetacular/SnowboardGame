@@ -70,6 +70,7 @@
      <Compile Include="Assets\Scripts\UI\initialsScript.js" />
      <Compile Include="Assets\Scripts\UI\initialsSoundsScript.js" />
      <Compile Include="Assets\Scripts\UI\instructionsScript.js" />
+     <Compile Include="Assets\Scripts\UI\joystickScript.js" />
      <Compile Include="Assets\Scripts\UI\popUpsScript.js" />
      <Compile Include="Assets\Scripts\UI\scoreScript.js" />
      <Compile Include="Assets\Scripts\UI\speachBubbleScript.js" />

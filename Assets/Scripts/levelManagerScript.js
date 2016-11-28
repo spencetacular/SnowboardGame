@@ -2,6 +2,7 @@
 
 
 public var fade : GameObject;
+public var blackBox : GameObject;
 public var player : GameObject;
 public var liftChairsFull : GameObject;
 public var liftChairsEmpty : GameObject;
@@ -25,6 +26,7 @@ function Start () {
 	canvasInstructions.SetActive(false);
 	canvasPlaying.SetActive(false);
 	canvasGameOver.SetActive(false);
+	blackBox.SetActive(true);
 	canvasAvatar.SetActive(true);
 
 
@@ -57,6 +59,8 @@ function GameOverMode () {
 	GameObject.Find("finalScore").GetComponent(UnityEngine.UI.Text).text = "FINAL SCORE: " + score;
 
 	canvasPlaying.SetActive(false);
+
+
 	GameObject.Find("topScores").GetComponent(topScoresScript).score = score;
 	GameObject.Find("topScores").GetComponent(topScoresScript).GameOver(score);
 
