@@ -1,5 +1,8 @@
 ﻿#pragma strict
 
+var soundController : soundControllerScript;
+
+
 public var jumpAudio : AudioSource;
 public var wreckAudio: AudioSource;
 public var treeAudio: AudioSource;
@@ -14,15 +17,29 @@ var muted = false;
 private var soundEffects : AudioSource[];
 
 function Start () {
+
 	soundEffects  = [jumpAudio, wreckAudio, treeAudio, carveAuido, slideAudio, selectAudio, scrollAudio, success];	
+
+	if (GameObject.Find("soundController")) { 
+		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
+
+		if (!soundController.soundEffects) {
+			Mute(true);
+		}
+	}
+
+
+
 
 //	Mute ();
 }
 
-function Mute () {
-	for ( s in soundEffects ) {
-		s.mute = true;
-	}
+function Mute ( on : boolean) {
+	for ( s in soundEffects ) 
+		s.mute = on;
+	
+
+
 }
 
 function Jump() {

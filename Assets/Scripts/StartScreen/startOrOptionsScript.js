@@ -8,6 +8,7 @@ var optionsImage : Image;
 var playPressed = false;
 public var level1  = "Level01";
 public var options = "OptionsScreen";
+public var soundEffects : soundEffectsScript;
 
 function Start () {
 
