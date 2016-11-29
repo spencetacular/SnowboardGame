@@ -1,5 +1,10 @@
 ﻿#pragma strict
 
+import UnityEngine.UI;
+
+public var musicBool : Text;
+public var soundEffectsBool : Text;
+
 var soundController : soundControllerScript;
 
 function Start () {
