@@ -1,13 +1,13 @@
 ﻿#pragma strict
 
 var music : boolean;
-var soundEffects : boolean;
+var soundFX : boolean;
 
 function Start () {
 	music = false;
-	soundEffects = false;
+	soundFX = true;
 	DontDestroyOnLoad(this);
-	Application.LoadLevel("StartScreen");
+//	Application.LoadLevel("StartScreen");
 }
 
 function Update () {

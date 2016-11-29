@@ -23,9 +23,9 @@ function Start () {
 	if (GameObject.Find("soundController")) { 
 		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
 
-		if (!soundController.soundEffects) {
-			Mute(true);
-		}
+//		if (!soundController.soundFX) {
+//			Mute(true);
+//		}
 	}
 
 
