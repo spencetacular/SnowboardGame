@@ -10,15 +10,19 @@ public var selectedOption : optionScript;
 
 var soundController : soundControllerScript;
 
+public var soundEffects : soundEffectsScript;
+
 function Start () {
 	if (GameObject.Find("soundController")) {
 
 		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
 
-		if (soundController.music)
-			musicOption.On();
-		else 
-			musicOption.Off();
+//		if (soundController.music) {
+//			musicOption.On();
+//	
+//		}
+//		else 
+//			musicOption.Off();
 
 		if (soundController.soundFX)
 			soundFXOption.On();
@@ -43,11 +47,13 @@ function Update () {
 			selectedOption.Select(false);
 			selectedOption = backOption;
 			selectedOption.Select(true);
+			soundEffects.Scroll();
 		}
 		if (selectedOption == musicOption) {
 			selectedOption.Select(false);
 			selectedOption = soundFXOption;
 			selectedOption.Select(true);
+			soundEffects.Scroll();
 
 		}
 
@@ -60,14 +66,22 @@ function Update () {
 			selectedOption.Select(false);
 			selectedOption = musicOption;
 			selectedOption.Select(true);
+			soundEffects.Scroll();
 		}
 		if (selectedOption == backOption) {
 			selectedOption.Select(false);
 			selectedOption = soundFXOption;
 			selectedOption.Select(true);
+			soundEffects.Scroll();
 
 		}
 
+	}
+
+	if (Input.GetKeyDown ("space") || Input.GetKeyDown ("2") ) {
+
+		selectedOption.Flip();
+		soundEffects.Select();
 	}
 
 }
