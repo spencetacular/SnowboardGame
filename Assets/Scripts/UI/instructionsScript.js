@@ -2,10 +2,6 @@
 
 var soundEffects : soundEffectsScript;
 
-function Start () {
-
-}
-
 function Update () {
 
 	if (Input.GetKeyDown ("space") || Input.GetKeyDown ("2") ) {
@@ -14,5 +10,4 @@ function Update () {
 			soundEffects.Select();
 			
 	}
-
 }

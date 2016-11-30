@@ -3,21 +3,15 @@
 import UnityEngine.UI;
 
 public var displayTime : float;
-
 public var commentsBad : Sprite[];
 public var goodComments : Sprite[];
 public var startComments : Sprite[];
-
 var bubble : Image;
 
 
 function Start () {
 	bubble = GetComponent(Image);
-
 	Hide();
-
-//	Invoke ( "Hide", displayTime);
-
 }
 
 function BadComment () {
@@ -41,12 +35,6 @@ function StartComment () {
 	Invoke ( "Hide", displayTime);
 }
 
-
-
 function Hide () {
 	bubble.enabled = false;
-}
-
-function Update () {
-
 }

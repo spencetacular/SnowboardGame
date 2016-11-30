@@ -2,7 +2,6 @@
 
 var soundController : soundControllerScript;
 
-
 public var jumpAudio : AudioSource;
 public var wreckAudio: AudioSource;
 public var treeAudio: AudioSource;
@@ -13,7 +12,6 @@ public var scrollAudio: AudioSource;
 public var success : AudioSource;
 public var whoose : AudioSource;
 public var shine : AudioSource;
-
 
 private var soundEffects : AudioSource[];
 
@@ -29,19 +27,11 @@ function Start () {
 			Debug.Log("MUTE");
 		}
 	}
-
-
-
-
-//	Mute ();
 }
 
 function Mute ( on : boolean) {
 	for ( s in soundEffects ) 
 		s.mute = on;
-	
-
-
 }
 
 function Jump() {

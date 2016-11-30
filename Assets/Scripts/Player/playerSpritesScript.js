@@ -10,8 +10,6 @@ public class playerSpritesScript extends MonoBehaviour {
 	var playerMovement : playerMovementScript;
 	var playerParticles : playerParticlesScript;
 	var spriteRenderer : SpriteRenderer;
-//	var playerSounds : playerSoundsScript;
-//	var soundEffectsObject : GameObject;
 	var soundEffects : soundEffectsScript;
 	public var speachBubble : GameObject;
 	public var joystick : GameObject;
@@ -20,12 +18,8 @@ public class playerSpritesScript extends MonoBehaviour {
 	function Start () {
 		 playerMovement = GetComponent(playerMovementScript);
 		 spriteRenderer = GetComponent(SpriteRenderer);
-//		 playerSounds = GetComponent(playerSoundsScript);
-//		 soundEffects = soundEffectsObject.GetComponent(soundEffectsScript);
-
 		 playerParticles = GetComponent(playerParticlesScript);
 		 GetComponent(SpriteRenderer).sprite = spriteRight;
-//		 joystick = GameObject.Find("joyStick").GetComponent(joystickScript);
 		 spriteRenderer.sortingOrder = sortingOrder;
 	}
 
@@ -43,11 +37,6 @@ public class playerSpritesScript extends MonoBehaviour {
 	}
 
 	function DirectionUpdate () {
-
-//		Debug.Log("Direction Update Called");
-//		Debug.Log ("isJumping: " + playerMovement.isJumping);
-//		Debug.Log ("Sprite downhill:" + playerMovement.downhill);
-//		Debug.Log ("status:" + playerMovement.playerStatus);
 		
 		if ( !playerMovement.isJumping ) {
 
@@ -60,7 +49,6 @@ public class playerSpritesScript extends MonoBehaviour {
 					break;
 				case  playerMovement.Status.Right:
 					spriteRenderer.sprite = spriteRight;
-//					playerSounds.Slide();
 					soundEffects.Slide();
 					playerParticles.Slide("right");
 					break;
@@ -82,7 +70,6 @@ public class playerSpritesScript extends MonoBehaviour {
 					joystick.GetComponent(joystickScript).PopOn();
 					speachBubble.GetComponent(speachBubbleScript).BadComment();
 					playerParticles.Wreck();
-//					soundEffects.Wreck();
 					break;	
 			}
 		}

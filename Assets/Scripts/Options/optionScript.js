@@ -21,7 +21,6 @@ function Awake () {
 }
 
 function Start () {
-
 	pointer.enabled = false;
 }
 
@@ -38,8 +37,6 @@ function Flip () {
 	else
 		On();
 }
-
-
 
 function  GUIOn () {
 	if ( isMusic || isSoundFX ) {
