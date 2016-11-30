@@ -10,7 +10,7 @@ function Start () {
 
 	avatarImage = GetComponent(Image);
 
-	avatarImage.color = Color.white;
+//	avatarImage.color = Color.white;
 
 //	if (isBoy) {
 //		GetComponent(RectTransform).localScale = new Vector3(-1.0, 1.0, 1.0);

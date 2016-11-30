@@ -4,17 +4,20 @@ import UnityEngine.UI;
 
 public var boyImage : Sprite;
 public var girlImage : Sprite;
-public var name : Text;
+public var nameText : Text;
 
 
 function Start () {
-	Girl();
+//	Girl();
 }
 
-function Girl () {
-	GetComponent(Image).sprite = girlImage;
+function SetAvatar ( boy : boolean) {
+	if (boy) {
+		GetComponent(Image).sprite = boyImage;
+		nameText.text = "Chaz";
+	} else {
+		GetComponent(Image).sprite = girlImage;
+		nameText.text = "Nixie";
+	}
 }
 
-function Update () {
-
-}

@@ -10,6 +10,8 @@ public var canvasAvatar : GameObject;
 public var canvasInstructions : GameObject;
 public var canvasPlaying : GameObject;
 public var canvasGameOver : GameObject;
+
+public var boyAvatar : boolean;
 //private var canvases : GameObject[];
 
 //var startControls : GameObject;
@@ -46,6 +48,8 @@ function InstructionsMode () {
 function GameMode () {
 	canvasPlaying.SetActive(true);
 	canvasInstructions.SetActive(false);
+	GameObject.Find("avatar").GetComponent(avatarGame).SetAvatar(boyAvatar);
+	GameObject.Find("speachBubble").GetComponent(speachBubbleScript).StartComment();
 	player.GetComponent(playerMovementScript).paused = false;
 	liftChairsFull.GetComponent(liftChairsScript).paused = false;
 	liftChairsEmpty.GetComponent(liftChairsScript).paused = false;

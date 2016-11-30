@@ -14,7 +14,9 @@ var bubble : Image;
 function Start () {
 	bubble = GetComponent(Image);
 
-	Invoke ( "Hide", displayTime);
+	Hide();
+
+//	Invoke ( "Hide", displayTime);
 
 }
 

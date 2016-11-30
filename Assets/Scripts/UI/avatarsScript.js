@@ -50,10 +50,14 @@ function Update () {
 
 	if (Input.GetKeyDown ("space") || Input.GetKeyDown ("2") ) {
 
-		
-		soundEffects.Select();
+		var boyAvatar = true;
+		if (selected == girl)
+			boyAvatar = false;
 
+		GameObject.Find("levelManager").GetComponent(levelManagerScript).boyAvatar = boyAvatar;
 		GameObject.Find("levelManager").GetComponent(levelManagerScript).InstructionsMode();
+
+		soundEffects.Select();
 		
 	}
 
