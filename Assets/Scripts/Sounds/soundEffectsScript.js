@@ -11,8 +11,9 @@ public var slideAudio: AudioSource;
 public var selectAudio: AudioSource;
 public var scrollAudio: AudioSource;
 public var success : AudioSource;
+public var whoose : AudioSource;
+public var shine : AudioSource;
 
-var muted = false;
 
 private var soundEffects : AudioSource[];
 
@@ -25,6 +26,7 @@ function Start () {
 
 		if (!soundController.soundFX) {
 			Mute(true);
+			Debug.Log("MUTE");
 		}
 	}
 
@@ -78,4 +80,12 @@ function Update () {
 	
 	if (carveAuido.time >= 0.7)
 		carveAuido.Stop();	 
+}
+
+function Whoosh() {
+	whoose.Play();
+}
+
+function Shine () {
+	shine.Play();
 }

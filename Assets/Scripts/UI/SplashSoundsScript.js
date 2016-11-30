@@ -1,15 +1,24 @@
 ﻿#pragma strict
 
-public var soundEffect : AudioSource;
+//public var soundEffect : AudioSource;
+
+public var soundEffects : soundEffectsScript;
+var soundController : soundControllerScript;
 
 function Start () {
-	
+	if (GameObject.Find("soundController")) { 
+			soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
+	}
 }
 
-function Play () {
-	soundEffect.Play();
+
+function Whoosh () {
+	if (soundController && soundController.soundFX)
+		soundEffects.Whoosh();
 }
 
-function Update () {
-
+function Shine () {
+	if (soundController && soundController.soundFX)
+		soundEffects.Shine();
 }
+
