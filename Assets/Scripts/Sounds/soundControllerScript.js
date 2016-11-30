@@ -4,8 +4,8 @@ public var music : boolean;
 public var soundFX : boolean;
 
 function Start () {
-	music = true;
-	soundFX = true;
+//	music = false;
+//	soundFX = false;
 	DontDestroyOnLoad(this);
 	Application.LoadLevel("StartScreen");
 }

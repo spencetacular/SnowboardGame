@@ -12,29 +12,50 @@ var soundController : soundControllerScript;
 
 public var soundEffects : soundEffectsScript;
 
-function Start () {
+function Awake () {
 	if (GameObject.Find("soundController")) {
 
 		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
 
-//		if (soundController.music) {
-//			musicOption.On();
-//	
-//		}
+//		if (soundController.music) 
+//			musicOption.GUIOn();
 //		else 
-//			musicOption.Off();
+//			musicOption.GUIOff();
+//
+//		if (soundController.soundFX)
+//			soundFXOption.On();
+//		else 
+//			soundFXOption.Off();
+//
+//			Debug.Log("found it");
+	}
+
+
+
+	
+
+}
+
+function Start () {
+	selectedOption = musicOption;
+	selectedOption.Select(true);
+
+	if (soundController) {
+
+//		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
+
+		if (soundController.music) 
+			musicOption.GUIOn();
+		else 
+			musicOption.GUIOff();
 
 		if (soundController.soundFX)
 			soundFXOption.On();
 		else 
 			soundFXOption.Off();
-		
+
+//			Debug.Log("found it");
 	}
-
-	selectedOption = musicOption;
-	selectedOption.Select(true);
-
-	
 
 }
 

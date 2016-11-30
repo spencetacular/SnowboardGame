@@ -22,6 +22,7 @@ function Update () {
 		if (startImage.enabled) {
 			startImage.enabled = false;
 			optionsImage.enabled = true;
+			soundEffects.Scroll();
 		}
 	}
 
@@ -31,6 +32,7 @@ function Update () {
 		if (optionsImage.enabled) {
 			startImage.enabled = true;
 			optionsImage.enabled = false;
+			soundEffects.Scroll();
 		}
 
 	}
