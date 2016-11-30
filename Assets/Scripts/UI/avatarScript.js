@@ -3,27 +3,23 @@
 import UnityEngine.UI;
 
 private var avatarImage : Image;
-public var isSelected  = false;
-public var isBoy : boolean;
+public var borderImage : Image;
 
-function Start () {
+function Awake () {
 
 	avatarImage = GetComponent(Image);
 
-//	avatarImage.color = Color.white;
-
-//	if (isBoy) {
-//		GetComponent(RectTransform).localScale = new Vector3(-1.0, 1.0, 1.0);
-//	}
 
 }
 
 function Select () {
 	avatarImage.color = Color.white;
+	borderImage.enabled = true;
 }
 
 function DeSelect () {
 	avatarImage.color = Color.gray;
+	borderImage.enabled = false;
 }
 
 function Update () {
