@@ -10,8 +10,7 @@ public var soundEffects : soundEffectsScript;
 function Start () {
 	selected = boy;
 	boy.Select();
-	girl.DeSelect();	
-	
+	girl.DeSelect();		
 }
 
 function Update () {

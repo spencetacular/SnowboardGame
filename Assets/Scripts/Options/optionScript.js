@@ -6,45 +6,27 @@ public var optionText : Text;
 public var optionButtonOn : Image;
 public var optionButtonOff : Image;
 public var pointer : Image;
-
 private var isOn : boolean;
-
 public var isMusic : boolean;
 public var isSoundFX : boolean;
 public var isBack : boolean;
-
-//public var soundEffectsText : Text;
-//public var backText : Text;
-
 var soundController : soundControllerScript;
 public var soundEffects : soundEffectsScript;
 
 function Awake () {
+
 	if (GameObject.Find("soundController")) {
 		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
-//		Debug.Log("found it");
 	}
-
-
-
 }
 
 function Start () {
 
-//	if (GameObject.Find("soundController")) {
-//		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
-//		Debug.Log("found it");
-//	}
-
-
 	pointer.enabled = false;
-			
-	
 }
 
 function Select ( isSelected : boolean) {
 	pointer.enabled = isSelected;
-	Debug.Log("selected called");
 }
 
 function Flip () {
@@ -66,9 +48,6 @@ function  GUIOn () {
 		optionButtonOn.enabled = true;
 		optionButtonOff.enabled = false;
 		isOn = true;
-
-		Debug.Log("On Called");
-
 	}
 
 }
@@ -83,9 +62,7 @@ function On () {
 		soundController.GetComponent(AudioSource).Play();
 	} 
 
-//	isOn = true;
 	GUIOn ();
-	
 }
 
 function GUIOff () {
@@ -95,11 +72,7 @@ function GUIOff () {
 		optionButtonOn.enabled = false;
 		optionButtonOff.enabled = true;
 		isOn = false;
-
-		Debug.Log("Off Called");
-
 	}
-
 }
 
 function Off () {
@@ -111,12 +84,5 @@ function Off () {
 		soundController.music = false;
 		soundController.GetComponent(AudioSource).Stop();
 	} 
-
-
 	GUIOff ();
-	
-}
-
-function Update () {
-
 }

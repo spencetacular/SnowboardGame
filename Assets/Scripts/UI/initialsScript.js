@@ -9,14 +9,12 @@ var initialIndex : int;
 public var initials :  UnityEngine.UI.Text[];
 var currentInitial : UnityEngine.UI.Text;
 public var gameOver = false;
-//var initialsSounds : initialsSoundsScript;
 var soundEffects : soundEffectsScript;
 
 
 function Start () {
 
  	alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
-//	initialsSounds = GetComponent(initialsSoundsScript);
 	currentLetter = alphabet[index];
 	currentInitial = initials[0];
 	maxInitials = initials.length -1;
