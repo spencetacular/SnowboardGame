@@ -68,7 +68,9 @@
      <Compile Include="Assets\Scripts\UI\GameOverScript.js" />
      <Compile Include="Assets\Scripts\UI\SplashReloadScript.js" />
      <Compile Include="Assets\Scripts\UI\SplashSoundsScript.js" />
+     <Compile Include="Assets\Scripts\UI\avatarGame.js" />
      <Compile Include="Assets\Scripts\UI\avatarScript.js" />
+     <Compile Include="Assets\Scripts\UI\avatarsScript.js" />
      <Compile Include="Assets\Scripts\UI\exitGameScript.js" />
      <Compile Include="Assets\Scripts\UI\flashingTextScript.js" />
      <Compile Include="Assets\Scripts\UI\initialsScript.js" />
