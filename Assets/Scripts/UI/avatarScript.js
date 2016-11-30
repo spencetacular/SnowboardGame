@@ -8,8 +8,6 @@ public var borderImage : Image;
 function Awake () {
 
 	avatarImage = GetComponent(Image);
-
-
 }
 
 function Select () {
@@ -20,8 +18,4 @@ function Select () {
 function DeSelect () {
 	avatarImage.color = Color.gray;
 	borderImage.enabled = false;
-}
-
-function Update () {
-
 }

@@ -5,7 +5,7 @@ public var secondsBetweenFlash  = 1.0;
 var doesFlash = true;
 public var startDelay = 0.0;
 
-function Start () {
+function Awake () {
 
 	textObject = GetComponent(UnityEngine.UI.Text);
 	textObject.enabled = false;
