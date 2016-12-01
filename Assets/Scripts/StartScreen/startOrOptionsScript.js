@@ -39,22 +39,19 @@ function Update () {
 
 	if (Input.GetKeyDown ("space") || Input.GetKeyDown ("2") ) {
 
-		if (!playPressed) {
-//			GetComponent(AudioSource).Play();
-			playPressed = true;
+			
 
 			if (startImage.enabled)
-				Application.LoadLevel(level1);
+				soundEffects.levelToLoad = level1;
 			else
-				Application.LoadLevel(options);
+				soundEffects.levelToLoad = options;
+
+			soundEffects.Load();
 		}
 
-	}
-
-//	if (playPressed == true && GetComponent(AudioSource).isPlaying == false)
-//		Destroy(this);	
-
 }
+
+
 
 
 

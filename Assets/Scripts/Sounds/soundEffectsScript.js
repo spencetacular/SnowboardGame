@@ -2,6 +2,8 @@
 
 var soundController : soundControllerScript;
 
+public var soundEffectsObject : GameObject;
+
 public var jumpAudio : AudioSource;
 public var wreckAudio: AudioSource;
 public var treeAudio: AudioSource;
@@ -15,6 +17,9 @@ public var shine : AudioSource;
 
 private var soundEffects : AudioSource[];
 
+public var levelToLoad = "";
+var loadPressed = false;
+
 function Start () {
 
 	soundEffects  = [jumpAudio, wreckAudio, treeAudio, carveAuido, slideAudio, selectAudio, scrollAudio, success];	
@@ -27,6 +32,8 @@ function Start () {
 			Debug.Log("MUTE");
 		}
 	}
+
+	DontDestroyOnLoad(this);
 }
 
 function Mute ( on : boolean) {
@@ -54,9 +61,6 @@ function Slide() {
 	slideAudio.Play();
 }
 
-function Select () {
-	selectAudio.Play();
-}
 
 function Scroll() {
 	scrollAudio.Play();
@@ -66,12 +70,6 @@ function Success() {
 	success.Play();
 }
 
-function Update () {
-	
-	if (carveAuido.time >= 0.7)
-		carveAuido.Stop();	 
-}
-
 function Whoosh() {
 	whoose.Play();
 }
@@ -79,3 +77,30 @@ function Whoosh() {
 function Shine () {
 	shine.Play();
 }
+
+function Select () {
+	selectAudio.Play();
+}
+
+function Load () {
+	
+//	loadedPressed = true;
+
+	if (!loadPressed) {
+			selectAudio.Play();
+			loadPressed = true;
+			Application.LoadLevel(levelToLoad);
+		}
+}
+
+function Update () {
+
+	if (carveAuido.time >= 0.7)
+		carveAuido.Stop();	 
+
+	if (loadPressed == true && selectAudio.isPlaying == false) {
+		Debug.Log("DESTROY!");
+		Destroy(soundEffectsObject);
+	}
+}
+

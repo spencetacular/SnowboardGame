@@ -4,6 +4,7 @@ import UnityEngine.UI;
 
 var readyToRestart = false;
 var pressStartTopPlay : Text;
+var soundEffects : soundEffectsScript;
 
 function Start () {
 	pressStartTopPlay.GetComponent(flashingTextScript).Hide();
@@ -20,6 +21,7 @@ function Update () {
 	if (readyToRestart) {
 
 		if (Input.GetKeyDown ("space") || Input.GetKeyDown ("2"))
-			Application.LoadLevel("StartScreen");
+			soundEffects.levelToLoad = "StartScreen";
+			soundEffects.Load();
 	}
 }
