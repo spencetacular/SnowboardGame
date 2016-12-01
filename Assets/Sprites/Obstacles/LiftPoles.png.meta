@@ -1,13 +1,16 @@
 fileFormatVersion: 2
-guid: 8d4b5fc2f215f4e30b73008301e0030a
-timeCreated: 1475610566
+guid: fbd57c4fd0f6645a8b95edd8966b225a
+timeCreated: 1480628469
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: LiftPoles_0
+    21300002: LiftPoles_1
+    21300004: LiftPoles_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     linearTexture: 0
     correctGamma: 0
     fadeOut: 0
@@ -38,7 +41,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -51,7 +54,46 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: LiftPoles_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 18
+        width: 42
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LiftPoles_1
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 18
+        width: 42
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LiftPoles_2
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 18
+        width: 42
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

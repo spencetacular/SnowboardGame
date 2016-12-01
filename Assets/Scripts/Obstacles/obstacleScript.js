@@ -5,6 +5,7 @@ public class obstacleScript extends MonoBehaviour {
 	var baseY : float;
 	private var inFrontOfPlayer = true;
 	private var playerSprites : playerSpritesScript;
+	private var playerBasePosY : float;
 
 	function Start () {
 		playerSprites = GameObject.Find("player").GetComponent(playerSpritesScript);
@@ -12,6 +13,8 @@ public class obstacleScript extends MonoBehaviour {
 			baseY = (this.transform.Find("basePosition").position.y - this.transform.position.y) / 2.0;
 		else
 			Debug.Log("Missing Base Position"); 
+
+		playerBasePosY = GameObject.Find("playerBasePosition").transform.position.y;
 	}
 
 	function ChildDestroy(){
@@ -20,18 +23,18 @@ public class obstacleScript extends MonoBehaviour {
 
 	function OnTriggerExit2D (other : Collider2D) {
 
-		if (this.tag == "obstacle") {
-			other.GetComponent(playerMovementScript).playerStatus = other.GetComponent(playerMovementScript).Status.Wrecked;
-			other.GetComponent(playerSpritesScript).DirectionUpdate();
-			other.GetComponent(playerLivesScript).LoseALife();
-
-			this.GetComponent(CircleCollider2D).enabled = false;
-			other.GetComponent(playerSpritesScript).soundEffects.Wreck();
-			if(GetComponent(treeAnimationScript)){
-				GetComponent(treeAnimationScript).Fall();
-				other.GetComponent(playerSpritesScript).soundEffects.TreeFall();
-			} 
-		}
+//		if (this.tag == "obstacle") {
+//			other.GetComponent(playerMovementScript).playerStatus = other.GetComponent(playerMovementScript).Status.Wrecked;
+//			other.GetComponent(playerSpritesScript).DirectionUpdate();
+//			other.GetComponent(playerLivesScript).LoseALife();
+//
+//			this.GetComponent(CircleCollider2D).enabled = false;
+//			other.GetComponent(playerSpritesScript).soundEffects.Wreck();
+//			if(GetComponent(treeAnimationScript)){
+//				GetComponent(treeAnimationScript).Fall();
+//				other.GetComponent(playerSpritesScript).soundEffects.TreeFall();
+//			} 
+//		}
 
 		if (this.tag == "jump") {
 			other.GetComponent(playerMovementScript).PlayerJump();
@@ -43,7 +46,7 @@ public class obstacleScript extends MonoBehaviour {
 
 		if (inFrontOfPlayer ==  true) {
 
-			if (transform.position.y + baseY >= 0 && this.tag != "jump") {
+			if (transform.position.y + baseY >= playerBasePosY && this.tag != "jump") {
 				inFrontOfPlayer = false;
 				playerSprites.sortingOrder = GetComponent(SpriteRenderer).sortingOrder + 1;	
 
