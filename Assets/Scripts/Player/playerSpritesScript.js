@@ -1,12 +1,11 @@
 ﻿#pragma strict
 public class playerSpritesScript extends MonoBehaviour {
-	public var spriteRight : Sprite;
-	public var spriteLeft : Sprite;
-	public var spriteDown : Sprite;
-	public var spriteDownRight : Sprite;
-	public var spriteDownLeft : Sprite;
-	public var spriteJump : Sprite;
-	public var spriteWrecked : Sprite;
+	
+
+	public var boySprites : Sprite[];
+	public var girlSprites : Sprite[];
+	public var playerSprites : Sprite[];
+
 	var playerMovement : playerMovementScript;
 	var playerParticles : playerParticlesScript;
 	var spriteRenderer : SpriteRenderer;
@@ -14,19 +13,32 @@ public class playerSpritesScript extends MonoBehaviour {
 	public var speachBubble : GameObject;
 	public var joystick : GameObject;
 	public var sortingOrder = 1;
+	private var playerShadow : SpriteRenderer;
 
 	function Start () {
 		 playerMovement = GetComponent(playerMovementScript);
 		 spriteRenderer = GetComponent(SpriteRenderer);
 		 playerParticles = GetComponent(playerParticlesScript);
-		 GetComponent(SpriteRenderer).sprite = spriteRight;
+		 spriteRenderer.sprite = playerSprites[1];
 		 spriteRenderer.sortingOrder = sortingOrder;
+		 playerShadow  = GameObject.Find("shadow").GetComponent(SpriteRenderer);
+
+		 playerSprites = boySprites;
+	}
+
+	function SetPlayerSprites ( boy : boolean) {
+		if (boy)
+			 playerSprites = boySprites;
+		else
+			 playerSprites = girlSprites;
+		
+		DirectionUpdate();
 	}
 
 
 
 	function Jump () {
-		spriteRenderer.sprite = spriteJump;
+		spriteRenderer.sprite = playerSprites[6];
 		speachBubble.GetComponent(speachBubbleScript).GoodComment();
 		playerParticles.PlayDownHill(false);
 		soundEffects.Jump();
@@ -43,30 +55,30 @@ public class playerSpritesScript extends MonoBehaviour {
 			switch (playerMovement.playerStatus)  
 			{
 				case  playerMovement.Status.Down:
-					spriteRenderer.sprite = spriteDown;
+					spriteRenderer.sprite = playerSprites[0];
 					joystick.GetComponent(joystickScript).PopOff();
 					playerParticles.PlayDownHill(true);
 					break;
 				case  playerMovement.Status.Right:
-					spriteRenderer.sprite = spriteRight;
+					spriteRenderer.sprite = playerSprites[1];
 					soundEffects.Slide();
 					playerParticles.Slide("right");
 					break;
 				case  playerMovement.Status.Left:
-					spriteRenderer.sprite = spriteLeft;
+					spriteRenderer.sprite = playerSprites[2];
 					soundEffects.Slide();
 					playerParticles.Slide("left");
 					break;
 				case  playerMovement.Status.DownRight:
-					spriteRenderer.sprite = spriteDownRight;
+					spriteRenderer.sprite = playerSprites[3];
 					soundEffects.Carve();
 					break;
 				case  playerMovement.Status.DownLeft:
-					spriteRenderer.sprite = spriteDownLeft;
+					spriteRenderer.sprite = playerSprites[4];
 					soundEffects.Carve();
 					break;
 				case  playerMovement.Status.Wrecked:
-					spriteRenderer.sprite = spriteWrecked;
+					spriteRenderer.sprite = playerSprites[5];
 					joystick.GetComponent(joystickScript).PopOn();
 					speachBubble.GetComponent(speachBubbleScript).BadComment();
 					playerParticles.Wreck();
@@ -78,10 +90,18 @@ public class playerSpritesScript extends MonoBehaviour {
 
 	function Update () {
 
-		if (!playerMovement.isJumping)
+		if (!playerMovement.isJumping) {
 			spriteRenderer.sortingOrder = sortingOrder;
-		else 
+			playerShadow.sortingOrder = sortingOrder -1;
+		}
+
+		else {
 			spriteRenderer.sortingOrder  = 101;
+			playerShadow.sortingOrder = 100;
+			}
+		
 	}
+
+
 
 }

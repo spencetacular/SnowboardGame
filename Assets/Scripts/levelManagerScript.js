@@ -35,6 +35,7 @@ function GameMode () {
 	canvasPlaying.SetActive(true);
 	canvasInstructions.SetActive(false);
 	GameObject.Find("avatar").GetComponent(avatarGame).SetAvatar(boyAvatar);
+	GameObject.Find("player").GetComponent(playerSpritesScript).SetPlayerSprites(boyAvatar);
 	GameObject.Find("speachBubble").GetComponent(speachBubbleScript).StartComment();
 	player.GetComponent(playerMovementScript).paused = false;
 	liftChairsFull.GetComponent(liftChairsScript).paused = false;
