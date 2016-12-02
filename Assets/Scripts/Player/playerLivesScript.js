@@ -26,7 +26,7 @@ function LoseAllLives () {
 	for ( l in lives ) 
 		l.GetComponent(UnityEngine.UI.Image).enabled = false;
 
-	Invoke("GameOver", 0);
+	Invoke("GameOver", 5);
 }
 
 function GameOver () {

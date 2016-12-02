@@ -5,8 +5,6 @@
 	var childAnim : Animator;
 
 	function Start () {
-//		anim = GetComponent(Animator);
-//		childAnim = transform.Find("treeShadow").GetComponent(Animator);
 	}
 
 	function Fall () {

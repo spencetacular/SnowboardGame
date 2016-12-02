@@ -38,12 +38,15 @@ function GameMode () {
 	GameObject.Find("avatar").GetComponent(avatarGame).SetAvatar(boyAvatar);
 	GameObject.Find("player").GetComponent(playerSpritesScript).SetPlayerSprites(boyAvatar);
 	GameObject.Find("speachBubble").GetComponent(speachBubbleScript).StartComment();
-	yetiMovement.Spawn();
+//	yetiMovement.Spawn();
+	yetiMovement.SpawnDelay();
 	player.GetComponent(playerMovementScript).paused = false;
 	liftChairsFull.GetComponent(liftChairsScript).paused = false;
 	liftChairsEmpty.GetComponent(liftChairsScript).paused = false;
 	fade.GetComponent(Animator).SetTrigger("fadeUp");
 }
+
+
 
 function GameOverMode () {
 
