@@ -1,17 +1,16 @@
 fileFormatVersion: 2
-guid: be7668f8d1ea74d5e92b1c458574c1a0
-timeCreated: 1480715703
+guid: 94ed0ec7a640b4373a4de3bef8c2d881
+timeCreated: 1480716701
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: PinkCoin_Spritesheet_0
-    21300002: PinkCoin_Spritesheet_1
-    21300004: PinkCoin_Spritesheet_2
-    21300006: PinkCoin_Spritesheet_3
-    21300008: PinkCoin_Spritesheet_4
-    21300010: PinkCoin_Spritesheet_5
-    21300012: PinkCoin_Spritesheet_6
-    21300014: PinkCoin_Spritesheet_7
+    21300000: LiftPole_Snow_Spritesheet_0
+    21300002: LiftPole_Snow_Spritesheet_1
+    21300004: LiftPole_Snow_Spritesheet_2
+    21300006: LiftPole_Snow_Spritesheet_3
+    21300008: LiftPole_Snow_Spritesheet_4
+    21300010: LiftPole_Snow_Spritesheet_5
+    21300012: LiftPole_Snow_Spritesheet_6
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -52,7 +51,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
-  spritePixelsToUnits: 75
+  spritePixelsToUnits: 100
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
   textureType: 8
@@ -61,104 +60,91 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: PinkCoin_Spritesheet_0
+      name: LiftPole_Snow_Spritesheet_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
-        width: 64
-        height: 64
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PinkCoin_Spritesheet_1
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PinkCoin_Spritesheet_2
+      name: LiftPole_Snow_Spritesheet_1
       rect:
         serializedVersion: 2
         x: 128
-        y: 64
-        width: 64
-        height: 64
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PinkCoin_Spritesheet_3
+      name: LiftPole_Snow_Spritesheet_2
       rect:
         serializedVersion: 2
-        x: 192
-        y: 64
-        width: 64
-        height: 64
+        x: 256
+        y: 256
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
     - serializedVersion: 2
-      name: PinkCoin_Spritesheet_4
+      name: LiftPole_Snow_Spritesheet_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LiftPole_Snow_Spritesheet_4
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LiftPole_Snow_Spritesheet_5
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: LiftPole_Snow_Spritesheet_6
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PinkCoin_Spritesheet_5
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PinkCoin_Spritesheet_6
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 0
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
-    - serializedVersion: 2
-      name: PinkCoin_Spritesheet_7
-      rect:
-        serializedVersion: 2
-        x: 192
-        y: 0
-        width: 64
-        height: 64
+        width: 128
+        height: 128
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
