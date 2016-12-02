@@ -22,8 +22,14 @@ function LoseALife () {
 		Invoke("GameOver", 0);
 }
 
+function LoseAllLives () {
+	for ( l in lives ) 
+		l.GetComponent(UnityEngine.UI.Image).enabled = false;
+
+	Invoke("GameOver", 0);
+}
+
 function GameOver () {
-//	GameObject.Find("gameOverCanvas").GetComponent(GameOverScript).GameOver();
 	GameObject.Find("levelManager").GetComponent(levelManagerScript).GameOverMode();
 }
 
