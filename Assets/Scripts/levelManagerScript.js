@@ -10,6 +10,7 @@ public var canvasInstructions : GameObject;
 public var canvasPlaying : GameObject;
 public var canvasGameOver : GameObject;
 public var boyAvatar : boolean;
+public var yetiMovement : yetiMovementScript;
 
 
 function Start () {
@@ -17,7 +18,7 @@ function Start () {
 	canvasInstructions.SetActive(false);
 	canvasPlaying.SetActive(false);
 	canvasGameOver.SetActive(false);
-	blackBox.SetActive(true);
+//	blackBox.SetActive(true);
 	canvasAvatar.SetActive(true);
 }
 
@@ -37,6 +38,7 @@ function GameMode () {
 	GameObject.Find("avatar").GetComponent(avatarGame).SetAvatar(boyAvatar);
 	GameObject.Find("player").GetComponent(playerSpritesScript).SetPlayerSprites(boyAvatar);
 	GameObject.Find("speachBubble").GetComponent(speachBubbleScript).StartComment();
+	yetiMovement.Spawn();
 	player.GetComponent(playerMovementScript).paused = false;
 	liftChairsFull.GetComponent(liftChairsScript).paused = false;
 	liftChairsEmpty.GetComponent(liftChairsScript).paused = false;
