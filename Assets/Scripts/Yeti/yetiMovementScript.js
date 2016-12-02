@@ -19,7 +19,8 @@ function Spawn () {
 
 
 function OnTriggerEnter2D (other : Collider2D) { 
-	other.GetComponent(playerLivesScript).LoseAllLives();
+	if (other.tag == "Player")
+		other.GetComponent(playerLivesScript).LoseAllLives();
 }
 
 function Update () {

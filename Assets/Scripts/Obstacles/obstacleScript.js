@@ -11,7 +11,10 @@ public class obstacleScript extends MonoBehaviour {
 	private var yetiSprites : yetiMovementScript;
 	public var yetiBasePosY : GameObject;
 
+	private var soundEffects : soundEffectsScript;
+
 	function Start () {
+		soundEffects = GameObject.Find("soundEffects").GetComponent(soundEffectsScript);
 		playerSprites = GameObject.Find("player").GetComponent(playerSpritesScript);
 		yeti = GameObject.Find("yeti");
 		yetiBasePosY =  GameObject.Find("yetiBasePosition");
@@ -31,23 +34,34 @@ public class obstacleScript extends MonoBehaviour {
 
 	function OnTriggerExit2D (other : Collider2D) {
 
-		if (this.tag == "obstacle") {
-			other.GetComponent(playerMovementScript).playerStatus = other.GetComponent(playerMovementScript).Status.Wrecked;
-			other.GetComponent(playerSpritesScript).DirectionUpdate();
-			other.GetComponent(playerLivesScript).LoseALife();
+		if (this.tag == "obstacle" || this.tag == "tree" || this.tag == "pole") {
+			if (other.tag == "Player") {
+				other.GetComponent(playerMovementScript).playerStatus = other.GetComponent(playerMovementScript).Status.Wrecked;
+				other.GetComponent(playerSpritesScript).DirectionUpdate();
+				other.GetComponent(playerLivesScript).LoseALife();
 
-			this.GetComponent(CircleCollider2D).enabled = false;
-			other.GetComponent(playerSpritesScript).soundEffects.Wreck();
-			if(GetComponent(treeAnimationScript)){
-				GetComponent(treeAnimationScript).Fall();
-				other.GetComponent(playerSpritesScript).soundEffects.TreeFall();
-			} 
+				this.GetComponent(CircleCollider2D).enabled = false;
+				other.GetComponent(playerSpritesScript).soundEffects.Wreck();
+			}
+
 		}
 
-		if (this.tag == "jump") {
+		if (this.tag == "jump" && other.tag == "Player") {
 			other.GetComponent(playerMovementScript).PlayerJump();
 
 		}
+
+		if (this.tag == "tree") {
+				GetComponent(treeAnimationScript).Fall();
+				soundEffects.TreeFall();
+		} 
+
+		if (this.tag == "pole" && other.tag == "yeti") {
+				GetComponent(treeAnimationScript).Fall();
+				soundEffects.TreeFall();
+		} 
+
+
 	}
 
 	function Update () {
