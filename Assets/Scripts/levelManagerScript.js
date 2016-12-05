@@ -15,26 +15,30 @@ public var yetiMovement : yetiMovementScript;
 
 function Start () {
 
-	canvasInstructions.SetActive(false);
+	
 	canvasPlaying.SetActive(false);
 	canvasGameOver.SetActive(false);
-//	blackBox.SetActive(true);
-	canvasAvatar.SetActive(true);
-}
+	blackBox.SetActive(true);
+	canvasAvatar.SetActive(false);
+	canvasInstructions.SetActive(true);
 
-function AvatarMode () {
-	canvasAvatar.SetActive(true);
 }
 
 function InstructionsMode () {
-	canvasAvatar.SetActive(false);
 	canvasInstructions.SetActive(true);
 	
 }
 
-function GameMode () {
-	canvasPlaying.SetActive(true);
+
+function AvatarMode () {
 	canvasInstructions.SetActive(false);
+	canvasAvatar.SetActive(true);
+}
+
+
+function GameMode () {
+	canvasAvatar.SetActive(false);
+	canvasPlaying.SetActive(true);
 	GameObject.Find("avatar").GetComponent(avatarGame).SetAvatar(boyAvatar);
 	GameObject.Find("player").GetComponent(playerSpritesScript).SetPlayerSprites(boyAvatar);
 	GameObject.Find("speachBubble").GetComponent(speachBubbleScript).StartComment();

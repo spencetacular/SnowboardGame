@@ -41,7 +41,7 @@ function Update () {
 			boyAvatar = false;
 
 		GameObject.Find("levelManager").GetComponent(levelManagerScript).boyAvatar = boyAvatar;
-		GameObject.Find("levelManager").GetComponent(levelManagerScript).InstructionsMode();
+		GameObject.Find("levelManager").GetComponent(levelManagerScript).GameMode();
 		soundEffects.Select();
 	}
 }

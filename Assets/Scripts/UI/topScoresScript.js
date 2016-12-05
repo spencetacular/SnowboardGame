@@ -21,16 +21,16 @@ public class topScoresScript extends MonoBehaviour
 
     function GetTopScores () {
 
- 		userScores.Add (new userScoreScript(10, "SKC"));
-        userScores.Add (new userScoreScript(8, "ASS"));
-        userScores.Add (new userScoreScript(9, "BUT"));
-        userScores.Add (new userScoreScript(7, "FUK"));
-        userScores.Add (new userScoreScript(5, "QQQ"));
-        userScores.Add (new userScoreScript(6, "FUK"));
-        userScores.Add (new userScoreScript(4, "FUK"));
-        userScores.Add (new userScoreScript(3, "BUT"));
-        userScores.Add (new userScoreScript(2, "FUK"));
-        userScores.Add (new userScoreScript(1, "FUK"));
+ 		userScores.Add (new userScoreScript(10000, "SKC"));
+        userScores.Add (new userScoreScript(80000, "ASS"));
+        userScores.Add (new userScoreScript(9000, "BUT"));
+        userScores.Add (new userScoreScript(7000, "FUK"));
+        userScores.Add (new userScoreScript(5000, "QQQ"));
+        userScores.Add (new userScoreScript(6000, "FUK"));
+        userScores.Add (new userScoreScript(4000, "FUK"));
+        userScores.Add (new userScoreScript(3000, "BUT"));
+        userScores.Add (new userScoreScript(2000, "FUK"));
+        userScores.Add (new userScoreScript(1000, "FUK"));
 
         userScores.Sort();	
     }
