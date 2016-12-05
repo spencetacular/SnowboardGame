@@ -1,12 +1,17 @@
 ﻿#pragma strict
 
 import System.Collections.Generic;
+import UnityEngine.UI;
 
 public var userScores = new List.<userScoreScript>();
 var topScoresText : UnityEngine.UI.Text;
 public var initials : GameObject;
 public var score : int;
 public var soundEffects : soundEffectsScript;
+public var finalScoreTop10 : Text;
+public var finalScoreNotTop10 : GameObject;
+public var finalScoreNotTop10Text : Text;
+
 
 
 
@@ -17,6 +22,7 @@ public class topScoresScript extends MonoBehaviour
     	topScoresText = GetComponent(UnityEngine.UI.Text);
         var userScores = new List.<userScoreScript>();
         initials.SetActive(false);
+        finalScoreNotTop10.SetActive(false);
     }
 
     function GetTopScores () {
@@ -49,6 +55,7 @@ public class topScoresScript extends MonoBehaviour
     		if (score >= u.score) {
 				initials.GetComponent(initialsScript).gameOver = true;
     			initials.SetActive(true);
+    			finalScoreTop10.text = "FINAL SCORE: " + score;
     			soundEffects.Success();
     			newHighScore = true;
     			break;
@@ -57,6 +64,8 @@ public class topScoresScript extends MonoBehaviour
     	}
 
     	if (!newHighScore) {
+    		finalScoreNotTop10.SetActive(true);
+    		finalScoreNotTop10Text.text = score.ToString();
     		GameObject.Find("canvasGameOver").GetComponent(ganeOverControlsScript).PressStartToPlay();
     	}
     }
