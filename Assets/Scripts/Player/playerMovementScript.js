@@ -29,9 +29,9 @@ public class playerMovementScript extends MonoBehaviour {
 	function Start () {
 		gameSpeed = gameStartSpeed;	
 		obstacles = [obstacles1, obstacles2];
-		playerSprites = GetComponent(playerSpritesScript);
-		playerScale = GetComponent(playerScaleScript);
-		playerShadow = GameObject.Find("shadow").GetComponent(playerShadowScript);
+//		playerSprites = GetComponent(playerSpritesScript);
+//		playerScale = GetComponent(playerScaleScript);
+//		playerShadow = GameObject.Find("shadow").GetComponent(playerShadowScript);
 //		score = GameObject.Find("score").GetComponent(scoreScript);
 		isJumping = false;
 		downhill = false;
