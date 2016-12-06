@@ -40,7 +40,7 @@ function GameMode () {
 	canvasAvatar.SetActive(false);
 	canvasPlaying.SetActive(true);
 	GameObject.Find("avatar").GetComponent(avatarGame).SetAvatar(boyAvatar);
-	GameObject.Find("player").GetComponent(playerSpritesScript).SetPlayerSprites(boyAvatar);
+	player.GetComponent(playerSpritesScript).SetPlayerSprites(boyAvatar);
 	GameObject.Find("speachBubble").GetComponent(speachBubbleScript).StartComment();
 //	yetiMovement.Spawn();
 	yetiMovement.SpawnDelay();
@@ -53,7 +53,8 @@ function GameMode () {
 
 
 function GameOverMode () {
-
+	yetiMovement.paused = true;
+	player.GetComponent(playerMovementScript).paused = true;
 	canvasGameOver.SetActive(true);
 	var score = GameObject.Find("score").GetComponent(scoreScript).score;
 //	GameObject.Find("finalScore").GetComponent(UnityEngine.UI.Text).text = "FINAL SCORE: " + score;

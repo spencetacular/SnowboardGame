@@ -7,27 +7,39 @@ public var player : GameObject;
 
 
 private var speed : float;
+private var chaseSpeed : float;
+private var catchUpSpeed : float;
 public var spawnPos = 7.0;
 
 private var spawned = false;
 private var chasing = false;
 public var yetiWidth = 0.5;
 
-public var spwanTime = 1.0;
-
+public var spwanTime = 5.0;
+public var paused = false;
+public var caughtUp = false;
 
 public var soundEffects : soundEffectsScript;
 
 function Start () {
 
-	speed = playerMovement.gameStartSpeed * -1.0;
+	
+	chaseSpeed = playerMovement.gameStartSpeed * -1.0;
+//	catchUpSpeed = playerMovement.gameMaxSpeed * -1.0;
+	speed = catchUpSpeed;
+	GetComponent(CircleCollider2D).enabled = false;
 }
 
 function Spawn () {
-	spawned = true;
-	chasing = true;
-	transform.position = new Vector3(player.transform.position.x, spawnPos, 0.0);
-	soundEffects.Roar();
+
+	if (!paused) {
+		spawned = true;
+		chasing = true;
+		caughtUp = false;
+		transform.position = new Vector3(player.transform.position.x, spawnPos, 0.0);
+		GetComponent(CircleCollider2D).enabled = true;
+		soundEffects.Roar();
+	}
 }
 
 function SpawnDelay () {
@@ -38,11 +50,25 @@ function SpawnDelay () {
 function PlayerEscape(playerY : float, yetiY : float) {
 	var distance = yetiY - playerY ;
 //	Debug.Log(distance);
-	if (distance >= spawnPos * 2) {
+	if (distance >= spawnPos * 1.5) {
 		spawned = false;
-		speed += 0.5;
+		chaseSpeed -= 1.0;	
 		SpawnDelay ();
-		soundEffects.Select();
+		GetComponent(CircleCollider2D).enabled = false;
+		soundEffects.Groan();
+	}
+}
+
+function CatchUp () {
+
+	if (caughtUp == false) {
+		if (transform.position.y > 2.5) {
+			catchUpSpeed = playerMovement.gameSpeed * -1.1;
+			speed = catchUpSpeed;
+		} else {
+			speed = chaseSpeed;
+			caughtUp = true;
+		}
 	}
 }
 
@@ -68,8 +94,8 @@ function Update () {
 	
 
 	if (spawned && chasing) {
-
-		
+		Debug.Log(speed);
+		CatchUp();
 		PlayerEscape(player.transform.position.y, transform.position.y);
 
 		var x = 0.0;

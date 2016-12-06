@@ -15,6 +15,7 @@ public var success : AudioSource;
 public var whoose : AudioSource;
 public var shine : AudioSource;
 public var roar : AudioSource;
+public var groan : AudioSource;
 
 private var soundEffects : AudioSource[];
 
@@ -96,10 +97,12 @@ function Roar () {
 	roar.Play();
 }
 
-function Update () {
+function Groan () {
+	groan.Play();
+}
 
-	if (carve.time >= 0.7)
-		carve.Stop();	 
+function Update () {
+ 
 
 	if (loadPressed == true && select.isPlaying == false) {
 		Debug.Log("DESTROY!");

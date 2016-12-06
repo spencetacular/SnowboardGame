@@ -34,22 +34,24 @@ public class obstacleScript extends MonoBehaviour {
 
 	function OnTriggerExit2D (other : Collider2D) {
 
-		if (this.tag == "obstacle" || this.tag == "tree" || this.tag == "pole") {
-			if (other.tag == "Player") {
-				other.GetComponent(playerMovementScript).playerStatus = other.GetComponent(playerMovementScript).Status.Wrecked;
-				other.GetComponent(playerSpritesScript).DirectionUpdate();
-				other.GetComponent(playerLivesScript).LoseALife();
+		if (other.tag == "Player") {
+			if (this.tag == "obstacle" || this.tag == "tree" || this.tag == "pole") {
+				
+					other.GetComponent(playerMovementScript).playerStatus = other.GetComponent(playerMovementScript).Status.Wrecked;
+					other.GetComponent(playerSpritesScript).DirectionUpdate();
+					other.GetComponent(playerLivesScript).LoseALife();
 
-				this.GetComponent(CircleCollider2D).enabled = false;
-				other.GetComponent(playerSpritesScript).soundEffects.Wreck();
+					this.GetComponent(CircleCollider2D).enabled = false;
+					other.GetComponent(playerSpritesScript).soundEffects.Wreck();
+				}
+
+			if (this.tag == "jump") {
+				other.GetComponent(playerMovementScript).PlayerJump();
+
 			}
-
 		}
 
-		if (this.tag == "jump" && other.tag == "Player") {
-			other.GetComponent(playerMovementScript).PlayerJump();
 
-		}
 
 		if (this.tag == "tree") {
 				GetComponent(treeAnimationScript).Fall();

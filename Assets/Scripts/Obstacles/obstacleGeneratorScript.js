@@ -64,7 +64,7 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 			
 
 			if (k != 0) {
-				var pole = Instantiate(liftPole, new Vector3(0, poleY, 0), Quaternion.identity);
+				var pole = Instantiate(liftPole, new Vector3(-0.81, poleY, 0), Quaternion.identity);
 				pole.transform.name += k + Random.Range( 1, 1000);
 				pole.transform.parent = this.transform;
 				var poleBaseY = pole.GetComponent(obstacleScript).baseY + poleY;
