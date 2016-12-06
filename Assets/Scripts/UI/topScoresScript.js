@@ -24,9 +24,12 @@ public class topScoresScript extends MonoBehaviour
         var userScores = new List.<userScoreScript>();
         initials.SetActive(false);
         finalScoreNotTop10.SetActive(false);
+
     }
 
     function GetTopScores () {
+
+    	
 
  		userScores.Add (new userScoreScript(10000, "SKC"));
         userScores.Add (new userScoreScript(80000, "ASS"));
@@ -41,6 +44,7 @@ public class topScoresScript extends MonoBehaviour
 
         userScores.Sort();	
     }
+
 
     function GameOver (score : int) {
     	GetTopScores();

@@ -4,16 +4,17 @@ var soundController : soundControllerScript;
 
 public var soundEffectsObject : GameObject;
 
-public var jumpAudio : AudioSource;
-public var wreckAudio: AudioSource;
-public var treeAudio: AudioSource;
-public var carveAuido: AudioSource;
-public var slideAudio: AudioSource;
-public var selectAudio: AudioSource;
-public var scrollAudio: AudioSource;
+public var jump : AudioSource;
+public var wreck: AudioSource;
+public var tree: AudioSource;
+public var carve: AudioSource;
+public var slide: AudioSource;
+public var select: AudioSource;
+public var scroll: AudioSource;
 public var success : AudioSource;
 public var whoose : AudioSource;
 public var shine : AudioSource;
+public var roar : AudioSource;
 
 private var soundEffects : AudioSource[];
 
@@ -22,7 +23,7 @@ var loadPressed = false;
 
 function Start () {
 
-	soundEffects  = [jumpAudio, wreckAudio, treeAudio, carveAuido, slideAudio, selectAudio, scrollAudio, success];	
+	soundEffects  = [jump, wreck, tree, carve, slide, select, scroll, success];	
 
 	if (GameObject.Find("soundController")) { 
 		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
@@ -42,28 +43,28 @@ function Mute ( on : boolean) {
 }
 
 function Jump() {
-	jumpAudio.Play();
+	jump.Play();
 }
 
 function Wreck() {
-	wreckAudio.Play();
+	wreck.Play();
 }
 
 function TreeFall() {
-	treeAudio.Play();
+	tree.Play();
 }
 
 function Carve() {
-	carveAuido.Play();	
+	carve.Play();	
 }
 
 function Slide() {
-	slideAudio.Play();
+	slide.Play();
 }
 
 
 function Scroll() {
-	scrollAudio.Play();
+	scroll.Play();
 }
 
 function Success() {
@@ -79,26 +80,28 @@ function Shine () {
 }
 
 function Select () {
-	selectAudio.Play();
+	select.Play();
 }
 
 function Load () {
 	
-//	loadedPressed = true;
-
 	if (!loadPressed) {
-			selectAudio.Play();
+			select.Play();
 			loadPressed = true;
 			Application.LoadLevel(levelToLoad);
-		}
+	}
+}
+
+function Roar () {
+	roar.Play();
 }
 
 function Update () {
 
-	if (carveAuido.time >= 0.7)
-		carveAuido.Stop();	 
+	if (carve.time >= 0.7)
+		carve.Stop();	 
 
-	if (loadPressed == true && selectAudio.isPlaying == false) {
+	if (loadPressed == true && select.isPlaying == false) {
 		Debug.Log("DESTROY!");
 		Destroy(soundEffectsObject);
 	}

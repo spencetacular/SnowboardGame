@@ -6,26 +6,45 @@ public var playerMovement : playerMovementScript;
 public var player : GameObject;
 
 
-public var speed : float;
+private var speed : float;
 public var spawnPos = 7.0;
 
 private var spawned = false;
 private var chasing = false;
 public var yetiWidth = 0.5;
 
+public var spwanTime = 1.0;
+
+
+public var soundEffects : soundEffectsScript;
+
 function Start () {
+
+	speed = playerMovement.gameStartSpeed * -1.0;
 }
 
 function Spawn () {
 	spawned = true;
 	chasing = true;
 	transform.position = new Vector3(player.transform.position.x, spawnPos, 0.0);
+	soundEffects.Roar();
 }
 
 function SpawnDelay () {
-	Invoke ("Spawn", 15);
+	Invoke ("Spawn", spwanTime);
 }
 
+
+function PlayerEscape(playerY : float, yetiY : float) {
+	var distance = yetiY - playerY ;
+//	Debug.Log(distance);
+	if (distance >= spawnPos * 2) {
+		spawned = false;
+		speed += 0.5;
+		SpawnDelay ();
+		soundEffects.Select();
+	}
+}
 
 function OnTriggerEnter2D (other : Collider2D) { 
 	if (other.tag == "Player")	 {
@@ -46,8 +65,13 @@ function OnTriggerEnter2D (other : Collider2D) {
 
 function Update () {
 
+	
 
 	if (spawned && chasing) {
+
+		
+		PlayerEscape(player.transform.position.y, transform.position.y);
+
 		var x = 0.0;
 		var xDiff =  Mathf.Abs(player.transform.position.x - transform.position.x);
 		if ( xDiff >= yetiWidth ) {
@@ -60,6 +84,8 @@ function Update () {
 		else
 			transform.Translate(x * Time.deltaTime, Time.deltaTime * speed, 0);
 		}
+
+
 
 
 }
