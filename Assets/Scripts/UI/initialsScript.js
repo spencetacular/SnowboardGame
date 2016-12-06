@@ -54,7 +54,7 @@ function PreviousLetter(){
 
 function NewHighScore (){
 	var ini = CompletedInitials();
-	GameObject.Find("topScores").GetComponent(topScoresScript).AddNewTopScore(ini);
+	GameObject.Find("topScoresScores").GetComponent(topScoresScript).AddNewTopScore(ini);
 }
 
 function CompletedInitials() : String {

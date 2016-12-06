@@ -58,8 +58,8 @@ function GameOverMode () {
 	var score = GameObject.Find("score").GetComponent(scoreScript).score;
 //	GameObject.Find("finalScore").GetComponent(UnityEngine.UI.Text).text = "FINAL SCORE: " + score;
 	canvasPlaying.SetActive(false);
-	GameObject.Find("topScores").GetComponent(topScoresScript).score = score;
-	GameObject.Find("topScores").GetComponent(topScoresScript).GameOver(score);
+	GameObject.Find("topScoresScores").GetComponent(topScoresScript).score = score;
+	GameObject.Find("topScoresScores").GetComponent(topScoresScript).GameOver(score);
 	fade.GetComponent(Animator).SetTrigger("fadeOut");
 }
 

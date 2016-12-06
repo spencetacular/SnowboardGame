@@ -4,7 +4,8 @@ import System.Collections.Generic;
 import UnityEngine.UI;
 
 public var userScores = new List.<userScoreScript>();
-var topScoresText : UnityEngine.UI.Text;
+var topScoresInitials : Text;
+var topScoresScores : Text;
 public var initials : GameObject;
 public var score : int;
 public var soundEffects : soundEffectsScript;
@@ -19,7 +20,7 @@ public class topScoresScript extends MonoBehaviour
 {
     function Start ()
     {
-    	topScoresText = GetComponent(UnityEngine.UI.Text);
+//    	topScoresText = GetComponent(Text);
         var userScores = new List.<userScoreScript>();
         initials.SetActive(false);
         finalScoreNotTop10.SetActive(false);
@@ -92,8 +93,12 @@ public class topScoresScript extends MonoBehaviour
 
     function SetTopScoresText () {
 
-		topScoresText.text = "TOP SCORES: " + "\n";
+		topScoresInitials.text = "";
+		topScoresScores.text = "";
+		
     	 for (var u in userScores)
-        	topScoresText.text += u.initials + " " + u.score + "\n";
+        	topScoresInitials.text += u.initials + "\n";
+        for (var u in userScores)
+        	topScoresScores.text += u.score + "\n";
     }
 }
