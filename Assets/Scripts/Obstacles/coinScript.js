@@ -1,7 +1,7 @@
 ﻿#pragma strict
 
-public var goldBonus = 500;
-public var magentaBonus = 1000;
+public var goldBonus = 333;
+public var magentaBonus = 666;
 public var isGold : boolean;
 
 public var score : scoreScript;
@@ -9,9 +9,9 @@ public var score : scoreScript;
 function Bonus () {
 
 	if (isGold) 
-		score.score += goldBonus;
+		score.Bonus(goldBonus);
 	else
-		score.score += magentaBonus;
+		score.Bonus(magentaBonus);
 
 	GetComponent(SpriteRenderer).enabled = false;
 	

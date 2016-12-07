@@ -1,4 +1,5 @@
 ﻿#pragma strict
+import UnityEngine.UI;
 public class scoreScript extends MonoBehaviour {
 
 	var playerMovement : playerMovementScript;
@@ -12,6 +13,9 @@ public class scoreScript extends MonoBehaviour {
 	public var downHillBonus = 33;
 	private var downHillPoints = 0.0;
 
+	public var anim : Animator;
+	public var bonusText : Text;
+
 
 
 	function Start () {
@@ -22,19 +26,21 @@ public class scoreScript extends MonoBehaviour {
 	function Jump( percent : float ) {
 		var bonusAmount = Mathf.Floor( Mathf.Lerp( jumpMinBonus, jumpMaxBonus, percent));
 		score += bonusAmount;
-		bonus.GetComponent(flashingTextScript).textObject.text = "+" + bonusAmount;
-		bonus.GetComponent(flashingTextScript).Flashing(true);
-
-		Invoke ("hideBonus", bonusFlashTime);
+//		bonus.GetComponent(flashingTextScript).textObject.text = "+" + bonusAmount;
+//		bonus.GetComponent(flashingTextScript).Flashing(true);
 
 
-		if ( percent >= 0.333 )
-			sickTrick.GetComponent(Animator).SetTrigger("trick");
+
+
+		Bonus(bonusAmount);
 			
 	}
 
-	function hideBonus() {
-		bonus.GetComponent(flashingTextScript).Hide();
+	function Bonus (amount : int) {
+		bonusText.text = "+" + amount;
+		score += amount;
+
+		anim.SetTrigger("bonus");
 	}
 
 	function Update () {

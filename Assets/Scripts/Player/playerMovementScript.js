@@ -25,6 +25,7 @@ public class playerMovementScript extends MonoBehaviour {
 	public var playerStatus : Status;
 	public var speedPercent : float;
 	public var downhill  : boolean;
+	public var score : scoreScript;
 
 	function Start () {
 		gameSpeed = gameStartSpeed;	
@@ -52,7 +53,7 @@ public class playerMovementScript extends MonoBehaviour {
 		playerShadow.CreateAniCurves( jumpDuration, speedPercent);
 //		score.Jump(speedPercent);
 //		Debug.Log("Jump Duration:" + jumpDuration);
-
+		score.Jump(speedPercent);
 		Invoke("PlayerLand", jumpDuration);
 
 
