@@ -2,16 +2,17 @@
 
 public var goldBonus = 500;
 public var magentaBonus = 1000;
+public var isGold : boolean;
 
 public var score : scoreScript;
 
 function Bonus () {
 
-	if (this.tag == "coinGold") {
+	if (isGold) 
 		score.score += goldBonus;
-	}
-
-	if (this.tag == "coinMagenta") {
+	else
 		score.score += magentaBonus;
-	}
+
+	GetComponent(SpriteRenderer).enabled = false;
+	
 }

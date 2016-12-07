@@ -84,6 +84,10 @@ function Select () {
 	select.Play();
 }
 
+function Coin () {
+	scroll.Play();
+}
+
 function Load () {
 	
 	if (!loadPressed) {

@@ -1,17 +1,20 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/avatarGame.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Obstacles/coinScript.js">
     <Files>
-      <File FileName="Assets/Scripts/UI/avatarGame.js" Line="14" Column="19" />
-      <File FileName="Assets/Scripts/UI/avatarsScript.js" Line="53" Column="3" />
-      <File FileName="Assets/Scripts/UI/avatarScript.js" Line="5" Column="33" />
-      <File FileName="Assets/Scripts/UI/Controls/ganeOverControlsScript.js" Line="28" Column="25" />
-      <File FileName="Assets/Scripts/UI/initialsScript.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/levelManagerScript.js" Line="30" Column="31" />
-      <File FileName="Assets/Scripts/Sounds/soundEffectsScript.js" Line="25" Column="92" />
-      <File FileName="Assets/Scripts/StartScreen/startOrOptionsScript.js" Line="32" Column="9" />
-      <File FileName="Assets/Scripts/UI/instructionsScript.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player/playerSpritesScript.js" Line="26" Column="48" />
+      <File FileName="Assets/Scripts/Yeti/yetiMovementScript.js" Line="32" Column="1" />
+      <File FileName="Assets/Scripts/Sounds/soundEffectsScript.js" Line="70" Column="1" />
+      <File FileName="Assets/Scripts/UI/topScoresScript.js" Line="26" Column="32" />
+      <File FileName="Assets/Scripts/levelManagerScript.js" Line="56" Column="29" />
+      <File FileName="Assets/Scripts/UI/userScoreScript.js" Line="12" Column="22" />
+      <File FileName="Assets/Scripts/UI/instructionsScript.js" Line="9" Column="70" />
+      <File FileName="Assets/Scripts/UI/avatarsScript.js" Line="43" Column="65" />
+      <File FileName="Assets/Scripts/UI/initialsScript.js" Line="57" Column="81" />
+      <File FileName="Assets/Scripts/Player/playerMovementScript.js" Line="11" Column="32" />
+      <File FileName="Assets/Scripts/Obstacles/obstacleGeneratorScript.js" Line="67" Column="58" />
+      <File FileName="Assets/Scripts/Obstacles/obstacleScript.js" Line="52" Column="29" />
+      <File FileName="Assets/Scripts/Obstacles/coinScript.js" Line="16" Column="47" />
+      <File FileName="Assets/Scripts/UI/scoreScript.js" Line="9" Column="17" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
