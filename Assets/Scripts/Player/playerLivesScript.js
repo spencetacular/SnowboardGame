@@ -1,6 +1,10 @@
 ﻿#pragma strict
 
-var lives : UnityEngine.UI.Image[];
+import UnityEngine.UI;
+
+var boyLives : Image[];
+var girlLives : Image[];
+var lives : Image[];
 @HideInInspector
 var numLives: int;
 @HideInInspector
@@ -9,7 +13,15 @@ var livesLeft : int;
 function Start () {
 	numLives = lives.length;
 	livesLeft = numLives;
+	lives = boyLives;
 
+}
+
+function SetLives( boy : boolean) {
+	if (boy)
+		lives = boyLives;
+	else
+		lives = girlLives;
 }
 
 function LoseALife () {

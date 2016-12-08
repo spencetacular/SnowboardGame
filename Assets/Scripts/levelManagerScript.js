@@ -10,8 +10,11 @@ public var canvasInstructions : GameObject;
 public var canvasPlaying : GameObject;
 public var canvasGameOver : GameObject;
 public var boyAvatar : boolean;
+public var boyPanel : GameObject;
+public var girlPanel : GameObject;
 public var yetiMovement : yetiMovementScript;
 public var roosterMovement : roosterMovementScript;
+public var playerLives : playerLivesScript;
 
 
 function Start () {
@@ -41,6 +44,11 @@ function GameMode () {
 	canvasAvatar.SetActive(false);
 	canvasPlaying.SetActive(true);
 	GameObject.Find("avatar").GetComponent(avatarGame).SetAvatar(boyAvatar);
+	playerLives.SetLives(boyAvatar);
+	if (boyAvatar)
+		girlPanel.active = false;
+	else
+		boyPanel.active = false;
 	player.GetComponent(playerSpritesScript).SetPlayerSprites(boyAvatar);
 	GameObject.Find("speachBubble").GetComponent(speachBubbleScript).StartComment();
 //	yetiMovement.Spawn();
