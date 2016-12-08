@@ -44,6 +44,7 @@ function GameMode () {
 	GameObject.Find("speachBubble").GetComponent(speachBubbleScript).StartComment();
 //	yetiMovement.Spawn();
 	yetiMovement.SpawnDelay();
+	GameObject.Find("rooster").GetComponent(roosterMovementScript).SpawnDelay();
 	player.GetComponent(playerMovementScript).paused = false;
 	liftChairsFull.GetComponent(liftChairsScript).paused = false;
 	liftChairsEmpty.GetComponent(liftChairsScript).paused = false;

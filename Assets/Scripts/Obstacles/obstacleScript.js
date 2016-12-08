@@ -45,14 +45,19 @@ public class obstacleScript extends MonoBehaviour {
 					other.GetComponent(playerSpritesScript).soundEffects.Wreck();
 				}
 
-			if (this.tag == "jump") 
+			if (this.tag == "jump") {
 				other.GetComponent(playerMovementScript).PlayerJump();
+
+			}
 
 			if (this.tag == "coin") {
 				this.GetComponent(coinScript).Bonus();
 				soundEffects.Coin();
 			}
-			
+			if (this.tag == "rooster") {
+				this.GetComponent(roosterMovementScript).Catch();
+				soundEffects.RoosterCluck();
+			}
 		}
 
 

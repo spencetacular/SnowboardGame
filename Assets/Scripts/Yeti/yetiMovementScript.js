@@ -94,7 +94,7 @@ function Update () {
 	
 
 	if (spawned && chasing) {
-		Debug.Log(speed);
+//		Debug.Log(speed);
 		CatchUp();
 		PlayerEscape(player.transform.position.y, transform.position.y);
 
