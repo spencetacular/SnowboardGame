@@ -11,6 +11,7 @@ public var canvasPlaying : GameObject;
 public var canvasGameOver : GameObject;
 public var boyAvatar : boolean;
 public var yetiMovement : yetiMovementScript;
+public var roosterMovement : roosterMovementScript;
 
 
 function Start () {
@@ -44,7 +45,7 @@ function GameMode () {
 	GameObject.Find("speachBubble").GetComponent(speachBubbleScript).StartComment();
 //	yetiMovement.Spawn();
 	yetiMovement.SpawnDelay();
-	GameObject.Find("rooster").GetComponent(roosterMovementScript).SpawnDelay();
+	roosterMovement.DeSpawn();
 	player.GetComponent(playerMovementScript).paused = false;
 	liftChairsFull.GetComponent(liftChairsScript).paused = false;
 	liftChairsEmpty.GetComponent(liftChairsScript).paused = false;
@@ -55,6 +56,7 @@ function GameMode () {
 
 function GameOverMode () {
 	yetiMovement.paused = true;
+	roosterMovement.paused = true;
 	player.GetComponent(playerMovementScript).paused = true;
 	canvasGameOver.SetActive(true);
 	var score = GameObject.Find("score").GetComponent(scoreScript).score;

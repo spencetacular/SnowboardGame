@@ -76,7 +76,7 @@ public class topScoresScript extends MonoBehaviour
     }
 
     function AddNewTopScore (ini : String) {
-    	Debug.Log("called");
+//    	Debug.Log("called");
     	///TODO: replace with actual score
 //    	initials.SetActive(false);	
     	var newTopUser = new userScoreScript(score, ini);

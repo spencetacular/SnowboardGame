@@ -15,7 +15,7 @@ private var spawned = false;
 private var chasing = false;
 public var yetiWidth = 0.5;
 
-public var spwanTime = 5.0;
+public var spawnTime = 5.0;
 public var paused = false;
 public var caughtUp = false;
 
@@ -43,7 +43,8 @@ function Spawn () {
 }
 
 function SpawnDelay () {
-	Invoke ("Spawn", spwanTime);
+	var time = spawnTime + Random.Range (-5, 10);
+	Invoke ("Spawn", time);
 }
 
 

@@ -21,7 +21,7 @@ function Update () {
 	if (readyToRestart) {
 		
 		if (Input.GetKeyDown ("space") || Input.GetKeyDown ("2")) {
-			Debug.Log("called");
+//			Debug.Log("called");
 			soundEffects.levelToLoad = "StartScreen";
 			soundEffects.Load();
 		}
