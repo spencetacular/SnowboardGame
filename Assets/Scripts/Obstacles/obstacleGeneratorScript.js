@@ -15,6 +15,10 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 	public var obstaclesToSpawn : GameObject;
 
 	function Start() {
+		InitialSpawn();
+	}
+
+	function InitialSpawn () {
 		obstaclesToSpawn.SetActive(false);
 		respawn();
 

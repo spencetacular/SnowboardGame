@@ -44,6 +44,8 @@ function GameMode () {
 	canvasAvatar.SetActive(false);
 	canvasPlaying.SetActive(true);
 	GameObject.Find("avatar").GetComponent(avatarGame).SetAvatar(boyAvatar);
+	GameObject.Find("obstacles1").GetComponent(obstacleGeneratorScript).InitialSpawn();
+	GameObject.Find("obstacles2").GetComponent(obstacleGeneratorScript).InitialSpawn();
 	playerLives.SetLives(boyAvatar);
 	if (boyAvatar)
 		girlPanel.active = false;

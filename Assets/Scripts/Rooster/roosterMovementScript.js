@@ -50,8 +50,8 @@ function Spawn () {
 }
 
 function SpawnDelay () {
-//	var time = spawnTime + Random.Range (-5, 20);
-	Invoke ("Spawn", spawnTime);
+	var time = spawnTime + Random.Range (-5, 20);
+	Invoke ("Spawn", time);
 	
 }
 
