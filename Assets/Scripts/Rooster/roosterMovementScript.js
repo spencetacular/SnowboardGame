@@ -10,12 +10,11 @@ public var spawnTime = 5.0;
 public var bonusAmount: int;
 public var soundEffects : soundEffectsScript;
 public var score : scoreScript;
+public var playerLives : playerLivesScript;
 
 
 function Start () {
-
 	speed = playerMovement.gameStartSpeed * -1.0;
-
 }
 
 function RoosterDistance( playerY : float, roosterY : float) {
@@ -33,8 +32,6 @@ function RoosterDistance( playerY : float, roosterY : float) {
 			DeSpawn();
 		}
 	}
-
-
 }
 
 function Spawn () {
@@ -49,14 +46,12 @@ function Spawn () {
 		running = false;
 		soundEffects.RoosterCrow();
 	}
-
-//	SpawnDelay();
 	
 }
 
 function SpawnDelay () {
-	var time = spawnTime + Random.Range (-5, 20);
-	Invoke ("Spawn", time);
+//	var time = spawnTime + Random.Range (-5, 20);
+	Invoke ("Spawn", spawnTime);
 	
 }
 
@@ -70,11 +65,10 @@ function DeSpawn () {
 }
 
 function Catch () {
-	score.Bonus(bonusAmount);
+	score.OneUp();
+	playerLives.AddALife();
+	
 	DeSpawn();
-//	this.GetComponent(SpriteRenderer).enabled = false;
-//	this.GetComponent(CircleCollider2D).enabled = false;
-
 }
 
 function Escape () {

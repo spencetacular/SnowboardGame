@@ -39,7 +39,11 @@ public class scoreScript extends MonoBehaviour {
 	function Bonus (amount : int) {
 		bonusText.text = "+" + amount;
 		score += amount;
+		anim.SetTrigger("bonus");
+	}
 
+	function OneUp () {
+		bonusText.text = "1 UP!";
 		anim.SetTrigger("bonus");
 	}
 

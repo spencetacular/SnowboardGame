@@ -24,6 +24,14 @@ function SetLives( boy : boolean) {
 		lives = girlLives;
 }
 
+function AddALife () {
+	if (livesLeft < numLives) {
+		
+		lives[livesLeft].GetComponent(UnityEngine.UI.Image).enabled = true;
+		livesLeft++;
+	}
+}
+
 function LoseALife () {
 	livesLeft--;
 

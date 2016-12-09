@@ -74,7 +74,7 @@ function CatchUp () {
 }
 
 function OnTriggerEnter2D (other : Collider2D) { 
-	if (other.tag == "Player")	 {
+	if (other.tag == "Player" && other.GetComponent(playerInvulnerableScript).invulnerable == false)	 {
 		other.GetComponent(playerLivesScript).LoseAllLives();
 		var boy = GameObject.Find("levelManager").GetComponent(levelManagerScript).boyAvatar;
 		player.GetComponent(SpriteRenderer).enabled = false;

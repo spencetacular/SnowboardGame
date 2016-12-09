@@ -34,7 +34,7 @@ public class obstacleScript extends MonoBehaviour {
 
 	function OnTriggerExit2D (other : Collider2D) {
 
-		if (other.tag == "Player") {
+		if (other.tag == "Player" && other.GetComponent(playerInvulnerableScript).invulnerable == false) {
 			if (this.tag == "obstacle" || this.tag == "tree" || this.tag == "pole") {
 				
 					other.GetComponent(playerMovementScript).playerStatus = other.GetComponent(playerMovementScript).Status.Wrecked;

@@ -20,25 +20,23 @@ public class playerMovementScript extends MonoBehaviour {
 	var playerSprites : playerSpritesScript;
 	var playerScale : playerScaleScript;
 	var playerShadow: playerShadowScript;
-//	var score : scoreScript;
 	enum Status {Right, Left, Down, DownRight, DownLeft, Jumping, Wrecked}; 
 	public var playerStatus : Status;
 	public var speedPercent : float;
 	public var downhill  : boolean;
 	public var score : scoreScript;
 
+
 	function Start () {
 		gameSpeed = gameStartSpeed;	
 		obstacles = [obstacles1, obstacles2];
-//		playerSprites = GetComponent(playerSpritesScript);
-//		playerScale = GetComponent(playerScaleScript);
-//		playerShadow = GameObject.Find("shadow").GetComponent(playerShadowScript);
-//		score = GameObject.Find("score").GetComponent(scoreScript);
 		isJumping = false;
 		downhill = false;
 		playerStatus = Status.Right;
 
 	}
+
+
 
 	function PlayerJump () {
 
@@ -51,8 +49,6 @@ public class playerMovementScript extends MonoBehaviour {
 
 		playerScale.CreateAniCurve( jumpDuration, speedPercent);
 		playerShadow.CreateAniCurves( jumpDuration, speedPercent);
-//		score.Jump(speedPercent);
-//		Debug.Log("Jump Duration:" + jumpDuration);
 		score.Jump(speedPercent);
 		Invoke("PlayerLand", jumpDuration);
 
@@ -70,6 +66,9 @@ public class playerMovementScript extends MonoBehaviour {
 	function PlayerInput(viewPos : Vector3) {
 
 		if (Input.GetKeyDown ( "down" ) || Input.GetKeyDown ( "d" )) {
+
+			if (playerStatus == Status.Wrecked)
+				 GetComponent(playerInvulnerableScript).Invulnerable();
 			playerStatus = Status.Down;
 			playerSprites.DirectionUpdate();
 		}		

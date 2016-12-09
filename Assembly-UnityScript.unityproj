@@ -54,6 +54,7 @@
      <Compile Include="Assets\Scripts\Obstacles\treeAnimationScript.js" />
      <Compile Include="Assets\Scripts\Options\optionScript.js" />
      <Compile Include="Assets\Scripts\Options\optionsController.js" />
+     <Compile Include="Assets\Scripts\Player\playerInvulnerableScript.js" />
      <Compile Include="Assets\Scripts\Player\playerLivesScript.js" />
      <Compile Include="Assets\Scripts\Player\playerMovementScript.js" />
      <Compile Include="Assets\Scripts\Player\playerParticlesScript.js" />
