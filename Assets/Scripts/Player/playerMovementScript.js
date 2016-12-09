@@ -143,8 +143,7 @@ public class playerMovementScript extends MonoBehaviour {
 
 			if ( downhill ) 
 				obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
-			else
-				obs.transform.Translate(0, 0, 0);	
+			
 		}
 	}
 

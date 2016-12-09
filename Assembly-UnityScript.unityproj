@@ -50,6 +50,7 @@
      <Compile Include="Assets\Scripts\Obstacles\obstacleGeneratorScript.js" />
      <Compile Include="Assets\Scripts\Obstacles\obstaclePositionScript.js" />
      <Compile Include="Assets\Scripts\Obstacles\obstacleScript.js" />
+     <Compile Include="Assets\Scripts\Obstacles\snowTextureScript.js" />
      <Compile Include="Assets\Scripts\Obstacles\treeAnimationScript.js" />
      <Compile Include="Assets\Scripts\Options\optionScript.js" />
      <Compile Include="Assets\Scripts\Options\optionsController.js" />

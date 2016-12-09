@@ -1,11 +1,11 @@
 ﻿#pragma strict
 
 public var fade : GameObject;
-public var blackBox : GameObject;
 public var player : GameObject;
 public var liftChairsFull : GameObject;
 public var liftChairsEmpty : GameObject;
 public var canvasAvatar : GameObject;
+public var canvasBlackBox : GameObject;
 public var canvasInstructions : GameObject;
 public var canvasPlaying : GameObject;
 public var canvasGameOver : GameObject;
@@ -22,9 +22,9 @@ function Start () {
 	
 	canvasPlaying.SetActive(false);
 	canvasGameOver.SetActive(false);
-//	blackBox.SetActive(true);
 	canvasAvatar.SetActive(false);
 	canvasInstructions.SetActive(true);
+//	canvasBlackBox.SetActive(true);
 
 }
 

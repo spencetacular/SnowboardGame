@@ -120,7 +120,6 @@ function Update () {
  
 
 	if (loadPressed == true && select.isPlaying == false) {
-		Debug.Log("DESTROY!");
 		Destroy(soundEffectsObject);
 	}
 }
