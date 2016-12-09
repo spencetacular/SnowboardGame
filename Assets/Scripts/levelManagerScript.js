@@ -24,7 +24,7 @@ function Start () {
 	canvasGameOver.SetActive(false);
 	canvasAvatar.SetActive(false);
 	canvasInstructions.SetActive(true);
-//	canvasBlackBox.SetActive(true);
+	canvasBlackBox.SetActive(true);
 
 }
 

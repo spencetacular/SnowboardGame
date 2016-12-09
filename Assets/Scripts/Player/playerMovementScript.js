@@ -103,7 +103,6 @@ public class playerMovementScript extends MonoBehaviour {
 			if (playerStatus != Status.Wrecked) {
 
 				if ( playerStatus == Status.Left && viewPos.x > playerWidth)
-
 					transform.Translate(-lateralShift, 0, 0);
 				if ( playerStatus == Status.DownLeft && isJumping == false){
 					transform.Translate(0, 0, 0);
@@ -161,7 +160,7 @@ public class playerMovementScript extends MonoBehaviour {
 	}
 
 	function Update () {
-//		Debug.Log(downhill);
+//		Debug.Log(playerStatus);
 		if (!paused) {
 
 			if ( playerStatus == Status.Wrecked || playerStatus == Status.Left || playerStatus == Status.Right)

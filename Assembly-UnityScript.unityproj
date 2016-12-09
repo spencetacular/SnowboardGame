@@ -83,6 +83,7 @@
      <Compile Include="Assets\Scripts\UI\popUpsScript.js" />
      <Compile Include="Assets\Scripts\UI\scoreScript.js" />
      <Compile Include="Assets\Scripts\UI\speachBubbleScript.js" />
+     <Compile Include="Assets\Scripts\UI\speedMeterScript.js" />
      <Compile Include="Assets\Scripts\UI\timeScript.js" />
      <Compile Include="Assets\Scripts\UI\topScoresScript.js" />
      <Compile Include="Assets\Scripts\UI\userScoreScript.js" />
