@@ -15,6 +15,7 @@ public var girlPanel : GameObject;
 public var yetiMovement : yetiMovementScript;
 public var roosterMovement : roosterMovementScript;
 public var playerLives : playerLivesScript;
+public var time : timeScript;
 
 
 function Start () {
@@ -60,6 +61,8 @@ function GameMode () {
 	liftChairsFull.GetComponent(liftChairsScript).paused = false;
 	liftChairsEmpty.GetComponent(liftChairsScript).paused = false;
 	fade.GetComponent(Animator).SetTrigger("fadeUp");
+	time.StartClock();
+
 }
 
 

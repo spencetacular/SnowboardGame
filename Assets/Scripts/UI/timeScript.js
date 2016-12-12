@@ -1,31 +1,50 @@
 ﻿#pragma strict
 
-var textObj : UnityEngine.UI.Text;
-var minutes = 0;
-var seconds = 0;
-var totalSeconds = 0;
+import UnityEngine.UI;
+
+var textObj : Text;
+var minutes : int;
+var seconds : int;
+var totalSeconds : int;
+var paused  = true;
+
+var elapsedTime : int;
 
 function Start () {
 
-	textObj = GetComponent(UnityEngine.UI.Text);
+//	textObj = GetComponent(UnityEngine.UI.Text);
+//	ResetClock();
+}
+
+function StartClock () {
+	minutes = 0;
+	seconds = 0;
+	totalSeconds = 0;
+	paused = false;
+	Debug.Log("START");
 }
 
 function Update () {
+	if (paused) {
+		elapsedTime  = Mathf.FloorToInt(Time.timeSinceLevelLoad);
+		Debug.Log("elapsedTime: " + elapsedTime);
+	} else {
+		totalSeconds = Mathf.FloorToInt(Time.timeSinceLevelLoad) - elapsedTime;
+//		Debug.Log("totalSeconds: " + totalSeconds);
+		minutes = totalSeconds / 60;
+		seconds = totalSeconds - minutes * 60;
+		var secondsStr;
+		var minutesStr;
+		if (seconds < 10)
+			secondsStr = "0" + seconds.ToString();
+		else 
+			secondsStr = seconds.ToString();
+		
+		if (minutes < 10)
+			minutesStr = "0" + minutes.ToString();
+		else 
+			minutesStr = minutes.ToString();
 
-	totalSeconds = Mathf.FloorToInt(Time.timeSinceLevelLoad);
-	minutes = totalSeconds / 60;
-	seconds = totalSeconds - minutes * 60;
-	var secondsStr;
-	var minutesStr;
-	if (seconds < 10)
-		secondsStr = "0" + seconds.ToString();
-	else 
-		secondsStr = seconds.ToString();
-	
-	if (minutes < 10)
-		minutesStr = "0" + minutes.ToString();
-	else 
-		minutesStr = minutes.ToString();
-
-	textObj.text  =  minutesStr + ":" + secondsStr;
+		textObj.text  =  minutesStr + ":" + secondsStr;
+	}
 }
