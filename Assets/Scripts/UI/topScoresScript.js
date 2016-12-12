@@ -13,34 +13,49 @@ public var finalScoreTop10 : Text;
 public var finalScoreNotTop10 : GameObject;
 public var finalScoreNotTop10Text : Text;
 
+public class topScoresScript extends MonoBehaviour {
 
-
-
-public class topScoresScript extends MonoBehaviour
-{
-    function Start ()
-    {
+    function Start () {
 //    	topScoresText = GetComponent(Text);
         var userScores = new List.<userScoreScript>();
         initials.SetActive(false);
         finalScoreNotTop10.SetActive(false);
 
+//        GenerateFakeScores();
+//		PlayerPrefs.DeleteAll();
+    }
+
+    function GenerateFakeScores() {
+//       PlayerPrefs.SetInt("Player Score", 10);
+		for (var i = 0; i < 10 ; i++ ) {
+
+			PlayerPrefs.SetInt(i.ToString()+ "Score", 1000 + Random.Range(1000, 5000));
+			PlayerPrefs.SetString(i.ToString()+ "Ini", "SKC" );
+		}
+    	
     }
 
     function GetTopScores () {
 
     	
 
- 		userScores.Add (new userScoreScript(10000, "SKC"));
-        userScores.Add (new userScoreScript(80000, "ASS"));
-        userScores.Add (new userScoreScript(9000, "BUT"));
-        userScores.Add (new userScoreScript(7000, "FUK"));
-        userScores.Add (new userScoreScript(5000, "QQQ"));
-        userScores.Add (new userScoreScript(6000, "FUK"));
-        userScores.Add (new userScoreScript(4000, "FUK"));
-        userScores.Add (new userScoreScript(3000, "BUT"));
-        userScores.Add (new userScoreScript(2000, "FUK"));
-        userScores.Add (new userScoreScript(1000, "FUK"));
+// 		userScores.Add (new userScoreScript(10000, "SKC"));
+//        userScores.Add (new userScoreScript(80000, "ASS"));
+//        userScores.Add (new userScoreScript(9000, "BUT"));
+//        userScores.Add (new userScoreScript(7000, "FUK"));
+//        userScores.Add (new userScoreScript(5000, "QQQ"));
+//        userScores.Add (new userScoreScript(6000, "FUK"));
+//        userScores.Add (new userScoreScript(4000, "FUK"));
+//        userScores.Add (new userScoreScript(3000, "BUT"));
+//        userScores.Add (new userScoreScript(2000, "FUK"));
+//        userScores.Add (new userScoreScript(1000, "FUK"));
+
+		for (var i = 0; i < 10 ; i++ ) {
+
+			var score = PlayerPrefs.GetInt(i.ToString()+ "Score");
+			var ini = PlayerPrefs.GetString(i.ToString()+ "Ini");
+			 userScores.Add (new userScoreScript(score, ini));
+		}
 
         userScores.Sort();	
     }
@@ -80,13 +95,23 @@ public class topScoresScript extends MonoBehaviour
 //    	initials.SetActive(false);	
     	var newTopUser = new userScoreScript(score, ini);
    
-		for (var u in userScores) {
-    		if (newTopUser.score >= u.score) {
-				u.initials = newTopUser.initials;
-				u.score = newTopUser.score;
-    			break;
-    		}	
-    	}
+//		for (var u in userScores) {
+//    		if (newTopUser.score >= u.score) {
+//				u.initials = newTopUser.initials;
+//				u.score = newTopUser.score;
+//    			break;
+//    		}	
+//    	}
+
+		for (var i = 0; i < 10; i++) {
+			if (newTopUser.score >= userScores[i].score) {
+				userScores[i].initials  = newTopUser.initials;
+				userScores[i].score = newTopUser.score;
+				PlayerPrefs.SetInt(i.ToString()+ "Score",  newTopUser.score);
+				PlayerPrefs.SetString(i.ToString()+ "Ini", newTopUser.initials);
+				break;
+			}
+		}
 
     	userScores.Sort();	
     	SetTopScoresText();

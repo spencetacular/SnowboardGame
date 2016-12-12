@@ -12,8 +12,6 @@ var elapsedTime : int;
 
 function Start () {
 
-//	textObj = GetComponent(UnityEngine.UI.Text);
-//	ResetClock();
 }
 
 function StartClock () {
@@ -21,13 +19,12 @@ function StartClock () {
 	seconds = 0;
 	totalSeconds = 0;
 	paused = false;
-	Debug.Log("START");
 }
 
 function Update () {
 	if (paused) {
 		elapsedTime  = Mathf.FloorToInt(Time.timeSinceLevelLoad);
-		Debug.Log("elapsedTime: " + elapsedTime);
+//		Debug.Log("elapsedTime: " + elapsedTime);
 	} else {
 		totalSeconds = Mathf.FloorToInt(Time.timeSinceLevelLoad) - elapsedTime;
 //		Debug.Log("totalSeconds: " + totalSeconds);

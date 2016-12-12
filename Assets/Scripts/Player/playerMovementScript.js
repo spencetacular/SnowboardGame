@@ -16,6 +16,7 @@ public class playerMovementScript extends MonoBehaviour {
 	public var jumpDurationMax = 3.0;
 	public var jumpDurationMin = 1.0;
 	public var cam: Camera;
+	@HideInInspector
 	var paused = true;
 	var playerSprites : playerSpritesScript;
 	var playerScale : playerScaleScript;
@@ -159,7 +160,7 @@ public class playerMovementScript extends MonoBehaviour {
 	}
 
 	function Update () {
-//		Debug.Log(playerStatus);
+//		Debug.Log("PlayerPaused: " + paused);
 		if (!paused) {
 
 			if ( playerStatus == Status.Wrecked || playerStatus == Status.Left || playerStatus == Status.Right)
