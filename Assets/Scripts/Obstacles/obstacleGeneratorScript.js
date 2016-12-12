@@ -51,6 +51,8 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 				o.transform.name += j + Random.Range( 1, 1000);
 				o.transform.parent = this.transform;
 				var baseY = obstacle.baseY + o.transform.position.y;
+				if(o.GetComponent(treeAnimationScript)) 
+					o.GetComponent(treeAnimationScript).RandomScale();
 				if(obs.tag != "jump") {
 					obstaclePositions.Add (new obstaclePositionScript(baseY, o.transform.name));
 					spawnedObstacles.Add (o);
