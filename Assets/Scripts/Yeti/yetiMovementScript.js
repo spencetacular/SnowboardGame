@@ -79,6 +79,7 @@ function OnTriggerEnter2D (other : Collider2D) {
 		var boy = GameObject.Find("levelManager").GetComponent(levelManagerScript).boyAvatar;
 		player.GetComponent(SpriteRenderer).enabled = false;
 		playerMovement.paused = true;
+		playerMovement.downhill = false;
 		player.transform.Find("shadow").GetComponent(SpriteRenderer).enabled = false;
 		if (boy)
 			anim.SetTrigger("eatBoy");

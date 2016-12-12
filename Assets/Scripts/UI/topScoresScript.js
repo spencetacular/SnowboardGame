@@ -21,15 +21,16 @@ public class topScoresScript extends MonoBehaviour {
         initials.SetActive(false);
         finalScoreNotTop10.SetActive(false);
 
-//        GenerateFakeScores();
-//		PlayerPrefs.DeleteAll();
+      
+		PlayerPrefs.DeleteAll();
+		GenerateFakeScores();
     }
 
     function GenerateFakeScores() {
 //       PlayerPrefs.SetInt("Player Score", 10);
 		for (var i = 0; i < 10 ; i++ ) {
 
-			PlayerPrefs.SetInt(i.ToString()+ "Score", 1000 + Random.Range(1000, 5000));
+			PlayerPrefs.SetInt(i.ToString()+ "Score", 1000  - i );
 			PlayerPrefs.SetString(i.ToString()+ "Ini", "SKC" );
 		}
     	
@@ -119,6 +120,11 @@ public class topScoresScript extends MonoBehaviour {
     	GameObject.Find("canvasGameOver").GetComponent(ganeOverControlsScript).PressStartToPlay();
     }
 
+    function AddComma( score : int) {
+    	var s = score.ToString().Format("{0:#,###0}",score);
+    	return s;
+     }
+
     function SetTopScoresText () {
 
 		topScoresInitials.text = "";
@@ -127,6 +133,6 @@ public class topScoresScript extends MonoBehaviour {
     	 for (var u in userScores)
         	topScoresInitials.text += u.initials + "\n";
         for (var u in userScores)
-        	topScoresScores.text += u.score + "\n";
+        	topScoresScores.text += AddComma(u.score) + "\n";
     }
 }

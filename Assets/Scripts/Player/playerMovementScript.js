@@ -11,7 +11,7 @@ public class playerMovementScript extends MonoBehaviour {
 	public var gameMaxSpeed = 6.0;
 	public var speedUpRate = 0.25;
 	public var lateralShift = 0.5;
-	private var playerWidth = 0.015;
+	private var playerWidth = 0.05;
 	public var isJumping : boolean;
 	public var jumpDurationMax = 3.0;
 	public var jumpDurationMin = 1.0;
