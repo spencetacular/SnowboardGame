@@ -16,6 +16,7 @@ public var yetiMovement : yetiMovementScript;
 public var roosterMovement : roosterMovementScript;
 public var playerLives : playerLivesScript;
 public var time : timeScript;
+public var topScores : topScoresScript;
 
 
 function Start () {
@@ -54,7 +55,6 @@ function GameMode () {
 		boyPanel.active = false;
 	player.GetComponent(playerSpritesScript).SetPlayerSprites(boyAvatar);
 	GameObject.Find("speachBubble").GetComponent(speachBubbleScript).StartComment();
-//	yetiMovement.Spawn();
 	yetiMovement.SpawnDelay();
 	roosterMovement.DeSpawn();
 	player.GetComponent(playerMovementScript).paused = false;
@@ -68,16 +68,25 @@ function GameMode () {
 
 
 function GameOverMode () {
+	GameObject.Find("LiftChairsFull").GetComponent(liftChairsScript).paused = true;
+	GameObject.Find("LiftChairsEmpty").GetComponent(liftChairsScript).paused = true;
+	player.GetComponent(playerMovementScript).paused = true;
+	fade.GetComponent(Animator).SetTrigger("fadeOut");
+	Invoke("TopScoresMode", 2);
+
+
+}
+
+function TopScoresMode () {
 	yetiMovement.paused = true;
 	roosterMovement.paused = true;
-	player.GetComponent(playerMovementScript).paused = true;
 	canvasGameOver.SetActive(true);
 	var score = GameObject.Find("score").GetComponent(scoreScript).score;
-//	GameObject.Find("finalScore").GetComponent(UnityEngine.UI.Text).text = "FINAL SCORE: " + score;
 	canvasPlaying.SetActive(false);
-	GameObject.Find("topScoresScores").GetComponent(topScoresScript).score = score;
-	GameObject.Find("topScoresScores").GetComponent(topScoresScript).GameOver(score);
-	fade.GetComponent(Animator).SetTrigger("fadeOut");
+	topScores.score = score;
+	topScores.GameOver(score);
+//	DEVELOPMENT **********************************
+	topScores.LogScore(score, time.totalSeconds);
 }
 
 function Update () {

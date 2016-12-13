@@ -71,11 +71,11 @@ public class playerSpritesScript extends MonoBehaviour {
 					break;
 				case  playerMovement.Status.DownRight:
 					spriteRenderer.sprite = playerSprites[3];
-					soundEffects.Carve();
+					soundEffects.Carve1();
 					break;
 				case  playerMovement.Status.DownLeft:
 					spriteRenderer.sprite = playerSprites[4];
-					soundEffects.Carve();
+					soundEffects.Carve1();
 					break;
 				case  playerMovement.Status.Wrecked:
 					spriteRenderer.sprite = playerSprites[5];

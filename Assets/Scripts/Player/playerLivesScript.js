@@ -34,19 +34,18 @@ function AddALife () {
 
 function LoseALife () {
 	livesLeft--;
+	lives[livesLeft].GetComponent(UnityEngine.UI.Image).enabled = false;
 
-	if (livesLeft > 0) 
-		lives[livesLeft].GetComponent(UnityEngine.UI.Image).enabled = false;
-
-	else 
+	if (livesLeft <= 0)
 		Invoke("GameOver", 0);
+
 }
 
 function LoseAllLives () {
 	for ( l in lives ) 
 		l.GetComponent(UnityEngine.UI.Image).enabled = false;
 
-	Invoke("GameOver", 5);
+	Invoke("GameOver", 2);
 }
 
 function GameOver () {

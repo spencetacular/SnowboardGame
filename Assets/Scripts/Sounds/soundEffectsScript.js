@@ -7,7 +7,9 @@ public var soundEffectsObject : GameObject;
 public var jump : AudioSource;
 public var wreck: AudioSource;
 public var tree: AudioSource;
-public var carve: AudioSource;
+public var carve1: AudioSource;
+public var carve2: AudioSource;
+
 public var slide: AudioSource;
 public var select: AudioSource;
 public var scroll: AudioSource;
@@ -26,7 +28,7 @@ var loadPressed = false;
 
 function Start () {
 
-	soundEffects  = [jump, wreck, tree, carve, slide, select, scroll, success, whoose, shine, roar, groan, roosterCluck, roosterCrow];	
+	soundEffects  = [jump, wreck, tree, carve1, carve2, slide, select, scroll, success, whoose, shine, roar, groan, roosterCluck, roosterCrow];	
 
 	if (GameObject.Find("soundController")) { 
 		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
@@ -57,8 +59,12 @@ function TreeFall() {
 	tree.Play();
 }
 
-function Carve() {
-	carve.Play();	
+function Carve1() {
+	carve1.Play();	
+}
+
+function Carve2() {
+	carve2.Play();	
 }
 
 function Slide() {

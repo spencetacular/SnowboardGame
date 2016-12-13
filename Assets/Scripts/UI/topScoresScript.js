@@ -22,8 +22,10 @@ public class topScoresScript extends MonoBehaviour {
         finalScoreNotTop10.SetActive(false);
 
       
-		PlayerPrefs.DeleteAll();
-		GenerateFakeScores();
+//		PlayerPrefs.DeleteAll();
+//		GenerateFakeScores();
+
+
     }
 
     function GenerateFakeScores() {
@@ -31,13 +33,15 @@ public class topScoresScript extends MonoBehaviour {
 		for (var i = 0; i < 10 ; i++ ) {
 
 			PlayerPrefs.SetInt(i.ToString()+ "Score", 1000  - i );
-			PlayerPrefs.SetString(i.ToString()+ "Ini", "SKC" );
+			PlayerPrefs.SetString(i.ToString()+ "Ini", "ASS" );
 		}
     	
     }
 
     function GetTopScores () {
 
+    	if (!PlayerPrefs.GetInt("0Score"))
+    		GenerateFakeScores();
     	
 
 // 		userScores.Add (new userScoreScript(10000, "SKC"));
@@ -68,6 +72,20 @@ public class topScoresScript extends MonoBehaviour {
         SetTopScoresText();
 		
 
+    }
+
+    function LogScore (score : int, time : int) {
+
+    	if(!PlayerPrefs.GetString("Log")) {
+    		PlayerPrefs.SetString("Log", "SCORE" + "\t" + "\t" + "TIME" + "\n" );
+    		Debug.Log("Called");
+    	}
+    	var log = PlayerPrefs.GetString("Log");
+    	var log2 = log + score + "\t" + "\t" + time + "\n";
+    	Debug.Log(log2);
+    	PlayerPrefs.DeleteKey("Log");
+    	PlayerPrefs.SetString("Log", log2);
+    	 
     }
 
     function CompareUserScore (score : int) {

@@ -12,20 +12,22 @@ var elapsedTime : int;
 
 function Start () {
 
+	Debug.Log("start");
 }
 
 function StartClock () {
 	minutes = 0;
 	seconds = 0;
 	totalSeconds = 0;
+	elapsedTime  = Mathf.FloorToInt(Time.timeSinceLevelLoad);
 	paused = false;
 }
 
 function Update () {
-	if (paused) {
-		elapsedTime  = Mathf.FloorToInt(Time.timeSinceLevelLoad);
-//		Debug.Log("elapsedTime: " + elapsedTime);
-	} else {
+//	Debug.Log("Paused: " + paused);
+
+	if (!paused) {
+		
 		totalSeconds = Mathf.FloorToInt(Time.timeSinceLevelLoad) - elapsedTime;
 //		Debug.Log("totalSeconds: " + totalSeconds);
 		minutes = totalSeconds / 60;
