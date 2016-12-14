@@ -12,7 +12,7 @@ var elapsedTime : int;
 
 function Start () {
 
-	Debug.Log("start");
+//	Debug.Log("start");
 }
 
 function StartClock () {
