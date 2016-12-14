@@ -85,8 +85,14 @@ function TopScoresMode () {
 	canvasPlaying.SetActive(false);
 	topScores.score = score;
 	topScores.GameOver(score);
+	Invoke("LoadStartScreen", 300);
+
 //	DEVELOPMENT **********************************
 	topScores.LogScore(score, time.totalSeconds);
+}
+
+function LoadStartScreen () {
+	Application.LoadLevel("StartScreen");
 }
 
 function Update () {

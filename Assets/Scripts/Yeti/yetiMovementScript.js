@@ -53,7 +53,7 @@ function PlayerEscape(playerY : float, yetiY : float) {
 //	Debug.Log(distance);
 	if (distance >= spawnPos * 1.5) {
 		spawned = false;
-		chaseSpeed -= 0.5;	
+		chaseSpeed -= 0.25;	
 		SpawnDelay ();
 		GetComponent(CircleCollider2D).enabled = false;
 		soundEffects.Groan();
