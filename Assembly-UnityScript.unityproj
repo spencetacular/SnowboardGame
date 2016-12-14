@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\Obstacles\obstacleScript.js" />
      <Compile Include="Assets\Scripts\Obstacles\snowTextureScript.js" />
      <Compile Include="Assets\Scripts\Obstacles\treeAnimationScript.js" />
+     <Compile Include="Assets\Scripts\Options\analyticsButtonScript.js" />
      <Compile Include="Assets\Scripts\Options\analyticsScript.js" />
      <Compile Include="Assets\Scripts\Options\optionScript.js" />
      <Compile Include="Assets\Scripts\Options\optionsController.js" />
