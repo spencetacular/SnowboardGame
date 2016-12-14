@@ -77,6 +77,7 @@
      <Compile Include="Assets\Scripts\UI\avatarGame.js" />
      <Compile Include="Assets\Scripts\UI\avatarScript.js" />
      <Compile Include="Assets\Scripts\UI\avatarsScript.js" />
+     <Compile Include="Assets\Scripts\UI\blackBoxScript.js" />
      <Compile Include="Assets\Scripts\UI\exitGameScript.js" />
      <Compile Include="Assets\Scripts\UI\flashingTextScript.js" />
      <Compile Include="Assets\Scripts\UI\highScoreStartScreen.js" />

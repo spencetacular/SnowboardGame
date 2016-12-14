@@ -17,6 +17,7 @@ public var roosterMovement : roosterMovementScript;
 public var playerLives : playerLivesScript;
 public var time : timeScript;
 public var topScores : topScoresScript;
+public var score : scoreScript;
 
 
 function Start () {
@@ -26,7 +27,7 @@ function Start () {
 	canvasGameOver.SetActive(false);
 	canvasAvatar.SetActive(false);
 	canvasInstructions.SetActive(true);
-	canvasBlackBox.SetActive(true);
+//	canvasBlackBox.SetActive(true);
 
 }
 
@@ -81,14 +82,14 @@ function TopScoresMode () {
 	yetiMovement.paused = true;
 	roosterMovement.paused = true;
 	canvasGameOver.SetActive(true);
-	var score = GameObject.Find("score").GetComponent(scoreScript).score;
+//	var score = GameObject.Find("score").GetComponent(scoreScript).score;
 	canvasPlaying.SetActive(false);
-	topScores.score = score;
-	topScores.GameOver(score);
+	topScores.score = score.score;
+	topScores.GameOver(score.score);
 	Invoke("LoadStartScreen", 300);
 
 //	DEVELOPMENT **********************************
-	topScores.LogScore(score, time.totalSeconds);
+	topScores.LogScore(score.score, time.totalSeconds);
 }
 
 function LoadStartScreen () {

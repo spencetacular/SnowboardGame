@@ -112,8 +112,7 @@ public class topScoresScript extends MonoBehaviour {
     function AddNewTopScore (ini : String) {
     	///TODO: replace with actual score
 //    	initials.SetActive(false);	
-    	var newTopUser = new userScoreScript(score, ini);
-   
+    	
 //		for (var u in userScores) {
 //    		if (newTopUser.score >= u.score) {
 //				u.initials = newTopUser.initials;
@@ -122,19 +121,40 @@ public class topScoresScript extends MonoBehaviour {
 //    		}	
 //    	}
 
-		for (var i = 0; i < 10; i++) {
-			if (newTopUser.score >= userScores[i].score) {
-				userScores[i].initials  = newTopUser.initials;
-				userScores[i].score = newTopUser.score;
-				PlayerPrefs.SetInt(i.ToString()+ "Score",  newTopUser.score);
-				PlayerPrefs.SetString(i.ToString()+ "Ini", newTopUser.initials);
-				break;
-			}
-		}
+//		for (var i = 0; i < userScores.Count; i++) {
+//			if (newTopUser.score >= userScores[i].score) {
+//				userScores.Insert(i, newTopUser);
+////				userScores[i].initials  = newTopUser.initials;
+////				userScores[i].score = newTopUser.score;
+//			}
+//		}
 
+//		for (var j = 0; j < 10; j++) {
+//			PlayerPrefs.SetInt(j.ToString()+ "Score",  userScores[j].score);
+//			PlayerPrefs.SetString(j.ToString()+ "Ini", userScores[j].initials);
+//		}
+
+
+//		for (var i = 0; i < 10; i++) {
+//			if (newTopUser.score >= userScores[i].score) {
+//				userScores[i].initials  = newTopUser.initials;
+//				userScores[i].score = newTopUser.score;
+//				PlayerPrefs.SetInt(i.ToString()+ "Score",  newTopUser.score);
+//				PlayerPrefs.SetString(i.ToString()+ "Ini", newTopUser.initials);
+//				break;
+//			}
+//		}
+
+		var newTopUser = new userScoreScript(score, ini);
+   		userScores.Add(newTopUser);
     	userScores.Sort();	
     	SetTopScoresText();
 		soundEffects.Success();
+
+		for (var j = 0; j < 10; j++) {
+			PlayerPrefs.SetInt(j.ToString()+ "Score",  userScores[j].score);
+			PlayerPrefs.SetString(j.ToString()+ "Ini", userScores[j].initials);
+		}
     	GameObject.Find("canvasGameOver").GetComponent(ganeOverControlsScript).PressStartToPlay();
     }
 
@@ -148,9 +168,14 @@ public class topScoresScript extends MonoBehaviour {
 		topScoresInitials.text = "";
 		topScoresScores.text = "";
 		
-    	 for (var u in userScores)
-        	topScoresInitials.text += u.initials + "\n";
-        for (var u in userScores)
-        	topScoresScores.text += AddComma(u.score) + "\n";
+		for (var i = 0; i < 10; i++) {
+			topScoresInitials.text += userScores[i].initials + "\n";
+			topScoresScores.text += AddComma(userScores[i].score) + "\n";
+		}
+
+//    	for (var u in userScores)
+//        	topScoresInitials.text += u.initials + "\n";
+//        for (var u in userScores)
+//        	topScoresScores.text += AddComma(u.score) + "\n";
     }
 }
