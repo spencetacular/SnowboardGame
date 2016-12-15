@@ -2,23 +2,20 @@
 
 import UnityEngine.UI;
 
+public var myDevice : device;
 public var leftBar : Image;
 public var rightBar : Image;
 public var bottomBar : Image; 
 
 function Start () {
 
- #if UNITY_IPHONE
-    Debug.Log("Iphone");
+	myDevice = new device();
+
+	if (myDevice.mobile && !myDevice.iPad) {
 		leftBar.enabled = false;
 		rightBar.enabled = false;
 		bottomBar.enabled = false;
-  #endif
-//	if (EditorUserBuildSettings.activeBuildTarget == EditorUserBuildSettings.activeBuildTarget.iOS) {
-//		leftBar.enabled = false;
-//		rightBar.enabled = false;
-//		bottomBar.enabled = false;
-//	} 
+	}
 }
 
 function Update () {
