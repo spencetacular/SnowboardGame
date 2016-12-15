@@ -9,7 +9,6 @@ public var paused = false;
 public var spawnTime = 5.0;
 public var bonusAmount: int;
 public var soundEffects : soundEffectsScript;
-public var score : scoreScript;
 public var playerLives : playerLivesScript;
 
 
@@ -65,7 +64,6 @@ function DeSpawn () {
 }
 
 function Catch () {
-	score.OneUp();
 	playerLives.AddALife();
 	
 	DeSpawn();

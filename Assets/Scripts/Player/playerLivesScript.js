@@ -9,6 +9,7 @@ var lives : Image[];
 var numLives: int;
 @HideInInspector
 var livesLeft : int;
+public var score : scoreScript;
 
 function Start () {
 	numLives = lives.length;
@@ -29,6 +30,9 @@ function AddALife () {
 		
 		lives[livesLeft].GetComponent(UnityEngine.UI.Image).enabled = true;
 		livesLeft++;
+		score.OneUp();
+	} else {
+		score.Bonus(1666);
 	}
 }
 
