@@ -20,6 +20,10 @@ function Hide () {
 //	anaBar.enabled = false;
 }
 
+function Y () {
+	PlayerPrefs.SetInt("Yeti", 1);
+}
+
 function Delete () {
 	PlayerPrefs.DeleteKey("Log");
 	anaText.text = "";

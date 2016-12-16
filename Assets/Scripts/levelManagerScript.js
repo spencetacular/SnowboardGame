@@ -69,12 +69,12 @@ function GameMode () {
 
 
 function GameOverMode () {
-	Debug.Log("GameOver Called");
 	GameObject.Find("LiftChairsFull").GetComponent(liftChairsScript).paused = true;
 	GameObject.Find("LiftChairsEmpty").GetComponent(liftChairsScript).paused = true;
 	player.GetComponent(playerMovementScript).paused = true;
 	fade.GetComponent(Animator).SetTrigger("fadeOut");
 	Invoke("TopScoresMode", 2);
+	Invoke ("LoadStartScreen", 300);
 
 
 }
@@ -90,6 +90,7 @@ function TopScoresMode () {
 
 //	DEVELOPMENT **********************************
 	topScores.LogScore(score.score, time.totalSeconds);
+	PlayerPrefs.SetInt("Yeti", 0);
 }
 
 function LoadStartScreen () {

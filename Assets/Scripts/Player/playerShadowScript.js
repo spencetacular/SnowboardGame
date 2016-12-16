@@ -34,7 +34,7 @@ function Update () {
 	if (playerMovement.isJumping == true) {
 		spriteRenderer.sortingOrder = 99;
 		var x =  transform.parent.transform.localPosition.x - animPosition.Evaluate(Time.time);
-		var y =  initialPosY - animPosition.Evaluate(Time.time) / 2;
+		var y =  initialPosY + animPosition.Evaluate(Time.time) / 2.0 ;
 		this.transform.position = new Vector3( x, y, 0);
 	}
 }

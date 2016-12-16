@@ -23,11 +23,7 @@ function Start () {
 function Update () {
 
 	meterTicker += Time.deltaTime;
-
 	var percent =  meterTicker / meterLoadTime;
-
-//	Debug.Log(percent);
-
 	var numActive : int;
 	numActive = percent *  meterBars.length - 1;
 
@@ -41,6 +37,10 @@ function Update () {
 
 	if (meterTicker >= meterLoadTime) {
 		Application.LoadLevel(levelToLoad);
+	}
+
+	if (Input.GetKeyDown ("space") || Input.GetKeyDown ("2")) {
+		Application.LoadLevel("Level01");
 	}
 
 }

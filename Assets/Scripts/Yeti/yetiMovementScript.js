@@ -23,11 +23,17 @@ public var soundEffects : soundEffectsScript;
 
 function Start () {
 
-	
+		
 	chaseSpeed = playerMovement.gameStartSpeed * -1.0;
 //	catchUpSpeed = playerMovement.gameMaxSpeed * -1.0;
 	speed = catchUpSpeed;
 	GetComponent(CircleCollider2D).enabled = false;
+
+	//DEVELOPMENT*******************************
+	if (PlayerPrefs.GetInt("Yeti") == 1) {
+		spawnTime *= 2.0;
+		Debug.Log("Y");
+	}
 }
 
 function Spawn () {
