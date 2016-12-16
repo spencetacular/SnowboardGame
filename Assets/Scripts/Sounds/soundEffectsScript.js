@@ -20,6 +20,7 @@ public var roar : AudioSource;
 public var groan : AudioSource;
 public var roosterCluck : AudioSource;
 public var roosterCrow : AudioSource;
+public var whooseNoClick : AudioSource;
 
 private var soundEffects : AudioSource[];
 
@@ -28,7 +29,7 @@ var loadPressed = false;
 
 function Start () {
 
-	soundEffects  = [jump, wreck, tree, carve1, carve2, slide, select, scroll, success, whoose, shine, roar, groan, roosterCluck, roosterCrow];	
+	soundEffects  = [jump, wreck, tree, carve1, carve2, slide, select, scroll, success, whoose, shine, roar, groan, roosterCluck, roosterCrow, whooseNoClick];	
 
 	if (GameObject.Find("soundController")) { 
 		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
@@ -82,6 +83,10 @@ function Success() {
 
 function Whoosh() {
 	whoose.Play();
+}
+
+function WhooshNoClick() {
+	whooseNoClick.Play();
 }
 
 function Shine () {
