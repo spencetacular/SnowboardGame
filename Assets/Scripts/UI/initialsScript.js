@@ -10,6 +10,7 @@ public var initials :  UnityEngine.UI.Text[];
 var currentInitial : UnityEngine.UI.Text;
 public var gameOver = false;
 var soundEffects : soundEffectsScript;
+var finished = false;
 
 
 function Start () {
@@ -78,6 +79,7 @@ function AssignLetter () {
 		currentInitial.text = currentLetter;
 	} else {
 		currentInitial.GetComponent(flashingTextScript).Flashing(false);
+		finished = true;
 		NewHighScore ();	
 	}
 
@@ -85,7 +87,7 @@ function AssignLetter () {
 }
 
 function Update () {
-	if (gameOver == true) {
+	if (gameOver == true && !finished) {
 
 		if (Input.GetKeyDown ("right") || Input.GetKeyDown ("r"))
 			NextLetter();
