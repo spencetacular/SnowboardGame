@@ -58,6 +58,7 @@ public class playerSpritesScript extends MonoBehaviour {
 					spriteRenderer.sprite = playerSprites[0];
 					joystick.GetComponent(joystickScript).PopOff();
 					playerParticles.PlayDownHill(true);
+					playerShadow.enabled = true;
 					break;
 				case  playerMovement.Status.Right:
 					spriteRenderer.sprite = playerSprites[1];
@@ -81,6 +82,7 @@ public class playerSpritesScript extends MonoBehaviour {
 					spriteRenderer.sprite = playerSprites[5];
 					joystick.GetComponent(joystickScript).PopOn();
 					speachBubble.GetComponent(speachBubbleScript).BadComment();
+					playerShadow.enabled = false;
 					playerParticles.Wreck();
 					break;	
 			}
