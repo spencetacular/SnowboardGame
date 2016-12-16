@@ -110,7 +110,7 @@ public class topScoresScript extends MonoBehaviour {
 
     function AddNewTopScore (ini : String) {
  
-
+ 		Debug.Log("Add Called");
 		var newTopUser = new userScoreScript(score, ini);
    		userScores.Add(newTopUser);
     	userScores.Sort();	
@@ -130,7 +130,7 @@ public class topScoresScript extends MonoBehaviour {
      }
 
     function SetTopScoresText () {
-
+    	Debug.Log("Set Called");
 		topScoresInitials.text = "";
 		topScoresScores.text = "";
 		

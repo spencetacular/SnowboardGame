@@ -69,6 +69,7 @@ function GameMode () {
 
 
 function GameOverMode () {
+	Debug.Log("GameOver Called");
 	GameObject.Find("LiftChairsFull").GetComponent(liftChairsScript).paused = true;
 	GameObject.Find("LiftChairsEmpty").GetComponent(liftChairsScript).paused = true;
 	player.GetComponent(playerMovementScript).paused = true;
@@ -86,7 +87,6 @@ function TopScoresMode () {
 	canvasPlaying.SetActive(false);
 	topScores.score = score.score;
 	topScores.GameOver(score.score);
-	Invoke("LoadStartScreen", 300);
 
 //	DEVELOPMENT **********************************
 	topScores.LogScore(score.score, time.totalSeconds);
