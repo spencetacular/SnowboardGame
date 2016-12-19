@@ -13,15 +13,13 @@ public var swipe : swipeScript;
 
 function Start () {
 
-	swipe = new swipeScript();
 	optionsImage.enabled = false;
 
 }
 
 function Update () {
 
-//	Debug.Log("Swipe: " + swipe.Swipe());
-	if (Input.GetKeyDown ("down") || Input.GetKeyDown ("d") || swipe.Swipe == "down") {
+	if (swipe.Swipe() == "down") {
 		if (startImage.enabled) {
 			startImage.enabled = false;
 			optionsImage.enabled = true;
@@ -31,7 +29,7 @@ function Update () {
 
 			
 
-	if (Input.GetKeyDown ("up") || Input.GetKeyDown ("g")) {
+	if (swipe.Swipe() == "up") {
 		if (optionsImage.enabled) {
 			startImage.enabled = true;
 			optionsImage.enabled = false;
@@ -40,7 +38,7 @@ function Update () {
 
 	}
 
-	if (Input.GetKeyDown ("space") || Input.GetKeyDown ("2") ) {
+	if (swipe.Swipe() == "enter") {
 
 			if (startImage.enabled)
 				soundEffects.levelToLoad = level1;

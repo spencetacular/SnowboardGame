@@ -1,18 +1,56 @@
 ﻿//inside class
+
+
 public var myDevice : device;
 var firstPressPos : Vector2;
 var secondPressPos : Vector2;
 var currentSwipe : Vector2;
-
+var enterButton : Button;
+var clicked = false;
 
 function Awake () {
 	myDevice = new device();
 
+	enterButton.onClick.AddListener(Click);
+
 
 }
+
+function Click () {
+	clicked = true;
+	Debug.Log("Clicked");
+}
+//function Enter() {
+//	var input =  "";
+//
+//	if (Input.GetKeyDown ("space") || Input.GetKeyDown ("2") ) {
+//		input = "enter";
+//	}
+//
+//
+//}
+
 function Swipe ()
 {
-	
+	var input  = "";
+
+	if (Input.GetKeyDown ("down") || Input.GetKeyDown ("d")) {
+		input = "down";
+//		return input;
+	}
+
+	if (Input.GetKeyDown ("up") || Input.GetKeyDown ("g")) {
+		input = "up";
+//		return input;
+	}
+
+	if (Input.GetKeyDown ("space") || Input.GetKeyDown ("2") || clicked == true) {
+		input = "enter";
+		clicked = false;
+		return input;
+	}
+
+
 	if (myDevice.editor) {
 		
 
@@ -23,7 +61,7 @@ function Swipe ()
 	     }
 	     if(Input.GetMouseButtonUp(0))
 	     {
-	     	var direction  = "";
+//	     	var direction  = "";
 	            //save ended touch 2d point
 	        secondPressPos = new Vector2(Input.mousePosition.x,Input.mousePosition.y);
 	       
@@ -37,14 +75,14 @@ function Swipe ()
 	        if(currentSwipe.y > 0 && currentSwipe.x > -0.5f &&  currentSwipe.x < 0.5f)
 	        {
 //	            Debug.Log("up swipe");
-	            direction = "up";
+	            input = "up";
 
 	        }
 	        //swipe down
 	        if(currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
 	        {
 //	            Debug.Log("down swipe");
-				direction = "down";
+				input = "down";
 	        }
 	        //swipe left
 	        if(currentSwipe.x < 0 &&  currentSwipe.y > -0.5f &&  currentSwipe.y < 0.5f)
@@ -56,10 +94,13 @@ function Swipe ()
 	        {
 	            Debug.Log("right swipe");
 	        }
-	     return direction;
+	     
 	    }
 
 	}
+
+
+
 
 
 //	if (myDevice.editor) {
@@ -105,7 +146,7 @@ function Swipe ()
 //
 //	}
 
-     	
+    return input; 	
      
 
 
@@ -114,6 +155,7 @@ function Swipe ()
 
 function Update () {
 	Swipe ();
-//	Debug.Log("Swipe: " + Swipe());
+//	Debug.Log("Clicked: " + clicked);
+//	Debug.Log("Swipe: " + Swipe ());
 }
  
