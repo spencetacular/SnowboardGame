@@ -11,6 +11,7 @@ var currentInitial : UnityEngine.UI.Text;
 public var gameOver = false;
 var soundEffects : soundEffectsScript;
 var finished = false;
+public var swipe : swipeScript;
 
 
 function Start () {
@@ -89,13 +90,13 @@ function AssignLetter () {
 function Update () {
 	if (gameOver == true && !finished) {
 
-		if (Input.GetKeyDown ("right") || Input.GetKeyDown ("r"))
+		if (swipe.Swipe() == "right") 
 			NextLetter();
 
-		if (Input.GetKeyDown ("left") || Input.GetKeyDown ("f"))
+		if (swipe.Swipe() == "left") 
 			PreviousLetter();
 
-		if (Input.GetKeyDown ("space") || Input.GetKeyDown ("2"))
+		if (swipe.Swipe() == "enter") 
 			AssignLetter();
 
 	}

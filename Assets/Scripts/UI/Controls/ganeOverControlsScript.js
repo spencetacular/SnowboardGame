@@ -5,6 +5,8 @@ import UnityEngine.UI;
 var readyToRestart = false;
 var pressStartTopPlay : Text;
 var soundEffects : soundEffectsScript;
+public var swipe : swipeScript;
+
 
 function Start () {
 	pressStartTopPlay.GetComponent(flashingTextScript).Hide();
@@ -20,7 +22,7 @@ function Update () {
 
 	if (readyToRestart) {
 		
-		if (Input.GetKeyDown ("space") || Input.GetKeyDown ("2")) {
+		if (swipe.Swipe() == "enter") {
 			soundEffects.levelToLoad = "StartScreen";
 			soundEffects.Load();
 		}

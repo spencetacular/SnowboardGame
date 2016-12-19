@@ -4,6 +4,7 @@ import UnityEngine.UI;
 
 public var meterLoadTime = 2.0;
 public var meterTicker = 0.0;
+public var swipe : swipeScript;
 
 public var levelToLoad : String;
 
@@ -39,7 +40,7 @@ function Update () {
 		Application.LoadLevel(levelToLoad);
 	}
 
-	if (Input.GetKeyDown ("space") || Input.GetKeyDown ("2")) {
+	if (swipe.Swipe() == "enter") {
 		Application.LoadLevel("Level01");
 	}
 

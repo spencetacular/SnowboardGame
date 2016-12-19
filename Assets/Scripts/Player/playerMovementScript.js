@@ -26,6 +26,8 @@ public class playerMovementScript extends MonoBehaviour {
 	public var speedPercent : float;
 	public var downhill  : boolean;
 	public var score : scoreScript;
+	public var swipe : swipeScript;
+
 
 
 	function Start () {
@@ -66,7 +68,7 @@ public class playerMovementScript extends MonoBehaviour {
 
 	function PlayerInput(viewPos : Vector3) {
 
-		if (Input.GetKeyDown ( "down" ) || Input.GetKeyDown ( "d" )) {
+		if (swipe.Swipe() == "down") {
 
 			if (playerStatus == Status.Wrecked)
 				 GetComponent(playerInvulnerableScript).Invulnerable();
@@ -74,7 +76,7 @@ public class playerMovementScript extends MonoBehaviour {
 			playerSprites.DirectionUpdate();
 		}		
 
-		if (Input.GetKeyDown ( "right" ) || Input.GetKeyDown ( "r" )){
+		if (swipe.Swipe() == "right") {
 
 			if (playerStatus != Status.Wrecked) {
 
@@ -98,7 +100,7 @@ public class playerMovementScript extends MonoBehaviour {
 			}
 		}
 
-		if (Input.GetKeyDown ("left") || Input.GetKeyDown ( "f" )){
+		if (swipe.Swipe() == "left") {
 
 			if (playerStatus != Status.Wrecked) {
 

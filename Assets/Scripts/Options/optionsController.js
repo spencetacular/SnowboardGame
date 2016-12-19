@@ -11,29 +11,14 @@ public var selectedOption : optionScript;
 var soundController : soundControllerScript;
 
 public var soundEffects : soundEffectsScript;
+public var swipe : swipeScript;
 
 function Awake () {
 	if (GameObject.Find("soundController")) {
 
 		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
 
-//		if (soundController.music) 
-//			musicOption.GUIOn();
-//		else 
-//			musicOption.GUIOff();
-//
-//		if (soundController.soundFX)
-//			soundFXOption.On();
-//		else 
-//			soundFXOption.Off();
-//
-//			Debug.Log("found it");
 	}
-
-
-
-	
-
 }
 
 function Start () {
@@ -61,7 +46,7 @@ function Start () {
 
 function Update () {
 
-	if (Input.GetKeyDown ("down") || Input.GetKeyDown ("d")) {
+	if (swipe.Swipe() == "down") {
 
 
 		if (selectedOption == soundFXOption) {
@@ -81,7 +66,7 @@ function Update () {
 
 	}
 
-	if (Input.GetKeyDown ("up") || Input.GetKeyDown ("g")) {
+	if (swipe.Swipe() == "up") {
 
 		if (selectedOption == soundFXOption) {
 			selectedOption.Select(false);
@@ -99,7 +84,7 @@ function Update () {
 
 	}
 
-	if (Input.GetKeyDown ("space") || Input.GetKeyDown ("2") ) {
+	if (swipe.Swipe() == "enter") {
 
 		selectedOption.Flip();
 		soundEffects.Select();

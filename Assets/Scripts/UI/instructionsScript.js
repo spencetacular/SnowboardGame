@@ -1,13 +1,13 @@
 ﻿#pragma strict
 
 var soundEffects : soundEffectsScript;
-
+public var swipe : swipeScript;
 function Update () {
 
-	if (Input.GetKeyDown ("space") || Input.GetKeyDown ("2") ) {
+	if (swipe.Swipe() == "enter") {
 
-			GameObject.Find("levelManager").GetComponent(levelManagerScript).AvatarMode();
-			soundEffects.Select();
+		GameObject.Find("levelManager").GetComponent(levelManagerScript).AvatarMode();
+		soundEffects.Select();
 			
 	}
 }

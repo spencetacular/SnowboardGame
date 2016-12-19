@@ -6,6 +6,7 @@ public var boy : avatarScript;
 public var girl : avatarScript;
 private var selected : avatarScript;
 public var soundEffects : soundEffectsScript;
+public var swipe : swipeScript;
 
 function Start () {
 	selected = boy;
@@ -15,7 +16,7 @@ function Start () {
 
 function Update () {
 
-	if (Input.GetKeyDown ( "right" ) || Input.GetKeyDown ( "r" )){
+	if (swipe.Swipe() == "right") {
 
 		if (selected == boy) {
 			boy.DeSelect();
@@ -25,7 +26,7 @@ function Update () {
 		}
 	}
 
-	if (Input.GetKeyDown ("left") || Input.GetKeyDown ( "f" )){
+	if (swipe.Swipe() == "left") {
 		if (selected == girl) {
 				girl.DeSelect();
 				boy.Select();
@@ -34,7 +35,7 @@ function Update () {
 		}
 	}
 
-	if (Input.GetKeyDown ("space") || Input.GetKeyDown ("2") ) {
+	if (swipe.Swipe() == "enter") {
 
 		var boyAvatar = true;
 		if (selected == girl)
