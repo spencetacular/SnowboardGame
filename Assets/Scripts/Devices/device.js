@@ -4,11 +4,13 @@ public class device {
 
 	var mobile : boolean;
 	var iPad : boolean;
+	var editor : boolean;
 
 	public function device () {
 
 		mobile = false;
 		iPad = false;
+		editor = false;
 
 		  #if UNITY_IPHONE || UNITY_ANDROID
 		 	mobile = true;
@@ -17,5 +19,9 @@ public class device {
 		 		iPad = true;
 		 	}
 		 #endif
+
+		  #if UNITY_EDITOR
+		  	editor = true;
+		  #endif
 	}
 }

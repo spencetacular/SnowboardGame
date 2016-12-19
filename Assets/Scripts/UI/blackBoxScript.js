@@ -11,9 +11,11 @@ function Start () {
 
 	myDevice = new device();
 
+
+
 	if (myDevice.mobile && !myDevice.iPad) {
-		leftBar.enabled = false;
-		rightBar.enabled = false;
+//		leftBar.enabled = false;
+//		rightBar.enabled = false;
 		bottomBar.enabled = false;
 	}
 }

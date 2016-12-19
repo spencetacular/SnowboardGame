@@ -9,16 +9,19 @@ var playPressed = false;
 public var level1  = "Level01";
 public var options = "OptionsScreen";
 public var soundEffects : soundEffectsScript;
+public var swipe : swipeScript;
 
 function Start () {
 
+	swipe = new swipeScript();
 	optionsImage.enabled = false;
 
 }
 
 function Update () {
 
-	if (Input.GetKeyDown ("down") || Input.GetKeyDown ("d")) {
+//	Debug.Log("Swipe: " + swipe.Swipe());
+	if (Input.GetKeyDown ("down") || Input.GetKeyDown ("d") || swipe.Swipe == "down") {
 		if (startImage.enabled) {
 			startImage.enabled = false;
 			optionsImage.enabled = true;
@@ -38,8 +41,6 @@ function Update () {
 	}
 
 	if (Input.GetKeyDown ("space") || Input.GetKeyDown ("2") ) {
-
-			
 
 			if (startImage.enabled)
 				soundEffects.levelToLoad = level1;
