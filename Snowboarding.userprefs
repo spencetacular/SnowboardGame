@@ -1,9 +1,10 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Devices/swipeScript.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/UI/topScoresScript.js">
     <Files>
+      <File FileName="Assets/Scripts/UI/topScoresScript.js" Line="72" Column="9" />
+      <File FileName="Assets/Scripts/UI/Controls/ganeOverControlsScript.js" Line="16" Column="32" />
       <File FileName="Assets/Scripts/Devices/swipeScript.js" Line="136" Column="44" />
-      <File FileName="Assets/Scripts/UI/Controls/ganeOverControlsScript.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/UI/initialsScript.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Player/playerMovementScript.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/UI/avatarsScript.js" Line="1" Column="1" />
@@ -13,8 +14,8 @@
       <File FileName="Assets/Scripts/Devices/device.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/UI/blackBoxScript.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/UI/instructionsScript.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/topScoresScript.js" Line="1" Column="1" />
       <File FileName="Assets/Scripts/StartScreen/startControlsScript.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/levelManagerScript.js" Line="89" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
