@@ -5,6 +5,9 @@ public var myDevice : device;
 var firstPressPos : Vector2;
 var secondPressPos : Vector2;
 var currentSwipe : Vector2;
+var gamePlayControls = false;
+
+var touchAreaCenter = 5.0;
 
 
 function Awake () {
@@ -46,10 +49,11 @@ function Swipe ()
 	}
 
 	// Use Mouse input for testing swipes
-	if (myDevice.editor) {
+	if (myDevice.editor && gamePlayControls == false) {
 
 		 var p = Input.mousePosition;
-	      p = Camera.main.ScreenToWorldPoint(p);
+	     p = Camera.main.ScreenToWorldPoint(p);
+//	     Debug.Log(p.x);
 
 	     if(Input.GetMouseButtonDown(0))
 	     {
@@ -94,22 +98,70 @@ function Swipe ()
 
 	}
 
+	if (myDevice.editor && gamePlayControls == true) {
+		
+		var p3 = Input.mousePosition;
+	    p3 = Camera.main.ScreenToWorldPoint(p3);
+	    Debug.Log(p3.x);
+
+		if(Input.GetMouseButtonDown(0))
+	     {
+	       
+	        if (p3.x < -1 * touchAreaCenter) {
+//	        	 firstPressPos = new Vector2(Input.mousePosition.x,Input.mousePosition.y);
+				input = "left";	
+        	}
+        	if (p3.x > touchAreaCenter) {
+        		input = "right";
+        	}
+        	if (p3.x > -1 * touchAreaCenter && p3.x < touchAreaCenter) {
+        		input = "down";
+        	}
+	     }
+		
+
+	}
+
+	if (myDevice.mobile && gamePlayControls == true) {
+
+		if(Input.touches.Length > 0) {
+
+			var t: Touch = Input.GetTouch(0);
+		 	var p4 = Input.mousePosition;
+		    p4 = Camera.main.ScreenToWorldPoint(p4);
+
+		 	if(t.phase == TouchPhase.Began) {
+				
+		        if (p4.x < -1 * touchAreaCenter) {
+	//	        	 firstPressPos = new Vector2(Input.mousePosition.x,Input.mousePosition.y);
+					input = "left";	
+	        	}
+	        	if (p4.x > -1 * touchAreaCenter) {
+	        		input = "right";
+	        	}
+	        	if (p4.x > -1 * touchAreaCenter && p4.x < touchAreaCenter) {
+	        		input = "down";
+	        	}
+			    
+		    }
+		}
+
+	}
 
 
 
-
-	if (myDevice.mobile) {
+	if (myDevice.mobile && gamePlayControls == false) {
 
 		 if(Input.touches.Length > 0) {
 
-		 	var t: Touch = Input.GetTouch(0);
+		 	var t2: Touch = Input.GetTouch(0);
 		 	var p2 = Input.mousePosition;
 		    p2 = Camera.main.ScreenToWorldPoint(p2);
 
-		 	if(t.phase == TouchPhase.Began) {
+		 	if(t2.phase == TouchPhase.Began) {
 		       
 		        if (p2.x < 0){
-		        	  firstPressPos = new Vector2(t.position.x,t.position.y); 
+		        	  firstPressPos = new Vector2(t2.position.x,t2.position.y); 
         	  } else {
 		        	input = "enter";
 		        	return input;

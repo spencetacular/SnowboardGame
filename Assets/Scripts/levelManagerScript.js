@@ -49,6 +49,7 @@ function GameMode () {
 	GameObject.Find("avatar").GetComponent(avatarGame).SetAvatar(boyAvatar);
 	GameObject.Find("obstacles1").GetComponent(obstacleGeneratorScript).InitialSpawn();
 	GameObject.Find("obstacles2").GetComponent(obstacleGeneratorScript).InitialSpawn();
+	player.GetComponent(playerMovementScript).swipe.gamePlayControls = true;
 	playerLives.SetLives(boyAvatar);
 	if (boyAvatar)
 		girlPanel.active = false;
@@ -71,6 +72,7 @@ function GameMode () {
 function GameOverMode () {
 	GameObject.Find("LiftChairsFull").GetComponent(liftChairsScript).paused = true;
 	GameObject.Find("LiftChairsEmpty").GetComponent(liftChairsScript).paused = true;
+	player.GetComponent(playerMovementScript).swipe.gamePlayControls = false;
 	player.GetComponent(playerMovementScript).paused = true;
 	fade.GetComponent(Animator).SetTrigger("fadeOut");
 	Invoke("TopScoresMode", 2);
