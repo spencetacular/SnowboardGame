@@ -18,6 +18,7 @@ function Awake () {
 
 function Swipe ()
 {
+//	Debug.Log(firstPressPos);
 	var input  = "";
 
 	if (Input.GetKeyDown ("down") || Input.GetKeyDown ("d")) {
@@ -47,18 +48,24 @@ function Swipe ()
 	// Use Mouse input for testing swipes
 	if (myDevice.editor) {
 
+		 var p = Input.mousePosition;
+	      p = Camera.main.ScreenToWorldPoint(p);
+
 	     if(Input.GetMouseButtonDown(0))
 	     {
-	        var p = Input.mousePosition;
-	        p = Camera.main.ScreenToWorldPoint(p);
-	        if (p.x < 0)
+	       
+	        if (p.x < 0) {
 	        	 firstPressPos = new Vector2(Input.mousePosition.x,Input.mousePosition.y);
-	        else
+        	} else {
 	        	input = "enter";
+	        	return input;
+	        }
 	     }
 
-	     if(Input.GetMouseButtonUp(0) && firstPressPos != null)
+	     if(Input.GetMouseButtonUp(0) && (p.x < 0))
 	     {
+	     	
+
 
 	        secondPressPos = new Vector2(Input.mousePosition.x,Input.mousePosition.y);
 	        currentSwipe = new Vector2(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
@@ -96,19 +103,23 @@ function Swipe ()
 		 if(Input.touches.Length > 0) {
 
 		 	var t: Touch = Input.GetTouch(0);
+		 	var p2 = Input.mousePosition;
+		    p2 = Camera.main.ScreenToWorldPoint(p2);
 
 		 	if(t.phase == TouchPhase.Began) {
-		        var p2 = Input.mousePosition;
-		        p2 = Camera.main.ScreenToWorldPoint(p2);
-		        if (p2.x < 0)
-		        	 firstPressPos = new Vector2(Input.mousePosition.x,Input.mousePosition.y);
-		        else
+		       
+		        if (p2.x < 0){
+		        	  firstPressPos = new Vector2(t.position.x,t.position.y); 
+        	  } else {
 		        	input = "enter";
+		        	return input;
+		        }
+		       
 			}
 
-		    if(t.phase == TouchPhase.Ended ) {
+		    if(t.phase == TouchPhase.Ended && p2.x < 0) {
 		            //save ended touch 2d point
-		        secondPressPos = new Vector2(Input.mousePosition.x,Input.mousePosition.y);
+		        secondPressPos = new Vector2(t.position.x,t.position.y);
 		       
 		            //create vector from the two points
 		        currentSwipe = new Vector2(secondPressPos.x - firstPressPos.x, secondPressPos.y - firstPressPos.y);
@@ -119,22 +130,22 @@ function Swipe ()
 		        //swipe upwards
 		        if(currentSwipe.y > 0 && currentSwipe.x > -0.5f &&  currentSwipe.x < 0.5f)
 		        {
-		            Debug.Log("up swipe");
+		             input = "up";
 		        }
 		        //swipe down
 		        if(currentSwipe.y < 0 && currentSwipe.x > -0.5f && currentSwipe.x < 0.5f)
 		        {
-		            Debug.Log("down swipe");
+		            input = "down";
 		        }
 		        //swipe left
 		        if(currentSwipe.x < 0 &&  currentSwipe.y > -0.5f &&  currentSwipe.y < 0.5f)
 		        {
-		            Debug.Log("left swipe");
+		             input = "left";
 		        }
 		        //swipe right
 		        if(currentSwipe.x > 0 && currentSwipe.y > -0.5f && currentSwipe.y < 0.5f)
 		        {
-		            Debug.Log("right swipe");
+		            input = "right";
 		        }
 		    }
 

@@ -2,19 +2,19 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Devices/swipeScript.js">
     <Files>
-      <File FileName="Assets/Scripts/UI/Controls/ganeOverControlsScript.js" Line="25" Column="34" />
-      <File FileName="Assets/Scripts/UI/initialsScript.js" Line="93" Column="33" />
-      <File FileName="Assets/Scripts/Player/playerMovementScript.js" Line="71" Column="33" />
-      <File FileName="Assets/Scripts/Devices/swipeScript.js" Line="60" Column="60" />
-      <File FileName="Assets/Scripts/UI/avatarsScript.js" Line="19" Column="33" />
-      <File FileName="Assets/Scripts/UI/WeAreTopSecret/loadingBarScript.js" Line="43" Column="33" />
-      <File FileName="Assets/Scripts/Options/optionsController.js" Line="49" Column="32" />
-      <File FileName="Assets/Scripts/StartScreen/startOrOptionsScript.js" Line="41" Column="33" />
-      <File FileName="Assets/Scripts/Devices/device.js" Line="17" Column="19" />
-      <File FileName="Assets/Scripts/UI/blackBoxScript.js" Line="12" Column="26" />
-      <File FileName="Assets/Scripts/UI/instructionsScript.js" Line="8" Column="2" />
-      <File FileName="Assets/Scripts/UI/topScoresScript.js" Line="23" Column="9" />
-      <File FileName="Assets/Scripts/StartScreen/startControlsScript.js" Line="14" Column="6" />
+      <File FileName="Assets/Scripts/Devices/swipeScript.js" Line="136" Column="44" />
+      <File FileName="Assets/Scripts/UI/Controls/ganeOverControlsScript.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UI/initialsScript.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player/playerMovementScript.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UI/avatarsScript.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UI/WeAreTopSecret/loadingBarScript.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Options/optionsController.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/StartScreen/startOrOptionsScript.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Devices/device.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UI/blackBoxScript.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UI/instructionsScript.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/UI/topScoresScript.js" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/StartScreen/startControlsScript.js" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

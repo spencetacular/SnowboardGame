@@ -69,6 +69,8 @@ public class topScoresScript extends MonoBehaviour {
     	GetTopScores();
         CompareUserScore(score);
         SetTopScoresText();
+
+//        Social.ShowLeaderboardUI();
 		
 
     }
