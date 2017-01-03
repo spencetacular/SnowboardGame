@@ -64,6 +64,7 @@ function DeSpawn () {
 }
 
 function Catch () {
+	anim.SetTrigger("explode"); 
 	playerLives.AddALife();
 	
 	DeSpawn();

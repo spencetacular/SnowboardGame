@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 519ed39b05eba4fef8357c24ac3075ed
-timeCreated: 1480715773
+timeCreated: 1483461511
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -11,6 +11,11 @@ TextureImporter:
     21300008: ColoredRooster_Spritesheet_4
     21300010: ColoredRooster_Spritesheet_5
     21300012: ColoredRooster_Spritesheet_6
+    21300014: ColoredRooster_Spritesheet_7
+    21300016: ColoredRooster_Spritesheet_8
+    21300018: ColoredRooster_Spritesheet_9
+    21300020: ColoredRooster_Spritesheet_10
+    21300022: ColoredRooster_Spritesheet_11
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -64,9 +69,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 85.33333
-        width: 42.666668
-        height: 42.666668
+        y: 127.5
+        width: 42.5
+        height: 42.5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -77,9 +82,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 42
-        y: 85.33333
-        width: 42.666668
-        height: 42.666668
+        y: 127.5
+        width: 42.5
+        height: 42.5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -90,9 +95,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 84
-        y: 85.33333
-        width: 42.666668
-        height: 42.666668
+        y: 127.5
+        width: 42.5
+        height: 42.5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -102,10 +107,10 @@ TextureImporter:
       name: ColoredRooster_Spritesheet_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 43.333332
-        width: 42.666668
-        height: 42.666668
+        x: 126
+        y: 127.5
+        width: 42.5
+        height: 42.5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,10 +120,10 @@ TextureImporter:
       name: ColoredRooster_Spritesheet_4
       rect:
         serializedVersion: 2
-        x: 42
-        y: 43.333332
-        width: 42.666668
-        height: 42.666668
+        x: 0
+        y: 85.5
+        width: 42.5
+        height: 42.5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,10 +133,10 @@ TextureImporter:
       name: ColoredRooster_Spritesheet_5
       rect:
         serializedVersion: 2
-        x: 84
-        y: 43.333332
-        width: 42.666668
-        height: 42.666668
+        x: 42
+        y: 85.5
+        width: 42.5
+        height: 42.5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,10 +146,75 @@ TextureImporter:
       name: ColoredRooster_Spritesheet_6
       rect:
         serializedVersion: 2
+        x: 84
+        y: 85.5
+        width: 42.5
+        height: 42.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColoredRooster_Spritesheet_7
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 85.5
+        width: 42.5
+        height: 42.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColoredRooster_Spritesheet_8
+      rect:
+        serializedVersion: 2
         x: 0
-        y: 1.3333321
-        width: 42.666668
-        height: 42.666668
+        y: 43.5
+        width: 42.5
+        height: 42.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColoredRooster_Spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 43.5
+        width: 42.5
+        height: 42.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColoredRooster_Spritesheet_10
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 43.5
+        width: 42.5
+        height: 42.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: ColoredRooster_Spritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 126
+        y: 43.5
+        width: 42.5
+        height: 42.5
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
