@@ -7,6 +7,7 @@ public var liftChairsEmpty : GameObject;
 public var canvasAvatar : GameObject;
 public var canvasBlackBox : GameObject;
 public var canvasInstructions : GameObject;
+public var canvasFingerGestures : GameObject;
 public var canvasPlaying : GameObject;
 public var canvasGameOver : GameObject;
 public var boyAvatar : boolean;
@@ -26,6 +27,7 @@ function Start () {
 	canvasPlaying.SetActive(false);
 	canvasGameOver.SetActive(false);
 	canvasAvatar.SetActive(false);
+	canvasFingerGestures.SetActive(false);
 	canvasInstructions.SetActive(true);
 //	canvasBlackBox.SetActive(true);
 
@@ -36,9 +38,14 @@ function InstructionsMode () {
 	
 }
 
+function fingerGuesturesMode () {
+	canvasInstructions.SetActive(false);
+	canvasFingerGestures.SetActive(true);
+}
 
 function AvatarMode () {
 	canvasInstructions.SetActive(false);
+	canvasFingerGestures.SetActive(false);
 	canvasAvatar.SetActive(true);
 }
 
