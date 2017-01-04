@@ -6,6 +6,7 @@ var firstPressPos : Vector2;
 var secondPressPos : Vector2;
 var currentSwipe : Vector2;
 var gamePlayControls = false;
+var gameOverControls = false;
 
 var touchAreaCenter = 5.0;
 
@@ -48,11 +49,14 @@ function Swipe ()
 		input = "enter";
 	}
 
+	 var p = Input.mousePosition;
+	 p = Camera.main.ScreenToWorldPoint(p);
+
 	// Use Mouse input for testing swipes
 	if (myDevice.editor && gamePlayControls == false) {
 
-		 var p = Input.mousePosition;
-	     p = Camera.main.ScreenToWorldPoint(p);
+//		 var p = Input.mousePosition;
+//	     p = Camera.main.ScreenToWorldPoint(p);
 //	     Debug.Log(p.x);
 
 	     if(Input.GetMouseButtonDown(0))
@@ -100,26 +104,45 @@ function Swipe ()
 
 	if (myDevice.editor && gamePlayControls == true) {
 		
-		var p3 = Input.mousePosition;
-	    p3 = Camera.main.ScreenToWorldPoint(p3);
-	    Debug.Log(p3.x);
+//		var p3 = Input.mousePosition;
+//	    p3 = Camera.main.ScreenToWorldPoint(p3);
+//	    Debug.Log(p3.x);
 
 		if(Input.GetMouseButtonDown(0))
 	     {
 	       
-	        if (p3.x < -1 * touchAreaCenter) {
+	        if (p.x < -1 * touchAreaCenter) {
 //	        	 firstPressPos = new Vector2(Input.mousePosition.x,Input.mousePosition.y);
 				input = "left";	
         	}
-        	if (p3.x > touchAreaCenter) {
+        	if (p.x > touchAreaCenter) {
         		input = "right";
         	}
-        	if (p3.x > -1 * touchAreaCenter && p3.x < touchAreaCenter) {
+        	if (p.x > -1 * touchAreaCenter && p.x < touchAreaCenter) {
         		input = "down";
         	}
 	     }
 		
 
+	}
+
+	if (myDevice.editor && gameOverControls == true) { 
+
+		if(Input.GetMouseButtonDown(0))
+	     {
+	       
+	        if (p.x < -1 * touchAreaCenter) {
+//	        	 firstPressPos = new Vector2(Input.mousePosition.x,Input.mousePosition.y);
+				input = "left";	
+        	}
+        	if (p.x > touchAreaCenter) {
+        		input = "right";
+        	}
+        	if (p.x > -1 * touchAreaCenter && p.x < touchAreaCenter) {
+        		input = "enter";
+        	}
+	     }
+		
 	}
 
 	if (myDevice.mobile && gamePlayControls == true) {

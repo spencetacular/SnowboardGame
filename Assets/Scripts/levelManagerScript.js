@@ -92,6 +92,8 @@ function TopScoresMode () {
 	yetiMovement.paused = true;
 	roosterMovement.paused = true;
 	canvasGameOver.SetActive(true);
+//	player.GetComponent(playerMovementScript).swipe.gamePlayControls = true;
+	canvasGameOver.GetComponent(ganeOverControlsScript).swipe.gameOverControls = true;
 //	var score = GameObject.Find("score").GetComponent(scoreScript).score;
 	canvasPlaying.SetActive(false);
 	topScores.score = score.score;
