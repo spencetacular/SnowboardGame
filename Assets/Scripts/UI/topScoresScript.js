@@ -81,7 +81,6 @@ public class topScoresScript extends MonoBehaviour {
 
     	if(!PlayerPrefs.GetString("Log")) {
     		PlayerPrefs.SetString("Log", "SCORE" + "\t" + "\t" + "TIME" + "\n" );
-    		Debug.Log("Called");
     	}
     	var log = PlayerPrefs.GetString("Log");
     	var log2 = log + score + "\t" + "\t" + time + "\n";
