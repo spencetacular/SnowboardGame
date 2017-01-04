@@ -30,21 +30,25 @@ function Start () {
 	canvasAvatar.SetActive(false);
 	canvasControls.SetActive(false);
 	canvasFingerGestures.SetActive(false);
-	canvasInstructions.SetActive(true);
+//	canvasInstructions.SetActive(true);
+	InstructionsMode();
+	
 //	canvasBlackBox.SetActive(true);
 
 }
 
 function InstructionsMode () {
-	canvasInstructions.GetComponent(ganeOverControlsScript).swipe.instructionsControls = true;
+	
 	canvasInstructions.SetActive(true);
+	canvasInstructions.GetComponent(instructionsScript).swipe.instructionsControls = true;
 	
 }
 
 function fingerGuesturesMode () {
-	canvasFingerGestures.GetComponent(ganeOverControlsScript).swipe.instructionsControls = true;
+	
 	canvasInstructions.SetActive(false);
 	canvasFingerGestures.SetActive(true);
+	canvasFingerGestures.GetComponent(fingerGesturesScript).swipe.instructionsControls = true;
 }
 
 function AvatarMode () {
@@ -56,6 +60,7 @@ function AvatarMode () {
 
 
 function GameMode () {
+	canvasControls.SetActive(false);
 	canvasAvatar.SetActive(false);
 	canvasPlaying.SetActive(true);
 	GameObject.Find("avatar").GetComponent(avatarGame).SetAvatar(boyAvatar);

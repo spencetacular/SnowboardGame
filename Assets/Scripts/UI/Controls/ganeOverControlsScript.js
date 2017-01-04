@@ -16,6 +16,7 @@ function PressStartToPlay() {
 	pressStartTopPlay.GetComponent(flashingTextScript).Flash();
 	pressStartTopPlay.GetComponent(flashingTextScript).Flashing(true);
 	readyToRestart = true;
+	swipe.instructionsControls = true;
 }
 
 function Update () {

@@ -13,6 +13,8 @@ public var finalScoreTop10 : Text;
 public var finalScoreNotTop10 : GameObject;
 public var finalScoreNotTop10Text : Text;
 
+var canvasControls : GameObject;
+
 public class topScoresScript extends MonoBehaviour {
 
     function Start () {
@@ -98,6 +100,7 @@ public class topScoresScript extends MonoBehaviour {
     			finalScoreTop10.text = "FINAL SCORE: " + score;
     			soundEffects.Success();
     			newHighScore = true;
+    			canvasControls.SetActive(true);
     			break;
     		}
     		
