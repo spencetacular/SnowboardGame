@@ -5,6 +5,7 @@ public var player : GameObject;
 public var liftChairsFull : GameObject;
 public var liftChairsEmpty : GameObject;
 public var canvasAvatar : GameObject;
+public var canvasControls : GameObject;
 public var canvasBlackBox : GameObject;
 public var canvasInstructions : GameObject;
 public var canvasFingerGestures : GameObject;
@@ -27,6 +28,7 @@ function Start () {
 	canvasPlaying.SetActive(false);
 	canvasGameOver.SetActive(false);
 	canvasAvatar.SetActive(false);
+	canvasControls.SetActive(false);
 	canvasFingerGestures.SetActive(false);
 	canvasInstructions.SetActive(true);
 //	canvasBlackBox.SetActive(true);
@@ -34,11 +36,13 @@ function Start () {
 }
 
 function InstructionsMode () {
+	canvasInstructions.GetComponent(ganeOverControlsScript).swipe.instructionsControls = true;
 	canvasInstructions.SetActive(true);
 	
 }
 
 function fingerGuesturesMode () {
+	canvasFingerGestures.GetComponent(ganeOverControlsScript).swipe.instructionsControls = true;
 	canvasInstructions.SetActive(false);
 	canvasFingerGestures.SetActive(true);
 }
@@ -46,6 +50,7 @@ function fingerGuesturesMode () {
 function AvatarMode () {
 	canvasInstructions.SetActive(false);
 	canvasFingerGestures.SetActive(false);
+	canvasControls.SetActive(true);
 	canvasAvatar.SetActive(true);
 }
 
@@ -93,7 +98,7 @@ function TopScoresMode () {
 	roosterMovement.paused = true;
 	canvasGameOver.SetActive(true);
 //	player.GetComponent(playerMovementScript).swipe.gamePlayControls = true;
-	canvasGameOver.GetComponent(ganeOverControlsScript).swipe.gameOverControls = true;
+//	canvasGameOver.GetComponent(ganeOverControlsScript).swipe.gameOverControls = true;
 //	var score = GameObject.Find("score").GetComponent(scoreScript).score;
 	canvasPlaying.SetActive(false);
 	topScores.score = score.score;

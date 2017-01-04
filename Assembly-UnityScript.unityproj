@@ -72,8 +72,8 @@
      <Compile Include="Assets\Scripts\StartScreen\startControlsScript.js" />
      <Compile Include="Assets\Scripts\StartScreen\startOrOptionsScript.js" />
      <Compile Include="Assets\Scripts\UI\Controls\ganeOverControlsScript.js" />
-     <Compile Include="Assets\Scripts\UI\Fingers\fingersScript.js" />
      <Compile Include="Assets\Scripts\UI\GameOverScript.js" />
+     <Compile Include="Assets\Scripts\UI\Mobile\mobileUIScript.js" />
      <Compile Include="Assets\Scripts\UI\Options\optionsBoxScript.js" />
      <Compile Include="Assets\Scripts\UI\SplashReloadScript.js" />
      <Compile Include="Assets\Scripts\UI\SplashSoundsScript.js" />

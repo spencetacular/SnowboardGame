@@ -2,37 +2,56 @@
 
 import UnityEngine.UI;
 
-var startImage : Image;
-var optionsImage : Image;
+var startMitten : Image;
+var optionsMitten : Image;
+var startText : RectTransform;
+var optionsText : RectTransform;
+var hiScoreText : RectTransform;
 
 var playPressed = false;
 public var level1  = "Level01";
 public var options = "OptionsScreen";
 public var soundEffects : soundEffectsScript;
 public var swipe : swipeScript;
+public var myDevice : device;
+
+var selectOptions = "down";
+var selectStart = "up";
 
 function Start () {
+	myDevice = new device();
 
-	optionsImage.enabled = false;
+	if (myDevice.mobile){
+		selectOptions = "right";
+		selectStart = "left";
+
+		startText.anchoredPosition = new Vector2 (-150.0, 50.0);
+		optionsText.anchoredPosition = new Vector2 (150.0, 50.0);	
+		hiScoreText.anchoredPosition = new Vector2 (0.0, 230.0);	
+
+	}
+	optionsMitten.enabled = false;
 
 }
 
 function Update () {
 
-	if (swipe.Swipe() == "down") {
-		if (startImage.enabled) {
-			startImage.enabled = false;
-			optionsImage.enabled = true;
+	
+
+	if (swipe.Swipe() == selectOptions) {
+		if (startMitten.enabled) {
+			startMitten.enabled = false;
+			optionsMitten.enabled = true;
 			soundEffects.Scroll();
 		}
 	}
 
 			
 
-	if (swipe.Swipe() == "up") {
-		if (optionsImage.enabled) {
-			startImage.enabled = true;
-			optionsImage.enabled = false;
+	if (swipe.Swipe() == selectStart) {
+		if (optionsMitten.enabled) {
+			startMitten.enabled = true;
+			optionsMitten.enabled = false;
 			soundEffects.Scroll();
 		}
 
@@ -40,7 +59,7 @@ function Update () {
 
 	if (swipe.Swipe() == "enter") {
 
-			if (startImage.enabled)
+			if (startMitten.enabled)
 				soundEffects.levelToLoad = level1;
 			else
 				soundEffects.levelToLoad = options;

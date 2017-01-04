@@ -12,13 +12,22 @@ var soundController : soundControllerScript;
 
 public var soundEffects : soundEffectsScript;
 public var swipe : swipeScript;
+public var myDevice : device;
+
+var selectNext = "down";
+var selectPrevious = "up";
 
 function Awake () {
-	if (GameObject.Find("soundController")) {
+	myDevice = new device();
 
-		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
-
+	if (myDevice.mobile) {
+		selectNext = "right";
+		selectPrevious = "left";
 	}
+		
+	if (GameObject.Find("soundController")) 
+		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
+	
 }
 
 function Start () {
@@ -46,7 +55,7 @@ function Start () {
 
 function Update () {
 
-	if (swipe.Swipe() == "down") {
+	if (swipe.Swipe() == selectNext) {
 
 
 		if (selectedOption == soundFXOption) {
@@ -66,7 +75,7 @@ function Update () {
 
 	}
 
-	if (swipe.Swipe() == "up") {
+	if (swipe.Swipe() == selectPrevious) {
 
 		if (selectedOption == soundFXOption) {
 			selectedOption.Select(false);
