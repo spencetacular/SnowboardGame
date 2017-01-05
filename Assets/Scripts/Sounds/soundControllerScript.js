@@ -3,6 +3,9 @@
 public var music : boolean;
 public var soundFX : boolean;
 
+public var backgroundMusic : AudioSource;
+public var leaderBoardMusic : AudioSource;
+
 public var myDevice : device;
 
 function Start () {

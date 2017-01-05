@@ -2,6 +2,7 @@
 import UnityEngine.UI;
 
 public class playerMovementScript extends MonoBehaviour {
+	public var myDevice : device;
 	public var obstacles1: GameObject;
 	public var obstacles2: GameObject;
 	var obstacles : GameObject[];
@@ -31,6 +32,9 @@ public class playerMovementScript extends MonoBehaviour {
 
 
 	function Start () {
+		myDevice = new device();
+		if (myDevice.mobile)
+			playerWidth = 0.1;
 		gameSpeed = gameStartSpeed;	
 		obstacles = [obstacles1, obstacles2];
 		isJumping = false;

@@ -109,6 +109,8 @@ function TopScoresMode () {
 	topScores.score = score.score;
 	topScores.GameOver(score.score);
 
+//	if (GameObject.Find("soundConroller"))
+
 //	DEVELOPMENT **********************************
 	topScores.LogScore(score.score, time.totalSeconds);
 	PlayerPrefs.SetInt("Yeti", 0);

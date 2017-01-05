@@ -66,7 +66,7 @@ function Update () {
 				Debug.Log("Yep");
 			}
 			else
-				soundEffects.levelToLoad = options;
+				soundEffects.levelToLoad = "OptionsScreen";
 
 			soundEffects.Load();
 		}
