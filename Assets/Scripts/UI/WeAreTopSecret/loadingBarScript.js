@@ -41,7 +41,7 @@ function Update () {
 	}
 
 	if (swipe.Swipe() == "enter") {
-		Application.LoadLevel("Level01");
+		Application.LoadLevel(levelToLoad);
 	}
 
 }

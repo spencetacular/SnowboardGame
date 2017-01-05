@@ -9,8 +9,8 @@ var optionsText : RectTransform;
 var hiScoreText : RectTransform;
 
 var playPressed = false;
-public var level1  = "Level01";
-public var options = "OptionsScreen";
+var levelToLoad  = "";
+var options = "OptionsScreen";
 public var soundEffects : soundEffectsScript;
 public var swipe : swipeScript;
 public var myDevice : device;
@@ -20,8 +20,10 @@ var selectStart = "up";
 
 function Start () {
 	myDevice = new device();
+	levelToLoad = "SuperTopSecret";
 
 	if (myDevice.mobile){
+		levelToLoad = "Level01";
 		selectOptions = "right";
 		selectStart = "left";
 
@@ -59,8 +61,10 @@ function Update () {
 
 	if (swipe.Swipe() == "enter") {
 
-			if (startMitten.enabled)
-				soundEffects.levelToLoad = level1;
+			if (startMitten.enabled) {
+				soundEffects.levelToLoad = levelToLoad;
+				Debug.Log("Yep");
+			}
 			else
 				soundEffects.levelToLoad = options;
 
