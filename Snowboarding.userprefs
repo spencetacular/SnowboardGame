@@ -1,27 +1,16 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Options/optionsController.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/playerMovementScript.js">
     <Files>
-      <File FileName="Assets/Scripts/Devices/swipeScript.js" Line="59" Column="22" />
-      <File FileName="Assets/Scripts/levelManagerScript.js" Line="41" Column="88" />
-      <File FileName="Assets/Scripts/Options/optionsController.js" Line="74" Column="3" />
-      <File FileName="Assets/Scripts/StartScreen/startOrOptionsScript.js" Line="22" Column="2" />
-      <File FileName="Assets/Scripts/UI/Mobile/mobileUIScript.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/instructionsScript.js" Line="8" Column="26" />
-      <File FileName="Assets/Scripts/UI/fingerGesturesScript.js" Line="9" Column="16" />
-      <File FileName="Assets/Scripts/Devices/device.js" Line="15" Column="38" />
-      <File FileName="Assets/Scripts/Rooster/roosterMovementScript.js" Line="66" Column="20" />
-      <File FileName="Assets/Scripts/Obstacles/obstacleScript.js" Line="59" Column="32" />
-      <File FileName="Assets/Scripts/UI/topScoresScript.js" Line="62" Column="4" />
-      <File FileName="Assets/Scripts/UI/Controls/ganeOverControlsScript.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/initialsScript.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Player/playerMovementScript.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/avatarsScript.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/WeAreTopSecret/loadingBarScript.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/UI/blackBoxScript.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/StartScreen/startControlsScript.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Obstacles/obstaclePositionScript.js" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Options/optionScript.js" Line="58" Column="23" />
+      <File FileName="Assets/Scripts/Sounds/StartScreenMusicScript.js" Line="18" Column="2" />
+      <File FileName="Assets/Scripts/levelManagerScript.js" Line="18" Column="34" />
+      <File FileName="Assets/Scripts/Sounds/soundControllerScript.js" Line="14" Column="26" />
+      <File FileName="Assets/Scripts/Player/playerMovementScript.js" Line="18" Column="35" />
+      <File FileName="Assets/Scripts/Devices/swipeScript.js" Line="16" Column="26" />
+      <File FileName="Assets/Scripts/Sounds/soundEffectsScript.js" Line="7" Column="30" />
+      <File FileName="Assets/Scripts/Options/optionScript.js" Line="54" Column="19" />
+      <File FileName="Assets/Scripts/UI/exitGameScript.js" Line="12" Column="2" />
+      <File FileName="Assets/Scripts/StartScreen/startOrOptionsScript.js" Line="66" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

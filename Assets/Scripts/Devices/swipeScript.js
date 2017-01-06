@@ -14,10 +14,6 @@ var touchAreaCenter = 5.0;
 
 function Awake () {
 	myDevice = new device();
-
-
-
-
 }
 
 

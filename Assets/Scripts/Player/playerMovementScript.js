@@ -13,6 +13,8 @@ public class playerMovementScript extends MonoBehaviour {
 	public var speedUpRate = 0.25;
 	public var lateralShift = 0.5;
 	private var playerWidth = 0.05;
+//	private var playerWidth = 0.15;
+	public var atSide = false;
 	public var isJumping : boolean;
 	public var jumpDurationMax = 3.0;
 	public var jumpDurationMin = 1.0;
@@ -33,8 +35,8 @@ public class playerMovementScript extends MonoBehaviour {
 
 	function Start () {
 		myDevice = new device();
-		if (myDevice.mobile)
-			playerWidth = 0.1;
+//		if (myDevice.mobile)
+//			playerWidth = 0.1;
 		gameSpeed = gameStartSpeed;	
 		obstacles = [obstacles1, obstacles2];
 		isJumping = false;
@@ -84,7 +86,7 @@ public class playerMovementScript extends MonoBehaviour {
 
 			if (playerStatus != Status.Wrecked) {
 
-				if ( playerStatus  == Status.Right && viewPos.x < 1 - playerWidth )
+				if ( playerStatus  == Status.Right && atSide == false )
 					transform.Translate(lateralShift, 0, 0);
 
 				if ( playerStatus == Status.DownRight && isJumping == false){
@@ -108,7 +110,7 @@ public class playerMovementScript extends MonoBehaviour {
 
 			if (playerStatus != Status.Wrecked) {
 
-				if ( playerStatus == Status.Left && viewPos.x > playerWidth)
+				if ( playerStatus == Status.Left && atSide == false)
 					transform.Translate(-lateralShift, 0, 0);
 				if ( playerStatus == Status.DownLeft && isJumping == false){
 					transform.Translate(0, 0, 0);
@@ -130,11 +132,11 @@ public class playerMovementScript extends MonoBehaviour {
 
 	function PlayerMovement( viewPos: Vector3) {
 
-		if (playerStatus == Status.DownRight) {
+		if (playerStatus == Status.DownRight && atSide == false) {
 				if (viewPos.x < 1 - playerWidth)
 					transform.Translate(Time.deltaTime * gameSpeed/2, 0, 0);			
 			}
-		if ( playerStatus == Status.DownLeft ) {
+		if ( playerStatus == Status.DownLeft && atSide == false) {
 				if (viewPos.x > playerWidth) 
 					transform.Translate(-1 * Time.deltaTime * gameSpeed/2, 0, 0);
 		}
@@ -166,7 +168,7 @@ public class playerMovementScript extends MonoBehaviour {
 	}
 
 	function Update () {
-//		Debug.Log("PlayerPaused: " + paused);
+		Debug.Log("atSide: " + atSide);
 		if (!paused) {
 
 			if ( playerStatus == Status.Wrecked || playerStatus == Status.Left || playerStatus == Status.Right)
