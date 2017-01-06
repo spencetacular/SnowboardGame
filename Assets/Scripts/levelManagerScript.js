@@ -109,7 +109,18 @@ function TopScoresMode () {
 	topScores.score = score.score;
 	topScores.GameOver(score.score);
 
-//	if (GameObject.Find("soundConroller"))
+	var soundController : soundControllerScript;
+
+	if (GameObject.Find("soundController")) {
+		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
+
+			if (soundController) {
+				if (soundController.music) {
+					soundController.leaderBoardMusic.Play();
+					soundController.backgroundMusic.Stop();
+			}
+		}
+	}
 
 //	DEVELOPMENT **********************************
 	topScores.LogScore(score.score, time.totalSeconds);
