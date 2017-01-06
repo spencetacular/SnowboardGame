@@ -2,7 +2,6 @@
 import UnityEngine.UI;
 
 public class playerMovementScript extends MonoBehaviour {
-	public var myDevice : device;
 	public var obstacles1: GameObject;
 	public var obstacles2: GameObject;
 	var obstacles : GameObject[];
@@ -12,7 +11,7 @@ public class playerMovementScript extends MonoBehaviour {
 	public var gameMaxSpeed = 6.0;
 	public var speedUpRate = 0.25;
 	public var lateralShift = 0.5;
-	private var playerWidth = 0.05;
+	private var screenWidth = 6.0;
 	public var isJumping : boolean;
 	public var jumpDurationMax = 3.0;
 	public var jumpDurationMin = 1.0;
@@ -29,18 +28,13 @@ public class playerMovementScript extends MonoBehaviour {
 	public var score : scoreScript;
 	public var swipe : swipeScript;
 
-
-
 	function Start () {
-		myDevice = new device();
-		if (myDevice.mobile)
-			playerWidth = 0.1;
+
 		gameSpeed = gameStartSpeed;	
 		obstacles = [obstacles1, obstacles2];
 		isJumping = false;
 		downhill = false;
 		playerStatus = Status.Right;
-
 	}
 
 
@@ -48,7 +42,6 @@ public class playerMovementScript extends MonoBehaviour {
 	function PlayerJump () {
 
 		isJumping = true;
-
 		GetComponent(BoxCollider2D).enabled = false;
 		playerSprites.Jump();
 
@@ -58,8 +51,6 @@ public class playerMovementScript extends MonoBehaviour {
 		playerShadow.CreateAniCurves( jumpDuration, speedPercent);
 		score.Jump(speedPercent);
 		Invoke("PlayerLand", jumpDuration);
-
-
 	}
 
 	function PlayerLand () {
@@ -68,6 +59,17 @@ public class playerMovementScript extends MonoBehaviour {
 		playerSprites.Land();
 		playerStatus = Status.Down;
 		playerSprites.DirectionUpdate();	
+	}
+
+	function Shift (maxShift : float) {
+		var shiftAmount = maxShift;
+
+		if (Mathf.Abs(transform.position.x) + maxShift > screenWidth) {
+			Debug.Log("too big");
+			shiftAmount = screenWidth - Mathf.Abs(transform.position.x);
+			Debug.Log(shiftAmount);
+		}
+		return shiftAmount;
 	}
 
 	function PlayerInput(viewPos : Vector3) {
@@ -84,9 +86,8 @@ public class playerMovementScript extends MonoBehaviour {
 
 			if (playerStatus != Status.Wrecked) {
 
-				if ( playerStatus  == Status.Right && viewPos.x < 1 - playerWidth )
-					transform.Translate(lateralShift, 0, 0);
-
+				if ( playerStatus  == Status.Right && transform.position.x < screenWidth )
+					transform.Translate(Shift(lateralShift), 0, 0);
 				if ( playerStatus == Status.DownRight && isJumping == false){
 					transform.Translate(0, 0, 0);
 					playerStatus = Status.Right;
@@ -108,8 +109,8 @@ public class playerMovementScript extends MonoBehaviour {
 
 			if (playerStatus != Status.Wrecked) {
 
-				if ( playerStatus == Status.Left && viewPos.x > playerWidth)
-					transform.Translate(-lateralShift, 0, 0);
+				if ( playerStatus == Status.Left && transform.position.x > screenWidth * -1.0 )
+					transform.Translate(-1.0 * Shift(lateralShift), 0, 0);
 				if ( playerStatus == Status.DownLeft && isJumping == false){
 					transform.Translate(0, 0, 0);
 					playerStatus = Status.Left;
@@ -130,16 +131,11 @@ public class playerMovementScript extends MonoBehaviour {
 
 	function PlayerMovement( viewPos: Vector3) {
 
-		if (playerStatus == Status.DownRight) {
-				if (viewPos.x < 1 - playerWidth)
-					transform.Translate(Time.deltaTime * gameSpeed/2, 0, 0);			
-			}
-		if ( playerStatus == Status.DownLeft ) {
-				if (viewPos.x > playerWidth) 
-					transform.Translate(-1 * Time.deltaTime * gameSpeed/2, 0, 0);
-		}
-
-
+		if (playerStatus == Status.DownRight && transform.position.x < screenWidth)
+			transform.Translate(Time.deltaTime * gameSpeed/2, 0, 0);	
+			
+		if (playerStatus == Status.DownLeft  && transform.position.x > screenWidth * -1.0) 
+			transform.Translate(-1 * Time.deltaTime * gameSpeed/2, 0, 0);
 	}
 
 	function ObstacleMovement() {
