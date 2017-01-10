@@ -34,7 +34,7 @@ public class topScoresScript extends MonoBehaviour {
 		for (var i = 0; i < 10 ; i++ ) {
 
 			PlayerPrefs.SetInt(i.ToString()+ "Score", 1000  - i );
-			PlayerPrefs.SetString(i.ToString()+ "Ini", "ASS" );
+			PlayerPrefs.SetString(i.ToString()+ "Ini", "SKC" );
 		}
     	
     }
