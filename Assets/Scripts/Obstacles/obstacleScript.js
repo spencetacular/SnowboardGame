@@ -62,6 +62,9 @@ public class obstacleScript extends MonoBehaviour {
 					soundEffects.RoosterCluck();
 				}
 			}
+			if (this.tag == "ice") {
+				other.GetComponent(playerMovementScript).HitIce();
+			}
 		}
 
 

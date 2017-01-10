@@ -37,6 +37,12 @@ public class playerMovementScript extends MonoBehaviour {
 		playerStatus = Status.Right;
 	}
 
+	function HitIce () {
+		if (gameSpeed * 1.2 < gameMaxSpeed) {
+			gameSpeed += (gameSpeed * 0.2);  
+		}
+	}
+
 
 
 	function PlayerJump () {
