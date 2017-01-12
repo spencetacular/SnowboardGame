@@ -12,6 +12,7 @@ public var soundEffects : soundEffectsScript;
 public var finalScoreTop10 : Text;
 public var finalScoreNotTop10 : GameObject;
 public var finalScoreNotTop10Text : Text;
+var fakeInitials : String[];
 
 var canvasControls : GameObject;
 
@@ -31,11 +32,13 @@ public class topScoresScript extends MonoBehaviour {
     }
 
     function GenerateFakeScores() {
+    	fakeInitials = ["SKC", "STS", "LBJ", "FDR", "WJC", "BHO", "JFK", "LCK", "HGW", "NPH"];
 		for (var i = 0; i < 10 ; i++ ) {
 
-			PlayerPrefs.SetInt(i.ToString()+ "Score", 1000  - i );
-			PlayerPrefs.SetString(i.ToString()+ "Ini", "SKC" );
+			PlayerPrefs.SetInt(i.ToString()+ "Score", 10000  - i * 1000 );
+			PlayerPrefs.SetString(i.ToString()+ "Ini", fakeInitials[i] );
 		}
+
     	
     }
 
