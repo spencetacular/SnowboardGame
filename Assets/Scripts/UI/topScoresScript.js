@@ -1,5 +1,4 @@
 ﻿#pragma strict
-
 import System.Collections.Generic;
 import UnityEngine.UI;
 
@@ -28,6 +27,7 @@ public class topScoresScript extends MonoBehaviour {
 //		PlayerPrefs.DeleteAll();
 //		GenerateFakeScores();
 
+		
 
     }
 
