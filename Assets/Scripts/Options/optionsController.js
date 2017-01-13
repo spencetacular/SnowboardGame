@@ -36,7 +36,6 @@ function Start () {
 
 	if (soundController) {
 
-//		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
 
 		if (soundController.music) 
 			musicOption.GUIOn();
@@ -48,7 +47,6 @@ function Start () {
 		else 
 			soundFXOption.Off();
 
-//			Debug.Log("found it");
 	}
 
 }

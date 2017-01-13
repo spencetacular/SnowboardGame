@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: 1ea84b003bc674a9091416cd4f52efa5
-timeCreated: 1484261356
+timeCreated: 1484334711
 licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
@@ -63,12 +63,12 @@ TextureImporter:
       name: App_Select_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 16
-        width: 15
-        height: 16
+        x: 0
+        y: 32
+        width: 64
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -76,12 +76,12 @@ TextureImporter:
       name: App_Select_1
       rect:
         serializedVersion: 2
-        x: 7
+        x: 0
         y: 0
-        width: 15
-        height: 16
+        width: 64
+        height: 32
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0

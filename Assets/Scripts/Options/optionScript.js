@@ -16,7 +16,6 @@ public var isBack : boolean;
 var soundController : soundControllerScript;
 public var soundEffects : soundEffectsScript;
 
-//public var mobileTextScale = new Vector3 (1.5, 1.5, 1.5);
 public var mobileTextScale = new Vector3 (1.0, 1.0, 1.0);
 public var mobileTextSelectedScale = new Vector3 (1.0, 1.0, 1.0);
 private var selectedColor = new Color (0.0, 0.8352941, 0.827451, 1.0);
@@ -29,7 +28,6 @@ function Awake () {
 		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
 	}
 
-	Debug.Log(rect.localScale);
 }
 
 function Start () {
