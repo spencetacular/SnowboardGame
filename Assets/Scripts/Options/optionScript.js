@@ -28,6 +28,8 @@ function Awake () {
 	if (GameObject.Find("soundController")) {
 		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
 	}
+
+	Debug.Log(rect.localScale);
 }
 
 function Start () {
@@ -39,12 +41,12 @@ function Select ( isSelected : boolean) {
 
 	if (myDevice.mobile ) {
 		if (isSelected) {
-//			rect.localScale = mobileTextSelectedScale;
+			rect.localScale = mobileTextSelectedScale;
 			description.color = selectedColor; 
 		}
 		else {
 			description.color = Color.white;
-//			rect.localScale = mobileTextScale;
+			rect.localScale = mobileTextScale;
 		}
 	}
 }
