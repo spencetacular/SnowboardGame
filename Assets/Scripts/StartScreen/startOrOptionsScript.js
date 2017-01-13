@@ -19,8 +19,6 @@ public var myDevice : device;
 public var mobileTextScale = new Vector3 (1.5, 1.5, 1.5);
 public var mobileTextSelectedScale = new Vector3 (1.8, 1.8, 1.8);
 private var selectedColor = new Color (0.0, 0.8352941, 0.827451, 1.0);
-//private var selectedColor = new Color(0.9372549, 0.156862, 0.48235294, 1.0);
-//public var selectedColor = Color.red;
 
 
 var selectOptions = "down";
@@ -37,7 +35,6 @@ function Start () {
 		startText.color = selectedColor;
 
 		startRect.anchoredPosition = new Vector2 (-175.0, 50.0);
-//		startRect.localScale = mobileTextScale;
 		startRect.localScale = mobileTextSelectedScale;
 
 		optionsRect.anchoredPosition = new Vector2 (175.0, 50.0);

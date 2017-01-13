@@ -2,10 +2,13 @@
 
 import UnityEngine.UI;
 
+public var myDevice : device;
 public var optionText : Text;
 public var optionButtonOn : Image;
 public var optionButtonOff : Image;
 public var pointer : Image;
+public var description : Text;
+public var rect : RectTransform;
 private var isOn : boolean;
 public var isMusic : boolean;
 public var isSoundFX : boolean;
@@ -13,7 +16,14 @@ public var isBack : boolean;
 var soundController : soundControllerScript;
 public var soundEffects : soundEffectsScript;
 
+//public var mobileTextScale = new Vector3 (1.5, 1.5, 1.5);
+public var mobileTextScale = new Vector3 (1.0, 1.0, 1.0);
+public var mobileTextSelectedScale = new Vector3 (1.0, 1.0, 1.0);
+private var selectedColor = new Color (0.0, 0.8352941, 0.827451, 1.0);
+
 function Awake () {
+
+	myDevice = new device();
 
 	if (GameObject.Find("soundController")) {
 		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
@@ -26,6 +36,17 @@ function Start () {
 
 function Select ( isSelected : boolean) {
 	pointer.enabled = isSelected;
+
+	if (myDevice.mobile ) {
+		if (isSelected) {
+//			rect.localScale = mobileTextSelectedScale;
+			description.color = selectedColor; 
+		}
+		else {
+			description.color = Color.white;
+//			rect.localScale = mobileTextScale;
+		}
+	}
 }
 
 function Flip () {
