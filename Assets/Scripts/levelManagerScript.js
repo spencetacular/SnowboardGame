@@ -22,7 +22,7 @@ public var time : timeScript;
 public var topScores : topScoresScript;
 public var score : scoreScript;
 
-var mydevice : device; 
+var myDevice : device; 
 
 function Start () {
 
@@ -103,15 +103,24 @@ function GameOverMode () {
 }
 
 function TopScoresMode () {
+	canvasPlaying.SetActive(false);
+
+	if (!myDevice.mobile) {
+		canvasGameOver.SetActive(true);
+		topScores.score = score.score;
+		topScores.GameOver(score.score);
+	} else {
+		canvasGameOverMobile.SetActive(true);
+	}
+
 	yetiMovement.paused = true;
 	roosterMovement.paused = true;
-	canvasGameOver.SetActive(true);
+
 //	player.GetComponent(playerMovementScript).swipe.gamePlayControls = true;
 //	canvasGameOver.GetComponent(ganeOverControlsScript).swipe.gameOverControls = true;
 //	var score = GameObject.Find("score").GetComponent(scoreScript).score;
-	canvasPlaying.SetActive(false);
-	topScores.score = score.score;
-	topScores.GameOver(score.score);
+	
+
 
 	var soundController : soundControllerScript;
 
@@ -127,8 +136,8 @@ function TopScoresMode () {
 	}
 
 //	DEVELOPMENT **********************************
-	topScores.LogScore(score.score, time.totalSeconds);
-	PlayerPrefs.SetInt("Yeti", 0);
+//	topScores.LogScore(score.score, time.totalSeconds);
+//	PlayerPrefs.SetInt("Yeti", 0);
 }
 
 function LoadStartScreen () {
