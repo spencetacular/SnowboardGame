@@ -25,7 +25,7 @@ function Swipe ()
 {
 	var input  = "";
 
-	if (Input.GetKeyDown ("down") || Input.GetKeyDown ("d")) {
+	if (Input.GetKeyDown ("down") || Input.GetKeyDown ("d"))  {
 		input = "down";
 	}
 
@@ -48,7 +48,10 @@ function Swipe ()
 	 var p = Input.mousePosition;
 	 p = Camera.main.ScreenToWorldPoint(p);
 
+	  var vert  = Input.GetAxis("Vertical");
+	  Debug.Log(vert);
 
+	 
 
 //	if (myDevice.editor ) {
 		
