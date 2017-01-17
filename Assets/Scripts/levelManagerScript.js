@@ -11,6 +11,7 @@ public var canvasInstructions : GameObject;
 public var canvasFingerGestures : GameObject;
 public var canvasPlaying : GameObject;
 public var canvasGameOver : GameObject;
+public var canvasGameOverMobile : GameObject;
 public var boyAvatar : boolean;
 public var boyPanel : GameObject;
 public var girlPanel : GameObject;
@@ -21,12 +22,15 @@ public var time : timeScript;
 public var topScores : topScoresScript;
 public var score : scoreScript;
 
+var mydevice : device; 
 
 function Start () {
 
+	myDevice = new device();
 	
 	canvasPlaying.SetActive(false);
 	canvasGameOver.SetActive(false);
+	canvasGameOverMobile.SetActive(false);
 	canvasAvatar.SetActive(false);
 	canvasControls.SetActive(false);
 	canvasFingerGestures.SetActive(false);

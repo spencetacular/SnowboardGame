@@ -48,9 +48,6 @@ function Swipe ()
 	 var p = Input.mousePosition;
 	 p = Camera.main.ScreenToWorldPoint(p);
 
-	  var vert  = Input.GetAxis("Vertical");
-	  Debug.Log(vert);
-
 	 
 
 //	if (myDevice.editor ) {
