@@ -22,9 +22,12 @@ public var topScores : topScoresScript;
 public var score : scoreScript;
 
 
+
+
 function Start () {
 
-	
+
+
 	canvasPlaying.SetActive(false);
 	canvasGameOver.SetActive(false);
 	canvasAvatar.SetActive(false);
@@ -99,9 +102,11 @@ function GameOverMode () {
 }
 
 function TopScoresMode () {
+
+	canvasGameOver.SetActive(true);	
 	yetiMovement.paused = true;
 	roosterMovement.paused = true;
-	canvasGameOver.SetActive(true);
+
 //	player.GetComponent(playerMovementScript).swipe.gamePlayControls = true;
 //	canvasGameOver.GetComponent(ganeOverControlsScript).swipe.gameOverControls = true;
 //	var score = GameObject.Find("score").GetComponent(scoreScript).score;

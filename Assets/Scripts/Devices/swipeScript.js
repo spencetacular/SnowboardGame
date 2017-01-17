@@ -25,19 +25,19 @@ function Swipe ()
 {
 	var input  = "";
 
-	if (Input.GetKeyDown ("down") || Input.GetKeyDown ("d"))  {
+	if (Input.GetKeyDown ("down") || Input.GetKeyDown ("g"))  {
 		input = "down";
 	}
 
-	if (Input.GetKeyDown ("up") || Input.GetKeyDown ("g")) {
+	if (Input.GetKeyDown ("up") || Input.GetKeyDown ("d")) {
 		input = "up";
 	}
 
-	if (Input.GetKeyDown ("left") || Input.GetKeyDown ("f")) {
+	if (Input.GetKeyDown ("left") || Input.GetKeyDown ("r")) {
 		input = "left";
 	}
 
-	if (Input.GetKeyDown ("right") || Input.GetKeyDown ("r")) {
+	if (Input.GetKeyDown ("right") || Input.GetKeyDown ("f")) {
 		input = "right";
 	}
 
