@@ -1,8 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SocialPlatforms;
+using UnityEngine.UI;
+
+
 
 public class socialLeaderBoardScript : MonoBehaviour {
+
+	public Text scores;
+	public Text users;
 
 	void Start () {
 		
@@ -42,14 +48,18 @@ public class socialLeaderBoardScript : MonoBehaviour {
 		ILeaderboard leaderboard = Social.CreateLeaderboard();
 		leaderboard.id = "TopScores01";
 //		ReportScore (9999, "Leaderboard012");
-		Social.ReportScore (9999, leaderboard.id, success => {
+		Social.ReportScore (99, leaderboard.id, success => {
 			Debug.Log(success ? "Reported score successfully" : "Failed to report score");
 		});
 		leaderboard.LoadScores(result =>
 			{
 				Debug.Log("Received " + leaderboard.scores.Length + " scores");
-				foreach (IScore score in leaderboard.scores)
-					Debug.Log(score);
+				foreach (IScore score in leaderboard.scores) {
+					Debug.Log("Score: " + score);
+					scores.text += score + "\n";
+					users.text += score.userID + "\n";
+				}
+					
 			});
 	}
 
