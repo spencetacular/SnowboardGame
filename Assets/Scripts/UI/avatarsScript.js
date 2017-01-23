@@ -6,7 +6,8 @@ public var boy : avatarScript;
 public var girl : avatarScript;
 private var selected : avatarScript;
 public var soundEffects : soundEffectsScript;
-public var swipe : swipeScript;
+public var swipeAvatar : swipeAvatarScript;
+//public var swipe : swipeScript;
 
 function Start () {
 	selected = boy;
@@ -16,7 +17,7 @@ function Start () {
 
 function Update () {
 
-	if (swipe.Swipe() == "right") {
+	if (swipeAvatar.Swipe() == "right") {
 
 		if (selected == boy) {
 			boy.DeSelect();
@@ -26,7 +27,7 @@ function Update () {
 		}
 	}
 
-	if (swipe.Swipe() == "left") {
+	if (swipeAvatar.Swipe() == "left") {
 		if (selected == girl) {
 				girl.DeSelect();
 				boy.Select();
@@ -35,7 +36,7 @@ function Update () {
 		}
 	}
 
-	if (swipe.Swipe() == "enter") {
+	if (swipeAvatar.Swipe() == "enter") {
 
 		var boyAvatar = true;
 		if (selected == girl)

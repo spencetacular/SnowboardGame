@@ -1,23 +1,12 @@
-﻿//inside class
-
-
-public var myDevice : device;
+﻿public var myDevice : device;
 var firstPressPos : Vector2;
 var secondPressPos : Vector2;
 var currentSwipe : Vector2;
-var gamePlayControls = false;
-var instructionsControls = false;
-//var gameOverControls = false;
-
 var touchAreaCenter = 5.0;
-
+var touchAreaCenterY = -3.0;
 
 function Awake () {
 	myDevice = new device();
-
-
-
-
 }
 
 
@@ -50,25 +39,22 @@ function Swipe ()
 	 		
 		if(Input.GetMouseButtonDown(0)) {
 
-			if (instructionsControls) {
-				input = "enter";
-			} else {
-	       
-		        if (p.x < -1 * touchAreaCenter) {
-					input = "left";	
-	        	}
-	        	if (p.x > touchAreaCenter) {
-	        		input = "right";
-	        	}
-	        	if (p.x > -1 * touchAreaCenter && p.x < touchAreaCenter) {
-	        		if (gamePlayControls == true)
-		        		input = "down";
-		        	else
-		        		input = "enter";
-	        	}
+
+	        if (p.x < 0) {
+				input = "left";	
+        	}
+        	if (p.x >= 0) {
+        		input = "right";
+        	}
+        	if (p.x > -1 * touchAreaCenter && p.x < touchAreaCenter && p.y < touchAreaCenterY) {
+	        		input = "enter";
 	        }
+
+		Debug.Log("X: " + p.x + " Y: " + p.y);	
+		Debug.Log(input);
 	    }
-		
+
+	
     return input; 	
 	
 }
