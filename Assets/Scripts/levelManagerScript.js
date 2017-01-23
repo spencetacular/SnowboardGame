@@ -11,6 +11,7 @@ public var canvasInstructions : GameObject;
 public var canvasFingerGestures : GameObject;
 public var canvasPlaying : GameObject;
 public var canvasGameOver : GameObject;
+public var canvasGameOverMobile : GameObject;
 public var boyAvatar : boolean;
 public var boyPanel : GameObject;
 public var girlPanel : GameObject;
@@ -20,16 +21,19 @@ public var playerLives : playerLivesScript;
 public var time : timeScript;
 public var topScores : topScoresScript;
 public var score : scoreScript;
+//public var socialLeaderboard : socialLeaderboardScript;
+var myDevice : device;
 
 
 
 
 function Start () {
 
-
+	myDevice = new device();
 
 	canvasPlaying.SetActive(false);
 	canvasGameOver.SetActive(false);
+	canvasGameOverMobile.SetActive(false);
 	canvasAvatar.SetActive(false);
 	canvasControls.SetActive(false);
 	canvasFingerGestures.SetActive(false);
@@ -95,9 +99,13 @@ function GameOverMode () {
 	player.GetComponent(playerMovementScript).swipe.gamePlayControls = false;
 	player.GetComponent(playerMovementScript).paused = true;
 	fade.GetComponent(Animator).SetTrigger("fadeOut");
-	Invoke("TopScoresMode", 2);
-	Invoke ("LoadStartScreen", 300);
 
+	if (!myDevice.mobile) {
+		Invoke("TopScoresMode", 2);
+		Invoke ("LoadStartScreen", 300);
+	} else {
+		Invoke("TopScoresMobileMode", 2);
+	}
 
 }
 
@@ -134,6 +142,30 @@ function TopScoresMode () {
 
 function LoadStartScreen () {
 	Application.LoadLevel("StartScreen");
+}
+
+function TopScoresMobileMode() {
+	canvasGameOverMobile.SetActive(true);	
+	yetiMovement.paused = true;
+	roosterMovement.paused = true;
+	canvasPlaying.SetActive(false);
+
+	var soundController : soundControllerScript;
+
+	if (GameObject.Find("soundController")) {
+		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
+
+			if (soundController) {
+				if (soundController.music) {
+					soundController.leaderBoardMusic.Play();
+					soundController.backgroundMusic.Stop();
+			}
+		}
+	}
+	GameObject.Find("finalScoreMobile").GetComponent(UnityEngine.UI.Text).text = score.score.ToString();
+
+//	canvasGameOverMobile.GetComponent(socialLeaderboardScript);
+
 }
 
 function Update () {

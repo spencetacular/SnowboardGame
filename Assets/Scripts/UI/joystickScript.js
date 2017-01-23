@@ -18,7 +18,6 @@ function Start () {
 }
 
 function PopOn () {	
-	Debug.Log(playerLives.livesLeft);
 	if (playerLives.livesLeft > 1) {
 		if (!myDevice.mobile) {
 			joystickImage.enabled = true;
