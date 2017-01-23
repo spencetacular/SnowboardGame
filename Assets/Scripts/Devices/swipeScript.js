@@ -1,23 +1,13 @@
-﻿//inside class
-
-
-public var myDevice : device;
+﻿public var myDevice : device;
 var firstPressPos : Vector2;
 var secondPressPos : Vector2;
 var currentSwipe : Vector2;
 var gamePlayControls = false;
 var instructionsControls = false;
-//var gameOverControls = false;
-
 var touchAreaCenter = 5.0;
-
 
 function Awake () {
 	myDevice = new device();
-
-
-
-
 }
 
 
