@@ -55,37 +55,56 @@ function Update () {
 
 	if (swipe.Swipe() == selectNext) {
 
+		if (selectedOption == backOption) {
+			selectedOption.Select(false);
+			selectedOption = musicOption;
+			selectedOption.Select(true);
+			soundEffects.Scroll();
+			return;
 
+		}
 		if (selectedOption == soundFXOption) {
 			selectedOption.Select(false);
 			selectedOption = backOption;
 			selectedOption.Select(true);
 			soundEffects.Scroll();
+			return;
 		}
 		if (selectedOption == musicOption) {
 			selectedOption.Select(false);
 			selectedOption = soundFXOption;
 			selectedOption.Select(true);
 			soundEffects.Scroll();
+			return;
 
 		}
+
 
 
 	}
 
 	if (swipe.Swipe() == selectPrevious) {
 
+		selectedOption.Select(false);
+
 		if (selectedOption == soundFXOption) {
-			selectedOption.Select(false);
 			selectedOption = musicOption;
 			selectedOption.Select(true);
 			soundEffects.Scroll();
+			return;
 		}
 		if (selectedOption == backOption) {
-			selectedOption.Select(false);
 			selectedOption = soundFXOption;
 			selectedOption.Select(true);
 			soundEffects.Scroll();
+			return;
+
+		}
+		if (selectedOption == musicOption) {
+			selectedOption = backOption;
+			selectedOption.Select(true);
+			soundEffects.Scroll();
+			return;
 
 		}
 

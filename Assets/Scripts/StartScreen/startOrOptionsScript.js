@@ -46,45 +46,53 @@ function Start () {
 
 }
 
+function SelectStart () {
+	optionsMitten.enabled = false;
+	startMitten.enabled = true;
+	soundEffects.Scroll();
+
+	if (myDevice.mobile){
+		optionsText.color = Color.white;
+		optionsRect.localScale = mobileTextScale;
+		startText.color = selectedColor;
+		startRect.localScale = mobileTextSelectedScale;
+	}
+
+}
+
+function SelectOptions () {
+	optionsMitten.enabled = true;
+	startMitten.enabled = false;
+	soundEffects.Scroll();
+
+	if (myDevice.mobile){
+		optionsText.color = selectedColor;
+		optionsRect.localScale = mobileTextSelectedScale; 
+		startText.color = Color.white;
+		startRect.localScale = mobileTextScale;
+	}
+
+
+}
+
 function Update () {
 
 	
 
 	if (swipe.Swipe() == selectOptions) {
-		if (startMitten.enabled) {
-
-
-			optionsMitten.enabled = true;
-			startMitten.enabled = false;
-			soundEffects.Scroll();
-
-			if (myDevice.mobile){
-				optionsText.color = selectedColor;
-				optionsRect.localScale = mobileTextSelectedScale; 
-				startText.color = Color.white;
-				startRect.localScale = mobileTextScale;
-			}
-
-		}
+		if (startMitten.enabled)
+			SelectOptions();	
+		else 
+			SelectStart();
 	}
 
 			
 
 	if (swipe.Swipe() == selectStart) {
-		if (optionsMitten.enabled) {
-			
-			optionsMitten.enabled = false;
-			startMitten.enabled = true;
-			soundEffects.Scroll();
-
-			if (myDevice.mobile){
-				optionsText.color = Color.white;
-				optionsRect.localScale = mobileTextScale;
-				startText.color = selectedColor;
-				startRect.localScale = mobileTextSelectedScale;
-			}
-
-		}
+		if (optionsMitten.enabled) 
+			SelectStart();
+		else
+			SelectOptions();
 
 	}
 
@@ -92,7 +100,6 @@ function Update () {
 
 			if (startMitten.enabled) {
 				soundEffects.levelToLoad = levelToLoad;
-				Debug.Log("Yep");
 			}
 			else
 				soundEffects.levelToLoad = "OptionsScreen";

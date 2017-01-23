@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: adce274f6405042dc94e29ce62acb4ad
-timeCreated: 1475854117
-licenseType: Free
+timeCreated: 1485203809
+licenseType: Pro
 TextureImporter:
   fileIDToRecycleName:
     21300000: Snowboarder1_0
@@ -160,10 +160,10 @@ TextureImporter:
       name: Snowboarder1_7
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
+        x: 2
+        y: 57
         width: 64
-        height: 64
+        height: 68
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
