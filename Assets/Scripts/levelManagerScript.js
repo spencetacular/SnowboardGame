@@ -100,12 +100,19 @@ function GameOverMode () {
 	player.GetComponent(playerMovementScript).paused = true;
 	fade.GetComponent(Animator).SetTrigger("fadeOut");
 
+
+	Invoke("TopScoresMode", 2);
+
 	if (!myDevice.mobile) {
-		Invoke("TopScoresMode", 2);
 		Invoke ("LoadStartScreen", 300);
-	} else {
-		Invoke("TopScoresMobileMode", 2);
 	}
+
+//	if (!myDevice.mobile) {
+//		Invoke("TopScoresMode", 2);
+//		Invoke ("LoadStartScreen", 300);
+//	} else {
+//		Invoke("TopScoresMobileMode", 2);
+//	}
 
 }
 
