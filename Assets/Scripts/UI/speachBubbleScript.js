@@ -8,7 +8,6 @@ public var goodComments : Sprite[];
 public var startComments : Sprite[];
 var bubble : Image;
 
-
 function Start () {
 	bubble = GetComponent(Image);
 	Hide();

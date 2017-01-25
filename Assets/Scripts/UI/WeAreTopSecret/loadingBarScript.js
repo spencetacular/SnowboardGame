@@ -5,20 +5,15 @@ import UnityEngine.UI;
 public var meterLoadTime = 2.0;
 public var meterTicker = 0.0;
 public var swipe : swipeScript;
-
 public var levelToLoad : String;
-
-//public var playerMovement : playerMovementScript;
 public var meterBars : Image[];
 
 function Start () {
-//	meterTicker = meterLoadTime;
+
 	meterBars = transform.GetComponentsInChildren.<Image>();
 
-	for (m in meterBars) {
+	for (m in meterBars)
 		m.enabled = false; 
-	}
-
 }
 
 function Update () {
@@ -35,13 +30,9 @@ function Update () {
 			meterBars[i].enabled = false;
 	}
 
-
-	if (meterTicker >= meterLoadTime) {
+	if (meterTicker >= meterLoadTime)
 		Application.LoadLevel(levelToLoad);
-	}
 
-	if (swipe.Swipe() == "enter") {
+	if (swipe.Swipe() == "enter")
 		Application.LoadLevel(levelToLoad);
-	}
-
 }

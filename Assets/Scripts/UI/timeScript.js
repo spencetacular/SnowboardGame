@@ -7,15 +7,14 @@ var minutes : int;
 var seconds : int;
 var totalSeconds : int;
 var paused  = true;
-
 var elapsedTime : int;
 
 function Start () {
 
-//	Debug.Log("start");
 }
 
 function StartClock () {
+
 	minutes = 0;
 	seconds = 0;
 	totalSeconds = 0;
@@ -24,12 +23,9 @@ function StartClock () {
 }
 
 function Update () {
-//	Debug.Log("Paused: " + paused);
 
 	if (!paused) {
-		
 		totalSeconds = Mathf.FloorToInt(Time.timeSinceLevelLoad) - elapsedTime;
-//		Debug.Log("totalSeconds: " + totalSeconds);
 		minutes = totalSeconds / 60;
 		seconds = totalSeconds - minutes * 60;
 		var secondsStr;

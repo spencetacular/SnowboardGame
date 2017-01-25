@@ -12,53 +12,31 @@ public var finalScoreTop10 : Text;
 public var finalScoreNotTop10 : GameObject;
 public var finalScoreNotTop10Text : Text;
 var fakeInitials : String[];
-
 var canvasControls : GameObject;
 
 public class topScoresScript extends MonoBehaviour {
 
     function Start () {
-//    	topScoresText = GetComponent(Text);
         var userScores = new List.<userScoreScript>();
         initials.SetActive(false);
         finalScoreNotTop10.SetActive(false);
-
-      
-//		PlayerPrefs.DeleteAll();
-//		GenerateFakeScores();
-
-		
-
     }
 
     function GenerateFakeScores() {
-    	fakeInitials = ["SKC", "STS", "LBJ", "FDR", "WJC", "BHO", "JFK", "LCK", "HGW", "NPH"];
-		for (var i = 0; i < 10 ; i++ ) {
 
+    	fakeInitials = ["SKC", "STS", "LBJ", "FDR", "WJC", "BHO", "JFK", "LCK", "HGW", "NPH"];
+
+		for (var i = 0; i < 10 ; i++ ) {
 			PlayerPrefs.SetInt(i.ToString()+ "Score", 10000  - i * 1000 );
 			PlayerPrefs.SetString(i.ToString()+ "Ini", fakeInitials[i] );
 		}
-
-    	
     }
 
     function GetTopScores () {
 
     	if (!PlayerPrefs.GetInt("0Score"))
     		GenerateFakeScores();
-    	
-
-// 		userScores.Add (new userScoreScript(10000, "SKC"));
-//        userScores.Add (new userScoreScript(80000, "ASS"));
-//        userScores.Add (new userScoreScript(9000, "BUT"));
-//        userScores.Add (new userScoreScript(7000, "FUK"));
-//        userScores.Add (new userScoreScript(5000, "QQQ"));
-//        userScores.Add (new userScoreScript(6000, "FUK"));
-//        userScores.Add (new userScoreScript(4000, "FUK"));
-//        userScores.Add (new userScoreScript(3000, "BUT"));
-//        userScores.Add (new userScoreScript(2000, "FUK"));
-//        userScores.Add (new userScoreScript(1000, "FUK"));
-
+ 
 		for (var i = 0; i < 10 ; i++ ) {
 
 			var score = PlayerPrefs.GetInt(i.ToString()+ "Score");
@@ -69,32 +47,29 @@ public class topScoresScript extends MonoBehaviour {
         userScores.Sort();	
     }
 
-
     function GameOver (score : int) {
+
     	GetTopScores();
         CompareUserScore(score);
         SetTopScoresText();
-
-//        Social.ShowLeaderboardUI();
-		
-
     }
 
     function LogScore (score : int, time : int) {
 
-    	if(!PlayerPrefs.GetString("Log")) {
+    	if(!PlayerPrefs.GetString("Log"))
     		PlayerPrefs.SetString("Log", "SCORE" + "\t" + "\t" + "TIME" + "\n" );
-    	}
+
     	var log = PlayerPrefs.GetString("Log");
     	var log2 = log + score + "\t" + "\t" + time + "\n";
     	Debug.Log(log2);
     	PlayerPrefs.DeleteKey("Log");
     	PlayerPrefs.SetString("Log", log2);
-    	 
     }
 
     function CompareUserScore (score : int) {
+
 		var newHighScore = false;
+
     	for (var u in userScores) {
     		if (score >= u.score) {
 				initials.GetComponent(initialsScript).gameOver = true;

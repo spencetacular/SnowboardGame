@@ -8,7 +8,3 @@ function Start () {
 function Reload () {
 	Application.LoadLevel("StartScreen");
 }
-
-function Update () {
-
-}

@@ -1,6 +1,5 @@
 ﻿#pragma strict
 
-
 import UnityEngine.UI;
 
 public var joystickImage : Image;
@@ -10,11 +9,10 @@ public var playerLives : playerLivesScript;
 var myDevice : device;
 
 function Start () {
-	myDevice = new device();
 
+	myDevice = new device();
 	joystickImage.enabled = false;
 	mobileBox.SetActive(false);
-
 }
 
 function PopOn () {	
@@ -24,21 +22,13 @@ function PopOn () {
 			joystickAnim.SetTrigger("wrecked");
 		} else {
 			mobileBox.SetActive(true);
-
 		}
 	}
-
 }
 
 function PopOff () {
-	if (!myDevice.mobile) {
+	if (!myDevice.mobile)
 		joystickImage.enabled = false;
-	} else {
+	else
 		mobileBox.SetActive(false);
-
-	}
-}
-
-function Update () {
-
 }

@@ -9,12 +9,14 @@ function Start () {
 }
 
 function Update () {
-	if (Input.GetKey ("escape")) {
+
+	if (Input.GetKey ("escape"))
 		System.Diagnostics.Process.GetCurrentProcess().Kill();
-	}
 
 	if (Input.GetKey ("r")) {
+
 		resetTicker -= Time.deltaTime;
+
 		if (resetTicker <= 0.0) {
 			PlayerPrefs.DeleteAll();
 			Debug.Log("Top Scores Reset!");

@@ -10,18 +10,13 @@ function Awake () {
 
 function Update () {
 
-
-
 	if (swipe.Swipe() == "enter") {
 
-		if (myDevice.mobile) {
+		if (myDevice.mobile) 
 			GameObject.Find("levelManager").GetComponent(levelManagerScript).fingerGuesturesMode();
-		} else {
+		else
 			GameObject.Find("levelManager").GetComponent(levelManagerScript).AvatarMode();
-		}
-
 
 		soundEffects.Select();
-			
 	}
 }

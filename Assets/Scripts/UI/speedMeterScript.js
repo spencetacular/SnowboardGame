@@ -9,13 +9,12 @@ function Start () {
 
 	meterBars = transform.GetComponentsInChildren.<Image>();
 
-	for (m in meterBars) {
+	for (m in meterBars)
 		m.enabled = false; 
-	}
-
 }
 
 function Update () {
+
 	var numActive : int;
 	numActive = playerMovement.speedPercent *  meterBars.length - 1;
 
@@ -25,5 +24,4 @@ function Update () {
 		else
 			meterBars[i].enabled = false;
 	}
-
 }
