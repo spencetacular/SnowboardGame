@@ -3,10 +3,8 @@
 var playPressed = false;
 public var levelToLoad : String;
 
-
 function Start () {
 	DontDestroyOnLoad(this);
-
 }
 
 function Update () {
@@ -18,7 +16,6 @@ function Update () {
 			playPressed = true;
 			Application.LoadLevel(levelToLoad);
 		}
-
 	}
 
 	if (playPressed == true && GetComponent(AudioSource).isPlaying == false)

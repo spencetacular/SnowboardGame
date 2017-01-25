@@ -10,13 +10,12 @@ private var slideInitialY : float;
 
 function Start () {
 
-//	downhillPart = transform.Find("downhillParticles").GetComponent(ParticleSystem);
 	playerMovement = GetComponent(playerMovementScript);
 	slideInitialY = slideObject.transform.position.y; 
 	PlayDownHill(false);
 }
 
-function PlayDownHill ( play : boolean ) {
+function PlayDownHill (play : boolean) {
 	if (play) {
 		downhillPartOnTop.Play();
 		downhillPartBehind.Play();	
@@ -27,7 +26,7 @@ function PlayDownHill ( play : boolean ) {
 }
 
 
-function Slide (dir : String ) {
+function Slide (dir : String) {
 
 	var p = Instantiate(slideObject, new Vector3(transform.position.x, slideInitialY, 0.0), Quaternion.identity);
 	p.transform.eulerAngles = new Vector3 (0.0, dir == "right" ? -90.0 : 90.0, 0.0);
@@ -57,6 +56,7 @@ function particlesMovement() {
 }
 
 function Update () {
+
 	downhillPartOnTop.startSpeed = playerMovement.gameSpeed;
 	downhillPartBehind.startSpeed = playerMovement.gameSpeed;
 	particlesMovement();

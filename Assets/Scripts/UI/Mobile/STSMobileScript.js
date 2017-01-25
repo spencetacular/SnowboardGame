@@ -11,9 +11,4 @@ function Start () {
 		loadingBar.levelToLoad = "StartScreen";
 	else 
 		loadingBar.levelToLoad = "Level01";
-	
-}
-
-function Update () {
-
 }

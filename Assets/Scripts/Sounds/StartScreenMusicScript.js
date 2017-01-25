@@ -7,16 +7,11 @@ function Start () {
 	if (GameObject.Find("soundController")) {
 		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
 
-			if (soundController) {
-				if (soundController.music) {
-					soundController.leaderBoardMusic.Stop();
-					soundController.backgroundMusic.Play();
+		if (soundController) {
+			if (soundController.music) {
+				soundController.leaderBoardMusic.Stop();
+				soundController.backgroundMusic.Play();
 			}
 		}
-
 	}
-}
-
-function Update () {
-
 }

@@ -45,37 +45,31 @@ function Spawn () {
 		running = false;
 		soundEffects.RoosterCrow();
 	}
-	
 }
 
 function SpawnDelay () {
+
 	var time = spawnTime + Random.Range (-5, 20);
 	Invoke ("Spawn", time);
-	
 }
 
 function DeSpawn () {
+
 	spawned = false;
 	running = false;
 	this.GetComponent(SpriteRenderer).enabled = false;
 	this.GetComponent(CircleCollider2D).enabled = false;
-
 	SpawnDelay();
 }
 
 function Catch () {
+
 	anim.SetTrigger("explode"); 
 	playerLives.AddALife();
-	
 	DeSpawn();
 }
 
-function Escape () {
-	
-}
-
 function Update () {
-
 
 	if (spawned) {
 		RoosterDistance( playerMovement.transform.position.y, transform.position.y );
@@ -83,18 +77,10 @@ function Update () {
 
 		if (running) 
 			currentSpeed = speed;
-			
 
-
-		if ( playerMovement.downhill ) 
-				transform.Translate(0, Time.deltaTime * (playerMovement.gameSpeed + currentSpeed), 0);
+		if (playerMovement.downhill) 
+			transform.Translate(0, Time.deltaTime * (playerMovement.gameSpeed + currentSpeed), 0);
 		else
 			transform.Translate(0,  Time.deltaTime * currentSpeed, 0);	
-
 	}
-
-
-
-	
-
 }

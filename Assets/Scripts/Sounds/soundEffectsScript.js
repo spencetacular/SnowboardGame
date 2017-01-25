@@ -1,15 +1,12 @@
 ﻿#pragma strict
 
 var soundController : soundControllerScript;
-
 public var soundEffectsObject : GameObject;
-
 public var jump : AudioSource;
 public var wreck: AudioSource;
 public var tree: AudioSource;
 public var carve1: AudioSource;
 public var carve2: AudioSource;
-
 public var slide: AudioSource;
 public var select: AudioSource;
 public var scroll: AudioSource;
@@ -21,23 +18,21 @@ public var groan : AudioSource;
 public var roosterCluck : AudioSource;
 public var roosterCrow : AudioSource;
 public var whooseNoClick : AudioSource;
-
 private var soundEffects : AudioSource[];
-
 public var levelToLoad = "";
 var loadPressed = false;
 
 function Start () {
 
-	soundEffects  = [jump, wreck, tree, carve1, carve2, slide, select, scroll, success, whoose, shine, roar, groan, roosterCluck, roosterCrow, whooseNoClick];	
+	soundEffects  = [jump, wreck, tree, carve1, carve2, slide, select, scroll, success, whoose,
+					shine, roar, groan, roosterCluck, roosterCrow, whooseNoClick];	
 
 	if (GameObject.Find("soundController")) { 
+
 		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
 
-		if (!soundController.soundFX) {
+		if (!soundController.soundFX)
 			Mute(true);
-			Debug.Log("MUTE");
-		}
 	}
 
 	DontDestroyOnLoad(this);
@@ -72,7 +67,6 @@ function Slide() {
 	slide.Play();
 }
 
-
 function Scroll() {
 	scroll.Play();
 }
@@ -104,9 +98,9 @@ function Coin () {
 function Load () {
 	
 	if (!loadPressed) {
-			select.Play();
-			loadPressed = true;
-			Application.LoadLevel(levelToLoad);
+		select.Play();
+		loadPressed = true;
+		Application.LoadLevel(levelToLoad);
 	}
 }
 
@@ -126,12 +120,9 @@ function RoosterCrow () {
 	roosterCrow.Play();
 }
 
-
 function Update () {
- 
 
-	if (loadPressed == true && select.isPlaying == false) {
+	if (loadPressed == true && select.isPlaying == false)
 		Destroy(soundEffectsObject);
-	}
 }
 

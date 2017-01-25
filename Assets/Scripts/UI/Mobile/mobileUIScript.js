@@ -12,10 +12,8 @@ function Start () {
 
 	if ( mobile ) {
 		gameObject.SetActive(true);
-	} else
-		gameObject.SetActive(false);
+	} else {
+		gameObject.SetActive(false); 
 	}
-
-function Update () {
-
 }
+

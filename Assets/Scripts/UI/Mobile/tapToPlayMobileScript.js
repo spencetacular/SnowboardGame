@@ -3,6 +3,7 @@
 var myDevice : device;
 
 function Start () {
+
 	myDevice = new device();
 
 	if (myDevice.mobile) 

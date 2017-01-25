@@ -7,15 +7,11 @@ public var arrowUp : Sprite;
 public var arrowDown : Sprite;
 public var buttonUp : Sprite;
 public var buttonDown : Sprite;
-
 public var arrowRight : Image;
 public var arrowLeft : Image;
 public var button : Image;
 public var optionsScreen = false;
 var downTime = 0.20;
-
-
-
 
 function Start () {
 
@@ -55,15 +51,10 @@ function ButtonUp () {
 
 function Update () {
 
-	if (swipe.Swipe() == "right") {
+	if (swipe.Swipe() == "right")
 		PressRight ();
-	}
-	if (swipe.Swipe() == "left") {
+	if (swipe.Swipe() == "left")
 		PressLeft ();
-	}
-	if (swipe.Swipe() == "enter") {
+	if (swipe.Swipe() == "enter")
 		PressButton ();
-	}
-		
-
 }

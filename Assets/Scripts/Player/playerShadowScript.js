@@ -10,6 +10,7 @@ public var minDisplacement = 0.75;
 private var initialPosY : float;
  
 function Start () {
+
 	spriteRenderer = this.GetComponent(SpriteRenderer);
 	playerMovement = this.GetComponentInParent(playerMovementScript);
 	kp = new Keyframe[3];
@@ -25,8 +26,7 @@ function CreateAniCurves( length : float, percent: float) {
 	kp[2].value = 0.0;
 	kp[1].time = Time.time + length/2;
 	kp[1].value =  Mathf.Lerp(minDisplacement, maxDisplacement, percent );
-	animPosition = new AnimationCurve(kp);
-	 
+	animPosition = new AnimationCurve(kp);	 
 }
 
 function Update () {

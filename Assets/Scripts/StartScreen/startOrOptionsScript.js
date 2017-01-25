@@ -9,7 +9,6 @@ var optionsRect : RectTransform;
 var startText : Text;
 var optionsText : Text;
 var hiScoreText : RectTransform;
-
 var playPressed = false;
 var levelToLoad  = "";
 var options = "OptionsScreen";
@@ -19,12 +18,11 @@ public var myDevice : device;
 public var mobileTextScale = new Vector3 (1.5, 1.5, 1.5);
 public var mobileTextSelectedScale = new Vector3 (1.8, 1.8, 1.8);
 private var selectedColor = new Color (0.0, 0.8352941, 0.827451, 1.0);
-
-
 var selectOptions = "down";
 var selectStart = "up";
 
 function Start () {
+
 	myDevice = new device();
 	levelToLoad = "SuperTopSecret";
 
@@ -40,27 +38,27 @@ function Start () {
 		optionsRect.anchoredPosition = new Vector2 (175.0, 50.0);
 		optionsRect.localScale = mobileTextScale;	
 		hiScoreText.anchoredPosition = new Vector2 (0.0, 230.0);	
-
 	}
-	optionsMitten.enabled = false;
 
+	optionsMitten.enabled = false;
 }
 
 function SelectStart () {
+
 	optionsMitten.enabled = false;
 	startMitten.enabled = true;
 	soundEffects.Scroll();
 
-	if (myDevice.mobile){
+	if (myDevice.mobile) {
 		optionsText.color = Color.white;
 		optionsRect.localScale = mobileTextScale;
 		startText.color = selectedColor;
 		startRect.localScale = mobileTextSelectedScale;
 	}
-
 }
 
 function SelectOptions () {
+
 	optionsMitten.enabled = true;
 	startMitten.enabled = false;
 	soundEffects.Scroll();
@@ -71,13 +69,9 @@ function SelectOptions () {
 		startText.color = Color.white;
 		startRect.localScale = mobileTextScale;
 	}
-
-
 }
 
 function Update () {
-
-	
 
 	if (swipe.Swipe() == selectOptions) {
 		if (startMitten.enabled)
@@ -86,27 +80,22 @@ function Update () {
 			SelectStart();
 	}
 
-			
-
 	if (swipe.Swipe() == selectStart) {
 		if (optionsMitten.enabled) 
 			SelectStart();
 		else
 			SelectOptions();
-
 	}
 
 	if (swipe.Swipe() == "enter") {
 
-			if (startMitten.enabled) {
-				soundEffects.levelToLoad = levelToLoad;
-			}
-			else
-				soundEffects.levelToLoad = "OptionsScreen";
+		if (startMitten.enabled) 
+			soundEffects.levelToLoad = levelToLoad;
+		else
+			soundEffects.levelToLoad = "OptionsScreen";
 
-			soundEffects.Load();
-		}
-
+		soundEffects.Load();
+	}
 }
 
 

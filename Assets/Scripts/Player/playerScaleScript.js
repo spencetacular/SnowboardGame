@@ -7,12 +7,10 @@ public var initialScale = 0.75;
 public var maxScale = 2.0;
 public var minScale = 1.0;
 
-
 function Start () {
 
 	ks = new Keyframe[3];
-	CreateAniCurve( 3.0 , 1.0 );
-	
+	CreateAniCurve( 3.0 , 1.0 );	
 }
 
 function CreateAniCurve( length : float, percent: float) {
@@ -23,10 +21,5 @@ function CreateAniCurve( length : float, percent: float) {
 
 	ks[1].time = Time.time + length/2;
 	ks[1].value =  Mathf.Lerp(minScale, maxScale, percent );
-	anim = new AnimationCurve(ks);
-	 
-}
-
-function Update () {
-
+	anim = new AnimationCurve(ks); 
 }

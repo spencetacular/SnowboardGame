@@ -1,11 +1,9 @@
 ﻿#pragma strict
 public class playerSpritesScript extends MonoBehaviour {
 	
-
 	public var boySprites : Sprite[];
 	public var girlSprites : Sprite[];
 	public var playerSprites : Sprite[];
-
 	var playerMovement : playerMovementScript;
 	var playerParticles : playerParticlesScript;
 	var spriteRenderer : SpriteRenderer;
@@ -16,17 +14,18 @@ public class playerSpritesScript extends MonoBehaviour {
 	private var playerShadow : SpriteRenderer;
 
 	function Start () {
+
 		 playerMovement = GetComponent(playerMovementScript);
 		 spriteRenderer = GetComponent(SpriteRenderer);
 		 playerParticles = GetComponent(playerParticlesScript);
 		 spriteRenderer.sprite = playerSprites[1];
 		 spriteRenderer.sortingOrder = sortingOrder;
 		 playerShadow  = GameObject.Find("shadow").GetComponent(SpriteRenderer);
-
 		 playerSprites = boySprites;
 	}
 
-	function SetPlayerSprites ( boy : boolean) {
+	function SetPlayerSprites (boy : boolean) {
+
 		if (boy)
 			 playerSprites = boySprites;
 		else
@@ -34,8 +33,6 @@ public class playerSpritesScript extends MonoBehaviour {
 		
 		DirectionUpdate();
 	}
-
-
 
 	function Jump () {
 		spriteRenderer.sprite = playerSprites[6];
@@ -87,7 +84,6 @@ public class playerSpritesScript extends MonoBehaviour {
 					break;	
 			}
 		}
-		
 	}
 
 	function Update () {
@@ -100,10 +96,6 @@ public class playerSpritesScript extends MonoBehaviour {
 		else {
 			spriteRenderer.sortingOrder  = 101;
 			playerShadow.sortingOrder = 100;
-			}
-		
+		}
 	}
-
-
-
 }
