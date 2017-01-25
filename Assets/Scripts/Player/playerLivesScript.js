@@ -15,7 +15,6 @@ function Start () {
 	numLives = lives.length;
 	livesLeft = numLives;
 	lives = boyLives;
-
 }
 
 function SetLives( boy : boolean) {
@@ -26,8 +25,8 @@ function SetLives( boy : boolean) {
 }
 
 function AddALife () {
+
 	if (livesLeft < numLives) {
-		
 		lives[livesLeft].GetComponent(UnityEngine.UI.Image).enabled = true;
 		livesLeft++;
 		score.OneUp();
@@ -37,12 +36,12 @@ function AddALife () {
 }
 
 function LoseALife () {
+
 	livesLeft--;
 	lives[livesLeft].GetComponent(UnityEngine.UI.Image).enabled = false;
 
 	if (livesLeft <= 0)
 		Invoke("GameOver", 0);
-
 }
 
 function LoseAllLives () {
@@ -54,8 +53,4 @@ function LoseAllLives () {
 
 function GameOver () {
 	GameObject.Find("levelManager").GetComponent(levelManagerScript).GameOverMode();
-}
-
-function Update () {
-
 }

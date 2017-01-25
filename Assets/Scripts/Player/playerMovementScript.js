@@ -15,7 +15,6 @@ public class playerMovementScript extends MonoBehaviour {
 	public var isJumping : boolean;
 	public var jumpDurationMax = 3.0;
 	public var jumpDurationMin = 1.0;
-	public var cam: Camera;
 	@HideInInspector
 	var paused = true;
 	var playerSprites : playerSpritesScript;
@@ -38,21 +37,17 @@ public class playerMovementScript extends MonoBehaviour {
 	}
 
 	function HitIce () {
-		if (gameSpeed * 1.2 < gameMaxSpeed) {
+
+		if (gameSpeed * 1.2 < gameMaxSpeed)
 			gameSpeed += (gameSpeed * 0.2);  
-		}
 	}
-
-
 
 	function PlayerJump () {
 
 		isJumping = true;
 		GetComponent(BoxCollider2D).enabled = false;
 		playerSprites.Jump();
-
 		var jumpDuration = Mathf.Lerp(jumpDurationMin,jumpDurationMax, speedPercent );
-
 		playerScale.CreateAniCurve( jumpDuration, speedPercent);
 		playerShadow.CreateAniCurves( jumpDuration, speedPercent);
 		score.Jump(speedPercent);
@@ -60,6 +55,7 @@ public class playerMovementScript extends MonoBehaviour {
 	}
 
 	function PlayerLand () {
+
 		isJumping = false;
 		GetComponent(BoxCollider2D).enabled = true;
 		playerSprites.Land();
@@ -68,22 +64,21 @@ public class playerMovementScript extends MonoBehaviour {
 	}
 
 	function Shift (maxShift : float) {
+
 		var shiftAmount = maxShift;
 
-		if (Mathf.Abs(transform.position.x) + maxShift > screenWidth) {
-			Debug.Log("too big");
+		if (Mathf.Abs(transform.position.x) + maxShift > screenWidth)
 			shiftAmount = screenWidth - Mathf.Abs(transform.position.x);
-			Debug.Log(shiftAmount);
-		}
 		return shiftAmount;
 	}
 
-	function PlayerInput(viewPos : Vector3) {
+	function PlayerInput() {
 
 		if (swipe.Swipe() == "down") {
 
 			if (playerStatus == Status.Wrecked)
 				 GetComponent(playerInvulnerableScript).Invulnerable();
+
 			playerStatus = Status.Down;
 			playerSprites.DirectionUpdate();
 		}		
@@ -97,7 +92,6 @@ public class playerMovementScript extends MonoBehaviour {
 				if ( playerStatus == Status.DownRight && isJumping == false){
 					transform.Translate(0, 0, 0);
 					playerStatus = Status.Right;
-
 				}
 				if ( playerStatus == Status.Down) 
 					playerStatus = Status.DownRight;
@@ -107,7 +101,6 @@ public class playerMovementScript extends MonoBehaviour {
 					playerStatus = Status.DownLeft;
 
 				playerSprites.DirectionUpdate();
-
 			}
 		}
 
@@ -129,13 +122,11 @@ public class playerMovementScript extends MonoBehaviour {
 					playerStatus = Status.DownRight;
 
 				playerSprites.DirectionUpdate();
-
 			}
-				
 		}
 	}
 
-	function PlayerMovement( viewPos: Vector3) {
+	function PlayerMovement () {
 
 		if (playerStatus == Status.DownRight && transform.position.x < screenWidth)
 			transform.Translate(Time.deltaTime * gameSpeed/2, 0, 0);	
@@ -144,18 +135,18 @@ public class playerMovementScript extends MonoBehaviour {
 			transform.Translate(-1 * Time.deltaTime * gameSpeed/2, 0, 0);
 	}
 
-	function ObstacleMovement() {
+	function ObstacleMovement () {
 		
 		for (obs in obstacles){
 
 			if ( downhill ) 
 				obs.transform.Translate(0, Time.deltaTime * gameSpeed, 0);
-			
 		}
 	}
 
 	function PlayerSpeed () {
-		if ( downhill ) { 
+
+		if (downhill) { 
 			if	(gameSpeed < gameMaxSpeed)
 				gameSpeed += Time.deltaTime * speedUpRate;
 		}
@@ -164,11 +155,10 @@ public class playerMovementScript extends MonoBehaviour {
 		}
 
 		speedPercent = (gameSpeed - gameStartSpeed) / (gameMaxSpeed - gameStartSpeed);
-		
 	}
 
 	function Update () {
-//		Debug.Log("PlayerPaused: " + paused);
+
 		if (!paused) {
 
 			if ( playerStatus == Status.Wrecked || playerStatus == Status.Left || playerStatus == Status.Right)
@@ -179,12 +169,11 @@ public class playerMovementScript extends MonoBehaviour {
 
 			PlayerSpeed();
 			speedSlider.value = speedPercent;
-			var viewPos = cam.WorldToViewportPoint(this.transform.position);
-			PlayerInput(viewPos);
-			PlayerMovement(viewPos);
+			PlayerInput();
+			PlayerMovement();
 			ObstacleMovement();
 
-			if ( isJumping ) {
+			if (isJumping) {
 				var s = playerScale.anim.Evaluate(Time.time);
 				this.transform.localScale = new Vector3(s,s,s);
 			}

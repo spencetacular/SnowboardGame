@@ -39,7 +39,6 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 		spawnedObstacles.Clear();
 		obstaclePositions.Clear();
 
-
 		for( obs in obstacles){
 			var obstacle : obstacleScript = obs.GetComponent(obstacleScript);
 			var numObstacles = 	obstacleDesity * obstacle.density;
@@ -57,7 +56,6 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 					obstaclePositions.Add (new obstaclePositionScript(baseY, o.transform.name));
 					spawnedObstacles.Add (o);
 				}
-
 			}
 		}
 
@@ -82,13 +80,11 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 		SetSortingOrder();
 	}
 
-
 	function SetSortingOrder () {
 
 		obstaclePositions.Sort();
-
-
 		var orderInLayer = 0;
+
 		for ( op in obstaclePositions) {
 			orderInLayer++;
 			op.orderInLayer = orderInLayer;
@@ -99,12 +95,10 @@ public class obstacleGeneratorScript extends MonoBehaviour {
 
 			}
 		}
-		
 	}
 
 	function Update () {
 		if ( transform.position.y > screenHeight) 
 			respawn();
-
 	}
 }

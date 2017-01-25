@@ -4,9 +4,6 @@ var invulnerable = false;
 public var invulnerableTime : float;
 public var anim : Animator;
 
-function Start () {
-
-}
 
 function Invulnerable () {
 	invulnerable = true;
@@ -17,8 +14,4 @@ function Invulnerable () {
 function Vulnerable () {
 	invulnerable = false;
 	anim.SetTrigger("vuln");
-}
-
-function Update () {
-
 }

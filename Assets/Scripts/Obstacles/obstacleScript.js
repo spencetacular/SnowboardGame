@@ -10,7 +10,6 @@ public class obstacleScript extends MonoBehaviour {
 	public var yeti : GameObject;
 	private var yetiSprites : yetiMovementScript;
 	public var yetiBasePosY : GameObject;
-
 	private var soundEffects : soundEffectsScript;
 
 	function Start () {
@@ -25,7 +24,6 @@ public class obstacleScript extends MonoBehaviour {
 			Debug.Log("Missing Base Position"); 
 
 		playerBasePosY = GameObject.Find("playerBasePosition").transform.position.y;
-//		yetiBasePosY = GameObject.Find("yetiBasePosition").transform.position.y;
 	}
 
 	function ChildDestroy(){
@@ -49,37 +47,35 @@ public class obstacleScript extends MonoBehaviour {
 
 			if (this.tag == "jump") {
 				other.GetComponent(playerMovementScript).PlayerJump();
-
 			}
 
 			if (this.tag == "coin") {
 				this.GetComponent(coinScript).Bonus();
 				soundEffects.Coin();
 			}
+
 			if (this.tag == "rooster") {
 				if (other.GetComponent(playerMovementScript).playerStatus != other.GetComponent(playerMovementScript).Status.Wrecked) {
 					this.GetComponent(roosterMovementScript).Catch();
 					soundEffects.RoosterCluck();
 				}
 			}
-			if (this.tag == "ice") {
+
+			if (this.tag == "ice")
 				other.GetComponent(playerMovementScript).HitIce();
-			}
 		}
 
 
 
 		if (this.tag == "tree") {
-				GetComponent(treeAnimationScript).Fall();
-				soundEffects.TreeFall();
+			GetComponent(treeAnimationScript).Fall();
+			soundEffects.TreeFall();
 		} 
 
 		if (this.tag == "pole" && other.tag == "yeti") {
-				GetComponent(treeAnimationScript).Fall();
-				soundEffects.TreeFall();
+			GetComponent(treeAnimationScript).Fall();
+			soundEffects.TreeFall();
 		} 
-
-
 	}
 
 	function Update () {
@@ -89,7 +85,6 @@ public class obstacleScript extends MonoBehaviour {
 			if (transform.position.y + baseY >= playerBasePosY) {
 				inFrontOfPlayer = false;
 				playerSprites.sortingOrder = GetComponent(SpriteRenderer).sortingOrder + 1;	
-
 			}
 		}
 
@@ -98,7 +93,6 @@ public class obstacleScript extends MonoBehaviour {
 			if (transform.position.y + baseY >= yetiBasePosY.transform.position.y) {
 				inFrontOfYeti = false;
 				yetiSprites.GetComponent(SpriteRenderer).sortingOrder = GetComponent(SpriteRenderer).sortingOrder + 1;	
-
 			}
 		}
 	}

@@ -5,11 +5,8 @@ import UnityEngine.UI;
 public var musicOption : optionScript;
 public var soundFXOption : optionScript;
 public var backOption : optionScript;
-
 public var selectedOption : optionScript;
-
 var soundController : soundControllerScript;
-
 public var soundEffects : soundEffectsScript;
 public var swipe : swipeScript;
 public var myDevice : device;
@@ -18,6 +15,7 @@ var selectNext = "down";
 var selectPrevious = "up";
 
 function Awake () {
+
 	myDevice = new device();
 
 	if (myDevice.mobile) {
@@ -31,11 +29,11 @@ function Awake () {
 }
 
 function Start () {
+
 	selectedOption = musicOption;
 	selectedOption.Select(true);
 
 	if (soundController) {
-
 
 		if (soundController.music) 
 			musicOption.GUIOn();
@@ -48,7 +46,6 @@ function Start () {
 			soundFXOption.Off();
 
 	}
-
 }
 
 function Update () {
@@ -78,9 +75,6 @@ function Update () {
 			return;
 
 		}
-
-
-
 	}
 
 	if (swipe.Swipe() == selectPrevious) {
@@ -98,20 +92,16 @@ function Update () {
 			selectedOption.Select(true);
 			soundEffects.Scroll();
 			return;
-
 		}
 		if (selectedOption == musicOption) {
 			selectedOption = backOption;
 			selectedOption.Select(true);
 			soundEffects.Scroll();
 			return;
-
 		}
-
 	}
 
 	if (swipe.Swipe() == "enter") {
-
 		selectedOption.Flip();
 		soundEffects.Select();
 	}
