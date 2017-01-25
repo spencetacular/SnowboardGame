@@ -24,9 +24,6 @@ public var score : scoreScript;
 //public var socialLeaderboard : socialLeaderboardScript;
 var myDevice : device;
 
-
-
-
 function Start () {
 
 	myDevice = new device();
@@ -39,7 +36,6 @@ function Start () {
 	canvasFingerGestures.SetActive(false);
 //	canvasInstructions.SetActive(true);
 	InstructionsMode();
-	
 //	canvasBlackBox.SetActive(true);
 
 }
@@ -90,8 +86,6 @@ function GameMode () {
 	time.StartClock();
 
 }
-
-
 
 function GameOverMode () {
 	GameObject.Find("LiftChairsFull").GetComponent(liftChairsScript).paused = true;

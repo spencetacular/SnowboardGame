@@ -12,16 +12,15 @@ public class device {
 		iPad = false;
 		editor = false;
 
-		  #if UNITY_IPHONE || UNITY_ANDROID
+		#if UNITY_IPHONE || UNITY_ANDROID
 		 	mobile = true;
 		 	var screenRatio =   Mathf.Round( (parseFloat(Screen.height) / parseFloat(Screen.width)) * 100);
-		 	if (screenRatio == 75) {
-		 		iPad = true;
-		 	}
-		 #endif
+		 	if (screenRatio == 75)
+		 		iPad = true;	
+		#endif
 
-		  #if UNITY_EDITOR
+		#if UNITY_EDITOR
 		  	editor = true;
-		  #endif
+		#endif
 	}
 }

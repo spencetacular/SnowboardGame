@@ -1,7 +1,4 @@
 ﻿public var myDevice : device;
-var firstPressPos : Vector2;
-var secondPressPos : Vector2;
-var currentSwipe : Vector2;
 var touchAreaCenter = 5.0;
 var touchAreaCenterY = -3.0;
 
@@ -9,54 +6,39 @@ function Awake () {
 	myDevice = new device();
 }
 
-
 function Swipe ()
 {
 	var input  = "";
 
-	if (Input.GetKeyDown ("down") || Input.GetKeyDown ("g"))  {
+	if (Input.GetKeyDown ("down") || Input.GetKeyDown ("g"))
 		input = "down";
-	}
 
-	if (Input.GetKeyDown ("up") || Input.GetKeyDown ("d")) {
+	if (Input.GetKeyDown ("up") || Input.GetKeyDown ("d"))
 		input = "up";
-	}
 
-	if (Input.GetKeyDown ("left") || Input.GetKeyDown ("r")) {
+	if (Input.GetKeyDown ("left") || Input.GetKeyDown ("r"))
 		input = "left";
-	}
 
-	if (Input.GetKeyDown ("right") || Input.GetKeyDown ("f")) {
+	if (Input.GetKeyDown ("right") || Input.GetKeyDown ("f"))
 		input = "right";
-	}
 
-	if (Input.GetKeyDown ("space") || Input.GetKeyDown ("2")) {
+	if (Input.GetKeyDown ("space") || Input.GetKeyDown ("2"))
 		input = "enter";
-	}
 
 	 var p = Input.mousePosition;
 	 p = Camera.main.ScreenToWorldPoint(p);
 	 		
 		if(Input.GetMouseButtonDown(0)) {
 
-
-	        if (p.x < 0) {
+	        if (p.x < 0)
 				input = "left";	
-        	}
-        	if (p.x >= 0) {
+        	if (p.x >= 0)
         		input = "right";
-        	}
-        	if (p.x > -1 * touchAreaCenter && p.x < touchAreaCenter && p.y < touchAreaCenterY) {
-	        		input = "enter";
-	        }
-
-		Debug.Log("X: " + p.x + " Y: " + p.y);	
-		Debug.Log(input);
+        	if (p.x > -1 * touchAreaCenter && p.x < touchAreaCenter && p.y < touchAreaCenterY)
+        		input = "enter";
 	    }
 
-	
-    return input; 	
-	
+    return input; 		
 }
 
 function Update () {
