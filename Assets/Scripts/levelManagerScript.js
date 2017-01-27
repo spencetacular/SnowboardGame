@@ -101,12 +101,12 @@ function GameOverMode () {
 		Invoke ("LoadStartScreen", 300);
 	}
 
-//	if (!myDevice.mobile) {
-//		Invoke("TopScoresMode", 2);
-//		Invoke ("LoadStartScreen", 300);
-//	} else {
-//		Invoke("TopScoresMobileMode", 2);
-//	}
+	if (!myDevice.mobile) {
+		Invoke("TopScoresMode", 2);
+		Invoke ("LoadStartScreen", 300);
+	} else {
+		Invoke("TopScoresMobileMode", 2);
+	}
 
 }
 

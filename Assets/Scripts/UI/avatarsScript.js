@@ -7,7 +7,6 @@ public var girl : avatarScript;
 private var selected : avatarScript;
 public var soundEffects : soundEffectsScript;
 public var swipeAvatar : swipeAvatarScript;
-//public var swipe : swipeScript;
 
 function Start () {
 	selected = boy;

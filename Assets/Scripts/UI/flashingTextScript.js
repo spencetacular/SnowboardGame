@@ -38,8 +38,3 @@ function Flash () {
 	if (doesFlash) 
 		textObject.enabled  =! textObject.enabled;
 }
-
-function Update () {
-
-	
-}

@@ -13,7 +13,6 @@ var soundEffects : soundEffectsScript;
 var finished = false;
 public var swipe : swipeScript;
 
-
 function Start () {
 
  	alphabet = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
@@ -21,7 +20,6 @@ function Start () {
 	currentInitial = initials[0];
 	maxInitials = initials.length -1;
 	initialIndex = 0;
-
 
 	for (i in initials) {
 		i.text = "";
@@ -60,6 +58,7 @@ function NewHighScore (){
 }
 
 function CompletedInitials() : String {
+
 	var ini : String;
 	for (i in initials) {
 		ini += i.text;
@@ -98,6 +97,5 @@ function Update () {
 
 		if (swipe.Swipe() == "enter") 
 			AssignLetter();
-
 	}
 }
