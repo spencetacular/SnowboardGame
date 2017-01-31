@@ -31,7 +31,7 @@ public class socialLeaderboardScript : MonoBehaviour {
 				"\nUser ID: " + Social.localUser.id + 
 				"\nIsUnderage: " + Social.localUser.underage;
 			Debug.Log (userInfo);
-			//			ReportScore (9999, "leadboard10");
+						ReportScore (6666, "leadboard10");
 			LoadLeaderboard ();
 		}
 		else
@@ -43,7 +43,9 @@ public class socialLeaderboardScript : MonoBehaviour {
 	void ReportScore (long score, string leaderboardID) {
 		Debug.Log ("Reporting score " + score + " on leaderboard " + leaderboardID);
 		Social.ReportScore (score, leaderboardID, success => {
-			Debug.Log(success ? "Reported score successfully" : "Failed to report score");
+			if (success) {
+				LoadLeaderboard();
+			}
 		});
 	}
 

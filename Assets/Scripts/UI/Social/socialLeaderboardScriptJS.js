@@ -3,6 +3,9 @@ import System.Collections;
 import UnityEngine.SocialPlatforms;
 import UnityEngine.UI;
 
+public class socialLeaderboardScriptJS extends MonoBehaviour {
+
+
 public var scores : Text;
 public var score : Text;
 public var users : Text;
@@ -53,47 +56,50 @@ function LoadLeaderboard () {
 	});
 }
 
-function LoadLeaderboardAfterUserAuth () {
-	var scoresText : String;
-	var usersText : String;
-	var leaderboard: ILeaderboard = Social.CreateLeaderboard();
-	leaderboard.id = ID;
-	leaderboard.LoadScores(function(sucess) {
-		if (sucess) {
-			Debug.Log("Received " + leaderboard.scores.Length + " scores");
-			for (var score: IScore in leaderboard.scores) {
-				scoresText += score.value.ToString() + "\n";
-				Debug.Log("XXXXX: " + score.value.ToString());
-				usersText += score.userID + "\n";
-				Debug.Log("YYYYY: " +  score.userID);
-//				scoresText += "99" + "\n";
-//				usersText += "SKC" + "\n";
-			}
-			scores.text = scoresText;
-			users.text = usersText;
-
-			Debug.Log("scoresText: " + scoresText);
-			Debug.Log("usersText: " + usersText);
-		}
-		else {
-			Debug.Log("Leaderboard Not Found");
-		}
-	}
-	);
-
-//	scores.text = scoresText;
-//	users.text = usersText;
-
-//	scoresText = "1" + "\n" + 2 + "\n";
-//	usersText = "SKC" + "\n" + "JFK" + "\n";
-
-//	scores.text = scoresText;
-//	users.text = usersText;
-//
-//	Debug.Log("scoresText: " + scoresText);
-//	Debug.Log("usersText: " + usersText);
-
+function LoadLeaderboardAfterUserAuth () { 
+	Social.ShowLeaderboardUI();
+	
 }
+
+
+//function LoadLeaderboardAfterUserAuth () {
+//	var scoresText : String;
+//	var usersIDs : String[];
+//	var leaderboard: ILeaderboard = Social.CreateLeaderboard();
+//	leaderboard.id = ID;
+//	leaderboard.LoadScores(function(sucess) {
+//		if (sucess) {
+//			Debug.Log("Received " + leaderboard.scores.Length + " scores");
+////			for (var score: IScore in leaderboard.scores) {
+//			for (var i = 0 ; i < 10 ;  i++) {
+//				var score: IScore = leaderboard.scores[1];
+//				scoresText += score.value.ToString() + "\n";
+//				usersIDs[i] =  score.userID;
+//				Debug.Log("XXXXX: " + score.value.ToString());
+////				usersText += score.userID + "\n";
+//				Debug.Log("YYYYY: " +  score.userID);
+////				scoresText += "99" + "\n";
+////				usersText += "SKC" + "\n";
+//				Debug.Log("array: " + leaderboard.scores[0]);
+//			}
+//			scores.text = scoresText;
+////			users.text = usersText;
+////			var userNames : String[];
+//			Social.LoadUsers(usersIDs, LoadLeaderboardUsers(usersIDs) );
+//			Debug.Log("scoresText: " + scoresText);
+////			Debug.Log("userNames: " + userNames);
+//		}
+//		else {
+//			Debug.Log("Leaderboard Not Found");
+//		}
+//	}
+//	);
+//}
+//
+//function LoadLeaderboardUsers (profiles : IUserProfile[] ) {
+//	Debug.Log("There was " + profiles.Length + " profiles loaded");
+//		
+//}
 
 function ReportScoreAfterUserAuth ( score : int ) {
 	Social.ReportScore(66666, ID, function (success) {
@@ -109,6 +115,8 @@ function ReportScore (score : int) {
 		}
 	});
 
+
+}
 
 }
 
