@@ -21,7 +21,7 @@ public var playerLives : playerLivesScript;
 public var time : timeScript;
 public var topScores : topScoresScript;
 public var score : scoreScript;
-//public var socialLeaderboard : socialLeaderboardScript;
+public var socialLeaderboard : socialLeaderboardScriptJS;
 var myDevice : device;
 
 function Start () {
@@ -137,8 +137,8 @@ function TopScoresMode () {
 	}
 
 //	DEVELOPMENT **********************************
-	topScores.LogScore(score.score, time.totalSeconds);
-	PlayerPrefs.SetInt("Yeti", 0);
+//	topScores.LogScore(score.score, time.totalSeconds);
+//	PlayerPrefs.SetInt("Yeti", 0);
 }
 
 function LoadStartScreen () {
@@ -165,7 +165,9 @@ function TopScoresMobileMode() {
 	}
 	GameObject.Find("finalScoreMobile").GetComponent(UnityEngine.UI.Text).text = score.score.ToString();
 
-//	canvasGameOverMobile.GetComponent(socialLeaderboardScript);
+	socialLeaderboard.ReportScore(score.score);
+	socialLeaderboard.LoadLeaderboard();
+
 
 }
 
