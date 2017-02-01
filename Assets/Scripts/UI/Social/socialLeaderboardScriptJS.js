@@ -49,17 +49,20 @@ function CheckUser () {
 }
 
 function LoadLeaderboard () {
-	Social.localUser.Authenticate (function (success) {
-		if (success) {
-			LoadLeaderboardAfterUserAuth();
-		}
-	});
+
+	Social.ShowLeaderboardUI();
+
+//	Social.localUser.Authenticate (function (success) {
+//		if (success) {
+//			Social.ShowLeaderboardUI();
+//		}
+//	});
 }
 
-function LoadLeaderboardAfterUserAuth () { 
-	Social.ShowLeaderboardUI();
-	
-}
+//function LoadLeaderboardAfterUserAuth () { 
+//	Social.ShowLeaderboardUI();
+//	
+//}
 
 
 //function LoadLeaderboardAfterUserAuth () {

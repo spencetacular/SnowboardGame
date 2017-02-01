@@ -11,7 +11,7 @@ public var canvasInstructions : GameObject;
 public var canvasFingerGestures : GameObject;
 public var canvasPlaying : GameObject;
 public var canvasGameOver : GameObject;
-public var canvasGameOverMobile : GameObject;
+public var canvasLeaderboardMobile : GameObject;
 public var boyAvatar : boolean;
 public var boyPanel : GameObject;
 public var girlPanel : GameObject;
@@ -30,7 +30,7 @@ function Start () {
 
 	canvasPlaying.SetActive(false);
 	canvasGameOver.SetActive(false);
-	canvasGameOverMobile.SetActive(false);
+	canvasLeaderboardMobile.SetActive(false);
 	canvasAvatar.SetActive(false);
 	canvasControls.SetActive(false);
 	canvasFingerGestures.SetActive(false);
@@ -101,13 +101,6 @@ function GameOverMode () {
 		Invoke ("LoadStartScreen", 300);
 	}
 
-	if (!myDevice.mobile) {
-		Invoke("TopScoresMode", 2);
-		Invoke ("LoadStartScreen", 300);
-	} else {
-		Invoke("TopScoresMobileMode", 2);
-	}
-
 }
 
 function TopScoresMode () {
@@ -141,36 +134,14 @@ function TopScoresMode () {
 //	PlayerPrefs.SetInt("Yeti", 0);
 }
 
+function LeaderboardMobileMode() {
+	canvasGameOver.SetActive(false);	
+	canvasLeaderboardMobile.SetActive(true);
+	canvasLeaderboardMobile.GetComponent(leaderboardScript).ReportScore(score.score);
+}
+
 function LoadStartScreen () {
 	Application.LoadLevel("StartScreen");
 }
 
-function TopScoresMobileMode() {
-	canvasGameOverMobile.SetActive(true);	
-	yetiMovement.paused = true;
-	roosterMovement.paused = true;
-	canvasPlaying.SetActive(false);
 
-	var soundController : soundControllerScript;
-
-	if (GameObject.Find("soundController")) {
-		soundController = GameObject.Find("soundController").GetComponent(soundControllerScript);
-
-			if (soundController) {
-				if (soundController.music) {
-					soundController.leaderBoardMusic.Play();
-					soundController.backgroundMusic.Stop();
-			}
-		}
-	}
-	GameObject.Find("finalScoreMobile").GetComponent(UnityEngine.UI.Text).text = score.score.ToString();
-
-	socialLeaderboard.ReportScore(score.score);
-	socialLeaderboard.LoadLeaderboard();
-
-
-}
-
-function Update () {
-
-}
