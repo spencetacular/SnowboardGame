@@ -16,7 +16,7 @@ function Start () {
 }
 
 function ReportScoreAfterUserAuth ( score : int ) {
-	Social.ReportScore(score, ID, function (success) {
+	Social.ReportScore(88888, ID, function (success) {
 		if (success)
 			Debug.Log("Score Reported");
 		});
@@ -43,6 +43,7 @@ function Update () {
 
 	if (swipeLeaderboard.Swipe() == "enter") { 
 
+//		soundEffects.levelToLoad = "LeaderBoard";
 		soundEffects.levelToLoad = "StartScreen";
 		soundEffects.Load();
 		

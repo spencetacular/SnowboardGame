@@ -132,6 +132,9 @@ function TopScoresMode () {
 //	DEVELOPMENT **********************************
 //	topScores.LogScore(score.score, time.totalSeconds);
 //	PlayerPrefs.SetInt("Yeti", 0);
+
+
+	PlayerPrefs.SetInt("PlayerScore", score.score);
 }
 
 function LeaderboardMobileMode() {

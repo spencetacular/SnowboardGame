@@ -9,18 +9,26 @@ using UnityEngine.UI;
 
 public class socialLeaderboardScript : MonoBehaviour {
 
-	public Text scores;
-	public Text users;
-	public Text score;
+//	public Text scores;
+//	public Text users;
+//	public Text score;
+	string ID = "TopScores01";
 
 	void Start () {
+
+		#if UNITY_IPHONE
+			ID = "TopScores01";
+		#endif
+		#if UNITY_ANDROID
+			ID = "CgkI2tW9p4sZEAIQAA";
+		#endif
 
 		Social.localUser.Authenticate (ProcessAuthentication);
 	}
 
-	void SetScore (int s) {
-		score.text = s.ToString();
-	}
+//	void SetScore (int s) {
+//		score.text = s.ToString();
+//	}
 
 	// This function gets called when Authenticate completes
 	// Note that if the operation is successful, Social.localUser will contain data from the server. 
@@ -31,8 +39,8 @@ public class socialLeaderboardScript : MonoBehaviour {
 				"\nUser ID: " + Social.localUser.id + 
 				"\nIsUnderage: " + Social.localUser.underage;
 			Debug.Log (userInfo);
-						ReportScore (6666, "leadboard10");
-			LoadLeaderboard ();
+			ReportScore (77777, ID);
+//			LoadLeaderboard ();
 		}
 		else
 			Debug.Log ("Authentication failed");
@@ -44,7 +52,7 @@ public class socialLeaderboardScript : MonoBehaviour {
 		Debug.Log ("Reporting score " + score + " on leaderboard " + leaderboardID);
 		Social.ReportScore (score, leaderboardID, success => {
 			if (success) {
-				LoadLeaderboard();
+				LoadLeaderboard(leaderboardID);
 			}
 		});
 	}
@@ -57,20 +65,20 @@ public class socialLeaderboardScript : MonoBehaviour {
 //		
 //	}
 
-	void LoadLeaderboard () {
+	void LoadLeaderboard (string leaderboardID) {
 		ILeaderboard leaderboard = Social.CreateLeaderboard();
 		leaderboard.id = "TopScores01";
 		//		ReportScore (9999, "Leaderboard012");
-		Social.ReportScore (99, leaderboard.id, success => {
-			Debug.Log(success ? "Reported score successfully" : "Failed to report score");
-		});
+//		Social.ReportScore (99, leaderboard.id, success => {
+//			Debug.Log(success ? "Reported score successfully" : "Failed to report score");
+//		});
 		leaderboard.LoadScores(result =>
 			{
 				Debug.Log("Received " + leaderboard.scores.Length + " scores");
 				foreach (IScore score in leaderboard.scores) {
 					Debug.Log("Score: " + score);
-					scores.text += score + "\n";
-					users.text += score.userID + "\n";
+//					scores.text += score + "\n";
+//					users.text += score.userID + "\n";
 				}
 
 			});
